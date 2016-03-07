@@ -41,6 +41,7 @@ import Excpetion.PasswordException;
  * @author pierrickgiuliani
  */
 public class LoginView extends JFrame implements ActionListener {
+	/*Test1*/
 
 	 /**
 	  * Descriptions for the email field
