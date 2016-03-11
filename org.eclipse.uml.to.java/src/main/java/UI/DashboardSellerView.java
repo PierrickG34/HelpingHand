@@ -103,8 +103,7 @@ public class DashboardSellerView extends JFrame implements ActionListener {
 			System.out.println("Action a définir ici...");
 		}
 		else if (source == "My Products"){
-			System.out.println("Je suis My Products");
-			System.out.println("Action a définir ici...");
+			ProductCreateView profilUserView = new ProductCreateView();
 		}
 		else if (source == "Shopping Cart"){
 			System.out.println("Je suis Shopping Cart");
