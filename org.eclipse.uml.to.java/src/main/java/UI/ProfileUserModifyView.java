@@ -106,6 +106,7 @@ public class ProfileUserModifyView extends JFrame implements ActionListener {
 		JPanel panelEditInformation = new JPanel();
 		JPanel panelLabels = new JPanel(new GridLayout(0,1));
 		JPanel panelTextField = new JPanel(new GridLayout(0,1));
+		JPanel panelButtonValidate = new JPanel(new GridLayout(0,1));
 
 		//Mobile
 		this.mobile.setPreferredSize(this.mobileEntre.getPreferredSize());
@@ -134,12 +135,13 @@ public class ProfileUserModifyView extends JFrame implements ActionListener {
 
 		panelEditInformation.add(panelLabels);
 		panelEditInformation.add(panelTextField);
-		panelEditInformation.add(validate);
+		panelButtonValidate.add(validate);
+		panelEditInformation.add(panelButtonValidate, BorderLayout.SOUTH);
 		this.validate.addActionListener(this);
 
 
 		contentPane.add(panelButton,BorderLayout.NORTH);
-		contentPane.add(panelEditInformation, BorderLayout.LINE_START);
+		contentPane.add(panelEditInformation, BorderLayout.CENTER);
 
 		//Display
 		setSize(400,120);

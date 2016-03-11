@@ -139,7 +139,7 @@ public class ProfileUserView extends JFrame implements ActionListener {
 		this.password.setText(this.currentUser.getPassword());
 		this.password.setHorizontalAlignment(JLabel.CENTER);
 		this.address.setText(this.currentUser.getAddress());
-		this.address.setHorizontalAlignment(JLabel.CENTER);;
+		this.address.setHorizontalAlignment(JLabel.CENTER);
 		JPanel panelInformations = new JPanel(new GridLayout(7,1));
 		JPanel panelButtonValidate = new JPanel();
 		panelInformations.add(this.firstName);
