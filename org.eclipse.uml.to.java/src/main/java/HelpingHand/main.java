@@ -19,6 +19,10 @@ public class main {
 	
 	LoginView loginViews = new LoginView();
 	//ok
+<<<<<<< HEAD
 	//peke
+=======
+	//dodo
+>>>>>>> origin/master
 	}
 }

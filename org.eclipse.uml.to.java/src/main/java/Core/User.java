@@ -25,6 +25,7 @@ public abstract class User {
 	 */
 	private Integer idUser = Integer.valueOf(0);
 
+	//beule
 	/**
 	 * Description of the property password.
 	 */
