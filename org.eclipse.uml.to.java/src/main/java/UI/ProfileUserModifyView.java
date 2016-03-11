@@ -35,24 +35,10 @@ public class ProfileUserModifyView extends JFrame implements ActionListener {
 	private User currentUser;
 
 	/**
-	 * Descriptions for the email field
-	 */
-	JLabel email = new JLabel("Email :");
-	JTextField emailEntre = new JTextField("", 15);
-
-	/**
 	 * Descriptions for the mobile field
 	 */
 	JLabel mobile = new JLabel("Mobile :");
 	JTextField mobileEntre = new JTextField("", 15);
-
-	/**
-	 * Description for profile picture
-	 */
-	JLabel profilePicture = new JLabel("Enter a profile picture :");
-	JButton profilePictureButton = new JButton("Choose your profile picture");
-	JFileChooser fileChooser = new JFileChooser();
-	File selectedFile;
 
 	/**
 	 * Descriptions for the address field
@@ -125,14 +111,6 @@ public class ProfileUserModifyView extends JFrame implements ActionListener {
 		this.mobile.setPreferredSize(this.mobileEntre.getPreferredSize());
 		this.mobile.setHorizontalAlignment(SwingConstants.RIGHT);
 		panelLabels.add(this.mobile);
-		//Email
-		this.email.setPreferredSize(this.emailEntre.getPreferredSize());
-		this.email.setHorizontalAlignment(SwingConstants.RIGHT);
-		panelLabels.add(this.email);
-		//Profile picture
-		this.profilePicture.setHorizontalAlignment(SwingConstants.RIGHT);
-		panelLabels.add(this.profilePicture);
-		this.profilePictureButton.addActionListener(this);
 		//Address
 		this.address.setPreferredSize(this.addressEntre.getPreferredSize());
 		this.address.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -143,12 +121,9 @@ public class ProfileUserModifyView extends JFrame implements ActionListener {
 		panelLabels.add(this.password);
 
 		this.mobileEntre.setToolTipText(this.currentUser.getMobile());
-		this.emailEntre.setToolTipText(this.currentUser.getMailAddress());
 		this.addressEntre.setToolTipText(this.currentUser.getAddress());
 		this.passwordEntre.setToolTipText(this.currentUser.getPassword());
 		panelTextField.add(this.mobileEntre);
-		panelTextField.add(this.emailEntre);
-		panelTextField.add(this.profilePictureButton);
 		panelTextField.add(this.addressEntre);
 		panelTextField.add(this.passwordEntre);
 
@@ -185,19 +160,6 @@ public class ProfileUserModifyView extends JFrame implements ActionListener {
 		return ((!enteredMobile.isEmpty()) && (enteredMobile!=null) && (matcher.matches()));
 	}
 
-
-	/**
-	 * Check if the mail address is valid or not ("xx@xx.xx" is a valid format) 
-	 * @param enteredEmail Mail address enter by the user
-	 * @return Boolean if the email address is valid, or not
-	 */
-	public static boolean isValidEmail(String enteredEmail){
-		String EMAIL_REGIX = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-		Pattern pattern = Pattern.compile(EMAIL_REGIX);
-		Matcher matcher = pattern.matcher(enteredEmail);
-		return ((!enteredEmail.isEmpty()) && (enteredEmail!=null) && (matcher.matches()));
-	}
-
 	/**
 	 * Encrypt in md5 format the password enter by the user
 	 * @param mdp
@@ -228,7 +190,6 @@ public class ProfileUserModifyView extends JFrame implements ActionListener {
 		String source = e.getActionCommand();
 		if (source == "Validate") {
 			boolean isValideMobile = false;
-			boolean isValideEmail = false;
 			if(!this.mobileEntre.getText().isEmpty()) {
 				if (!isValidMobile(this.mobileEntre.getText())) {
 					this.errorMessage.setText("Mobile number invalid");
@@ -243,35 +204,10 @@ public class ProfileUserModifyView extends JFrame implements ActionListener {
 
 				}
 			}
-			if(!this.emailEntre.getText().isEmpty()) {
-				if (!isValidEmail(this.emailEntre.getText())) {
-					this.errorMessage.setText("Invalid email address");
-					this.errorMessage.setVisible(true);
-					this.errorMessage.setForeground(Color.red);
-					this.email.setForeground(Color.red);
-				}
-				else {
-					this.email.setForeground(Color.black);
-					this.errorMessage.setVisible(false);
-					isValideEmail = true;
-				}
-			}
 
-			if(isValideMobile || isValideEmail) {
+			if(isValideMobile) {
 				System.out.println("FAIRE LA REQUETE");
 			}
 		}
-		else if (source == "Choose your profile picture") {
-			FileNameExtensionFilter imageFilter = new FileNameExtensionFilter( "Image files", ImageIO.getReaderFileSuffixes());
-			//JFileChooser fileChooser = new JFileChooser();
-			this.fileChooser.setFileFilter(imageFilter);
-			int returnValue = this.fileChooser.showOpenDialog(null);
-			if (returnValue == JFileChooser.APPROVE_OPTION) {
-				this.selectedFile = fileChooser.getSelectedFile();
-				System.out.println(selectedFile.getAbsolutePath());
-			}
-		}
-
 	}
-
 }
