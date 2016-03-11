@@ -19,5 +19,6 @@ public class main {
 	
 	LoginView loginViews = new LoginView();
 	//pekef
+	//ok
 	}
 }
