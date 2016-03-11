@@ -123,7 +123,9 @@ public class ProfileUserView extends JFrame implements ActionListener {
 		this.surName.setText(this.currentUser.getSurName());
 		this.surName.setHorizontalAlignment(JLabel.CENTER);
 		this.mobile.setText(this.currentUser.getMobile());
+		this.mobile.setHorizontalAlignment(JLabel.CENTER);
 		this.mail.setText(this.currentUser.getMailAddress());
+		this.mail.setHorizontalAlignment(JLabel.CENTER);
 		// Create an instance of SimpleDateFormat used for formatting 
 		// the string representation of date (month/day/year)
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
@@ -133,9 +135,13 @@ public class ProfileUserView extends JFrame implements ActionListener {
 		// representation of a date with the defined format.
 		String reportDate = df.format(dateOfBirthToParse);
 		this.dateOfBirth.setText(reportDate);
+		this.dateOfBirth.setHorizontalAlignment(JLabel.CENTER);
 		this.password.setText(this.currentUser.getPassword());
+		this.password.setHorizontalAlignment(JLabel.CENTER);
 		this.address.setText(this.currentUser.getAddress());
-		JPanel panelInformations = new JPanel();
+		this.address.setHorizontalAlignment(JLabel.CENTER);;
+		JPanel panelInformations = new JPanel(new GridLayout(7,1));
+		JPanel panelButtonValidate = new JPanel();
 		panelInformations.add(this.firstName);
 		panelInformations.add(this.surName);
 		panelInformations.add(this.mobile);
@@ -143,12 +149,13 @@ public class ProfileUserView extends JFrame implements ActionListener {
 		panelInformations.add(this.dateOfBirth);
 		panelInformations.add(this.password);
 		panelInformations.add(this.address);
-		panelInformations.add(this.modify);
+		panelButtonValidate.add(this.modify);
 		this.modify.addActionListener(this);
 
 
 		contentPane.add(panelButton,BorderLayout.NORTH);
 		contentPane.add(panelInformations, BorderLayout.CENTER);
+		contentPane.add(panelButtonValidate,  BorderLayout.SOUTH);
 
 		//Display
 		setSize(400,120);
