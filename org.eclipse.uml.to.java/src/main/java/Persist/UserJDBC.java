@@ -24,12 +24,12 @@ import Excpetion.PasswordException;
  * @author pierrickgiuliani
  */
 public class UserJDBC extends User {
+	// Start of user code (user defined attributes for UserJDBC)
+	
 	/**
 	 * Description of the property jDBConnexions.
 	 */
 	public JDBConnexion jDBConnexions = new JDBConnexion();
-
-	// Start of user code (user defined attributes for UserJDBC)
 
 	// End of user code
 
@@ -66,7 +66,7 @@ public class UserJDBC extends User {
 		}
 	}
 
-
+	// Start of user code (user defined methods for UserJDBC)
 
 	/**
 	 * Permit to set the information in the database for the user
@@ -113,8 +113,7 @@ public class UserJDBC extends User {
 			
 		}
 	}
-
-	// Start of user code (user defined methods for UserJDBC)
+	
 
 	// End of user code
 	/**

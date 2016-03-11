@@ -30,7 +30,16 @@ public class UserManager {
 	}
 	
 	public User signUp(String firstName, String surName, String mobile, String mailAddress, String password,
-			Date dateOfBirth, String profilePicture, String webSiteURL, String siretNumber, String address) {
-			return (this.userFactorys.createUser(firstName, surName, mobile, mailAddress, password, dateOfBirth, profilePicture, webSiteURL, siretNumber, address));
+		Date dateOfBirth, String profilePicture, String webSiteURL, String siretNumber, String address) {
+		return (this.userFactorys.createUser(firstName, surName, mobile, mailAddress, password, dateOfBirth, profilePicture, webSiteURL, siretNumber, address));
+	}
+	
+	public void modifyAccount(String mobile, String address, String password) {
+		this.currentUser.modifyAccount(mobile,address,password);
+	}
+
+	public void setUser(User currentUser2) {
+		// TODO Auto-generated method stub
+		this.currentUser = currentUser2;
 	}
 }

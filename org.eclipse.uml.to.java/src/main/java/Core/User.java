@@ -25,7 +25,6 @@ public abstract class User {
 	 */
 	private Integer idUser = Integer.valueOf(0);
 
-	//beule
 	/**
 	 * Description of the property password.
 	 */
@@ -334,4 +333,10 @@ public abstract class User {
 		this.admin = newAdmin;
 	}
 
+	
+	public void modifyAccount(String mobile, String address, String password) {
+		this.setMobile(mobile);
+		this.setAddress(address);
+		this.setPassword(password);
+	}
 }

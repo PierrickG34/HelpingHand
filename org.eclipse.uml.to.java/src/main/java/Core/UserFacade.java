@@ -22,15 +22,15 @@ import UI.SignUpView;
  */
 public class UserFacade {
 	
+	// Start of user code (user defined attributes for UserFacade)
+	
 	/**
 	 * Description of the property userManager.
 	 */
 	public UserManager userManager = new UserManager();
-
-	// Start of user code (user defined attributes for UserFacade)
-
 	// End of user code
 
+	// Start of user code (user defined methods for UserFacade)
 	/**
 	 * The constructor.
 	 * @param LoginView correspond a user
@@ -47,6 +47,10 @@ public class UserFacade {
 
 	public UserFacade(ProfileUserModifyView profileUserModifyView) {
 		super();
+	}
+	
+	public UserFacade(User currentUser) {
+		this.userManager.setUser(currentUser);
 	}
 
 	/**
@@ -67,8 +71,11 @@ public class UserFacade {
 							Date dateOfBirth, String profilePicture, String webSiteURL, String siretNumber, String address) {
 		return this.userManager.signUp(firstName, surName, mobile, mailAddress, password, dateOfBirth, profilePicture, webSiteURL, siretNumber, address);
 	}
-	// Start of user code (user defined methods for UserFacade)
-
+	
+	
+	public void modifyAccount(String mobile, String address, String password) {
+		this.userManager.modifyAccount(mobile, address, password);
+	}
 	// End of user code
 	/**
 	 * Returns userManager.
@@ -82,7 +89,7 @@ public class UserFacade {
 	 * Sets a value to attribute userManager. 
 	 * @param newuserManager 
 	 */
-	public void setuserManager(UserManager newUserManager) {
+	/*public void setuserManager(UserManager newUserManager) {
 		this.userManager = newUserManager;
-	}
+	}*/
 }

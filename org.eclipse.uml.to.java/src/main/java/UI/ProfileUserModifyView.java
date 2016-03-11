@@ -33,6 +33,7 @@ public class ProfileUserModifyView extends JFrame implements ActionListener {
 	 * Describe the current user
 	 */
 	private User currentUser;
+	private UserFacade userFacade;
 
 	/**
 	 * Descriptions for the mobile field
@@ -63,18 +64,14 @@ public class ProfileUserModifyView extends JFrame implements ActionListener {
 	JLabel errorMessage = new JLabel("");
 
 	/**
-	 * Description of the property userFacades.
-	 */
-	public UserFacade userFacades = new UserFacade(this);
-
-	/**
 	 * 
 	 * @param currentUser
 	 */
 	public ProfileUserModifyView(User currentUser) {
 		super("Edit Profile");
 		this.currentUser = currentUser;
-
+		this.userFacade = new UserFacade(currentUser);
+		
 		Container contentPane = getContentPane(); 
 		contentPane.setLayout(new BorderLayout());
 		setMinimumSize(new Dimension(1000,500));
@@ -206,7 +203,7 @@ public class ProfileUserModifyView extends JFrame implements ActionListener {
 			}
 
 			if(isValideMobile) {
-				System.out.println("FAIRE LA REQUETE");
+				this.userFacade.modifyAccount(this.mobileEntre.getText(), this.addressEntre.getText(), encrypt(String.valueOf((this.passwordEntre.getPassword()))));
 			}
 		}
 	}
