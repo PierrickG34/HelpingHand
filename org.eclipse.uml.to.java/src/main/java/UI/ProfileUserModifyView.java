@@ -205,10 +205,7 @@ public class ProfileUserModifyView extends JFrame implements ActionListener {
 
 			if(isValideMobile || !this.addressEntre.getText().isEmpty() ||
 					this.passwordEntre.getPassword().length != 0) {
-				System.out.println(isValideMobile);
-				System.out.println(!this.addressEntre.getText().isEmpty());
-				System.out.println(this.passwordEntre.getPassword().length != 0);
-				//this.userFacade.modifyAccount(this.mobileEntre.getText(), this.addressEntre.getText(), encrypt(String.valueOf((this.passwordEntre.getPassword()))));
+				this.userFacade.modifyAccount(this.mobileEntre.getText(), this.addressEntre.getText(), encrypt(String.valueOf((this.passwordEntre.getPassword()))));
 			}
 		}
 	}
