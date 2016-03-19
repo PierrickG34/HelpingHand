@@ -5,6 +5,7 @@ package Factory;
 
 import java.util.Date;
 
+import Core.ActivityCategory;
 import Core.User;
 import Persist.UserJDBC;
 
@@ -41,6 +42,7 @@ public abstract class AbstractFactory {
 	public abstract User createUser(String firstName, String surName, String mobile, String mailAddress, String password, 
 			Date dateOfBirth, String profilePicture, String webSiteURL, String siretNumber, String address);
 
+	public abstract ActivityCategory createActivityCategory(String name, String shortDetail, String longDetail ,int idUser);
 	// Start of user code (user defined methods for AbstractUserFactory)
 
 	// End of user code

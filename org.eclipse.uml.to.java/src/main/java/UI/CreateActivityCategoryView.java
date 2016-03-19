@@ -14,7 +14,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import Core.ActivityCategoryFacade;
 import Core.User;
+import Core.UserFacade;
 
 public class CreateActivityCategoryView extends JFrame implements ActionListener {
 
@@ -51,6 +53,11 @@ public class CreateActivityCategoryView extends JFrame implements ActionListener
 	 * Description for the button validate
 	 */
 	JButton validate = new JButton("Validate");
+	
+	/**
+	 * Description of the property ActivityCategoryFacades.
+	 */
+	public ActivityCategoryFacade activityCategoryFacades = new ActivityCategoryFacade(this);
 	
 	private User currentUser;
 	
@@ -136,7 +143,11 @@ public class CreateActivityCategoryView extends JFrame implements ActionListener
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();
 		if(source == "Validate") {
-			System.out.println("BUTTON VALIDATE");
+			System.out.println("CreateActivityCategoryView: ");
+			System.out.println("Name:" +this.nameEntre.getText());
+			System.out.println("shortDetail:" +this.shortDetailEntre.getText());
+			System.out.println("longDetail:" +this.longDetailEntre.getText());
+			this.activityCategoryFacades.createActivityCategory(this.nameEntre.getText(), this.shortDetailEntre.getText(), this.longDetailEntre.getText(), this.currentUser.getIdUser());
 		}
 	}
 }

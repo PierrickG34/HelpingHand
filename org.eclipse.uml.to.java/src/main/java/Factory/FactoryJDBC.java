@@ -5,7 +5,9 @@ package Factory;
 
 import java.util.Date;
 
+import Core.ActivityCategory;
 import Factory.AbstractFactory;
+import Persist.ActivityCategoryJDBC;
 // Start of user code (user defined imports)
 import Persist.UserJDBC;
 
@@ -22,6 +24,11 @@ public class FactoryJDBC extends AbstractFactory {
 	 * Description of the property users.
 	 */
 	public UserJDBC userJDBC = null;
+	
+	/**
+	 * Description of the property activityCategoryJDBC.
+	 */
+	public ActivityCategoryJDBC activityCategoryJDBC = null;
 	
 
 	// Start of user code (user defined attributes for UserFactory)
@@ -69,6 +76,16 @@ public class FactoryJDBC extends AbstractFactory {
 	 */
 	public void setUsers(UserJDBC newUsers) {
 		this.userJDBC = newUsers;
+	}
+
+	@Override
+	public ActivityCategoryJDBC createActivityCategory(String name, String shortDetail, String longDetail, int idUser) {
+		System.out.println("\n\n FactoryJDBC: ");
+		System.out.println("Name: " + name);
+		System.out.println("shortDetail: " + shortDetail);
+		System.out.println("longDetail: " + longDetail);
+		System.out.println("idUser: " + idUser);
+		return new ActivityCategoryJDBC(name, shortDetail, longDetail, idUser);
 	}
 
 }
