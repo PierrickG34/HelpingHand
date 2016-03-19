@@ -13,8 +13,8 @@ import javax.swing.JPanel;
 
 import Core.User;
 
-public class DashboardAdminView extends JFrame implements ActionListener {
-	
+public class ActivtyCategoryManageView extends JFrame implements ActionListener {
+
 	JButton dashboard = new JButton("Dashboard");
 	JButton activityCategory = new JButton("Activity Category");
 	JButton productCategory = new JButton("Product Category");
@@ -26,12 +26,13 @@ public class DashboardAdminView extends JFrame implements ActionListener {
 	JButton profile = new JButton("Profile");
 	JButton notifications = new JButton("Notifications");
 	
+	JButton create = new JButton("Create an Activity Category");
+	JButton update = new JButton("Update an Activity Category");
+	
 	
 	private User currentUser;
 	
-	
-	
-	public DashboardAdminView(User currentUser) {
+	public ActivtyCategoryManageView(User currentUser) {
 		super("DashBoard"); // Name of the frame
 		this.currentUser = currentUser;
 		/* Defined actions on the different buttons */
@@ -68,55 +69,39 @@ public class DashboardAdminView extends JFrame implements ActionListener {
         panelButton.add(panelTopButton);
         panelButton.add(panelBottomButton);
         
-  
         contentPane.add(panelButton,BorderLayout.NORTH);
+        
+  
+        /*-------------- Veritable view --------------------*/
+        JPanel manageButton = new JPanel(new GridLayout(2, 1));
+        JPanel createButton = new JPanel();
+        JPanel updateButton = new JPanel();
+        
+        this.create.addActionListener(this);
+        this.update.addActionListener(this);
+        
+        createButton.add(this.create);
+        updateButton.add(this.update);
+        
+        manageButton.add(createButton);
+        manageButton.add(updateButton);
+        
+        contentPane.add(manageButton, BorderLayout.WEST);
 
         //Display
         setSize(400,120);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();
-		if (source == "Dashboard") {
-			System.out.println("Je suis Dashboard");
-			System.out.println("Action a définir ici...");
+		if(source == "Create an Activity Category") {
+			CreateActivityCategoryView createActivityCategory = new CreateActivityCategoryView(this.currentUser);
 		}
-		else if (source == "Activity Category" ){
-//			System.out.println("Je suis Activity Category");
-//			System.out.println("Action a définir ici...");
-			ActivtyCategoryManageView activityCategory = new ActivtyCategoryManageView(this.currentUser);
-		}
-		else if (source == "Product Category"){
-			System.out.println("Je suis Product Category");
-			System.out.println("Action a définir ici...");
-		}
-		else if (source == "Product"){
-			System.out.println("Je suis Product");
-			System.out.println("Action a définir ici...");
-		}
-		else if (source == "Account"){
-			System.out.println("Je suis Account");
-			System.out.println("Action a définir ici...");
-		}
-		else if (source == "Plan"){
-			System.out.println("Je suis Plan");
-			System.out.println("Action a définir ici...");
-		}
-		else if (source == "Task"){
-			System.out.println("Je suis Task");
-			System.out.println("Action a définir ici...");
-		}
-		else if (source == "Profile"){
-			System.out.println("Je suis Profile");
-			System.out.println("Action a définir ici...");
-		}
-		else if (source == "Notifications"){
-			System.out.println("Je suis Notifications");
-			System.out.println("Action a définir ici...");
+		else if(source == "Update an Activity Category") {
+			System.out.println("Button UPDATE");
 		}
 	}
-
 }

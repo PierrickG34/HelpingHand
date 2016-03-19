@@ -9,12 +9,15 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 import Core.User;
 
-public class DashboardAdminView extends JFrame implements ActionListener {
-	
+public class CreateActivityCategoryView extends JFrame implements ActionListener {
+
 	JButton dashboard = new JButton("Dashboard");
 	JButton activityCategory = new JButton("Activity Category");
 	JButton productCategory = new JButton("Product Category");
@@ -26,12 +29,32 @@ public class DashboardAdminView extends JFrame implements ActionListener {
 	JButton profile = new JButton("Profile");
 	JButton notifications = new JButton("Notifications");
 	
+	/**
+	 * Descriptions for the mobile field
+	 */
+	JLabel name = new JLabel("Name :");
+	JTextField nameEntre = new JTextField("", 15);
+	
+	/**
+	 * Descriptions for the mobile field
+	 */
+	JLabel shortDetail = new JLabel("Short Detail :");
+	JTextField shortDetailEntre = new JTextField("", 15);
+	
+	/**
+	 * Descriptions for the mobile field
+	 */
+	JLabel longDetail = new JLabel("Long Detail :");
+	JTextField longDetailEntre = new JTextField("", 15);
+	
+	/**
+	 * Description for the button validate
+	 */
+	JButton validate = new JButton("Validate");
 	
 	private User currentUser;
 	
-	
-	
-	public DashboardAdminView(User currentUser) {
+	public CreateActivityCategoryView(User currentUser) {
 		super("DashBoard"); // Name of the frame
 		this.currentUser = currentUser;
 		/* Defined actions on the different buttons */
@@ -68,55 +91,52 @@ public class DashboardAdminView extends JFrame implements ActionListener {
         panelButton.add(panelTopButton);
         panelButton.add(panelBottomButton);
         
-  
         contentPane.add(panelButton,BorderLayout.NORTH);
+        
+  
+        /*-------------- Veritable view --------------------*/
+        JPanel panelCreateActivityCategory = new JPanel();
+		JPanel panelLabels = new JPanel(new GridLayout(0,1));
+		JPanel panelTextField = new JPanel(new GridLayout(0,1));
+		JPanel panelButtonValidate = new JPanel(new GridLayout(0,1));
+		
+		//Name
+		this.name.setPreferredSize(this.nameEntre.getPreferredSize());
+		this.name.setHorizontalAlignment(SwingConstants.RIGHT);
+		panelLabels.add(this.name);
+		panelTextField.add(this.nameEntre);
+		
+		//Short Detail
+		this.shortDetail.setPreferredSize(this.shortDetailEntre.getPreferredSize());
+		this.shortDetail.setHorizontalAlignment(SwingConstants.RIGHT);
+		panelLabels.add(this.shortDetail);
+		panelTextField.add(this.shortDetailEntre);
+		
+		//Long Detail
+		this.longDetail.setPreferredSize(this.longDetailEntre.getPreferredSize());
+		this.longDetail.setHorizontalAlignment(SwingConstants.RIGHT);
+		panelLabels.add(this.longDetail);
+		panelTextField.add(this.longDetailEntre);
+		
+		panelCreateActivityCategory.add(panelLabels);
+		panelCreateActivityCategory.add(panelTextField);
+		panelButtonValidate.add(validate);
+		panelCreateActivityCategory.add(panelButtonValidate, BorderLayout.SOUTH);
+		this.validate.addActionListener(this);
+		
+		contentPane.add(panelCreateActivityCategory, BorderLayout.WEST);
 
         //Display
         setSize(400,120);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();
-		if (source == "Dashboard") {
-			System.out.println("Je suis Dashboard");
-			System.out.println("Action a définir ici...");
-		}
-		else if (source == "Activity Category" ){
-//			System.out.println("Je suis Activity Category");
-//			System.out.println("Action a définir ici...");
-			ActivtyCategoryManageView activityCategory = new ActivtyCategoryManageView(this.currentUser);
-		}
-		else if (source == "Product Category"){
-			System.out.println("Je suis Product Category");
-			System.out.println("Action a définir ici...");
-		}
-		else if (source == "Product"){
-			System.out.println("Je suis Product");
-			System.out.println("Action a définir ici...");
-		}
-		else if (source == "Account"){
-			System.out.println("Je suis Account");
-			System.out.println("Action a définir ici...");
-		}
-		else if (source == "Plan"){
-			System.out.println("Je suis Plan");
-			System.out.println("Action a définir ici...");
-		}
-		else if (source == "Task"){
-			System.out.println("Je suis Task");
-			System.out.println("Action a définir ici...");
-		}
-		else if (source == "Profile"){
-			System.out.println("Je suis Profile");
-			System.out.println("Action a définir ici...");
-		}
-		else if (source == "Notifications"){
-			System.out.println("Je suis Notifications");
-			System.out.println("Action a définir ici...");
+		if(source == "Validate") {
+			System.out.println("BUTTON VALIDATE");
 		}
 	}
-
 }
