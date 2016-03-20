@@ -3,6 +3,7 @@ package Core;
 import java.util.Date;
 
 import UI.CreateActivityCategoryView;
+import UI.UpdateActivityCategoryView;
 
 /**
  * Description of ActivityCategoryFacade.
@@ -20,13 +21,16 @@ public class ActivityCategoryFacade {
 		super();
 	}
 	
+	public ActivityCategoryFacade(UpdateActivityCategoryView updateActivityCategoryView) {
+		super();
+	}
+
 	public ActivityCategory createActivityCategory(String name, String shortDetail, String longDetail, int idUser) {
-//		System.out.println("\n\n ActivityCategoryFacade: ");
-//		System.out.println("Name: " + name);
-//		System.out.println("shortDetail: " + shortDetail);
-//		System.out.println("longDetail: " + longDetail);
-//		System.out.println("idUser: " + idUser);
 		return this.activityCategoryManager.createActivityCategory(name, shortDetail, longDetail, idUser);
-}
+	}
+	
+	public ActivityCategory[] readActivityCategory() {
+		return this.activityCategoryManager.readActivityCategory();
+	}
 
 }

@@ -43,6 +43,8 @@ public abstract class AbstractFactory {
 			Date dateOfBirth, String profilePicture, String webSiteURL, String siretNumber, String address);
 
 	public abstract ActivityCategory createActivityCategory(String name, String shortDetail, String longDetail ,int idUser);
+	
+	public abstract ActivityCategory[] readActivityCategory();
 	// Start of user code (user defined methods for AbstractUserFactory)
 
 	// End of user code

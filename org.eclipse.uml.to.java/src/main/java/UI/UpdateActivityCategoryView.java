@@ -11,9 +11,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import Core.ActivityCategoryFacade;
 import Core.User;
 
-public class ActivtyCategoryManageView extends JFrame implements ActionListener {
+public class UpdateActivityCategoryView extends JFrame implements ActionListener {
 
 	JButton dashboard = new JButton("Dashboard");
 	JButton activityCategory = new JButton("Activity Category");
@@ -26,13 +27,19 @@ public class ActivtyCategoryManageView extends JFrame implements ActionListener 
 	JButton profile = new JButton("Profile");
 	JButton notifications = new JButton("Notifications");
 	
-	JButton create = new JButton("Create an Activity Category");
-	JButton update = new JButton("Update an Activity Category");
+	/**
+	 * Description for the button validate
+	 */
+	JButton validate = new JButton("Validate");
 	
+	/**
+	 * Description of the property ActivityCategoryFacades.
+	 */
+	public ActivityCategoryFacade activityCategoryFacades = new ActivityCategoryFacade(this);
 	
 	private User currentUser;
 	
-	public ActivtyCategoryManageView(User currentUser) {
+	public UpdateActivityCategoryView(User currentUser) {
 		super("DashBoard"); // Name of the frame
 		this.currentUser = currentUser;
 		/* Defined actions on the different buttons */
@@ -71,24 +78,14 @@ public class ActivtyCategoryManageView extends JFrame implements ActionListener 
         
         contentPane.add(panelButton,BorderLayout.NORTH);
         
-  
         /*-------------- Veritable view --------------------*/
-        JPanel manageButton = new JPanel(new GridLayout(2, 1));
-        JPanel createButton = new JPanel();
-        JPanel updateButton = new JPanel();
+        JPanel panelButtonValidate = new JPanel();
+        panelButtonValidate.add(validate, BorderLayout.CENTER);
+        this.validate.addActionListener(this);
         
-        this.create.addActionListener(this);
-        this.update.addActionListener(this);
+        contentPane.add(panelButtonValidate, BorderLayout.CENTER);
         
-        createButton.add(this.create);
-        updateButton.add(this.update);
-        
-        manageButton.add(createButton);
-        manageButton.add(updateButton);
-        
-        contentPane.add(manageButton, BorderLayout.WEST);
-
-        //Display
+      //Display
         setSize(400,120);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -97,11 +94,8 @@ public class ActivtyCategoryManageView extends JFrame implements ActionListener 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();
-		if(source == "Create an Activity Category") {
-			CreateActivityCategoryView createActivityCategory = new CreateActivityCategoryView(this.currentUser);
-		}
-		else if(source == "Update an Activity Category") {
-			UpdateActivityCategoryView updateActivityCategory = new UpdateActivityCategoryView(this.currentUser);
+		if(source == "Validate") {
+			this.activityCategoryFacades.readActivityCategory();
 		}
 	}
 }

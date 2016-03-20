@@ -1,5 +1,10 @@
 package Core;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import Persist.JDBConnexion;
+
 /**
  * Description of ActivityCategory.
  * 
@@ -7,6 +12,10 @@ package Core;
  */
 public abstract class ActivityCategory {
 
+	/**
+	 * Description of the property jDBConnexions.
+	 */
+	public JDBConnexion jDBConnexions = new JDBConnexion();
 
 	/**
 	 * Description of the property idUser.
@@ -34,4 +43,41 @@ public abstract class ActivityCategory {
 		this.shortDetail = shortDetail;
 		this.longDetail = longDetail;
 	}
+
+	public ActivityCategory() {
+		super();
+	}
+
+	public Integer getIdActivityCategory() {
+		return idActivityCategory;
+	}
+
+	public void setIdActivityCategory(Integer idActivityCategory) {
+		this.idActivityCategory = idActivityCategory;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getShortDetail() {
+		return shortDetail;
+	}
+
+	public void setShortDetail(String shortDetail) {
+		this.shortDetail = shortDetail;
+	}
+
+	public String getLongDetail() {
+		return longDetail;
+	}
+
+	public void setLongDetail(String longDetail) {
+		this.longDetail = longDetail;
+	}
+	
 }
