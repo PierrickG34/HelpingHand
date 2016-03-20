@@ -1,6 +1,7 @@
 package UI;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -13,10 +14,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.border.Border;
 
 import Core.ActivityCategoryFacade;
 import Core.User;
 import Core.UserFacade;
+import Excpetion.AlreadyExistException;
 
 public class CreateActivityCategoryView extends JFrame implements ActionListener {
 
@@ -60,6 +63,11 @@ public class CreateActivityCategoryView extends JFrame implements ActionListener
 	public ActivityCategoryFacade activityCategoryFacades = new ActivityCategoryFacade(this);
 	
 	private User currentUser;
+	
+	    /**
+     * Describe error message
+     */
+    JLabel errorMessage = new JLabel("TEST");
 	
 	public CreateActivityCategoryView(User currentUser) {
 		super("DashBoard"); // Name of the frame
@@ -105,7 +113,7 @@ public class CreateActivityCategoryView extends JFrame implements ActionListener
         JPanel panelCreateActivityCategory = new JPanel();
 		JPanel panelLabels = new JPanel(new GridLayout(0,1));
 		JPanel panelTextField = new JPanel(new GridLayout(0,1));
-		JPanel panelButtonValidate = new JPanel(new GridLayout(0,1));
+		JPanel panelButtonValidate = new JPanel();
 		
 		//Name
 		this.name.setPreferredSize(this.nameEntre.getPreferredSize());
@@ -127,8 +135,10 @@ public class CreateActivityCategoryView extends JFrame implements ActionListener
 		
 		panelCreateActivityCategory.add(panelLabels);
 		panelCreateActivityCategory.add(panelTextField);
-		panelButtonValidate.add(validate);
-		panelCreateActivityCategory.add(panelButtonValidate, BorderLayout.SOUTH);
+		panelButtonValidate.add(validate, BorderLayout.CENTER);
+		panelButtonValidate.add(this.errorMessage, BorderLayout.CENTER);
+		this.errorMessage.setVisible(false);
+		panelCreateActivityCategory.add(panelButtonValidate);
 		this.validate.addActionListener(this);
 		
 		contentPane.add(panelCreateActivityCategory, BorderLayout.WEST);
@@ -143,11 +153,57 @@ public class CreateActivityCategoryView extends JFrame implements ActionListener
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();
 		if(source == "Validate") {
-			System.out.println("CreateActivityCategoryView: ");
-			System.out.println("Name:" +this.nameEntre.getText());
-			System.out.println("shortDetail:" +this.shortDetailEntre.getText());
-			System.out.println("longDetail:" +this.longDetailEntre.getText());
-			this.activityCategoryFacades.createActivityCategory(this.nameEntre.getText(), this.shortDetailEntre.getText(), this.longDetailEntre.getText(), this.currentUser.getIdUser());
+			/* Clean error message */
+			this.errorMessage.setVisible(false);
+			this.name.setForeground(Color.black);
+			this.shortDetail.setForeground(Color.black);
+			this.longDetail.setForeground(Color.black);
+			
+			/* Test if the admin fill alls field */
+			int count = 0;
+			if(this.nameEntre.getText().isEmpty()) {
+				this.errorMessage.setText("Enter a name please");
+				this.errorMessage.setVisible(true);
+				this.errorMessage.setForeground(Color.red);
+				this.name.setForeground(Color.red);
+				count++;
+			}
+			if(this.shortDetailEntre.getText().isEmpty()) {
+				this.errorMessage.setText("Enter a short detail please");
+				this.errorMessage.setVisible(true);
+				this.errorMessage.setForeground(Color.red);
+				this.shortDetail.setForeground(Color.red);
+				count++;
+			}
+			if(this.longDetailEntre.getText().isEmpty()) {
+				this.errorMessage.setText("Enter a long detail please");
+				this.errorMessage.setVisible(true);
+				this.errorMessage.setForeground(Color.red);
+				this.longDetail.setForeground(Color.red);
+				count++;
+			}
+			if(count > 2) {
+				this.errorMessage.setText("Please complete all fields");
+				this.errorMessage.setVisible(true);
+				this.errorMessage.setForeground(Color.red);
+			}
+			
+			/*If all fields are filled, execute the request*/
+			if(!this.nameEntre.getText().isEmpty() && !this.shortDetailEntre.getText().isEmpty() && !this.longDetailEntre.getText().isEmpty() && !this.currentUser.getIdUser().equals("")) {
+				System.out.println("CreateActivityCategoryView: ");
+				System.out.println("Name:" +this.nameEntre.getText());
+				System.out.println("shortDetail:" +this.shortDetailEntre.getText());
+				System.out.println("longDetail:" +this.longDetailEntre.getText());
+				System.out.println("idUser: " +this.currentUser.getIdUser());
+				try {
+					this.activityCategoryFacades.createActivityCategory(this.nameEntre.getText(), this.shortDetailEntre.getText(), this.longDetailEntre.getText(), this.currentUser.getIdUser());
+				} catch (AlreadyExistException errorCreateActivityCategory) {
+					this.errorMessage.setText(errorCreateActivityCategory.getNameError());
+					this.errorMessage.setForeground(Color.red);
+					this.errorMessage.setVisible(true);
+					this.name.setForeground(Color.red);
+				}
+			}
 		}
 	}
 }

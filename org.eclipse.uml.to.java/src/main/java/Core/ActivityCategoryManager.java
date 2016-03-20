@@ -22,11 +22,11 @@ public class ActivityCategoryManager {
 //		this.currentUser=this.userFactorys.createUser(login);
 //		this.validatePassword(password);
 //		return this.currentUser;
-		System.out.println("\n\n ActivityCategoryManager --> TODO");
-		System.out.println("Name: " + name);
-		System.out.println("shortDetail: " + shortDetail);
-		System.out.println("longDetail: " + longDetail);
-		System.out.println("idUser: " + idUser);
+//		System.out.println("\n\n ActivityCategoryManager --> TODO");
+//		System.out.println("Name: " + name);
+//		System.out.println("shortDetail: " + shortDetail);
+//		System.out.println("longDetail: " + longDetail);
+//		System.out.println("idUser: " + idUser);
 		
 		return (this.currentActivityCategory = this.userFactorys.createActivityCategory(name, shortDetail, longDetail, idUser));
 	}

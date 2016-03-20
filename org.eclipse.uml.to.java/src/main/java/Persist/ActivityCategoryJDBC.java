@@ -30,11 +30,11 @@ public class ActivityCategoryJDBC extends ActivityCategory {
 //			e.printStackTrace();
 //		}
 //		this.setUser(login);
-		System.out.println("ActivityCategoryJDBC --> REQUETE TODO");
-		System.out.println("Name: " + name);
-		System.out.println("shortDetail: " + shortDetail);
-		System.out.println("longDetail: " + longDetail);
-		System.out.println("idUser: " + idUser);
+//		System.out.println("ActivityCategoryJDBC --> REQUETE TODO");
+//		System.out.println("Name: " + name);
+//		System.out.println("shortDetail: " + shortDetail);
+//		System.out.println("longDetail: " + longDetail);
+//		System.out.println("idUser: " + idUser);
 		try {
 			this.jDBConnexions.executeUpdate("INSERT INTO ActivityCategory1 VALUES (DEFAULT, '"+ name + "','"+ shortDetail +"','" + longDetail + "','" + idUser + "')");
 		} catch (SQLException e) {

@@ -21,11 +21,11 @@ public class ActivityCategoryFacade {
 	}
 	
 	public ActivityCategory createActivityCategory(String name, String shortDetail, String longDetail, int idUser) {
-		System.out.println("\n\n ActivityCategoryFacade: ");
-		System.out.println("Name: " + name);
-		System.out.println("shortDetail: " + shortDetail);
-		System.out.println("longDetail: " + longDetail);
-		System.out.println("idUser: " + idUser);
+//		System.out.println("\n\n ActivityCategoryFacade: ");
+//		System.out.println("Name: " + name);
+//		System.out.println("shortDetail: " + shortDetail);
+//		System.out.println("longDetail: " + longDetail);
+//		System.out.println("idUser: " + idUser);
 		return this.activityCategoryManager.createActivityCategory(name, shortDetail, longDetail, idUser);
 }
 

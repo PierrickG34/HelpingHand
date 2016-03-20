@@ -80,11 +80,11 @@ public class FactoryJDBC extends AbstractFactory {
 
 	@Override
 	public ActivityCategoryJDBC createActivityCategory(String name, String shortDetail, String longDetail, int idUser) {
-		System.out.println("\n\n FactoryJDBC: ");
-		System.out.println("Name: " + name);
-		System.out.println("shortDetail: " + shortDetail);
-		System.out.println("longDetail: " + longDetail);
-		System.out.println("idUser: " + idUser);
+//		System.out.println("\n\n FactoryJDBC: ");
+//		System.out.println("Name: " + name);
+//		System.out.println("shortDetail: " + shortDetail);
+//		System.out.println("longDetail: " + longDetail);
+//		System.out.println("idUser: " + idUser);
 		return new ActivityCategoryJDBC(name, shortDetail, longDetail, idUser);
 	}
 
