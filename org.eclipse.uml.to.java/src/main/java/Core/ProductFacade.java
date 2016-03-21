@@ -61,7 +61,13 @@ public class ProductFacade {
 	public ProductManager getproductrManager() {
 		return this.productManager;
 	}
-
+	
+	/*
+	public Product[] readProduct() {
+		return this.productManager.readProduct();
+	}
+*/
+	
 	/**
 	 * Sets a value to attribute userManager. 
 	 * @param newuserManager 

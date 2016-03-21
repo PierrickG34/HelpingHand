@@ -8,7 +8,7 @@ import Excpetion.AlreadyExistException;
 
 public class ProductJDBC extends Product{
 	
-	public JDBConnexion jDBConnexions = new JDBConnexion();
+	public static JDBConnexion jDBConnexions = new JDBConnexion();
 	
 	public ProductJDBC(String name, float price, int quantity, String category) {
 		super(name, price, quantity, category);
@@ -18,15 +18,25 @@ public class ProductJDBC extends Product{
 		System.out.println(quantity);
 		System.out.println(category);
 		try {
-			this.jDBConnexions.executeUpdate("INSERT INTO Product VALUES (DEFAULT, '"+ name + "','"+ price +"','" + "Poisson" + "','" 
+			jDBConnexions.executeUpdate("INSERT INTO Product VALUES (DEFAULT, '"+ name + "','"+ price +"','" + "Poisson" + "','" 
 					+ quantity +"')");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			//throw new AlreadyExistException("Your email is already used, please choose an other.");
 		}
+		
+		
 	}
-
+	/*
+	public static void readProduct() {
+		try {
+			jDBConnexions.executeRequest("select * from product where idactivitycategory = 1");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	*/
 	/**
 	 * Description of the property jDBConnexions.
 	 */

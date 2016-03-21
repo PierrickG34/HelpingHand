@@ -6,7 +6,8 @@ import Factory.AbstractFactory;
 import Factory.FactoryJDBC;
 
 public class ProductManager {
-	private User currentUser;
+	private Product currentProduct;
+	private Product[] listProduct;
 	public AbstractFactory jdbcFactorys = new FactoryJDBC();
 	
 	public ProductManager() {
@@ -14,13 +15,19 @@ public class ProductManager {
 	}
 	
 	
-	public User getCurrentUser() {
-		return this.currentUser;
-	}
+
 	
 	public Product createProduct(String name, float price, int quantity, String category)
 	{
-		return this.jdbcFactorys.createProduct(name,price,quantity,category);
+		this.currentProduct = this.jdbcFactorys.createProduct(name,price,quantity,category);
+		return this.currentProduct;
 	}
+	
+	/*
+	public Product[] readProduct() {
+		return (this.listProduct = this.userFactorys.readActivityCategory());
+	}
+	*/
+	
 	
 }
