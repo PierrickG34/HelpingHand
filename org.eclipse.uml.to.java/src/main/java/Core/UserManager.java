@@ -4,6 +4,7 @@ import java.util.Date;
 
 import Factory.AbstractFactory;
 import Factory.FactoryJDBC;
+import Persist.UserJDBC;
 
 public class UserManager {
 
@@ -35,7 +36,8 @@ public class UserManager {
 	}
 	
 	public void modifyAccount(String mobile, String address, String password) {
-		this.currentUser.modifyAccount(mobile,address,password);
+		UserJDBC userJDBC = (UserJDBC) this.currentUser;
+		userJDBC.modifyAccount(mobile,address,password);
 	}
 
 	public void setUser(User currentUser2) {

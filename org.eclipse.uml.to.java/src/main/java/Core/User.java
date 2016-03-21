@@ -332,11 +332,4 @@ public abstract class User {
 	public void setAdmin(Boolean newAdmin) {
 		this.admin = newAdmin;
 	}
-
-	
-	public void modifyAccount(String mobile, String address, String password) {
-		this.setMobile(mobile);
-		this.setAddress(address);
-		this.setPassword(password);
-	}
 }
