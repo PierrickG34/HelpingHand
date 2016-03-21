@@ -10,8 +10,8 @@ public class ProductJDBC extends Product{
 	
 	public static JDBConnexion jDBConnexions = new JDBConnexion();
 	
-	public ProductJDBC(String name, float price, int quantity, String category) {
-		super(name, price, quantity, category);
+	public ProductJDBC(String name, float price, int quantity, String category, Integer idVendeur) {
+		super(name, price, quantity, category,idVendeur);
 		System.out.println("Cass ProductJDBC : Constructeur");
 		System.out.println(name);
 		System.out.println(price);
@@ -19,7 +19,7 @@ public class ProductJDBC extends Product{
 		System.out.println(category);
 		try {
 			jDBConnexions.executeUpdate("INSERT INTO Product VALUES (DEFAULT, '"+ name + "','"+ price +"','" + "Poisson" + "','" 
-					+ quantity +"')");
+					+ quantity  + "','" + idVendeur +"')");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
