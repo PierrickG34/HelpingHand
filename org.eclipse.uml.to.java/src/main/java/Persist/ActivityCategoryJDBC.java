@@ -38,4 +38,37 @@ public class ActivityCategoryJDBC extends ActivityCategory {
 		}
 		this.setName("test");
 	}
+	
+	public ActivityCategoryJDBC(String nameTest, String shortDetailTest, String longDetailTest, String Test) {
+		super(nameTest, shortDetailTest, longDetailTest);
+	}
+	
+	public void modifyActivityCategory(int idActivityCategory, String name, String shortdetail, String longdetail) {
+		if (name.isEmpty()) {
+			name = this.getName();
+		}
+		else {
+			this.setName(name);
+		}
+		if (shortdetail.isEmpty()) {
+			shortdetail = this.getShortDetail();
+		}
+		else {
+			this.setShortDetail(shortdetail);
+		}
+		if (longdetail.isEmpty()) {
+			longdetail = this.getLongDetail();
+		}
+		else {
+			this.setLongDetail(longdetail);
+		}
+		this.setIdActivityCategory(idActivityCategory);
+		try {
+			this.jDBConnexions.executeUpdate("UPDATE activitycategory1 SET name = '"+name
+					+"', shortdetail = '"+shortdetail+"', longdetail = '"+longdetail+"' WHERE idactivitycategory = '"+this.getIdActivityCategory()+"'");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

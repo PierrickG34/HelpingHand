@@ -32,5 +32,9 @@ public class ActivityCategoryFacade {
 	public ActivityCategory[] readActivityCategory() {
 		return this.activityCategoryManager.readActivityCategory();
 	}
+	
+	public void modifyActivityCategory(int idActivityCategory, String name, String shortdetail, String longdetail) {
+		this.activityCategoryManager.modifyActivityCategory(idActivityCategory, name,shortdetail,longdetail);
+	}
 
 }

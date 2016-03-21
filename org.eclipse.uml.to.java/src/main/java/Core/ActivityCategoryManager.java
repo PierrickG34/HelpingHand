@@ -1,6 +1,7 @@
 package Core;
 
 import java.util.Date;
+import Persist.ActivityCategoryJDBC;
 
 import Factory.AbstractFactory;
 import Factory.FactoryJDBC;
@@ -25,5 +26,12 @@ public class ActivityCategoryManager {
 	
 	public ActivityCategory[] readActivityCategory() {
 		return (this.listActivityCategory = this.userFactorys.readActivityCategory());
+	}
+	
+	public void modifyActivityCategory(int idActivityCategory, String name, String shortdetail, String longdetail) {
+		System.out.println("AC"+this.currentActivityCategory);
+		ActivityCategoryJDBC currentActivityCategoryJDBC = (ActivityCategoryJDBC) this.currentActivityCategory;
+		System.out.println("2");
+		currentActivityCategoryJDBC.modifyActivityCategory(idActivityCategory, name, shortdetail, longdetail);
 	}
 }
