@@ -88,7 +88,6 @@ public ProductCreateView(User user)
 {
 	super("Product Creation");
 	this.currentUser = user;
-	this.validateCreationProduct.addActionListener(this);
 	this.cancel.addActionListener(this);
 	Container contentPane = getContentPane(); 
     contentPane.setLayout(new BorderLayout()); 
@@ -198,10 +197,7 @@ public void actionPerformed(ActionEvent e) {
 			}
 			
 			if(!this.nameEntre.getText().isEmpty() && !this.priceEntre.getText().isEmpty() && !this.quantityEntre.getText().isEmpty())
-			{
-				System.out.println("Affiche IdUser");
-				System.out.println(this.currentUser.getIdUser());
-				
+			{	
 				Product newProduct = this.productFacades.createProduct(this.nameEntre.getText(), Float.parseFloat(this.priceEntre.getText()), Integer.parseInt(this.quantityEntre.getText()), 
 						this.categoryEntre.getText(), this.currentUser.getIdUser());
 				if (newProduct != null) {				

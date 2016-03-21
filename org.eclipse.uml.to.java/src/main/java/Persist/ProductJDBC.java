@@ -12,11 +12,6 @@ public class ProductJDBC extends Product{
 	
 	public ProductJDBC(String name, float price, int quantity, String category, Integer idVendeur) {
 		super(name, price, quantity, category,idVendeur);
-		System.out.println("Cass ProductJDBC : Constructeur");
-		System.out.println(name);
-		System.out.println(price);
-		System.out.println(quantity);
-		System.out.println(category);
 		try {
 			jDBConnexions.executeUpdate("INSERT INTO Product VALUES (DEFAULT, '"+ name + "','"+ price +"','" + "Poisson" + "','" 
 					+ quantity  + "','" + idVendeur +"')");
