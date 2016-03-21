@@ -17,9 +17,9 @@ public class ProductManager {
 	
 
 	
-	public Product createProduct(String name, float price, int quantity, String category)
+	public Product createProduct(String name, float price, int quantity, String category, Integer idVendeur)
 	{
-		this.currentProduct = this.jdbcFactorys.createProduct(name,price,quantity,category);
+		this.currentProduct = this.jdbcFactorys.createProduct(name,price,quantity,category,idVendeur);
 		return this.currentProduct;
 	}
 	

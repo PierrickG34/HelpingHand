@@ -18,12 +18,15 @@ import javax.swing.SwingConstants;
 
 import Core.Product;
 import Core.ProductFacade;
+import Core.User;
 import Core.UserFacade;
 import Excpetion.AlreadyExistException;
 
 public class ProductCreateView extends JFrame implements ActionListener {
 	
 	
+	
+	private User currentUser;
 	/**
 	 * Descriptions for the Name field
 	 */
@@ -81,9 +84,10 @@ public class ProductCreateView extends JFrame implements ActionListener {
 	   JButton profile = new JButton("Profile");
 	   JButton notifications = new JButton("Notifications");
 	   
-public ProductCreateView()
+public ProductCreateView(User user)
 {
 	super("Product Creation");
+	this.currentUser = user;
 	this.validateCreationProduct.addActionListener(this);
 	this.cancel.addActionListener(this);
 	Container contentPane = getContentPane(); 
@@ -195,9 +199,11 @@ public void actionPerformed(ActionEvent e) {
 			
 			if(!this.nameEntre.getText().isEmpty() && !this.priceEntre.getText().isEmpty() && !this.quantityEntre.getText().isEmpty())
 			{
-				System.out.println("La je passe deux fois ?");
+				System.out.println("Affiche IdUser");
+				System.out.println(this.currentUser.getIdUser());
+				
 				Product newProduct = this.productFacades.createProduct(this.nameEntre.getText(), Float.parseFloat(this.priceEntre.getText()), Integer.parseInt(this.quantityEntre.getText()), 
-						this.categoryEntre.getText());
+						this.categoryEntre.getText(), this.currentUser.getIdUser());
 				if (newProduct != null) {				
 					this.dispose();
 				}
