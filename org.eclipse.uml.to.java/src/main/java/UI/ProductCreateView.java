@@ -1,6 +1,7 @@
 package UI;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -14,6 +15,11 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+
+import Core.Product;
+import Core.ProductFacade;
+import Core.UserFacade;
+import Excpetion.AlreadyExistException;
 
 public class ProductCreateView extends JFrame implements ActionListener {
 	
@@ -31,15 +37,22 @@ public class ProductCreateView extends JFrame implements ActionListener {
 	JTextField priceEntre = new JTextField("", 15);
 
 	/**
-	 * Description for the quantity information
+	 * Description for the quantity field
 	 */
 	JLabel quantity = new JLabel("Quantity:");
 	JTextField quantityEntre = new JTextField("", 15);
+	
+	/**
+	 * Description for the category field
+	 */
+	
+	JLabel category = new JLabel("Category:");
+	JTextField categoryEntre = new JTextField("", 15);
 
 	/**
 	 * Description for the button validate
 	 */
-	JButton validate = new JButton("Validate");
+	JButton validateCreationProduct = new JButton("ValidateCreationProduct");
 
 	/**
 	 * Permit to cancel the creation
@@ -50,8 +63,10 @@ public class ProductCreateView extends JFrame implements ActionListener {
 	/**
 	 * Describe error message
 	 */
+	
 	JLabel errorMessage = new JLabel("");
 
+	public ProductFacade productFacades = new ProductFacade(this);
 
 	/*
 	 *  Describe the menu
@@ -63,14 +78,13 @@ public class ProductCreateView extends JFrame implements ActionListener {
 	   JButton myFavorites = new JButton("My Favorites");
 	   JButton myProducts = new JButton("My Products");
 	   JButton shoppingCart = new JButton("Shopping Cart");
-	   
 	   JButton profile = new JButton("Profile");
 	   JButton notifications = new JButton("Notifications");
 	   
 public ProductCreateView()
 {
 	super("Product Creation");
-	this.validate.addActionListener(this);
+	this.validateCreationProduct.addActionListener(this);
 	this.cancel.addActionListener(this);
 	Container contentPane = getContentPane(); 
     contentPane.setLayout(new BorderLayout()); 
@@ -127,11 +141,12 @@ public ProductCreateView()
 	
 	panelEditInformation.add(this.errorMessage);
 	
+	this.validateCreationProduct.addActionListener(this);
 	
 	panelEditInformation.add(panelLabels);
 	panelEditInformation.add(panelTextField);
-	panelEditInformation.add(validate);
-	this.validate.addActionListener(this);
+	panelEditInformation.add(this.validateCreationProduct);
+	panelEditInformation.add(this.cancel);
 	
 	contentPane.add(panelButton,BorderLayout.NORTH);
 	contentPane.add(panelEditInformation, BorderLayout.CENTER);
@@ -151,7 +166,42 @@ public ProductCreateView()
 
 @Override
 public void actionPerformed(ActionEvent e) {
-	// TODO Auto-generated method stub
-	
-}
+	String source = e.getActionCommand();
+	if (source == "ValidateCreationProduct") {
+			this.errorMessage.setVisible(false);
+			this.name.setForeground(Color.black);
+			this.price.setForeground(Color.black);
+			this.quantity.setForeground(Color.black);
+			
+			if(this.nameEntre.getText().isEmpty()) {
+				this.errorMessage.setText("Enter a Product name please");
+				this.errorMessage.setVisible(true);
+				this.errorMessage.setForeground(Color.red);
+				this.name.setForeground(Color.red);
+				System.out.println("Je passe ici");
+			}
+			if (this.priceEntre.getText().isEmpty()) {
+				this.errorMessage.setText("Enter a prix please");
+				this.errorMessage.setVisible(true);
+				this.errorMessage.setForeground(Color.red);
+				this.price.setForeground(Color.red);
+			}
+			if (this.quantityEntre.getText().isEmpty()) {
+				this.errorMessage.setText("Enter a quantity please");
+				this.errorMessage.setVisible(true);
+				this.errorMessage.setForeground(Color.red);
+				this.quantity.setForeground(Color.red);
+			}
+			
+			if(!this.nameEntre.getText().isEmpty() && !this.priceEntre.getText().isEmpty() && !this.quantityEntre.getText().isEmpty())
+			{
+				System.out.println("La je passe deux fois ?");
+				Product newProduct = this.productFacades.createProduct(this.nameEntre.getText(), Float.parseFloat(this.priceEntre.getText()), Integer.parseInt(this.quantityEntre.getText()), 
+						this.categoryEntre.getText());
+				if (newProduct != null) {				
+					this.dispose();
+				}
+			}	
+   }
+ }
 }

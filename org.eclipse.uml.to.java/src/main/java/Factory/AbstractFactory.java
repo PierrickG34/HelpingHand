@@ -7,6 +7,7 @@ import java.util.Date;
 
 import Core.ActivityCategory;
 import Core.User;
+import Persist.ProductJDBC;
 import Persist.UserJDBC;
 
 // Start of user code (user defined imports)
@@ -43,6 +44,8 @@ public abstract class AbstractFactory {
 			Date dateOfBirth, String profilePicture, String webSiteURL, String siretNumber, String address);
 
 	public abstract ActivityCategory createActivityCategory(String name, String shortDetail, String longDetail ,int idUser);
+	
+	public abstract ProductJDBC createProduct(String name, float price, int quantity, String category);
 	
 	public abstract ActivityCategory[] readActivityCategory();
 	// Start of user code (user defined methods for AbstractUserFactory)

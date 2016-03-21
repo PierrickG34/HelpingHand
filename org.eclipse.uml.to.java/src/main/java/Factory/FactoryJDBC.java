@@ -8,6 +8,7 @@ import java.util.Date;
 import Core.ActivityCategory;
 import Factory.AbstractFactory;
 import Persist.ActivityCategoryJDBC;
+import Persist.ProductJDBC;
 // Start of user code (user defined imports)
 import Persist.UserJDBC;
 
@@ -57,6 +58,12 @@ public class FactoryJDBC extends AbstractFactory {
 	public UserJDBC createUser(String firstName, String surName, String mobile, String mailAddress, String password, Date dateOfBirth, String profilePicture, String webSiteURL, String siretNumber, String address) {
 		return new UserJDBC(firstName, surName, mobile, mailAddress, password, dateOfBirth, profilePicture, webSiteURL, siretNumber, address);
 	}
+	
+	public ProductJDBC createProduct(String name, float price, int quantity, String category)
+	{ 
+		return new ProductJDBC(name,price,quantity,category);
+	}
+	
 	
 
 	// Start of user code (user defined methods for UserFactory)

@@ -46,11 +46,11 @@ public class ProductFacade {
 	 * @param login 
 	 * @param password 
 	 */
-/*
+
 	public Product createProduct(String name, float price, int quantity, String category) {
 		return this.productManager.createProduct(name,price,quantity,category);
 	}
-*/
+
 	// Start of user code (user defined methods for UserFacade)
 
 	// End of user code

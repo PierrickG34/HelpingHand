@@ -17,10 +17,10 @@ public class ProductManager {
 	public User getCurrentUser() {
 		return this.currentUser;
 	}
-	/*
+	
 	public Product createProduct(String name, float price, int quantity, String category)
 	{
 		return this.jdbcFactorys.createProduct(name,price,quantity,category);
 	}
-	*/
+	
 }
