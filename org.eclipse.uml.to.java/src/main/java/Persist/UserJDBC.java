@@ -29,7 +29,8 @@ public class UserJDBC extends User {
 	/**
 	 * Description of the property jDBConnexions.
 	 */
-	public JDBConnexion jDBConnexions = new JDBConnexion();
+	//public JDBConnexion jDBConnexions = new JDBConnexion();
+	public JDBConnexion jDBConnexions = JDBConnexion.createConnect();
 
 	// End of user code
 

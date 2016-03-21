@@ -8,7 +8,8 @@ import Excpetion.AlreadyExistException;
 
 public class ProductJDBC extends Product{
 	
-	public static JDBConnexion jDBConnexions = new JDBConnexion();
+	//public static JDBConnexion jDBConnexions = new JDBConnexion();
+	public JDBConnexion jDBConnexions = JDBConnexion.createConnect();
 	
 	public ProductJDBC(String name, float price, int quantity, String category, Integer idVendeur) {
 		super(name, price, quantity, category,idVendeur);

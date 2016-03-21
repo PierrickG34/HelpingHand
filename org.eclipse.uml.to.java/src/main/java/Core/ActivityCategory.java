@@ -1,6 +1,7 @@
 package Core;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import Persist.JDBConnexion;
@@ -15,7 +16,8 @@ public abstract class ActivityCategory {
 	/**
 	 * Description of the property jDBConnexions.
 	 */
-	public JDBConnexion jDBConnexions = new JDBConnexion();
+	//public JDBConnexion jDBConnexions = new JDBConnexion();
+	public JDBConnexion jDBConnexions = JDBConnexion.createConnect();
 
 	/**
 	 * Description of the property idUser.
@@ -79,5 +81,7 @@ public abstract class ActivityCategory {
 	public void setLongDetail(String longDetail) {
 		this.longDetail = longDetail;
 	}
+	
+	public abstract List<ActivityCategory> getAllCategories();
 	
 }

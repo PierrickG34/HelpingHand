@@ -47,8 +47,9 @@ public abstract class AbstractFactory {
 	
 	public abstract ProductJDBC createProduct(String name, float price, int quantity, String category, int idVendeur);
 	
-	public abstract ActivityCategory[] readActivityCategory();
 	// Start of user code (user defined methods for AbstractUserFactory)
+
+	public abstract ActivityCategory createCategory();
 
 	// End of user code
 

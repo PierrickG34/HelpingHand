@@ -8,8 +8,12 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import Core.ActivityCategory;
 
 // Start of user code (user defined imports)
 
@@ -42,12 +46,18 @@ public class JDBConnexion {
 	 */
 	private HashMap m;
 	// End of user code
+	
+	/**
+	 * Maybe a suppr?
+	 */
+	private static boolean isConnected = false;
+	private static JDBConnexion connexion;
 
 	/**
 	 * The constructor to connect to the database
 	 * @param login
 	 */
-	public JDBConnexion() {
+	private JDBConnexion() {
 		// Start of user code constructor for JDBConnexion)
 		super();
 		try {
@@ -74,6 +84,14 @@ public class JDBConnexion {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public static JDBConnexion createConnect() {
+		if (!isConnected) {
+			connexion = new JDBConnexion();
+			isConnected = true;
+		}
+		return connexion;
 	}
 
 	
@@ -153,6 +171,38 @@ public class JDBConnexion {
 		this.m = (HashMap) extractData();
 		
 		// End of user code
+	}
+	
+	/**
+	 * Mayebe a suppr?
+	 * @param string
+	 */
+	public List<ActivityCategory> getAllActivityCategory(String request) {
+		List<ActivityCategory> list = new ArrayList<ActivityCategory>();
+		java.sql.Statement stmt = null;
+		System.out.println("Creating statement...");
+		try {
+			stmt = this.conn.createStatement();
+			this.rs = stmt.executeQuery(request);
+			while ( rs.next() ) {
+				ActivityCategory activityCategory = new ActivityCategoryJDBC();
+				ResultSetMetaData resultMeta = rs.getMetaData();
+				if (resultMeta.getTableName(1).equals("activitycategory1")) {
+					activityCategory.setIdActivityCategory((int) rs.getObject("idactivitycategory"));
+					activityCategory.setName((String) rs.getObject("name"));
+					activityCategory.setShortDetail((String) rs.getObject("shortdetail"));
+					activityCategory.setLongDetail((String) rs.getObject("longdetail"));
+					list.add(activityCategory);
+				}
+			}
+			rs.close();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return list;
 	}
 	
 	public void executeUpdate(String request) throws SQLException {

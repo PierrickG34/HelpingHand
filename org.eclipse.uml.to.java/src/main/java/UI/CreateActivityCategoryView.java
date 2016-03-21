@@ -14,11 +14,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.swing.border.Border;
 
 import Core.ActivityCategoryFacade;
 import Core.User;
-import Core.UserFacade;
 import Excpetion.AlreadyExistException;
 
 public class CreateActivityCategoryView extends JFrame implements ActionListener {
@@ -67,7 +65,7 @@ public class CreateActivityCategoryView extends JFrame implements ActionListener
 	    /**
      * Describe error message
      */
-    JLabel errorMessage = new JLabel("TEST");
+    JLabel errorMessage = new JLabel("");
 	
 	public CreateActivityCategoryView(User currentUser) {
 		super("DashBoard"); // Name of the frame
@@ -190,11 +188,6 @@ public class CreateActivityCategoryView extends JFrame implements ActionListener
 			
 			/*If all fields are filled, execute the request*/
 			if(!this.nameEntre.getText().isEmpty() && !this.shortDetailEntre.getText().isEmpty() && !this.longDetailEntre.getText().isEmpty() && !this.currentUser.getIdUser().equals("")) {
-				System.out.println("CreateActivityCategoryView: ");
-				System.out.println("Name:" +this.nameEntre.getText());
-				System.out.println("shortDetail:" +this.shortDetailEntre.getText());
-				System.out.println("longDetail:" +this.longDetailEntre.getText());
-				System.out.println("idUser: " +this.currentUser.getIdUser());
 				try {
 					this.activityCategoryFacades.createActivityCategory(this.nameEntre.getText(), this.shortDetailEntre.getText(), this.longDetailEntre.getText(), this.currentUser.getIdUser());
 				} catch (AlreadyExistException errorCreateActivityCategory) {

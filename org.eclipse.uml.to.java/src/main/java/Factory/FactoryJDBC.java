@@ -91,11 +91,8 @@ public class FactoryJDBC extends AbstractFactory {
 	}
 
 	@Override
-	public ActivityCategoryJDBC[] readActivityCategory() {
-		ActivityCategoryJDBC res = new ActivityCategoryJDBC();
-		System.out.println("res" + res);
-		System.out.println("name " + res.getName());
-		return null;
+	public ActivityCategory createCategory() {
+		return new ActivityCategoryJDBC();
 	}
 	
 	

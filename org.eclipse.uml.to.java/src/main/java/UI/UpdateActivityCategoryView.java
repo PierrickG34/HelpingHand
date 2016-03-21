@@ -6,6 +6,8 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -15,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import Core.ActivityCategory;
 import Core.ActivityCategoryFacade;
 import Core.User;
 import Persist.ActivityCategoryJDBC;
@@ -38,7 +41,7 @@ public class UpdateActivityCategoryView extends JFrame implements ActionListener
 	JButton submit = new JButton("Submit");
 
 
-	JComboBox combo = new JComboBox();
+	JComboBox<String> combo = new JComboBox<String>();
 
 	/**
 	 * Text to choose the activity category to delete
@@ -76,12 +79,17 @@ public class UpdateActivityCategoryView extends JFrame implements ActionListener
 	/**
 	 * Define the current activit category that the admin choose
 	 */
-	ActivityCategoryJDBC currentActivityCategory = new ActivityCategoryJDBC("1", "2", "3", "4");
+	ActivityCategoryJDBC currentActivityCategory;
 
 	/**
 	 * Description of the property ActivityCategoryFacades.
 	 */
 	public ActivityCategoryFacade activityCategoryFacades = new ActivityCategoryFacade(this);
+	
+	/**
+	 * Contain all the activity category of the database
+	 */
+	List<ActivityCategory> allActivityCategory = new ArrayList<ActivityCategory>();
 
 	private User currentUser;
 
@@ -135,8 +143,11 @@ public class UpdateActivityCategoryView extends JFrame implements ActionListener
 		this.submit.addActionListener(this);
 		this.chooseActivityCategoryButton.addActionListener(this);
 
-		this.combo.addItem("Premier");
-		this.combo.addItem("Deuxième");
+		//Recuperate the activity Category and add to the combobox
+		this.allActivityCategory = this.activityCategoryFacades.getAllCategories();
+		for (int i = 0; i< this.allActivityCategory.size(); i++) {
+			this.combo.addItem(this.allActivityCategory.get(i).getName());
+		}
 		panelComboBox.add(this.chooseActivityCategory);
 		panelComboBox.add(this.combo);
 		panelComboBox.add(this.chooseActivityCategoryButton);
@@ -180,12 +191,18 @@ public class UpdateActivityCategoryView extends JFrame implements ActionListener
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();
 		if(source == "Choose") {
-			//this.activityCategoryFacades.readActivityCategory();
+			
+			System.out.println(this.combo.getSelectedItem());
+			System.out.println(this.allActivityCategory.get(0));
+			System.out.println(this.allActivityCategory.get(0).getName());
 			this.panelEditAll.setVisible(true);
+			
+			
 			/* Aller dans la base de données avec l'id de la category*/
-			this.nameActivityCategoryEntre.setToolTipText(this.currentActivityCategory.getName());
-			this.shortDetailActivityCategoryEntre.setToolTipText(this.currentActivityCategory.getShortDetail());
-			this.longDetailActivityCategoryEntre.setToolTipText(this.currentActivityCategory.getLongDetail());
+//			this.currentActivityCategory = new ActivityCategoryJDBC("1", "2", "3", "4");
+//			this.nameActivityCategoryEntre.setToolTipText(this.currentActivityCategory.getName());
+//			this.shortDetailActivityCategoryEntre.setToolTipText(this.currentActivityCategory.getShortDetail());
+//			this.longDetailActivityCategoryEntre.setToolTipText(this.currentActivityCategory.getLongDetail());
 		}
 		if(source == "Submit") {
 			System.out.println("SUBMIT BUTTON");

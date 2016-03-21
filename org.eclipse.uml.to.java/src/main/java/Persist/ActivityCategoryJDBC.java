@@ -2,6 +2,8 @@ package Persist;
 
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 import Core.ActivityCategory;
 import Excpetion.AlreadyExistException;
@@ -16,7 +18,12 @@ public class ActivityCategoryJDBC extends ActivityCategory {
 	/**
 	 * Description of the property jDBConnexions.
 	 */
-	public JDBConnexion jDBConnexions = new JDBConnexion();
+	//public JDBConnexion jDBConnexions = new JDBConnexion();
+	public JDBConnexion jDBConnexions = JDBConnexion.createConnect();
+	
+	public ActivityCategoryJDBC() {
+		super();
+	}
 
 	public ActivityCategoryJDBC(String name, String shortDetail, String longDetail, int idUser) {
 		super(name, shortDetail, longDetail);
@@ -28,16 +35,7 @@ public class ActivityCategoryJDBC extends ActivityCategory {
 			throw new AlreadyExistException("Your activity category is already used, please choose an other.");
 		}
 	}
-	
-	public ActivityCategoryJDBC() {
-		super();
-		try {
-			this.jDBConnexions.executeRequest("select * from activitycategory1 where idactivitycategory = 1");
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		this.setName("test");
-	}
+
 	
 	public ActivityCategoryJDBC(String nameTest, String shortDetailTest, String longDetailTest, String Test) {
 		super(nameTest, shortDetailTest, longDetailTest);
@@ -70,5 +68,12 @@ public class ActivityCategoryJDBC extends ActivityCategory {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public List<ActivityCategory> getAllCategories() {
+		List<ActivityCategory> list = new ArrayList<ActivityCategory>();
+		list = this.jDBConnexions.getAllActivityCategory("SELECT * FROM activitycategory1");
+		return list;
 	}
 }
