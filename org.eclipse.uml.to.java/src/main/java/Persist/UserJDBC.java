@@ -132,6 +132,33 @@ public class UserJDBC extends User {
 		this.jDBConnexions = newJDBConnexions;
 	}
 	
+	public void modifyAccount(String mobile, String address, String password) {
+		if (mobile.isEmpty()) {
+			mobile = this.getMobile();
+		}
+		else {
+			this.setMobile(mobile);
+		}
+		if (address.isEmpty()) {
+			address = this.getAddress();
+		}
+		else {
+			this.setAddress(address);		
+		}
+		if (password.isEmpty()) {
+			password = this.getPassword();
+		}
+		else {
+			this.setPassword(password);
+		}
+		try {
+			this.jDBConnexions.executeUpdate("UPDATE person SET mobile = '"+mobile+"', addressuser = '"+address+"', password = '"+password+"' WHERE iduser = '"+this.getIdUser()+"'");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	@Override
 	public void save() {
 		// TODO Auto-generated method stub

@@ -47,8 +47,8 @@ public class ProductFacade {
 	 * @param password 
 	 */
 
-	public Product createProduct(String name, float price, int quantity, String category) {
-		return this.productManager.createProduct(name,price,quantity,category);
+	public Product createProduct(String name, float price, int quantity, String category, Integer idVendeur) {
+		return this.productManager.createProduct(name,price,quantity,category,idVendeur);
 	}
 
 	// Start of user code (user defined methods for UserFacade)

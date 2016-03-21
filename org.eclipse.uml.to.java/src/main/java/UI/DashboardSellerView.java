@@ -23,6 +23,8 @@ import Core.UserFacade;
 
 public class DashboardSellerView extends JFrame implements ActionListener {
 
+	   
+	   private User currentUser;
 	   JButton dashboard = new JButton("Dashboard");
 	   JButton journal = new JButton("Journal");
 	   JButton myPlans = new JButton("My Plans");
@@ -43,6 +45,7 @@ public class DashboardSellerView extends JFrame implements ActionListener {
 	public DashboardSellerView(User currentUser) {
 		super("DashBoard"); // Name of the frame
 		/* Defined actions on the different buttons */
+		this.currentUser = currentUser;
 		this.dashboard.addActionListener(this);
 		this.journal.addActionListener(this);
 		this.myPlans.addActionListener(this);
@@ -103,7 +106,7 @@ public class DashboardSellerView extends JFrame implements ActionListener {
 			System.out.println("Action a définir ici...");
 		}
 		else if (source == "My Products"){
-			ProductCreateView profilUserView = new ProductCreateView();
+			ProductCreateView profilUserView = new ProductCreateView(this.currentUser);
 		}
 		else if (source == "Shopping Cart"){
 			System.out.println("Je suis Shopping Cart");
