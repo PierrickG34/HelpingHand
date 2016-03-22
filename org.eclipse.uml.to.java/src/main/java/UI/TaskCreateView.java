@@ -168,52 +168,38 @@ public class TaskCreateView extends JFrame implements ActionListener {
 		String source = e.getActionCommand();
 		if(source == "Create") {
 			System.out.println("BUTTON CREATE");
-//			/* Clean error message */
-//			this.errorMessage.setVisible(false);
-//			this.name.setForeground(Color.black);
-//			this.shortDetail.setForeground(Color.black);
-//			this.longDetail.setForeground(Color.black);
-//			
-//			/* Test if the admin fill alls field */
-//			int count = 0;
-//			if(this.nameEntre.getText().isEmpty()) {
-//				this.errorMessage.setText("Enter a name please");
-//				this.errorMessage.setVisible(true);
-//				this.errorMessage.setForeground(Color.red);
-//				this.name.setForeground(Color.red);
-//				count++;
-//			}
-//			if(this.shortDetailEntre.getText().isEmpty()) {
-//				this.errorMessage.setText("Enter a short detail please");
-//				this.errorMessage.setVisible(true);
-//				this.errorMessage.setForeground(Color.red);
-//				this.shortDetail.setForeground(Color.red);
-//				count++;
-//			}
-//			if(this.longDetailEntre.getText().isEmpty()) {
-//				this.errorMessage.setText("Enter a long detail please");
-//				this.errorMessage.setVisible(true);
-//				this.errorMessage.setForeground(Color.red);
-//				this.longDetail.setForeground(Color.red);
-//				count++;
-//			}
-//			if(count > 2) {
-//				this.errorMessage.setText("Please complete all fields");
-//				this.errorMessage.setVisible(true);
-//				this.errorMessage.setForeground(Color.red);
-//			}
-//			
-//			/*If all fields are filled, execute the request*/
-//			if(!this.nameEntre.getText().isEmpty() && !this.shortDetailEntre.getText().isEmpty() && !this.longDetailEntre.getText().isEmpty() && !this.currentUser.getIdUser().equals("")) {
-//				try {
-//					this.activityCategoryFacades.createActivityCategory(this.nameEntre.getText(), this.shortDetailEntre.getText(), this.longDetailEntre.getText(), this.currentUser.getIdUser());
-//				} catch (AlreadyExistException errorCreateActivityCategory) {
-//					this.errorMessage.setText(errorCreateActivityCategory.getNameError());
-//					this.errorMessage.setForeground(Color.red);
-//					this.errorMessage.setVisible(true);
-//					this.name.setForeground(Color.red);
-//				}
-//			}
+			/* Clean error message */
+			this.errorMessage.setVisible(false);
+			this.name.setForeground(Color.black);
+			this.description.setForeground(Color.black);
+			
+			
+			/* Test if the task fill alls field */
+			int count = 0;
+			if(this.nameEntre.getText().isEmpty()) {
+				this.errorMessage.setText("Enter a name please");
+				this.errorMessage.setVisible(true);
+				this.errorMessage.setForeground(Color.red);
+				this.name.setForeground(Color.red);
+				count++;
+			}
+			if(this.descriptionEntre.getText().isEmpty()) {
+				this.errorMessage.setText("Enter a description please");
+				this.errorMessage.setVisible(true);
+				this.errorMessage.setForeground(Color.red);
+				this.description.setForeground(Color.red);
+				count++;
+			}
+			if(count >= 2) {
+				this.errorMessage.setText("Please complete all fields");
+				this.errorMessage.setVisible(true);
+				this.errorMessage.setForeground(Color.red);
+			}
+			
+			/*If all fields are filled, execute the request*/
+			if(!this.nameEntre.getText().isEmpty() && !this.descriptionEntre.getText().isEmpty()) {
+				System.out.println("On peut le creer!");
+			}
 		}
 	}
 		
