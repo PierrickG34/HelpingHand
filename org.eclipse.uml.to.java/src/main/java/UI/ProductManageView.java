@@ -74,7 +74,7 @@ public class ProductManageView extends JFrame implements ActionListener {
         
   
         /*-------------- Veritable view --------------------*/
-        JPanel manageButton = new JPanel(new GridLayout(2, 1));
+        JPanel manageButton = new JPanel(new GridLayout(3, 1));
         JPanel createButton = new JPanel();
         JPanel updateButton = new JPanel();
         JPanel deleteButton = new JPanel();
