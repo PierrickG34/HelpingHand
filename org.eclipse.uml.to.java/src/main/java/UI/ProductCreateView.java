@@ -115,9 +115,11 @@ public ProductCreateView(User user)
 	
 	
 	/*##### Display and edit the information #####*/
+	JPanel panelAll = new JPanel(new GridLayout(2, 0));
 	JPanel panelEditInformation = new JPanel();
 	JPanel panelLabels = new JPanel(new GridLayout(0,1));
 	JPanel panelTextField = new JPanel(new GridLayout(0,1));
+	JPanel panelButtonValidate = new JPanel();
 	
 	//Name
 	this.name.setPreferredSize(this.nameEntre.getPreferredSize());
@@ -142,17 +144,20 @@ public ProductCreateView(User user)
 	contentPane.add(panelButton,BorderLayout.NORTH);
 	contentPane.add(panelEditInformation, BorderLayout.LINE_START);
 	
-	panelEditInformation.add(this.errorMessage);
+	
 	
 	this.validateCreationProduct.addActionListener(this);
 	
 	panelEditInformation.add(panelLabels);
 	panelEditInformation.add(panelTextField);
-	panelEditInformation.add(this.validateCreationProduct);
-	panelEditInformation.add(this.cancel);
+	panelButtonValidate.add(this.validateCreationProduct);
+	panelButtonValidate.add(this.cancel);
+	panelButtonValidate.add(this.errorMessage);
+	panelAll.add(panelEditInformation);
+	panelAll.add(panelButtonValidate);
 	
-	contentPane.add(panelButton,BorderLayout.NORTH);
-	contentPane.add(panelEditInformation, BorderLayout.CENTER);
+	//contentPane.add(panelButton,BorderLayout.NORTH);
+	contentPane.add(panelAll, BorderLayout.CENTER);
 
 
 
