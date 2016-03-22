@@ -108,6 +108,7 @@ public class CreateActivityCategoryView extends JFrame implements ActionListener
         
   
         /*-------------- Veritable view --------------------*/
+        JPanel panelAll = new JPanel(new GridLayout(2, 0));
         JPanel panelCreateActivityCategory = new JPanel();
 		JPanel panelLabels = new JPanel(new GridLayout(0,1));
 		JPanel panelTextField = new JPanel(new GridLayout(0,1));
@@ -136,10 +137,12 @@ public class CreateActivityCategoryView extends JFrame implements ActionListener
 		panelButtonValidate.add(validate, BorderLayout.CENTER);
 		panelButtonValidate.add(this.errorMessage, BorderLayout.CENTER);
 		this.errorMessage.setVisible(false);
-		panelCreateActivityCategory.add(panelButtonValidate);
+		//panelCreateActivityCategory.add(panelButtonValidate);
 		this.validate.addActionListener(this);
 		
-		contentPane.add(panelCreateActivityCategory, BorderLayout.WEST);
+		panelAll.add(panelCreateActivityCategory);
+		panelAll.add(panelButtonValidate);
+		contentPane.add(panelAll, BorderLayout.WEST);
 
         //Display
         setSize(400,120);
