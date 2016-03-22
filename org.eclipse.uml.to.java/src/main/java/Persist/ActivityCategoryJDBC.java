@@ -41,13 +41,7 @@ public class ActivityCategoryJDBC extends ActivityCategory {
 		super(nameTest, shortDetailTest, longDetailTest);
 	}
 	
-	public void modifyActivityCategory(int idActivityCategory, String name, String shortdetail, String longdetail) {
-		if (name.isEmpty()) {
-			name = this.getName();
-		}
-		else {
-			this.setName(name);
-		}
+	public void modifyActivityCategory(ActivityCategory ac, String shortdetail, String longdetail) {
 		if (shortdetail.isEmpty()) {
 			shortdetail = this.getShortDetail();
 		}
@@ -60,10 +54,8 @@ public class ActivityCategoryJDBC extends ActivityCategory {
 		else {
 			this.setLongDetail(longdetail);
 		}
-		this.setIdActivityCategory(idActivityCategory);
 		try {
-			this.jDBConnexions.executeUpdate("UPDATE activitycategory1 SET name = '"+name
-					+"', shortdetail = '"+shortdetail+"', longdetail = '"+longdetail+"' WHERE idactivitycategory = '"+this.getIdActivityCategory()+"'");
+			this.jDBConnexions.executeUpdate("UPDATE activitycategory1 SET shortdetail = '"+shortdetail+"', longdetail = '"+longdetail+"' WHERE name = '"+ac.getName()+"'");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

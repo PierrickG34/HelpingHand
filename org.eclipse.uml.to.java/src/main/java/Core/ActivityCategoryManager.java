@@ -26,15 +26,15 @@ public class ActivityCategoryManager {
 		return (this.currentActivityCategory = this.userFactorys.createActivityCategory(name, shortDetail, longDetail, idUser));
 	}
 
-	public void modifyActivityCategory(int idActivityCategory, String name, String shortdetail, String longdetail) {
-		System.out.println("AC"+this.currentActivityCategory);
+	public void modifyActivityCategory(ActivityCategory ac, String shortdetail, String longdetail) {
+		this.currentActivityCategory = ac;
 		ActivityCategoryJDBC currentActivityCategoryJDBC = (ActivityCategoryJDBC) this.currentActivityCategory;
-		System.out.println("2");
-		currentActivityCategoryJDBC.modifyActivityCategory(idActivityCategory, name, shortdetail, longdetail);
+		currentActivityCategoryJDBC.modifyActivityCategory(ac, shortdetail, longdetail);
 	}
 
 	public List<ActivityCategory> getAllCategories() {
 		ActivityCategory activityCategory = this.userFactorys.createCategory();
 		return activityCategory.getAllCategories();
 	}
+
 }

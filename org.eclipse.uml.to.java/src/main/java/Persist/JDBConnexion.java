@@ -174,10 +174,6 @@ public class JDBConnexion {
 		// End of user code
 	}
 	
-	/**
-	 * Mayebe a suppr?
-	 * @param string
-	 */
 	public List<ActivityCategory> getAllActivityCategory(String request) {
 		List<ActivityCategory> list = new ArrayList<ActivityCategory>();
 		java.sql.Statement stmt = null;
