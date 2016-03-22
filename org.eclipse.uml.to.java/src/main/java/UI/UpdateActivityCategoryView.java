@@ -41,6 +41,9 @@ public class UpdateActivityCategoryView extends JFrame implements ActionListener
 	JButton submit = new JButton("Submit");
 
 
+	/**
+	 * Define the drop down menu with the activity category
+	 */
 	JComboBox<String> combo = new JComboBox<String>();
 
 	/**
