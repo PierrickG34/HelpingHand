@@ -3,6 +3,7 @@ package Core;
 import java.util.Date;
 import java.util.List;
 
+import Persist.ActivityCategoryJDBC;
 import UI.CreateActivityCategoryView;
 import UI.UpdateActivityCategoryView;
 
@@ -31,14 +32,10 @@ public class ActivityCategoryFacade {
 	}
 
 	
-	public void modifyActivityCategory(int idActivityCategory, String name, String shortdetail, String longdetail) {
-		this.activityCategoryManager.modifyActivityCategory(idActivityCategory, name,shortdetail,longdetail);
+	public void modifyActivityCategory(ActivityCategory ac, String shortdetail, String longdetail) {
+		this.activityCategoryManager.modifyActivityCategory(ac,shortdetail,longdetail);
 	}
 	
-	/**
-	 * Maybe a suppr?
-	 * @return
-	 */
 	public List<ActivityCategory> getAllCategories() {
 		return this.activityCategoryManager.getAllCategories();
 	}

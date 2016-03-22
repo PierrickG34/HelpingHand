@@ -53,12 +53,7 @@ public class UpdateActivityCategoryView extends JFrame implements ActionListener
 	 */
 	JButton chooseActivityCategoryButton = new JButton("Choose");
 
-	/**
-	 * Descriptions for the name of an activity category
-	 */
-	JLabel nameActivityCategory = new JLabel("Name :");
-	JTextField nameActivityCategoryEntre = new JTextField("", 15);
-
+	
 	/**
 	 * Descriptions for the short detail of an activity category
 	 */
@@ -151,12 +146,6 @@ public class UpdateActivityCategoryView extends JFrame implements ActionListener
 		panelComboBox.add(this.chooseActivityCategory);
 		panelComboBox.add(this.combo);
 		panelComboBox.add(this.chooseActivityCategoryButton);
-	 
-		// Name of the activity category
-        this.nameActivityCategory.setPreferredSize(this.nameActivityCategoryEntre.getPreferredSize());
-        this.nameActivityCategory.setHorizontalAlignment(SwingConstants.RIGHT);
-        panelLabels.add(this.nameActivityCategory);
-        panelTextFiel.add(this.nameActivityCategoryEntre);
         
         // Short detail 
         this.shortDetailActivityCategory.setPreferredSize(this.shortDetailActivityCategoryEntre.getPreferredSize());
@@ -191,22 +180,14 @@ public class UpdateActivityCategoryView extends JFrame implements ActionListener
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();
 		if(source == "Choose") {
-			
-			System.out.println(this.combo.getSelectedItem());
-			System.out.println(this.allActivityCategory.get(0));
-			System.out.println(this.allActivityCategory.get(0).getName());
 			this.panelEditAll.setVisible(true);
 			
-			
 			/* Aller dans la base de données avec l'id de la category*/
-//			this.currentActivityCategory = new ActivityCategoryJDBC("1", "2", "3", "4");
-//			this.nameActivityCategoryEntre.setToolTipText(this.currentActivityCategory.getName());
-//			this.shortDetailActivityCategoryEntre.setToolTipText(this.currentActivityCategory.getShortDetail());
-//			this.longDetailActivityCategoryEntre.setToolTipText(this.currentActivityCategory.getLongDetail());
+			this.shortDetailActivityCategoryEntre.setToolTipText(this.allActivityCategory.get(this.combo.getSelectedIndex()).getShortDetail());
+			this.longDetailActivityCategoryEntre.setToolTipText(this.allActivityCategory.get(this.combo.getSelectedIndex()).getLongDetail());
 		}
 		if(source == "Submit") {
-			System.out.println("SUBMIT BUTTON");
-			//this.activityCategoryFacades.modifyActivityCategory(1, this.nameActivityCategoryEntre.getText(), this.shortDetailActivityCategoryEntre.getText(), this.longDetailActivityCategoryEntre.getText());
+			this.activityCategoryFacades.modifyActivityCategory(this.allActivityCategory.get(this.combo.getSelectedIndex()), this.shortDetailActivityCategoryEntre.getText(), this.longDetailActivityCategoryEntre.getText());
 		}
 	}
 }
