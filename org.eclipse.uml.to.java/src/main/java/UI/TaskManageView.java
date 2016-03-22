@@ -13,8 +13,8 @@ import javax.swing.JPanel;
 
 import Core.User;
 
-public class DashboardAdminView extends JFrame implements ActionListener {
-	
+public class TaskManageView extends JFrame implements ActionListener {
+
 	JButton dashboard = new JButton("Dashboard");
 	JButton activityCategory = new JButton("Activity Category");
 	JButton productCategory = new JButton("Product Category");
@@ -26,13 +26,15 @@ public class DashboardAdminView extends JFrame implements ActionListener {
 	JButton profile = new JButton("Profile");
 	JButton notifications = new JButton("Notifications");
 	
+	JButton create = new JButton("Create a Task");
+	JButton update = new JButton("Update a Task");
+	JButton delete = new JButton("Delete a Task");
+	
 	
 	private User currentUser;
 	
-	
-	
-	public DashboardAdminView(User currentUser) {
-		super("DashBoard"); // Name of the frame
+	public TaskManageView(User currentUser) {
+		super("Task"); // Name of the frame
 		this.currentUser = currentUser;
 		/* Defined actions on the different buttons */
 		this.dashboard.addActionListener(this);
@@ -68,54 +70,48 @@ public class DashboardAdminView extends JFrame implements ActionListener {
         panelButton.add(panelTopButton);
         panelButton.add(panelBottomButton);
         
-  
         contentPane.add(panelButton,BorderLayout.NORTH);
+        
+  
+        /*-------------- Veritable view --------------------*/
+        JPanel manageButton = new JPanel(new GridLayout(3, 1));
+        JPanel createButton = new JPanel();
+        JPanel updateButton = new JPanel();
+        JPanel deleteButton = new JPanel();
+        
+        this.create.addActionListener(this);
+        this.update.addActionListener(this);
+        this.delete.addActionListener(this);
+        
+        createButton.add(this.create);
+        updateButton.add(this.update);
+        deleteButton.add(this.delete);
+        
+        manageButton.add(createButton);
+        manageButton.add(updateButton);
+        manageButton.add(deleteButton);
+        
+        contentPane.add(manageButton, BorderLayout.WEST);
 
         //Display
         setSize(400,120);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();
-		if (source == "Dashboard") {
-			System.out.println("Je suis Dashboard");
-			System.out.println("Action a définir ici...");
+		if(source == "Create a Task") {
+			System.out.println("BUTTON CREATE");
+			//ProductCreateView profilUserView = new ProductCreateView(this.currentUser);
 		}
-		else if (source == "Activity Category" ){
-//			System.out.println("Je suis Activity Category");
-//			System.out.println("Action a définir ici...");
-			ActivtyCategoryManageView activityCategory = new ActivtyCategoryManageView(this.currentUser);
+		else if(source == "Update a Task") {
+			System.out.println("BUTTON UPDATE");
+			//UpdateProductView profilUserView = new UpdateProductView(this.currentUser);
 		}
-		else if (source == "Product Category"){
-			System.out.println("Je suis Product Category");
-			System.out.println("Action a définir ici...");
-		}
-		else if (source == "Product"){
-			System.out.println("Je suis Product");
-			System.out.println("Action a définir ici...");
-		}
-		else if (source == "Account"){
-			System.out.println("Je suis Account");
-			System.out.println("Action a définir ici...");
-		}
-		else if (source == "Plan"){
-			System.out.println("Je suis Plan");
-			System.out.println("Action a définir ici...");
-		}
-		else if (source == "Task"){
-			TaskManageView taskManageView = new TaskManageView(this.currentUser);
-		}
-		else if (source == "Profile"){
-			System.out.println("Je suis Profile");
-			System.out.println("Action a définir ici...");
-		}
-		else if (source == "Notifications"){
-			System.out.println("Je suis Notifications");
-			System.out.println("Action a définir ici...");
+		else if(source == "Delete a Task") {
+			System.out.println("BUTTON DELETE");
 		}
 	}
-
 }
