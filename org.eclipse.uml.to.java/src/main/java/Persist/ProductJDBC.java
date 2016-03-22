@@ -2,6 +2,8 @@ package Persist;
 
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 import Core.Product;
 import Excpetion.AlreadyExistException;
@@ -24,15 +26,19 @@ public class ProductJDBC extends Product{
 		
 		
 	}
-	/*
-	public static void readProduct() {
-		try {
-			jDBConnexions.executeRequest("select * from product where idactivitycategory = 1");
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+	
+
+	public ProductJDBC() {
+		// TODO Auto-generated constructor stub
 	}
-	*/
+
+	@Override
+	public List<Product> getAllProduct(Integer id) {
+		List<Product> list = new ArrayList<Product>();
+		list = this.jDBConnexions.getAllProduct("SELECT * FROM product where idp =" + id ) ;
+		return list;
+	}
+	
 	/**
 	 * Description of the property jDBConnexions.
 	 */

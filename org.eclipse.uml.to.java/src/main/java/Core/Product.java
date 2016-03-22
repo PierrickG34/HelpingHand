@@ -3,7 +3,10 @@
  *******************************************************************************/
 package Core;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 import Persist.UserJDBC;
 
 // Start of product code (product defined imports)
@@ -60,6 +63,7 @@ public abstract class Product {
 		// End of user code
 	}
 	
+	public Product() {}
 	public abstract void save();
 
 
@@ -123,10 +127,21 @@ public abstract class Product {
 		return this.quantity;
 	}
 	
+	public void setCategory(String s)
+	{
+		this.category = s;
+	}
+	
+	public String getCategory()
+	{
+		return this.category;
+	}
 	public void setQuantity(int newQuantity)
 	{
 		this.quantity = newQuantity;
 	}
+
+	public abstract List<Product> getAllProduct(Integer id);
 
 
 

@@ -6,6 +6,7 @@ package Factory;
 import java.util.Date;
 
 import Core.ActivityCategory;
+import Core.Product;
 import Factory.AbstractFactory;
 import Persist.ActivityCategoryJDBC;
 import Persist.ProductJDBC;
@@ -93,6 +94,10 @@ public class FactoryJDBC extends AbstractFactory {
 	@Override
 	public ActivityCategory createCategory() {
 		return new ActivityCategoryJDBC();
+	}
+	
+	public Product createProduct() {
+		return new ProductJDBC();
 	}
 	
 	

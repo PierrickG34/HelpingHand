@@ -6,6 +6,7 @@ package Factory;
 import java.util.Date;
 
 import Core.ActivityCategory;
+import Core.Product;
 import Core.User;
 import Persist.ProductJDBC;
 import Persist.UserJDBC;
@@ -51,6 +52,7 @@ public abstract class AbstractFactory {
 
 	public abstract ActivityCategory createCategory();
 
+	public abstract Product createProduct();
 	// End of user code
 
 }

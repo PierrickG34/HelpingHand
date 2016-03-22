@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 import Core.ActivityCategory;
+import Core.Product;
 
 // Start of user code (user defined imports)
 
@@ -204,6 +205,36 @@ public class JDBConnexion {
 		
 		return list;
 	}
+	
+	public List<Product> getAllProduct(String request) {
+		List<Product> list = new ArrayList<Product>();
+		java.sql.Statement stmt = null;
+		System.out.println("Creating statement...");
+		try {
+			stmt = this.conn.createStatement();
+			this.rs = stmt.executeQuery(request);
+			while ( rs.next() ) {
+				Product product = new ProductJDBC();
+				ResultSetMetaData resultMeta = rs.getMetaData();
+				if (resultMeta.getTableName(1).equals("activitycategory1")) {
+					product.setId((Integer) rs.getObject("idP"));
+					product.setNameProduc((String) rs.getObject("name"));
+					product.setQuantity((int) rs.getObject("quantity"));
+					product.setPrice((float) rs.getObject("price"));
+					product.setCategory((String) rs.getObject("category"));
+					list.add(product);
+				}
+			}
+			rs.close();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
 	
 	public void executeUpdate(String request) throws SQLException {
 		java.sql.Statement stmt = null;

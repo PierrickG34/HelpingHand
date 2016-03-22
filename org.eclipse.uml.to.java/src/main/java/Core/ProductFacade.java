@@ -4,10 +4,12 @@
 package Core;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Observable;
 
 //import Factory.FactoryJDBC;
 import UI.ProductCreateView;
+import UI.UpdateProductView;
 
 
 // Start of user code (user defined imports)
@@ -41,6 +43,10 @@ public class ProductFacade {
 		// End of user code
 	}
 
+	public ProductFacade(UpdateProductView updateProductView) {
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * Description of the method createProduct.
 	 * @param login 
@@ -62,11 +68,9 @@ public class ProductFacade {
 		return this.productManager;
 	}
 	
-	/*
-	public Product[] readProduct() {
-		return this.productManager.readProduct();
+	public List<Product> getAllProduct(Integer id) {
+		return this.productManager.getAllCategories(id);
 	}
-*/
 	
 	/**
 	 * Sets a value to attribute userManager. 

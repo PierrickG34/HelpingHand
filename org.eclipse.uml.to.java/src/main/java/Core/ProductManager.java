@@ -1,6 +1,7 @@
 package Core;
 
 import java.util.Date;
+import java.util.List;
 
 import Factory.AbstractFactory;
 import Factory.FactoryJDBC;
@@ -23,11 +24,9 @@ public class ProductManager {
 		return this.currentProduct;
 	}
 	
-	/*
-	public Product[] readProduct() {
-		return (this.listProduct = this.userFactorys.readActivityCategory());
+	public List<Product> getAllCategories(Integer id) {
+		Product product = this.jdbcFactorys.createProduct();
+		return product.getAllProduct(id);
 	}
-	*/
-	
 	
 }
