@@ -212,12 +212,12 @@ public class JDBConnexion {
 			while ( rs.next() ) {
 				Product product = new ProductJDBC();
 				ResultSetMetaData resultMeta = rs.getMetaData();
-				if (resultMeta.getTableName(1).equals("activitycategory1")) {
-					product.setId((Integer) rs.getObject("idP"));
+				if (resultMeta.getTableName(1).equals("product")) {
+					product.setId((Integer) rs.getObject("idp"));
 					product.setNameProduc((String) rs.getObject("name"));
-					product.setQuantity((int) rs.getObject("quantity"));
-					product.setPrice((float) rs.getObject("price"));
+					product.setPrice((Double) rs.getObject("price"));
 					product.setCategory((String) rs.getObject("category"));
+					product.setQuantity((int) rs.getObject("quantity"));
 					list.add(product);
 				}
 			}
@@ -227,7 +227,6 @@ public class JDBConnexion {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		return list;
 	}
 	

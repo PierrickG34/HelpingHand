@@ -9,6 +9,7 @@ import java.util.Observable;
 
 //import Factory.FactoryJDBC;
 import UI.ProductCreateView;
+import UI.TaskCreateView;
 import UI.UpdateProductView;
 
 
@@ -47,13 +48,17 @@ public class ProductFacade {
 		// TODO Auto-generated constructor stub
 	}
 
+	public ProductFacade(TaskCreateView taskCreateView) {
+		super();
+	}
+
 	/**
 	 * Description of the method createProduct.
 	 * @param login 
 	 * @param password 
 	 */
 
-	public Product createProduct(String name, float price, int quantity, String category, Integer idVendeur) {
+	public Product createProduct(String name, Double price, int quantity, String category, Integer idVendeur) {
 		return this.productManager.createProduct(name,price,quantity,category,idVendeur);
 	}
 
@@ -78,5 +83,9 @@ public class ProductFacade {
 	 */
 	public void setproductManager(ProductManager newProductManager) {
 		this.productManager = newProductManager;
+	}
+
+	public List<Product> getAllProduct() {
+		return this.productManager.getAllProduct();
 	}
 }

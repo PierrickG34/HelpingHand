@@ -60,7 +60,7 @@ public class FactoryJDBC extends AbstractFactory {
 		return new UserJDBC(firstName, surName, mobile, mailAddress, password, dateOfBirth, profilePicture, webSiteURL, siretNumber, address);
 	}
 	
-	public ProductJDBC createProduct(String name, float price, int quantity, String category, int idVendeur)
+	public ProductJDBC createProduct(String name, Double price, int quantity, String category, int idVendeur)
 	{ 
 		return new ProductJDBC(name,price,quantity,category,idVendeur);
 	}

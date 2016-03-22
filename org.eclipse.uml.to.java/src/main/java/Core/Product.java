@@ -16,7 +16,7 @@ import Persist.UserJDBC;
 /**
  * Description of User.
  * 
- * @author beuleJérémy
+ * @author beuleJï¿½rï¿½my
  */
 public abstract class Product {
 	
@@ -34,7 +34,7 @@ public abstract class Product {
 	/**
 	 * Description of the property price.
 	 */
-	private float price;
+	private Double price;
 
 	/**
 	 * Description of the property quantity.
@@ -52,7 +52,7 @@ public abstract class Product {
 	 * The constructor.
 	 * @param login
 	 */
-	public Product(String name, float price, int quantity, String category, Integer idVendeur) {
+	public Product(String name, Double price, int quantity, String category, Integer idVendeur) {
 		// Start of user code constructor for Product)
 		super();
 		this.name = name;
@@ -112,12 +112,12 @@ public abstract class Product {
 		this.name = newName;
 	}
 
-	public float getPrice()
+	public Double getPrice()
 	{
 		return this.price;
 	}
 	
-	public void setPrice(float newPrice)
+	public void setPrice(Double newPrice)
 	{
 		this.price = newPrice;
 	}
@@ -142,6 +142,8 @@ public abstract class Product {
 	}
 
 	public abstract List<Product> getAllProduct(Integer id);
+	
+	public abstract List<Product> getAllProduct();
 
 
 

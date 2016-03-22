@@ -7,6 +7,8 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -16,7 +18,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import Core.ActivityCategory;
 import Core.ActivityCategoryFacade;
+import Core.Product;
+import Core.ProductFacade;
 import Core.User;
 import Excpetion.AlreadyExistException;
 
@@ -54,6 +59,16 @@ public class TaskCreateView extends JFrame implements ActionListener {
 	 * Define the drop down menu with the product
 	 */
 	JComboBox<String> combo = new JComboBox<String>();
+	
+	/**
+	 * Contain all the product of the database
+	 */
+	List<Product> allProduct = new ArrayList<Product>();
+	
+	/**
+	 * Description of the property ActivityCategoryFacades.
+	 */
+	public ProductFacade productFacades = new ProductFacade(this);
 	
 	
 	/**
@@ -136,8 +151,13 @@ public class TaskCreateView extends JFrame implements ActionListener {
 		panelTextField.add(this.descriptionEntre);
 		
 		//Combo Product
-		this.combo.addItem("Test");
-		this.combo.addItem("REGFRERFRF");
+//		this.combo.addItem("Test");
+//		this.combo.addItem("REGFRERFRF");
+		//Recuperate the activity Category and add to the combobox
+		this.allProduct = this.productFacades.getAllProduct();
+		for (int i = 0; i< this.allProduct.size(); i++) {
+			this.combo.addItem(this.allProduct.get(i).getName());
+		}
 		panelComboBox.add(this.chooseProduct);
 		panelComboBox.add(this.combo);
 		panelComboBoxAll.add(panelComboBox);

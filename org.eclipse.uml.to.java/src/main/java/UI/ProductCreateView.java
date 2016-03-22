@@ -203,7 +203,7 @@ public void actionPerformed(ActionEvent e) {
 			
 			if(!this.nameEntre.getText().isEmpty() && !this.priceEntre.getText().isEmpty() && !this.quantityEntre.getText().isEmpty())
 			{	
-				Product newProduct = this.productFacades.createProduct(this.nameEntre.getText(), Float.parseFloat(this.priceEntre.getText()), Integer.parseInt(this.quantityEntre.getText()), 
+				Product newProduct = this.productFacades.createProduct(this.nameEntre.getText(), Double.parseDouble(this.priceEntre.getText()), Integer.parseInt(this.quantityEntre.getText()), 
 						this.categoryEntre.getText(), this.currentUser.getIdUser());
 				if (newProduct != null) {				
 					this.dispose();

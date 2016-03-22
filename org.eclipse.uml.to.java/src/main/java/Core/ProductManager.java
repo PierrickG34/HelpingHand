@@ -18,7 +18,7 @@ public class ProductManager {
 	
 
 	
-	public Product createProduct(String name, float price, int quantity, String category, Integer idVendeur)
+	public Product createProduct(String name, Double price, int quantity, String category, Integer idVendeur)
 	{
 		this.currentProduct = this.jdbcFactorys.createProduct(name,price,quantity,category,idVendeur);
 		return this.currentProduct;
@@ -27,6 +27,14 @@ public class ProductManager {
 	public List<Product> getAllCategories(Integer id) {
 		Product product = this.jdbcFactorys.createProduct();
 		return product.getAllProduct(id);
+	}
+
+
+
+
+	public List<Product> getAllProduct() {
+		Product product = this.jdbcFactorys.createProduct();
+		return product.getAllProduct();
 	}
 	
 }

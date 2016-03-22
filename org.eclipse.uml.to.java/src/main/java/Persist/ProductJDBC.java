@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import Core.ActivityCategory;
 import Core.Product;
 import Excpetion.AlreadyExistException;
 
@@ -13,7 +14,7 @@ public class ProductJDBC extends Product{
 	//public static JDBConnexion jDBConnexions = new JDBConnexion();
 	public JDBConnexion jDBConnexions = JDBConnexion.createConnect();
 	
-	public ProductJDBC(String name, float price, int quantity, String category, Integer idVendeur) {
+	public ProductJDBC(String name, Double price, int quantity, String category, Integer idVendeur) {
 		super(name, price, quantity, category,idVendeur);
 		try {
 			jDBConnexions.executeUpdate("INSERT INTO Product VALUES (DEFAULT, '"+ name + "','"+ price +"','" + "Poisson" + "','" 
@@ -48,5 +49,13 @@ public class ProductJDBC extends Product{
 	public void save() {
 		// TODO Auto-generated method stub
 		
+	}
+
+
+	@Override
+	public List<Product> getAllProduct() {
+		List<Product> list = new ArrayList<Product>();
+		list = this.jDBConnexions.getAllProduct("SELECT * FROM product");
+		return list;
 	}
 }
