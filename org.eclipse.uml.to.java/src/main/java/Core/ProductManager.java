@@ -20,21 +20,33 @@ public class ProductManager {
 	
 
 	
-	public Product createProduct(String name, float price, int quantity, String category, Integer idVendeur)
+	public Product createProduct(String name, Double price, int quantity, String category, Integer idVendeur)
 	{
 		this.currentProduct = this.jdbcFactorys.createProduct(name,price,quantity,category,idVendeur);
 		return this.currentProduct;
 	}
 	
 	public List<Product> getAllProduct(Integer id) {
-		return Product.getAllProduct(id);
+		Product product = this.jdbcFactorys.createProduct();
+		return product.getAllProduct(id);
 	}
-	
-	public void modifyProduct(Product p,String name, String price, String category, String quantity) {
-		System.out.println("modifyProduct : ProductManager");
-		this.currentProduct = p;
+
+
+
+
+	public List<Product> getAllProduct() {
+		Product product = this.jdbcFactorys.createProduct();
+		return product.getAllProduct();
+	}
+
+
+
+
+	public void modifyProduct(Product product, String name, String price, String quantity, String category) {
+		this.currentProduct = product;
 		ProductJDBC currentProductJDBC = (ProductJDBC) this.currentProduct;
-		currentProductJDBC.modifyProduct(p, name, price,category,quantity);
+		currentProductJDBC.modifyProduct(product, name, price,quantity,category);		
 	}
 	
 }
+

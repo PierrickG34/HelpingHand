@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,6 +29,11 @@ import Core.User;
 import Core.UserFacade;
 
 public class ProfileUserModifyView extends JFrame implements ActionListener {
+	
+	/**
+	 * Descriptions for the mobile field
+	 */
+	JLabel editInformations = new JLabel("  Edit informations  :");
 
 	/**
 	 * Describe the current user
@@ -78,7 +84,7 @@ public class ProfileUserModifyView extends JFrame implements ActionListener {
 		setMaximumSize(new Dimension(1000,500));
 
 		/*##### Display the menu bar #####*/
-		JPanel panelButton = new JPanel(new GridLayout(2, 1)); // 2 rows x 1 column
+		JPanel panelButton = new JPanel(new GridLayout(3, 1)); // 2 rows x 1 column
 		JPanel panelTopButton = new JPanel();
 		JPanel panelBottomButton = new JPanel();
 		JButton dashboard = new JButton("Dashboard");
@@ -98,6 +104,9 @@ public class ProfileUserModifyView extends JFrame implements ActionListener {
 		panelBottomButton.add(notifications);
 		panelButton.add(panelTopButton);
 		panelButton.add(panelBottomButton);
+        Font font = new Font("bold", Font.BOLD,12);
+        this.editInformations.setFont(font);
+        panelButton.add(this.editInformations);
 
 		/*##### Display and edit the information #####*/
 		JPanel panelEditInformation = new JPanel();

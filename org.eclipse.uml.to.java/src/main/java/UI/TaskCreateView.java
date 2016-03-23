@@ -4,9 +4,12 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -16,7 +19,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import Core.ActivityCategory;
 import Core.ActivityCategoryFacade;
+import Core.Product;
+import Core.ProductFacade;
 import Core.User;
 import Excpetion.AlreadyExistException;
 
@@ -32,6 +38,12 @@ public class TaskCreateView extends JFrame implements ActionListener {
 	   
 	JButton profile = new JButton("Profile");
 	JButton notifications = new JButton("Notifications");
+	
+	/**
+	 * Descriptions for the mobile field
+	 */
+	JLabel createTask = new JLabel("  Create a task :");
+
 	
 	/**
 	 * Descriptions for the mobile field
@@ -54,6 +66,16 @@ public class TaskCreateView extends JFrame implements ActionListener {
 	 * Define the drop down menu with the product
 	 */
 	JComboBox<String> combo = new JComboBox<String>();
+	
+	/**
+	 * Contain all the product of the database
+	 */
+	List<Product> allProduct = new ArrayList<Product>();
+	
+	/**
+	 * Description of the property ActivityCategoryFacades.
+	 */
+	public ProductFacade productFacades = new ProductFacade(this);
 	
 	
 	/**
@@ -92,7 +114,7 @@ public class TaskCreateView extends JFrame implements ActionListener {
         setMinimumSize(new Dimension(1000,500));
         setMaximumSize(new Dimension(1000,500));
         
-        JPanel panelButton = new JPanel(new GridLayout(2, 1)); // 2 rows x 1 column
+        JPanel panelButton = new JPanel(new GridLayout(3, 1)); // 2 rows x 1 column
         JPanel panelTopButton = new JPanel();
         JPanel panelBottomButton = new JPanel();
         
@@ -109,6 +131,9 @@ public class TaskCreateView extends JFrame implements ActionListener {
         
         panelButton.add(panelTopButton);
         panelButton.add(panelBottomButton);
+        Font font = new Font("bold", Font.BOLD,12);
+        this.createTask.setFont(font);
+        panelButton.add(this.createTask);
         
         contentPane.add(panelButton,BorderLayout.NORTH);
         
@@ -135,9 +160,12 @@ public class TaskCreateView extends JFrame implements ActionListener {
 		panelLabels.add(this.description);
 		panelTextField.add(this.descriptionEntre);
 		
-		//Combo Product
-		this.combo.addItem("Test");
-		this.combo.addItem("REGFRERFRF");
+		//Combo list product
+		//Recuperate the activity Category and add to the combobox
+		this.allProduct = this.productFacades.getAllProduct();
+		for (int i = 0; i< this.allProduct.size(); i++) {
+			this.combo.addItem(this.allProduct.get(i).getName());
+		}
 		panelComboBox.add(this.chooseProduct);
 		panelComboBox.add(this.combo);
 		panelComboBoxAll.add(panelComboBox);
@@ -155,7 +183,7 @@ public class TaskCreateView extends JFrame implements ActionListener {
 		
 		panelAll.add(panelSemiAll);
 		panelAll.add(panelButtonValidate);
-		contentPane.add(panelAll, BorderLayout.WEST);
+		contentPane.add(panelAll, BorderLayout.CENTER);
 
         //Display
         setSize(400,120);

@@ -219,3 +219,4 @@ public UpdateProductView(User currentUser) {
 		}
 	}
 }
+

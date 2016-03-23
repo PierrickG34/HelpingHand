@@ -115,11 +115,9 @@ public ProductCreateView(User user)
 	
 	
 	/*##### Display and edit the information #####*/
-	JPanel panelAll = new JPanel(new GridLayout(2, 0));
 	JPanel panelEditInformation = new JPanel();
 	JPanel panelLabels = new JPanel(new GridLayout(0,1));
 	JPanel panelTextField = new JPanel(new GridLayout(0,1));
-	JPanel panelButtonValidate = new JPanel();
 	
 	//Name
 	this.name.setPreferredSize(this.nameEntre.getPreferredSize());
@@ -144,20 +142,17 @@ public ProductCreateView(User user)
 	contentPane.add(panelButton,BorderLayout.NORTH);
 	contentPane.add(panelEditInformation, BorderLayout.LINE_START);
 	
-	
+	panelEditInformation.add(this.errorMessage);
 	
 	this.validateCreationProduct.addActionListener(this);
 	
 	panelEditInformation.add(panelLabels);
 	panelEditInformation.add(panelTextField);
-	panelButtonValidate.add(this.validateCreationProduct);
-	panelButtonValidate.add(this.cancel);
-	panelButtonValidate.add(this.errorMessage);
-	panelAll.add(panelEditInformation);
-	panelAll.add(panelButtonValidate);
+	panelEditInformation.add(this.validateCreationProduct);
+	panelEditInformation.add(this.cancel);
 	
-	//contentPane.add(panelButton,BorderLayout.NORTH);
-	contentPane.add(panelAll, BorderLayout.CENTER);
+	contentPane.add(panelButton,BorderLayout.NORTH);
+	contentPane.add(panelEditInformation, BorderLayout.CENTER);
 
 
 
@@ -203,7 +198,7 @@ public void actionPerformed(ActionEvent e) {
 			
 			if(!this.nameEntre.getText().isEmpty() && !this.priceEntre.getText().isEmpty() && !this.quantityEntre.getText().isEmpty())
 			{	
-				Product newProduct = this.productFacades.createProduct(this.nameEntre.getText(), Float.parseFloat(this.priceEntre.getText()), Integer.parseInt(this.quantityEntre.getText()), 
+				Product newProduct = this.productFacades.createProduct(this.nameEntre.getText(), Double.parseDouble(this.priceEntre.getText()), Integer.parseInt(this.quantityEntre.getText()), 
 						this.categoryEntre.getText(), this.currentUser.getIdUser());
 				if (newProduct != null) {				
 					this.dispose();
