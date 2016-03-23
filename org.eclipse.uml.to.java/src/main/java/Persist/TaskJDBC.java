@@ -17,10 +17,20 @@ public class TaskJDBC extends Task {
 		super();
 	}
 
-	public TaskJDBC(String name, String description, int idProduct) {
+	public TaskJDBC(int idProduct) {
+		try {
+			this.jDBConnexions.executeUpdate("INSERT INTO contain VALUES ((SELECT CURRVAL(pg_get_serial_sequence('task','idtask'))), '"+idProduct+"')");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	
+	public TaskJDBC(String name, String description, int idProduct, int idPlan) {
 		super(name, description);
 		try {
-			this.jDBConnexions.executeUpdate("INSERT INTO task VALUES (DEFAULT, '"+ name + "','"+ description +"','4')");
+			this.jDBConnexions.executeUpdate("INSERT INTO task VALUES (DEFAULT, '"+ name + "','"+ description +"','"+idPlan+"')");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
