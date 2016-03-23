@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,6 +32,11 @@ public class CreateActivityCategoryView extends JFrame implements ActionListener
 	   
 	JButton profile = new JButton("Profile");
 	JButton notifications = new JButton("Notifications");
+	
+	/**
+	 * Descriptions for the windows
+	 */
+	JLabel createActivityCategory = new JLabel("  Create an activity category :");
 	
 	/**
 	 * Descriptions for the mobile field
@@ -86,7 +92,7 @@ public class CreateActivityCategoryView extends JFrame implements ActionListener
         setMinimumSize(new Dimension(1000,500));
         setMaximumSize(new Dimension(1000,500));
         
-        JPanel panelButton = new JPanel(new GridLayout(2, 1)); // 2 rows x 1 column
+        JPanel panelButton = new JPanel(new GridLayout(3, 1)); // 2 rows x 1 column
         JPanel panelTopButton = new JPanel();
         JPanel panelBottomButton = new JPanel();
         
@@ -103,6 +109,9 @@ public class CreateActivityCategoryView extends JFrame implements ActionListener
         
         panelButton.add(panelTopButton);
         panelButton.add(panelBottomButton);
+        Font font = new Font("bold", Font.BOLD,12);
+        this.createActivityCategory.setFont(font);
+        panelButton.add(this.createActivityCategory);
         
         contentPane.add(panelButton,BorderLayout.NORTH);
         
