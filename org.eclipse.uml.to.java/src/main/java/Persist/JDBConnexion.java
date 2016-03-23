@@ -260,7 +260,7 @@ public class JDBConnexion {
 		return list;
 	}
 	
-	public void deleteProduct(String request)
+	public void delete(String request)
 	{
 		java.sql.Statement stmt = null;
 		System.out.println("Creating statement...");

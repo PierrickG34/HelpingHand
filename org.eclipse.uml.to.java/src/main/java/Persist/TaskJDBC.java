@@ -64,4 +64,9 @@ public class TaskJDBC extends Task {
 			e.printStackTrace();
 		}
 	}
+
+	@Override
+	public void delete() {
+		this.jDBConnexions.delete("DELETE FROM task where idtask =" + this.getIdTask());
+	}
 }

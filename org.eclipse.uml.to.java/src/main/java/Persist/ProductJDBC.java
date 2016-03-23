@@ -94,6 +94,6 @@ public class ProductJDBC extends Product{
 
 
 	public void delete() {
-			this.jDBConnexions.deleteProduct("DELETE FROM product where idp =" + this.getId());
+			this.jDBConnexions.delete("DELETE FROM product where idp =" + this.getId());
 	}
 }

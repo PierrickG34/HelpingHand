@@ -3,6 +3,7 @@ package Core;
 import java.util.List;
 
 import UI.TaskCreateView;
+import UI.TaskDeleteView;
 import UI.TaskUpdateView;
 
 public class TaskFacade {
@@ -20,6 +21,10 @@ public class TaskFacade {
 		super();
 	}
 
+	public TaskFacade(TaskDeleteView taskDeleteView) {
+		super();
+	}
+
 	public Task createTask(String name, String description, int idProduct, int idPlan) {
 		return this.taskManager.createTask(name, description, idProduct, idPlan);
 		
@@ -31,6 +36,10 @@ public class TaskFacade {
 
 	public void modifyTask(Task task, String description, Product product) {
 		this.taskManager.modifyTask(task,description,product);
+	}
+
+	public void deleteTask(Task task) {
+		this.taskManager.deleteTask(task);
 	}
 
 }

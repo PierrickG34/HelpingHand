@@ -30,4 +30,8 @@ public class TaskManager {
 		TaskJDBC currentTaskJDBC = (TaskJDBC) this.currentTask;
 		currentTaskJDBC.modifyTask(task, description, product);
 	}
+
+	public void deleteTask(Task task) {
+		task.delete();
+	}
 }

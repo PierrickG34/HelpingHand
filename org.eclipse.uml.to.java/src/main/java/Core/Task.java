@@ -84,6 +84,8 @@ public abstract class Task {
 	}
 	
 	public abstract List<Task> getAllTask();
+	
+	public abstract void delete();
 
 
 }

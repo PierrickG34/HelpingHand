@@ -3,17 +3,24 @@ package UI;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import Core.Task;
+import Core.TaskFacade;
 import Core.User;
 
-public class TaskManageView extends JFrame implements ActionListener {
+public class TaskDeleteView extends JFrame implements ActionListener {
 
 	JButton dashboard = new JButton("Dashboard");
 	JButton activityCategory = new JButton("Activity Category");
@@ -26,14 +33,37 @@ public class TaskManageView extends JFrame implements ActionListener {
 	JButton profile = new JButton("Profile");
 	JButton notifications = new JButton("Notifications");
 	
-	JButton create = new JButton("Create a Task");
-	JButton update = new JButton("Update a Task");
-	JButton delete = new JButton("Delete a Task");
+	JButton delete = new JButton("Delete");
+	
+	/**
+	 * Descriptions for the windows
+	 */
+	JLabel deleteTask = new JLabel("  Delete a Task :");
+	
+	/**
+	 * Define the drop down menu with the task
+	 */
+	JComboBox<String> comboTask = new JComboBox<String>();
+	
+	/**
+	 * Text to choose the activity category to delete
+	 */
+	JLabel chooseTask = new JLabel("Choose a Task to delete:");
+	
+	/**
+	 * Description of the property ActivityCategoryFacades.
+	 */
+	public TaskFacade taskFacades = new TaskFacade(this);
+
+	/**
+	 * Contain all the activity category of the database
+	 */
+	List<Task> allTask = new ArrayList<Task>();
 	
 	
 	private User currentUser;
 	
-	public TaskManageView(User currentUser) {
+	public TaskDeleteView(User currentUser) {
 		super("Task"); // Name of the frame
 		this.currentUser = currentUser;
 		/* Defined actions on the different buttons */
@@ -52,7 +82,7 @@ public class TaskManageView extends JFrame implements ActionListener {
         setMinimumSize(new Dimension(1000,500));
         setMaximumSize(new Dimension(1000,500));
         
-        JPanel panelButton = new JPanel(new GridLayout(2, 1)); // 2 rows x 1 column
+        JPanel panelButton = new JPanel(new GridLayout(3, 1)); // 2 rows x 1 column
         JPanel panelTopButton = new JPanel();
         JPanel panelBottomButton = new JPanel();
         
@@ -69,48 +99,47 @@ public class TaskManageView extends JFrame implements ActionListener {
         
         panelButton.add(panelTopButton);
         panelButton.add(panelBottomButton);
+        Font font = new Font("bold", Font.BOLD,12);
+		this.deleteTask.setFont(font);
+		panelButton.add(this.deleteTask);
         
         contentPane.add(panelButton,BorderLayout.NORTH);
         
-  
         /*-------------- Veritable view --------------------*/
-        JPanel manageButton = new JPanel(new GridLayout(3, 1));
-        JPanel createButton = new JPanel();
-        JPanel updateButton = new JPanel();
-        JPanel deleteButton = new JPanel();
+		JPanel panelAll = new JPanel(new GridLayout(2, 1));
+		JPanel panelComboBoxTask = new JPanel(new GridLayout(2, 1));
+		JPanel panelComboBoxAllTask = new JPanel();
+		JPanel panelButtonDelete = new JPanel();
+		
+		//Recuperate the task and add to the combobox
+		this.allTask = this.taskFacades.getAllTask();
+		for (int i = 0; i< this.allTask.size(); i++) {
+			this.comboTask.addItem(this.allTask.get(i).getName());
+		}
+		panelComboBoxTask.add(this.chooseTask);
+		panelComboBoxTask.add(this.comboTask);
+		panelComboBoxAllTask.add(panelComboBoxTask);
+		
+		panelButtonDelete.add(this.delete);
+		this.delete.addActionListener(this);
+		
+		panelAll.add(panelComboBoxAllTask);
+		panelAll.add(panelButtonDelete);
+		
+		contentPane.add(panelAll, BorderLayout.WEST);
         
-        this.create.addActionListener(this);
-        this.update.addActionListener(this);
-        this.delete.addActionListener(this);
-        
-        createButton.add(this.create);
-        updateButton.add(this.update);
-        deleteButton.add(this.delete);
-        
-        manageButton.add(createButton);
-        manageButton.add(updateButton);
-        manageButton.add(deleteButton);
-        
-        contentPane.add(manageButton, BorderLayout.WEST);
-
-        //Display
+      //Display
         setSize(400,120);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-	
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();
-		if(source == "Create a Task") {
-			TaskCreateView taskCreateView = new TaskCreateView(this.currentUser);
-		}
-		else if(source == "Update a Task") {
-			TaskUpdateView taskUpdateView = new TaskUpdateView(this.currentUser);
-		}
-		else if(source == "Delete a Task") {
-			System.out.println("BUTTON DELETE");
-			TaskDeleteView taskDeleteView = new TaskDeleteView(this.currentUser);
+		if(source == "Delete") {
+			System.out.println("BUTTON DELETE VIEW");
+			this.taskFacades.deleteTask(this.allTask.get(this.comboTask.getSelectedIndex()));
 		}
 	}
 }
