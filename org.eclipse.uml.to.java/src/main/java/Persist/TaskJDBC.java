@@ -17,6 +17,9 @@ public class TaskJDBC extends Task {
 	//public JDBConnexion jDBConnexions = new JDBConnexion();
 	public JDBConnexion jDBConnexions = JDBConnexion.createConnect();
 	
+	/**
+	 * 
+	 */
 	public TaskJDBC() {
 		super();
 	}
