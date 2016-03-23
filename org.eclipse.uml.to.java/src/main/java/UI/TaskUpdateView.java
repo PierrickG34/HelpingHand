@@ -88,12 +88,6 @@ public class TaskUpdateView extends JFrame implements ActionListener {
 	JButton chooseActivityCategoryButton = new JButton("Choose");
 
 	/**
-	 * Descriptions for the name of a task
-	 */
-	JLabel name = new JLabel("Name :");
-	JTextField nameEntre = new JTextField("", 15);
-
-	/**
 	 * Descriptions for the description of a task
 	 */
 	JLabel description = new JLabel("Description :");
@@ -183,12 +177,6 @@ public class TaskUpdateView extends JFrame implements ActionListener {
 		panelComboBoxTask.add(this.chooseActivityCategoryButton);
 		panelComboBoxAllTask.add(panelComboBoxTask);
 
-		// Name 
-		this.name.setPreferredSize(this.nameEntre.getPreferredSize());
-		this.name.setHorizontalAlignment(SwingConstants.RIGHT);
-		panelLabels.add(this.name);
-		panelTextFiel.add(this.nameEntre);
-
 		// Description
 		this.description.setPreferredSize(this.descriptionEntre.getPreferredSize());
 		this.description.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -232,12 +220,12 @@ public class TaskUpdateView extends JFrame implements ActionListener {
 			this.panelEditAll.setVisible(true);
 
 			/* Aller dans la base de données avec l'id de la category*/
-			this.nameEntre.setToolTipText(this.allTask.get(this.comboTask.getSelectedIndex()).getName());
 			this.descriptionEntre.setToolTipText(this.allTask.get(this.comboTask.getSelectedIndex()).getDescription());
 		}
 		if(source == "Submit") {
 			System.out.println("BUTTON SUBMIT");
 			//this.activityCategoryFacades.modifyActivityCategory(this.allActivityCategory.get(this.combo.getSelectedIndex()), this.shortDetailActivityCategoryEntre.getText(), this.longDetailActivityCategoryEntre.getText());
+			this.taskFacades.modifyTask(this.allTask.get(this.comboTask.getSelectedIndex()), this.descriptionEntre.getText(), this.allProduct.get(this.comboProduct.getSelectedIndex()));
 		}
 	}
 }

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Core.ActivityCategory;
+import Core.Product;
 import Core.Task;
 import Excpetion.AlreadyExistException;
 
@@ -48,4 +49,19 @@ public class TaskJDBC extends Task {
 		return list;
 	}
 
+	public void modifyTask(Task task, String description, Product product) {
+		if (description.isEmpty()) {
+			description = this.getDescription();
+		}
+		else {
+			this.setDescription(description);
+		}
+		try {
+			this.jDBConnexions.executeUpdate("UPDATE task SET description = '"+ description +"' where idtask = '"+task.getIdTask()+"'");
+			this.jDBConnexions.executeUpdate(("UPDATE contain SET idproduct = '"+product.getId()+"' WHERE idtask = '"+task.getIdTask()+"'"));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

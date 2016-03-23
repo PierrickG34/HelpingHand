@@ -29,4 +29,8 @@ public class TaskFacade {
 		return this.taskManager.getAllTask();
 	}
 
+	public void modifyTask(Task task, String description, Product product) {
+		this.taskManager.modifyTask(task,description,product);
+	}
+
 }
