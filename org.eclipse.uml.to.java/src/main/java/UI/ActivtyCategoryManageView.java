@@ -15,26 +15,74 @@ import Core.User;
 
 public class ActivtyCategoryManageView extends JFrame implements ActionListener {
 
+	/**
+	 * Menu button for dashboard
+	 */
 	JButton dashboard = new JButton("Dashboard");
+	
+	/**
+	 * Menu button for activity category
+	 */
 	JButton activityCategory = new JButton("Activity Category");
+	
+	/**
+	 * Menu button for product category
+	 */
 	JButton productCategory = new JButton("Product Category");
+	
+	/**
+	 * Menu button for product
+	 */
 	JButton product = new JButton("Product");
+	
+	/**
+	 * Menu button for account
+	 */
 	JButton account = new JButton("Account");
+	
+	/**
+	 * Menu button for plan
+	 */
 	JButton plan = new JButton("Plan");
+	
+	/**
+	 * Menu button for task
+	 */
 	JButton task = new JButton("Task");
-	   
+	
+	/**
+	 * Menu button for profile
+	 */   
 	JButton profile = new JButton("Profile");
+	
+	/**
+	 * Menu button for notification
+	 */
 	JButton notifications = new JButton("Notifications");
 	
+	/**
+	 * Button for create an activity category
+	 */
 	JButton create = new JButton("Create an Activity Category");
+	
+	/**
+	 * Button for update an activity category
+	 */
 	JButton update = new JButton("Update an Activity Category");
 	
-	
+	/**
+	 * The current user
+	 */
 	private User currentUser;
 	
+	/**
+	 * Constructor for the class
+	 * @param currentUser
+	 */
 	public ActivtyCategoryManageView(User currentUser) {
-		super("DashBoard"); // Name of the frame
+		super("Activity Category"); // Name of the frame
 		this.currentUser = currentUser;
+		
 		/* Defined actions on the different buttons */
 		this.dashboard.addActionListener(this);
 		this.activityCategory.addActionListener(this);
@@ -46,11 +94,13 @@ public class ActivtyCategoryManageView extends JFrame implements ActionListener 
 		this.profile.addActionListener(this);
 		this.notifications.addActionListener(this);
 		
+		/*Define the container*/
         Container contentPane = getContentPane(); 
         contentPane.setLayout(new BorderLayout());
         setMinimumSize(new Dimension(1000,500));
         setMaximumSize(new Dimension(1000,500));
         
+        /*Define container for the display*/
         JPanel panelButton = new JPanel(new GridLayout(2, 1)); // 2 rows x 1 column
         JPanel panelTopButton = new JPanel();
         JPanel panelBottomButton = new JPanel();
@@ -94,6 +144,10 @@ public class ActivtyCategoryManageView extends JFrame implements ActionListener 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
+	/**
+	 * Action when the user click on a button
+	 * @param e
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();
