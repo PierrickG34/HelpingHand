@@ -3,6 +3,7 @@ package UI;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -37,6 +38,11 @@ public class UpdateProductView extends JFrame implements ActionListener {
 
 	JButton profile = new JButton("Profile");
 	JButton notifications = new JButton("Notifications");
+	
+	/**
+	 * Descriptions for the windows
+	 */
+	JLabel updateProduct = new JLabel(" Update a product :");
 
 	/**
 	 * Description for the button validate
@@ -121,7 +127,7 @@ public UpdateProductView(User currentUser) {
 		setMinimumSize(new Dimension(1000,500));
 		setMaximumSize(new Dimension(1000,500));
 
-		JPanel panelButton = new JPanel(new GridLayout(2, 1)); // 2 rows x 1 column
+		JPanel panelButton = new JPanel(new GridLayout(3, 1)); // 2 rows x 1 column
 		JPanel panelTopButton = new JPanel();
 		JPanel panelBottomButton = new JPanel();
 
@@ -138,6 +144,9 @@ public UpdateProductView(User currentUser) {
 
 		panelButton.add(panelTopButton);
 		panelButton.add(panelBottomButton);
+        Font font = new Font("bold", Font.BOLD,12);
+        this.updateProduct.setFont(font);
+        panelButton.add(this.updateProduct);
 
 		contentPane.add(panelButton,BorderLayout.NORTH);
 
