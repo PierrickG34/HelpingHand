@@ -1,7 +1,10 @@
 package Persist;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
+import Core.ActivityCategory;
 import Core.Task;
 import Excpetion.AlreadyExistException;
 
@@ -37,4 +40,12 @@ public class TaskJDBC extends Task {
 			throw new AlreadyExistException("Your task is already used, please choose an other.");
 		}
 	}
+
+	@Override
+	public List<Task> getAllTask() {
+		List<Task> list = new ArrayList<Task>();
+		list = this.jDBConnexions.getAllTask("SELECT * FROM task");
+		return list;
+	}
+
 }

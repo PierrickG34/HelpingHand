@@ -1,5 +1,7 @@
 package Core;
 
+import java.util.List;
+
 import Persist.JDBConnexion;
 
 public abstract class Task {
@@ -80,6 +82,8 @@ public abstract class Task {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
+	public abstract List<Task> getAllTask();
 
 
 }

@@ -109,5 +109,10 @@ public class FactoryJDBC extends AbstractFactory {
 		Task contain = new TaskJDBC(idProduct);
 		return task;
 	}
+
+	@Override
+	public Task createTask() {
+		return new TaskJDBC();
+	}
 }
 

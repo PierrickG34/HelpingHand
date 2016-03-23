@@ -1,6 +1,9 @@
 package Core;
 
+import java.util.List;
+
 import UI.TaskCreateView;
+import UI.TaskUpdateView;
 
 public class TaskFacade {
 	
@@ -13,9 +16,17 @@ public class TaskFacade {
 		super();
 	}
 
+	public TaskFacade(TaskUpdateView taskUpdateView) {
+		super();
+	}
+
 	public Task createTask(String name, String description, int idProduct, int idPlan) {
 		return this.taskManager.createTask(name, description, idProduct, idPlan);
 		
+	}
+
+	public List<Task> getAllTask() {
+		return this.taskManager.getAllTask();
 	}
 
 }

@@ -107,7 +107,7 @@ public class TaskManageView extends JFrame implements ActionListener {
 		}
 		else if(source == "Update a Task") {
 			System.out.println("BUTTON UPDATE");
-			//UpdateProductView profilUserView = new UpdateProductView(this.currentUser);
+			TaskUpdateView taskUpdateView = new TaskUpdateView(this.currentUser);
 		}
 		else if(source == "Delete a Task") {
 			System.out.println("BUTTON DELETE");

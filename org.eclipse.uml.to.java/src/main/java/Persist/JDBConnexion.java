@@ -15,6 +15,7 @@ import java.util.Map;
 
 import Core.ActivityCategory;
 import Core.Product;
+import Core.Task;
 
 // Start of user code (user defined imports)
 
@@ -231,6 +232,33 @@ public class JDBConnexion {
 		return list;
 	}
 	
+	public List<Task> getAllTask(String request) {
+		List<Task> list = new ArrayList<Task>();
+		java.sql.Statement stmt = null;
+		System.out.println("Creating statement...");
+		try {
+			stmt = this.conn.createStatement();
+			this.rs = stmt.executeQuery(request);
+			while ( rs.next() ) {
+				Task task = new TaskJDBC();
+				ResultSetMetaData resultMeta = rs.getMetaData();
+				if (resultMeta.getTableName(1).equals("task")) {
+					task.setIdTask((int) rs.getObject("idtask"));
+					task.setName((String) rs.getObject("name"));
+					task.setDescription((String) rs.getObject("description"));
+					task.setIdPlan((int) rs.getObject("idplan"));
+					list.add(task);
+				}
+			}
+			rs.close();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
 	
 	public void executeUpdate(String request) throws SQLException {
 		java.sql.Statement stmt = null;
