@@ -212,11 +212,11 @@ public class JDBConnexion {
 			while ( rs.next() ) {
 				Product product = new ProductJDBC();
 				ResultSetMetaData resultMeta = rs.getMetaData();
-				if (resultMeta.getTableName(1).equals("activitycategory1")) {
+				if (resultMeta.getTableName(1).equals("product")) {
 					product.setId((Integer) rs.getObject("idP"));
 					product.setNameProduc((String) rs.getObject("name"));
 					product.setQuantity((int) rs.getObject("quantity"));
-					product.setPrice((float) rs.getObject("price"));
+					product.setPrice((double) rs.getObject("price"));
 					product.setCategory((String) rs.getObject("category"));
 					list.add(product);
 				}

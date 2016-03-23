@@ -69,7 +69,7 @@ public class ProductFacade {
 	}
 	
 	public List<Product> getAllProduct(Integer id) {
-		return this.productManager.getAllCategories(id);
+		return this.productManager.getAllProduct(id);
 	}
 	
 	/**
@@ -79,4 +79,12 @@ public class ProductFacade {
 	public void setproductManager(ProductManager newProductManager) {
 		this.productManager = newProductManager;
 	}
+
+
+	public void modifyProduct(Product p,String name, String price, String category, String quantity) {
+		System.out.println("modifyProduct : ProductFacade");
+		this.productManager.modifyProduct(p,name,price,category,quantity);
+	}
+	
+	
 }

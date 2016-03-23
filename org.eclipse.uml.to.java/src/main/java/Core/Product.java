@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import Persist.ProductJDBC;
 import Persist.UserJDBC;
 
 // Start of product code (product defined imports)
@@ -34,12 +35,12 @@ public abstract class Product {
 	/**
 	 * Description of the property price.
 	 */
-	private float price;
+	private double price;
 
 	/**
 	 * Description of the property quantity.
 	 */
-	private int quantity;
+	private Integer quantity;
 
 	/**
 	 * Description of the property category.
@@ -112,17 +113,17 @@ public abstract class Product {
 		this.name = newName;
 	}
 
-	public float getPrice()
+	public double getPrice()
 	{
 		return this.price;
 	}
 	
-	public void setPrice(float newPrice)
+	public void setPrice(double d)
 	{
-		this.price = newPrice;
+		this.price = d;
 	}
 
-	public int getQuantity()
+	public Integer getQuantity()
 	{
 		return this.quantity;
 	}
@@ -136,12 +137,14 @@ public abstract class Product {
 	{
 		return this.category;
 	}
-	public void setQuantity(int newQuantity)
+	public void setQuantity(Integer newQuantity)
 	{
 		this.quantity = newQuantity;
 	}
 
-	public abstract List<Product> getAllProduct(Integer id);
+	public static List<Product> getAllProduct(Integer id) {
+		return ProductJDBC.getAllProduct(id);
+	}
 
 
 

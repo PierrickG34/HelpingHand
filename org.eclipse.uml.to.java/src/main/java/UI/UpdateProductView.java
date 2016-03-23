@@ -161,23 +161,29 @@ public UpdateProductView(User currentUser) {
 		panelComboBox.add(this.combo);
 		panelComboBox.add(this.chooseProductButton);
 	 
-		// Name of the activity category
+		// Name 
         this.nameProduct.setPreferredSize(this.nameProductEntre.getPreferredSize());
         this.nameProduct.setHorizontalAlignment(SwingConstants.RIGHT);
         panelLabels.add(this.nameProduct);
         panelTextFiel.add(this.nameProductEntre);
         
-        // Short detail 
+        // Price
         this.priceProduct.setPreferredSize(this.priceProductEntre.getPreferredSize());
         this.priceProduct.setHorizontalAlignment(SwingConstants.RIGHT);
         panelLabels.add(this.priceProduct);
         panelTextFiel.add(this.priceProductEntre);
 
-        // Long detail
+        // quantity
         this.quantityProduct.setPreferredSize(this.quantityProductEntre.getPreferredSize());
         this.quantityProduct.setHorizontalAlignment(SwingConstants.RIGHT);
         panelLabels.add(this.quantityProduct);
-        panelTextFiel.add(this.quantityProduct);
+        panelTextFiel.add(this.quantityProductEntre);
+        
+        //Category
+        this.categoryProduct.setPreferredSize(this.categoryProductEntre.getPreferredSize());
+        this.categoryProduct.setHorizontalAlignment(SwingConstants.RIGHT);
+        panelLabels.add(this.categoryProduct);
+        panelTextFiel.add(this.categoryProductEntre);
         
 		panelButtonValidate.add(submit, BorderLayout.CENTER);
 		panelAll.add(panelComboBox);
@@ -200,22 +206,16 @@ public UpdateProductView(User currentUser) {
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();
 		if(source == "Choose") {
-			
-			System.out.println(this.combo.getSelectedItem());
-			System.out.println(this.allProduct.get(0));
-			System.out.println(this.allProduct.get(0).getName());
 			this.panelEditAll.setVisible(true);
-			
-			
-			/* Aller dans la base de données avec l'id de la category*/
-//			this.currentActivityCategory = new ActivityCategoryJDBC("1", "2", "3", "4");
-//			this.nameActivityCategoryEntre.setToolTipText(this.currentActivityCategory.getName());
-//			this.shortDetailActivityCategoryEntre.setToolTipText(this.currentActivityCategory.getShortDetail());
-//			this.longDetailActivityCategoryEntre.setToolTipText(this.currentActivityCategory.getLongDetail());
+		
+		/* Aller dans la base de données avec l'id de l'utilisateur*/
+			this.nameProductEntre.setToolTipText(this.allProduct.get(this.combo.getSelectedIndex()).getName());
+			this.priceProductEntre.setToolTipText(String.valueOf(this.allProduct.get(this.combo.getSelectedIndex()).getPrice()));
+			this.quantityProductEntre.setToolTipText(String.valueOf(this.allProduct.get(this.combo.getSelectedIndex()).getQuantity()));
+			this.categoryProductEntre.setToolTipText(this.allProduct.get(this.combo.getSelectedIndex()).getCategory());
 		}
 		if(source == "Submit") {
-			System.out.println("SUBMIT BUTTON");
-			//this.activityCategoryFacades.modifyActivityCategory(1, this.nameActivityCategoryEntre.getText(), this.shortDetailActivityCategoryEntre.getText(), this.longDetailActivityCategoryEntre.getText());
+			this.productFacades.modifyProduct(this.allProduct.get(this.combo.getSelectedIndex()), this.nameProductEntre.getText(), this.priceProductEntre.getText(),this.quantityProductEntre.getText(), this.categoryProductEntre.getText());
 		}
 	}
 }

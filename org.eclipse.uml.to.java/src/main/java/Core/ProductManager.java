@@ -5,6 +5,8 @@ import java.util.List;
 
 import Factory.AbstractFactory;
 import Factory.FactoryJDBC;
+import Persist.ActivityCategoryJDBC;
+import Persist.ProductJDBC;
 
 public class ProductManager {
 	private Product currentProduct;
@@ -24,9 +26,15 @@ public class ProductManager {
 		return this.currentProduct;
 	}
 	
-	public List<Product> getAllCategories(Integer id) {
-		Product product = this.jdbcFactorys.createProduct();
-		return product.getAllProduct(id);
+	public List<Product> getAllProduct(Integer id) {
+		return Product.getAllProduct(id);
+	}
+	
+	public void modifyProduct(Product p,String name, String price, String category, String quantity) {
+		System.out.println("modifyProduct : ProductManager");
+		this.currentProduct = p;
+		ProductJDBC currentProductJDBC = (ProductJDBC) this.currentProduct;
+		currentProductJDBC.modifyProduct(p, name, price,category,quantity);
 	}
 	
 }
