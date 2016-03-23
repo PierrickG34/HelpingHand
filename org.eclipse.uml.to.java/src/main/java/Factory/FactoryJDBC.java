@@ -7,9 +7,11 @@ import java.util.Date;
 
 import Core.ActivityCategory;
 import Core.Product;
+import Core.Task;
 import Factory.AbstractFactory;
 import Persist.ActivityCategoryJDBC;
 import Persist.ProductJDBC;
+import Persist.TaskJDBC;
 // Start of user code (user defined imports)
 import Persist.UserJDBC;
 
@@ -98,6 +100,11 @@ public class FactoryJDBC extends AbstractFactory {
 	
 	public Product createProduct() {
 		return new ProductJDBC();
+	}
+
+	@Override
+	public Task createTask(String name, String description) {
+		return new TaskJDBC(name, description);
 	}
 	
 	

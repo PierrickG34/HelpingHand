@@ -7,6 +7,7 @@ import java.util.Date;
 
 import Core.ActivityCategory;
 import Core.Product;
+import Core.Task;
 import Core.User;
 import Persist.ProductJDBC;
 import Persist.UserJDBC;
@@ -55,4 +56,5 @@ public abstract class AbstractFactory {
 	public abstract Product createProduct();
 	// End of user code
 
+	public abstract Task createTask(String name, String description);
 }
