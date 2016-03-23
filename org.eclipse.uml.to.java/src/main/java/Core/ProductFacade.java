@@ -10,6 +10,7 @@ import java.util.Observable;
 //import Factory.FactoryJDBC;
 import UI.ProductCreateView;
 import UI.TaskCreateView;
+import UI.TaskUpdateView;
 import UI.UpdateProductView;
 
 
@@ -49,6 +50,10 @@ public class ProductFacade {
 	}
 
 	public ProductFacade(TaskCreateView taskCreateView) {
+		super();
+	}
+
+	public ProductFacade(TaskUpdateView taskUpdateView) {
 		super();
 	}
 

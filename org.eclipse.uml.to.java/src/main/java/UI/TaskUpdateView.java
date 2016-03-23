@@ -17,9 +17,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.plaf.PanelUI;
 
 import Core.ActivityCategory;
 import Core.ActivityCategoryFacade;
+import Core.Product;
+import Core.ProductFacade;
 import Core.Task;
 import Core.TaskFacade;
 import Core.User;
@@ -37,7 +40,7 @@ public class TaskUpdateView extends JFrame implements ActionListener {
 
 	JButton profile = new JButton("Profile");
 	JButton notifications = new JButton("Notifications");
-	
+
 	/**
 	 * Descriptions for the windows
 	 */
@@ -50,9 +53,29 @@ public class TaskUpdateView extends JFrame implements ActionListener {
 
 
 	/**
-	 * Define the drop down menu with the activity category
+	 * Define the drop down menu with the task
 	 */
-	JComboBox<String> combo = new JComboBox<String>();
+	JComboBox<String> comboTask = new JComboBox<String>();
+
+	/**
+	 * Define the drop down menu with the product
+	 */
+	JComboBox<String> comboProduct = new JComboBox<String>();
+
+	/**
+	 * Contain all the product of the database
+	 */
+	List<Product> allProduct = new ArrayList<Product>();
+
+	/**
+	 * Description of the property ProductFacades.
+	 */
+	public ProductFacade productFacades = new ProductFacade(this);
+
+	/**
+	 * Description for the choose product
+	 */
+	JLabel chooseProduct = new JLabel("Please select a product for your task");
 
 	/**
 	 * Text to choose the activity category to delete
@@ -63,7 +86,7 @@ public class TaskUpdateView extends JFrame implements ActionListener {
 	 * Button who permit to validate the activity category choosen
 	 */
 	JButton chooseActivityCategoryButton = new JButton("Choose");
-	
+
 	/**
 	 * Descriptions for the name of a task
 	 */
@@ -75,7 +98,7 @@ public class TaskUpdateView extends JFrame implements ActionListener {
 	 */
 	JLabel description = new JLabel("Description :");
 	JTextField descriptionEntre = new JTextField("", 15);
-	
+
 	/**
 	 * This panel permit to display information 
 	 */
@@ -85,7 +108,7 @@ public class TaskUpdateView extends JFrame implements ActionListener {
 	 * Description of the property ActivityCategoryFacades.
 	 */
 	public TaskFacade taskFacades = new TaskFacade(this);
-	
+
 	/**
 	 * Contain all the activity category of the database
 	 */
@@ -129,54 +152,72 @@ public class TaskUpdateView extends JFrame implements ActionListener {
 
 		panelButton.add(panelTopButton);
 		panelButton.add(panelBottomButton);
-        Font font = new Font("bold", Font.BOLD,12);
-        this.updateTask.setFont(font);
-        panelButton.add(this.updateTask);
+		Font font = new Font("bold", Font.BOLD,12);
+		this.updateTask.setFont(font);
+		panelButton.add(this.updateTask);
 
 		contentPane.add(panelButton,BorderLayout.NORTH);
 
 		/*-------------- Veritable view --------------------*/
-		JPanel panelAll = new JPanel();
+		JPanel panelAll = new JPanel(new GridLayout(2, 0));
+		JPanel panelSemiAll = new JPanel(new GridLayout(2, 0));
 		JPanel panelEdit = new JPanel();
 		JPanel panelButtonValidate = new JPanel();
-		JPanel panelComboBox = new JPanel(new GridLayout(3, 1));
+		JPanel panelComboBoxTask = new JPanel(new GridLayout(3, 1));
+		JPanel panelComboBoxProduct = new JPanel(new GridLayout(2, 0));
 		JPanel panelLabels = new JPanel(new GridLayout(0,1));
 		JPanel panelTextFiel = new JPanel(new GridLayout(0,1));
+		JPanel panelComboBoxAllTask = new JPanel();
+		JPanel panelComboBoxAllProduct = new JPanel();
 
 		this.submit.addActionListener(this);
 		this.chooseActivityCategoryButton.addActionListener(this);
 
-		//Recuperate the activity Category and add to the combobox
+		//Recuperate the task and add to the combobox
 		this.allTask = this.taskFacades.getAllTask();
 		for (int i = 0; i< this.allTask.size(); i++) {
-			this.combo.addItem(this.allTask.get(i).getName());
+			this.comboTask.addItem(this.allTask.get(i).getName());
 		}
-		panelComboBox.add(this.chooseTask);
-		panelComboBox.add(this.combo);
-		panelComboBox.add(this.chooseActivityCategoryButton);
-        
-        // Name 
-        this.name.setPreferredSize(this.nameEntre.getPreferredSize());
-        this.name.setHorizontalAlignment(SwingConstants.RIGHT);
-        panelLabels.add(this.name);
-        panelTextFiel.add(this.nameEntre);
+		panelComboBoxTask.add(this.chooseTask);
+		panelComboBoxTask.add(this.comboTask);
+		panelComboBoxTask.add(this.chooseActivityCategoryButton);
+		panelComboBoxAllTask.add(panelComboBoxTask);
 
-        // Description
-        this.description.setPreferredSize(this.descriptionEntre.getPreferredSize());
-        this.description.setHorizontalAlignment(SwingConstants.RIGHT);
-        panelLabels.add(this.description);
-        panelTextFiel.add(this.descriptionEntre);
-        
+		// Name 
+		this.name.setPreferredSize(this.nameEntre.getPreferredSize());
+		this.name.setHorizontalAlignment(SwingConstants.RIGHT);
+		panelLabels.add(this.name);
+		panelTextFiel.add(this.nameEntre);
+
+		// Description
+		this.description.setPreferredSize(this.descriptionEntre.getPreferredSize());
+		this.description.setHorizontalAlignment(SwingConstants.RIGHT);
+		panelLabels.add(this.description);
+		panelTextFiel.add(this.descriptionEntre);
+
+		//Combo list product
+		//Recuperate the product and add to the combobox
+		this.allProduct = this.productFacades.getAllProduct();
+		for (int i = 0; i< this.allProduct.size(); i++) {
+			this.comboProduct.addItem(this.allProduct.get(i).getName());
+		}
+		panelComboBoxProduct.add(this.chooseProduct);
+		panelComboBoxProduct.add(this.comboProduct);
+		panelComboBoxAllProduct.add(panelComboBoxProduct);
+
 		panelButtonValidate.add(submit, BorderLayout.CENTER);
-		panelAll.add(panelComboBox);
 		panelEdit.add(panelLabels);
 		panelEdit.add(panelTextFiel);
-		this.panelEditAll.setVisible(false);
-		this.panelEditAll.add(panelEdit);
+		panelSemiAll.add(panelEdit);
+		panelSemiAll.add(panelComboBoxAllProduct);
+		this.panelEditAll.add(panelSemiAll);
 		this.panelEditAll.add(panelButtonValidate);
+		this.panelEditAll.setVisible(false);
+		panelAll.add(panelComboBoxAllTask);
 		panelAll.add(this.panelEditAll);
 
 		contentPane.add(panelAll, BorderLayout.WEST);
+		contentPane.add(this.panelEditAll, BorderLayout.CENTER);
 
 		//Display
 		setSize(400,120);
@@ -189,10 +230,10 @@ public class TaskUpdateView extends JFrame implements ActionListener {
 		String source = e.getActionCommand();
 		if(source == "Choose") {
 			this.panelEditAll.setVisible(true);
-			
+
 			/* Aller dans la base de données avec l'id de la category*/
-			this.nameEntre.setToolTipText(this.allTask.get(this.combo.getSelectedIndex()).getName());
-			this.descriptionEntre.setToolTipText(this.allTask.get(this.combo.getSelectedIndex()).getDescription());
+			this.nameEntre.setToolTipText(this.allTask.get(this.comboTask.getSelectedIndex()).getName());
+			this.descriptionEntre.setToolTipText(this.allTask.get(this.comboTask.getSelectedIndex()).getDescription());
 		}
 		if(source == "Submit") {
 			System.out.println("BUTTON SUBMIT");
