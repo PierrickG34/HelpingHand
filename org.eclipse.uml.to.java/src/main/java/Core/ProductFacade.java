@@ -8,16 +8,10 @@ import java.util.List;
 import java.util.Observable;
 
 import UI.DeleteProductView;
-//import Factory.FactoryJDBC;
 import UI.ProductCreateView;
 import UI.TaskCreateView;
 import UI.TaskUpdateView;
 import UI.UpdateProductView;
-
-
-// Start of user code (user defined imports)
-
-// End of user code
 
 /**
  * Description of UserFacade.
@@ -28,53 +22,68 @@ public class ProductFacade {
 
 	
 	/**
-	 * Description of the property userManager.
+	 * Description of the property ProductManager.
 	 */
 	public ProductManager productManager = new ProductManager();
 
-	// Start of user code (user defined attributes for UserFacade)
-
-	// End of user code
 
 	/**
 	 * The constructor.
-	 * @param ProductCreateView correspond a user
+	 * @param ProductCreateView 
 	 */
-	public ProductFacade(ProductCreateView user) {
+	public ProductFacade(ProductCreateView productCreateView) {
 		// Start of user code constructor for UserFacade)
 		super();
 		// End of user code
 	}
 
+	/**
+	 * The constructor.
+	 * @param ProductUpdateView
+	 */
 	public ProductFacade(UpdateProductView updateProductView) {
-		// TODO Auto-generated constructor stub
+		super();
 	}
-
+	
+	/**
+	 * The constructor.
+	 * @param TasCreateView
+	 */
 	public ProductFacade(TaskCreateView taskCreateView) {
 		super();
 	}
-
+	
+	/**
+	 * The constructor.
+	 * @param TasUpdateView
+	 */
 	public ProductFacade(TaskUpdateView taskUpdateView) {
 		super();
 	}
 
+	/**
+	 * The constructor.
+	 * @param DeleteProductView
+	 */
 	public ProductFacade(DeleteProductView deleteProductView) {
 		super();
 	}
 
 	/**
 	 * Description of the method createProduct.
-	 * @param login 
-	 * @param password 
+	 * @param name 
+	 * @param price
+	 * @param quantity
+	 * @param category
+	 * @param idVendeur
+	 * @return Product
 	 */
 
 	public Product createProduct(String name, Double price, int quantity, String category, Integer idVendeur) {
 		return this.productManager.createProduct(name,price,quantity,category,idVendeur);
 	}
 
-	// Start of user code (user defined methods for UserFacade)
 
-	// End of user code
 	/**
 	 * Returns userManager.
 	 * @return userManager 
@@ -83,8 +92,13 @@ public class ProductFacade {
 		return this.productManager;
 	}
 	
-	public List<Product> getAllProduct(Integer id) {
-		return this.productManager.getAllProduct(id);
+	/**
+	 * Return l'ensemble des products du vendeur donnée
+	 * @param idVendeur
+	 * @return List<Product>
+	 */
+	public List<Product> getAllProduct(Integer idVendeur) {
+		return this.productManager.getAllProduct(idVendeur);
 	}
 	
 	/**
@@ -95,14 +109,30 @@ public class ProductFacade {
 		this.productManager = newProductManager;
 	}
 
+	/**
+	 * Returns l'ensemble des produits de la base de données
+	 * @return List<Product> 
+	 */
 	public List<Product> getAllProduct() {
 		return this.productManager.getAllProduct();
 	}
 
+	/**
+	 * modifie le currentProduct
+	 * @param product
+	 * @name
+	 * @price
+	 * @quantity
+	 * @category
+	 */
 	public void modifyProduct(Product product, String name, String price, String quantity, String category) {
 		this.productManager.modifyProduct(product,name,price,quantity,category);
 	}
 
+	/**
+	 * Supprimer currentProduct
+	 * @param product
+	 */
 	public void DeleteProduct(Product product) {
 		this.productManager.deleteProduct(product);		
 	}
