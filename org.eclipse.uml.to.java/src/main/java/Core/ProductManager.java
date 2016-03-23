@@ -46,5 +46,12 @@ public class ProductManager {
 		ProductJDBC currentProductJDBC = (ProductJDBC) this.currentProduct;
 		currentProductJDBC.modifyProduct(product, name, price,quantity,category);		
 	}
+
+
+
+
+	public void deleteProduct(Product product) {
+		product.delete();
+	}
 	
 }

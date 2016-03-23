@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Observable;
 
+import UI.DeleteProductView;
 //import Factory.FactoryJDBC;
 import UI.ProductCreateView;
 import UI.TaskCreateView;
@@ -57,6 +58,10 @@ public class ProductFacade {
 		super();
 	}
 
+	public ProductFacade(DeleteProductView deleteProductView) {
+		super();
+	}
+
 	/**
 	 * Description of the method createProduct.
 	 * @param login 
@@ -96,6 +101,10 @@ public class ProductFacade {
 
 	public void modifyProduct(Product product, String name, String price, String quantity, String category) {
 		this.productManager.modifyProduct(product,name,price,quantity,category);
+	}
+
+	public void DeleteProduct(Product product) {
+		this.productManager.deleteProduct(product);		
 	}
 }
 

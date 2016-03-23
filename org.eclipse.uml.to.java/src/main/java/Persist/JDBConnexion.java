@@ -260,6 +260,19 @@ public class JDBConnexion {
 		return list;
 	}
 	
+	public void deleteProduct(String request)
+	{
+		java.sql.Statement stmt = null;
+		System.out.println("Creating statement...");
+			try {
+				stmt = this.conn.createStatement();
+				stmt.executeQuery(request);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	}
+	
 	public void executeUpdate(String request) throws SQLException {
 		java.sql.Statement stmt = null;
 		System.out.println("Creating statement...");

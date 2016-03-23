@@ -110,7 +110,7 @@ public class ProductManageView extends JFrame implements ActionListener {
 			UpdateProductView profilUserView = new UpdateProductView(this.currentUser);
 		}
 		else if(source == "Delete a Product") {
-			System.out.println("BUTTON DELETE");
+			DeleteProductView profilUserView = new DeleteProductView(this.currentUser);
 		}
 	}
 }

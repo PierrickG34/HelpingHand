@@ -150,4 +150,6 @@ public abstract class Product {
 	}
 	
 	public abstract List<Product> getAllProduct();
+
+	public abstract void delete();
 }
