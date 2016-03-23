@@ -91,5 +91,4 @@ public class ProductJDBC extends Product{
 		list = this.jDBConnexions.getAllProduct("SELECT * FROM product");
 		return list;
 	}
-
 }

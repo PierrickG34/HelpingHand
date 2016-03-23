@@ -1,3 +1,6 @@
+
+
+
 /*******************************************************************************
  * 2016, All rights reserved.
  *******************************************************************************/
@@ -17,7 +20,7 @@ import Persist.UserJDBC;
 /**
  * Description of User.
  * 
- * @author beuleJérémy
+ * @author beuleJï¿½rï¿½my
  */
 public abstract class Product {
 	
@@ -35,12 +38,12 @@ public abstract class Product {
 	/**
 	 * Description of the property price.
 	 */
-	private double price;
+	private Double price;
 
 	/**
 	 * Description of the property quantity.
 	 */
-	private Integer quantity;
+	private int quantity;
 
 	/**
 	 * Description of the property category.
@@ -53,11 +56,11 @@ public abstract class Product {
 	 * The constructor.
 	 * @param login
 	 */
-	public Product(String name, Double price2, int quantity, String category, Integer idVendeur) {
+	public Product(String name, Double price, int quantity, String category, Integer idVendeur) {
 		// Start of user code constructor for Product)
 		super();
 		this.name = name;
-		this.price = price2;
+		this.price = price;
 		this.quantity = quantity;
 		this.category = category;
 		this.idVendeur = idVendeur;
@@ -113,17 +116,17 @@ public abstract class Product {
 		this.name = newName;
 	}
 
-	public double getPrice()
+	public Double getPrice()
 	{
 		return this.price;
 	}
 	
-	public void setPrice(double d)
+	public void setPrice(Double newPrice)
 	{
-		this.price = d;
+		this.price = newPrice;
 	}
 
-	public Integer getQuantity()
+	public int getQuantity()
 	{
 		return this.quantity;
 	}
@@ -137,7 +140,7 @@ public abstract class Product {
 	{
 		return this.category;
 	}
-	public void setQuantity(Integer newQuantity)
+	public void setQuantity(int newQuantity)
 	{
 		this.quantity = newQuantity;
 	}
@@ -145,9 +148,6 @@ public abstract class Product {
 	public static List<Product> getAllProduct(Integer id) {
 		return ProductJDBC.getAllProduct(id);
 	}
-
-	public List<Product> getAllProduct() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
+	public abstract List<Product> getAllProduct();
 }

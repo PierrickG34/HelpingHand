@@ -5,7 +5,6 @@ import java.util.List;
 
 import Factory.AbstractFactory;
 import Factory.FactoryJDBC;
-import Persist.ActivityCategoryJDBC;
 import Persist.ProductJDBC;
 
 public class ProductManager {
@@ -49,4 +48,3 @@ public class ProductManager {
 	}
 	
 }
-

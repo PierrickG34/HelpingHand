@@ -7,9 +7,11 @@ import java.util.Date;
 
 import Core.ActivityCategory;
 import Core.Product;
+import Core.Task;
 import Factory.AbstractFactory;
 import Persist.ActivityCategoryJDBC;
 import Persist.ProductJDBC;
+import Persist.TaskJDBC;
 // Start of user code (user defined imports)
 import Persist.UserJDBC;
 
@@ -98,6 +100,12 @@ public class FactoryJDBC extends AbstractFactory {
 	
 	public Product createProduct() {
 		return new ProductJDBC();
+	}
+
+	@Override
+	public Task createTask(String name, String description, int idProduct) {
+		/*Ici, faire une methode dans cette classe qui createContain avec idTask : SELECT CURRVAL(pg_get_serial_sequence('task','idtask')) et idProduct*/
+		return new TaskJDBC(name, description, idProduct);
 	}
 	
 	

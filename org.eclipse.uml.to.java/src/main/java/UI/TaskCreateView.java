@@ -23,6 +23,8 @@ import Core.ActivityCategory;
 import Core.ActivityCategoryFacade;
 import Core.Product;
 import Core.ProductFacade;
+
+import Core.TaskFacade;
 import Core.User;
 import Excpetion.AlreadyExistException;
 
@@ -83,10 +85,10 @@ public class TaskCreateView extends JFrame implements ActionListener {
 	 */
 	JButton create = new JButton("Create");
 	
-//	/**
-//	 * Description of the property ActivityCategoryFacades.
-//	 */
-//	public ActivityCategoryFacade activityCategoryFacades = new ActivityCategoryFacade(this);
+	/**
+	 * Description of the property ActivityCategoryFacades.
+	 */
+	public TaskFacade taskFacades = new TaskFacade(this);
 //	
 	private User currentUser;
 	
@@ -227,6 +229,7 @@ public class TaskCreateView extends JFrame implements ActionListener {
 			/*If all fields are filled, execute the request*/
 			if(!this.nameEntre.getText().isEmpty() && !this.descriptionEntre.getText().isEmpty()) {
 				System.out.println("On peut le creer!");
+				this.taskFacades.createTask(this.nameEntre.getText(), this.descriptionEntre.getText(), this.allProduct.get(this.combo.getSelectedIndex()).getId());
 			}
 		}
 	}

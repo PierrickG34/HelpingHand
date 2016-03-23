@@ -1,3 +1,4 @@
+
 package UI;
 
 import java.awt.BorderLayout;
@@ -219,4 +220,3 @@ public UpdateProductView(User currentUser) {
 		}
 	}
 }
-
