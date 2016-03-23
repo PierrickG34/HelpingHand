@@ -18,18 +18,18 @@ import Persist.UserJDBC;
 // End of product code
 
 /**
- * Description of User.
+ * Description of Produt.
  * 
  * @author beuleJï¿½rï¿½my
  */
 public abstract class Product {
 	
 	/**
-	 * Description of the property idUser.
+	 * Description of the property idProduct.
 	 */
 	private Integer idProduct = Integer.valueOf(0);
 
-	//beule
+
 	/**
 	 * Description of the property name.
 	 */
@@ -50,11 +50,19 @@ public abstract class Product {
 	 */
 	private String category = "";
 
+	/**
+	 * Description of the property idVendeur.
+	 */
 	
 	private int idVendeur;
+	
 	/**
 	 * The constructor.
-	 * @param login
+	 * @param name
+	 * @param price
+	 * @param quantity
+	 * @param category
+	 * @param idVendeur
 	 */
 	public Product(String name, Double price, int quantity, String category, Integer idVendeur) {
 		// Start of user code constructor for Product)
@@ -71,85 +79,115 @@ public abstract class Product {
 	public abstract void save();
 
 
-	/**
-	 * Description of the method setUser.
-	 * @param login 
-	 */
-	/*public void setUser(String login) {
-		// Start of user code for method setUser
-		UserJDBC userJDBC = (UserJDBC) this;
-		userJDBC.setUser(this.mailAddress);
-		// End of user code
-	}*/
 
-	// Start of user code (user defined methods for User)
-
-	// End of user code
+	//Getteur et Setteur
+	
 	/**
-	 * Returns idUser.
-	 * @return idUser 
+	 * Returns idProduct.
+	 * @return idProduct 
 	 */
-	public Integer getIdUser() {
+	public Integer getId() {
 		return this.idProduct;
 	}
 
 	/**
-	 * Sets a value to attribute idUser. 
-	 * @param newIdUser 
+	 * Sets a value to attribute idUProduct. 
+	 * @param newIdProduct
 	 */
 	public void setId(Integer newIdProduct) {
 		this.idProduct = newIdProduct;
 	}
 
-	public Integer getId()
-	{
-		return this.idProduct;
-	}
-	
+	/**
+	 * Returns product name.
+	 * @return name 
+	 */
 	public String getName()
 	{
 		return this.name;
 	}
 	
+	/**
+	 * Sets a value to attribute product name. 
+	 * @param newName
+	 */
 	public void setNameProduc(String newName)
 	{
 		this.name = newName;
 	}
 
+	/**
+	 * Returns product price.
+	 * @return price 
+	 */
 	public Double getPrice()
 	{
 		return this.price;
 	}
 	
+	/**
+	 * Sets a value to attribute product price. 
+	 * @param newPrice
+	 */
 	public void setPrice(Double newPrice)
 	{
 		this.price = newPrice;
 	}
 
+	/**
+	 * Returns product quantity.
+	 * @return quantity 
+	 */
 	public int getQuantity()
 	{
 		return this.quantity;
 	}
 	
-	public void setCategory(String s)
+	/**
+	 * Sets a value to attribute product category. 
+	 * @param newCategory
+	 */
+	public void setCategory(String newCategory)
 	{
-		this.category = s;
+		this.category = newCategory;
 	}
 	
+	/**
+	 * Returns product category.
+	 * @return category 
+	 */
 	public String getCategory()
 	{
 		return this.category;
 	}
+	
+	/**
+	 * Sets a value to attribute product quantity. 
+	 * @param newQuantity
+	 */
 	public void setQuantity(int newQuantity)
 	{
 		this.quantity = newQuantity;
 	}
+	
+	/**
+	 * Returns l'ensemble des produits du vendeur
+	 * @param idVendeur
+	 * @return List<Product> 
+	 */
 
-	public static List<Product> getAllProduct(Integer id) {
-		return ProductJDBC.getAllProduct(id);
+	public static List<Product> getAllProduct(Integer idVendeur) {
+		return ProductJDBC.getAllProduct(idVendeur);
 	}
 	
+	/**
+	 * Returns l'ensemble des produits de la base de données
+	 * @return List<Product> 
+	 */
 	public abstract List<Product> getAllProduct();
 
+	/**
+	 * Supprimer currentProduct
+	 */
 	public abstract void delete();
 }
