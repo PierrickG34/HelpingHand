@@ -159,7 +159,7 @@ public DeleteProductView(User currentUser) {
 			this.panelEditAll.setVisible(true);
 		}
 		if(source == "Delete") {
-			//this.productFacades.DeleteProduct(this.allProduct.get(this.combo.getSelectedIndex()));
+			this.productFacades.DeleteProduct(this.allProduct.get(this.combo.getSelectedIndex()));
 		}
 	}
 }

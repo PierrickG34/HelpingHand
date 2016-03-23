@@ -102,6 +102,10 @@ public class ProductFacade {
 	public void modifyProduct(Product product, String name, String price, String quantity, String category) {
 		this.productManager.modifyProduct(product,name,price,quantity,category);
 	}
+
+	public void DeleteProduct(Product product) {
+		this.productManager.deleteProduct(product);		
+	}
 }
 
 
