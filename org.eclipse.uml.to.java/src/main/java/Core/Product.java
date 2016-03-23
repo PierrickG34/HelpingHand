@@ -53,11 +53,11 @@ public abstract class Product {
 	 * The constructor.
 	 * @param login
 	 */
-	public Product(String name, float price, int quantity, String category, Integer idVendeur) {
+	public Product(String name, Double price2, int quantity, String category, Integer idVendeur) {
 		// Start of user code constructor for Product)
 		super();
 		this.name = name;
-		this.price = price;
+		this.price = price2;
 		this.quantity = quantity;
 		this.category = category;
 		this.idVendeur = idVendeur;
@@ -146,10 +146,8 @@ public abstract class Product {
 		return ProductJDBC.getAllProduct(id);
 	}
 
-
-
-
-
-
-
+	public List<Product> getAllProduct() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
