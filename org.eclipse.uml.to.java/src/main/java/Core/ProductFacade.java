@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Observable;
 
+import UI.DeleteProductView;
 //import Factory.FactoryJDBC;
 import UI.ProductCreateView;
 import UI.TaskCreateView;
@@ -54,6 +55,10 @@ public class ProductFacade {
 	}
 
 	public ProductFacade(TaskUpdateView taskUpdateView) {
+		super();
+	}
+
+	public ProductFacade(DeleteProductView deleteProductView) {
 		super();
 	}
 
