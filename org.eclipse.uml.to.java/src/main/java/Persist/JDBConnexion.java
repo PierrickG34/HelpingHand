@@ -266,7 +266,7 @@ public class JDBConnexion {
 		System.out.println("Creating statement...");
 			try {
 				stmt = this.conn.createStatement();
-				stmt.executeQuery(request);
+				stmt.executeUpdate(request);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
