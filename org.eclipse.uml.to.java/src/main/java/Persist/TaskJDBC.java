@@ -17,7 +17,7 @@ public class TaskJDBC extends Task {
 		super();
 	}
 
-	public TaskJDBC(String name, String description) {
+	public TaskJDBC(String name, String description, int idProduct) {
 		super(name, description);
 		try {
 			this.jDBConnexions.executeUpdate("INSERT INTO task VALUES (DEFAULT, '"+ name + "','"+ description +"','4')");

@@ -12,7 +12,7 @@ public class TaskManager {
 		super();
 	}
 
-	public Task createTask(String name, String description) {
-		return (this.currentTask = this.taskFactorys.createTask(name, description));
+	public Task createTask(String name, String description, int idProduct) {
+		return (this.currentTask = this.taskFactorys.createTask(name, description, idProduct));
 	}
 }

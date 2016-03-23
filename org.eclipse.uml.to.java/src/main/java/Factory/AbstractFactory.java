@@ -56,5 +56,5 @@ public abstract class AbstractFactory {
 	public abstract Product createProduct();
 	// End of user code
 
-	public abstract Task createTask(String name, String description);
+	public abstract Task createTask(String name, String description, int idProduct);
 }

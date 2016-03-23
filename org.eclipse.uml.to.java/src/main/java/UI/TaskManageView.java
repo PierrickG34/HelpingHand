@@ -103,7 +103,6 @@ public class TaskManageView extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();
 		if(source == "Create a Task") {
-			System.out.println("BUTTON CREATE");
 			TaskCreateView taskCreateView = new TaskCreateView(this.currentUser);
 		}
 		else if(source == "Update a Task") {

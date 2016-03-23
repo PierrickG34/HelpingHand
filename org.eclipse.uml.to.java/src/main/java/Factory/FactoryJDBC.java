@@ -103,8 +103,9 @@ public class FactoryJDBC extends AbstractFactory {
 	}
 
 	@Override
-	public Task createTask(String name, String description) {
-		return new TaskJDBC(name, description);
+	public Task createTask(String name, String description, int idProduct) {
+		/*Ici, faire une methode dans cette classe qui createContain avec idTask : SELECT CURRVAL(pg_get_serial_sequence('task','idtask')) et idProduct*/
+		return new TaskJDBC(name, description, idProduct);
 	}
 	
 	

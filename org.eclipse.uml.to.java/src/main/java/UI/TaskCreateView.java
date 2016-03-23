@@ -228,8 +228,7 @@ public class TaskCreateView extends JFrame implements ActionListener {
 			/*If all fields are filled, execute the request*/
 			if(!this.nameEntre.getText().isEmpty() && !this.descriptionEntre.getText().isEmpty()) {
 				System.out.println("On peut le creer!");
-				//this.taskFacades.createActivityCategory(this.nameEntre.getText(), this.shortDetailEntre.getText(), this.longDetailEntre.getText(), this.currentUser.getIdUser());
-				this.taskFacades.createTask(this.nameEntre.getText(), this.descriptionEntre.getText());
+				this.taskFacades.createTask(this.nameEntre.getText(), this.descriptionEntre.getText(), this.allProduct.get(this.combo.getSelectedIndex()).getId());
 			}
 		}
 	}

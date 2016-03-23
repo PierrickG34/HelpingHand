@@ -13,8 +13,8 @@ public class TaskFacade {
 		super();
 	}
 
-	public Task createTask(String name, String description) {
-		return this.taskManager.createTask(name, description);
+	public Task createTask(String name, String description, int idProduct) {
+		return this.taskManager.createTask(name, description, idProduct);
 		
 	}
 
