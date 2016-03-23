@@ -22,15 +22,49 @@ import Excpetion.AlreadyExistException;
 
 public class CreateActivityCategoryView extends JFrame implements ActionListener {
 
+	/**
+	 * Menu button for dashboard
+	 */
 	JButton dashboard = new JButton("Dashboard");
+	
+	/**
+	 * Menu button for activity category
+	 */
 	JButton activityCategory = new JButton("Activity Category");
+	
+	/**
+	 * Menu button for product category
+	 */
 	JButton productCategory = new JButton("Product Category");
+	
+	/**
+	 * Menu button for product
+	 */
 	JButton product = new JButton("Product");
+	
+	/**
+	 * Menu button for account
+	 */
 	JButton account = new JButton("Account");
+	
+	/**
+	 * Menu button for plan
+	 */
 	JButton plan = new JButton("Plan");
+	
+	/**
+	 * Menu button for task
+	 */
 	JButton task = new JButton("Task");
-	   
+	
+	/**
+	 * Menu button for profile
+	 */   
 	JButton profile = new JButton("Profile");
+	
+	/**
+	 * Menu button for notification
+	 */
 	JButton notifications = new JButton("Notifications");
 	
 	/**
@@ -39,21 +73,30 @@ public class CreateActivityCategoryView extends JFrame implements ActionListener
 	JLabel createActivityCategory = new JLabel("  Create an activity category :");
 	
 	/**
-	 * Descriptions for the mobile field
+	 * Descriptions for the name field
 	 */
 	JLabel name = new JLabel("Name :");
+	/**
+	 * Descriptions for the name field
+	 */
 	JTextField nameEntre = new JTextField("", 15);
 	
 	/**
-	 * Descriptions for the mobile field
+	 * Descriptions for the short detail field
 	 */
 	JLabel shortDetail = new JLabel("Short Detail :");
+	/**
+	 * Descriptions for the short detail field
+	 */
 	JTextField shortDetailEntre = new JTextField("", 15);
 	
 	/**
-	 * Descriptions for the mobile field
+	 * Descriptions for the long detail field
 	 */
 	JLabel longDetail = new JLabel("Long Detail :");
+	/**
+	 * Descriptions for the long detail field
+	 */
 	JTextField longDetailEntre = new JTextField("", 15);
 	
 	/**
@@ -66,16 +109,24 @@ public class CreateActivityCategoryView extends JFrame implements ActionListener
 	 */
 	public ActivityCategoryFacade activityCategoryFacades = new ActivityCategoryFacade(this);
 	
+	/**
+	 * The current user
+	 */
 	private User currentUser;
 	
-	    /**
+	 /**
      * Describe error message
      */
     JLabel errorMessage = new JLabel("");
 	
+    /**
+     * Constructor
+     * @param currentUser
+     */
 	public CreateActivityCategoryView(User currentUser) {
-		super("DashBoard"); // Name of the frame
+		super("Activity Category"); // Name of the frame
 		this.currentUser = currentUser;
+		
 		/* Defined actions on the different buttons */
 		this.dashboard.addActionListener(this);
 		this.activityCategory.addActionListener(this);
@@ -87,11 +138,13 @@ public class CreateActivityCategoryView extends JFrame implements ActionListener
 		this.profile.addActionListener(this);
 		this.notifications.addActionListener(this);
 		
+		/*Define the container*/
         Container contentPane = getContentPane(); 
         contentPane.setLayout(new BorderLayout());
         setMinimumSize(new Dimension(1000,500));
         setMaximumSize(new Dimension(1000,500));
         
+        /*Define container for the display*/
         JPanel panelButton = new JPanel(new GridLayout(3, 1)); // 2 rows x 1 column
         JPanel panelTopButton = new JPanel();
         JPanel panelBottomButton = new JPanel();
@@ -146,7 +199,6 @@ public class CreateActivityCategoryView extends JFrame implements ActionListener
 		panelButtonValidate.add(validate, BorderLayout.CENTER);
 		panelButtonValidate.add(this.errorMessage, BorderLayout.CENTER);
 		this.errorMessage.setVisible(false);
-		//panelCreateActivityCategory.add(panelButtonValidate);
 		this.validate.addActionListener(this);
 		
 		panelAll.add(panelCreateActivityCategory);
