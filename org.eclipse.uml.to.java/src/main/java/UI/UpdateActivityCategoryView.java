@@ -23,66 +23,72 @@ import Core.ActivityCategoryFacade;
 import Core.User;
 import Persist.ActivityCategoryJDBC;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class UpdateActivityCategoryView.
+ */
 public class UpdateActivityCategoryView extends JFrame implements ActionListener {
 
+	/** The dashboard button. */
 	JButton dashboard = new JButton("Dashboard");
+	
+	/** The activity category button. */
 	JButton activityCategory = new JButton("Activity Category");
+	
+	/** The product category button. */
 	JButton productCategory = new JButton("Product Category");
+	
+	/** The product button. */
 	JButton product = new JButton("Product");
+	
+	/** The account button. */
 	JButton account = new JButton("Account");
+	
+	/** The plan button. */
 	JButton plan = new JButton("Plan");
+	
+	/** The task button. */
 	JButton task = new JButton("Task");
 
+	/** The profile button. */
 	JButton profile = new JButton("Profile");
+	
+	/** The notifications button. */
 	JButton notifications = new JButton("Notifications");
 	
-	/**
-	 * Descriptions for the windows
-	 */
+	/** Descriptions for the windows label. */
 	JLabel updateActivityCategory = new JLabel("  Update an activity category :");
 
-	/**
-	 * Description for the button validate
-	 */
+	/** Description for the button validate button. */
 	JButton submit = new JButton("Submit");
 
 
-	/**
-	 * Define the drop down menu with the activity category
-	 */
+	/** Define the drop down menu with the activity category. */
 	JComboBox<String> combo = new JComboBox<String>();
 
-	/**
-	 * Text to choose the activity category to delete
-	 */
+	/** Text to choose the activity category to delete. */
 	JLabel chooseActivityCategory = new JLabel("Choose an activity category :");
 
-	/**
-	 * Button who permit to validate the activity category choosen
-	 */
+	/** Button who permit to validate the activity category choosen. */
 	JButton chooseActivityCategoryButton = new JButton("Choose");
 
 	
-	/**
-	 * Descriptions for the short detail of an activity category
-	 */
+	/** Descriptions for the short detail of an activity category. */
 	JLabel shortDetailActivityCategory = new JLabel("Short detail :");
+	
+	/** The short detail activity category entre. */
 	JTextField shortDetailActivityCategoryEntre = new JTextField("", 15);
 
-	/**
-	 * Descriptions for the short detail of an activity category
-	 */
+	/** Descriptions for the short detail of an activity category. */
 	JLabel longDetailActivityCategory = new JLabel("Long detail :");
+	
+	/** The long detail activity category entre. */
 	JTextField longDetailActivityCategoryEntre = new JTextField("", 15);
 	
-	/**
-	 * This panel permit to display information 
-	 */
+	/** This panel permit to display information. */
 	JPanel panelEditAll = new JPanel(new GridLayout(2,0));
 	
-	/**
-	 * Define the current activit category that the admin choose
-	 */
+	/** Define the current activit category that the admin choose. */
 	ActivityCategoryJDBC currentActivityCategory;
 
 	/**
@@ -90,13 +96,17 @@ public class UpdateActivityCategoryView extends JFrame implements ActionListener
 	 */
 	public ActivityCategoryFacade activityCategoryFacades = new ActivityCategoryFacade(this);
 	
-	/**
-	 * Contain all the activity category of the database
-	 */
+	/** Contain all the activity category of the database. */
 	List<ActivityCategory> allActivityCategory = new ArrayList<ActivityCategory>();
 
+	/** The current user. */
 	private User currentUser;
 
+	/**
+	 * Instantiates a new update activity category view.
+	 *
+	 * @param currentUser the current user
+	 */
 	public UpdateActivityCategoryView(User currentUser) {
 		super("DashBoard"); // Name of the frame
 		this.currentUser = currentUser;
@@ -188,6 +198,9 @@ public class UpdateActivityCategoryView extends JFrame implements ActionListener
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();
