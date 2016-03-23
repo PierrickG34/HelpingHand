@@ -91,4 +91,9 @@ public class ProductJDBC extends Product{
 		list = this.jDBConnexions.getAllProduct("SELECT * FROM product");
 		return list;
 	}
+
+
+	public void delete() {
+			this.jDBConnexions.deleteProduct("DELETE FROM product where idp =" + this.getId());
+	}
 }

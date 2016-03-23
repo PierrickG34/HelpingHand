@@ -51,8 +51,7 @@ public class ProductManager {
 
 
 	public void deleteProduct(Product product) {
-		//product.delete();
-		
+		product.delete();
 	}
 	
 }
