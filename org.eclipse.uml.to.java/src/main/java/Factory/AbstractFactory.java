@@ -60,6 +60,8 @@ public abstract class AbstractFactory {
 	public abstract Task createTask(String name, String description, int idProduct, int idPlan);
 	
 	public abstract Task createTask();
+	
+	public abstract Plan createPlan();
 
 	public abstract Plan createPlan(String name, String observation, Date deadline, boolean tutorial, boolean isPublic,
 			ActivityCategory ac, int idUser);

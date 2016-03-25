@@ -18,9 +18,9 @@ public class PlanFacade {
 		
 	}
 
-//	public List<Plan> getAllPlan() {
-//		return this.planManager.getAllPlan();
-//	}
+	public List<Plan> getAllPlan() {
+		return this.planManager.getAllPlan();
+	}
 //
 //	public void modifyPlan(Plan plan, String name, String observation, Date deadline, boolean tutorial, boolean isPublic, ActivityCategory ac) {
 //		this.planManager.modifyPlan(plan, name, observation, deadline, tutorial, isPublic, ac);

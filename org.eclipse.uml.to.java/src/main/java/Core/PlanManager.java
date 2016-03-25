@@ -22,10 +22,10 @@ public class PlanManager {
 		return (this.currentPlan = this.planFactory.createPlan(name, observation, deadline, tutorial, isPublic, ac, idUser));
 	}
 
-//	public List<Plan> getAllPlan() {
-//		Plan plan = this.planFactory.createPlan();
-//		return plan.getAllPlan();
-//	}
+	public List<Plan> getAllPlan() {
+		Plan plan = this.planFactory.createPlan();
+		return plan.getAllPlan();
+	}
 //
 //	public void modifyPlan(Plan plan, String name, String observation, Date deadline, boolean tutorial, boolean isPublic, ActivityCategory ac) {
 //		this.currentPlan = plan;

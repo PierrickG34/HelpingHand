@@ -39,6 +39,18 @@ public abstract class Plan {
 	private int idUserCreatePlan;
 	
 	
+	public int getIdUserCreatePlan() {
+		return idUserCreatePlan;
+	}
+
+	public void setIdUserCreatePlan(int idUserCreatePlan) {
+		this.idUserCreatePlan = idUserCreatePlan;
+	}
+
+	public boolean isPublic() {
+		return isPublic;
+	}
+
 	public Plan() {
 		super();
 	}

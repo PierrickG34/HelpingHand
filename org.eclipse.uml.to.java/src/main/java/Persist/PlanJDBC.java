@@ -38,8 +38,9 @@ public class PlanJDBC extends Plan {
 
 	@Override
 	public List<Plan> getAllPlan() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Plan> list = new ArrayList<Plan>();
+		list = this.jDBConnexions.getAllPlan("SELECT * FROM Plan");
+		return list;
 	}
 
 	@Override
@@ -47,13 +48,6 @@ public class PlanJDBC extends Plan {
 		this.jDBConnexions.delete("DELETE FROM Plan where idplan = " + this.getIdPlan());
 	}
 
-//	@Override
-//	public List<Task> getAllTask() {
-//		List<Task> list = new ArrayList<Task>();
-//		list = this.jDBConnexions.getAllTask("SELECT * FROM task");
-//		return list;
-//	}
-//
 //	public void modifyTask(Task task, String description, Product product) {
 //		if (description.isEmpty()) {
 //			description = this.getDescription();
