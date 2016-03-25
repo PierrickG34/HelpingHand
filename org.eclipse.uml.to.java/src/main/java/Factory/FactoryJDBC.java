@@ -11,6 +11,7 @@ import Core.Product;
 import Core.Task;
 import Factory.AbstractFactory;
 import Persist.ActivityCategoryJDBC;
+import Persist.PlanJDBC;
 import Persist.ProductJDBC;
 import Persist.TaskJDBC;
 // Start of user code (user defined imports)
@@ -116,14 +117,8 @@ public class FactoryJDBC extends AbstractFactory {
 	}
 	
 	@Override
-	public Plan createPlan(String name, String observation, Date deadline, boolean tutorial, boolean isPublic, ActivityCategory ac) {
-		Plan plan = new PlanJDBC(name, observation, deadline, tutorial, isPublic, ac);
-		return plan;
-	}
-	
-	@Override
-	public Plan createPlan() {
-		return new PlanJDBC();
+	public Plan createPlan(String name, String observation, Date deadline, boolean tutorial, boolean isPublic, ActivityCategory ac, int idUser) {
+		return new PlanJDBC(name, observation, deadline, tutorial, isPublic, ac, idUser);
 	}
 }
 

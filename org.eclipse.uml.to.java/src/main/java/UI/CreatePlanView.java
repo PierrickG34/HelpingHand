@@ -8,7 +8,9 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 
@@ -26,6 +28,7 @@ import org.jdatepicker.impl.UtilDateModel;
 
 import Core.ActivityCategory;
 import Core.ActivityCategoryFacade;
+import Core.PlanFacade;
 import Core.User;
 import Persist.DateLabelFormatter;
 
@@ -138,6 +141,11 @@ public class CreatePlanView extends JFrame implements ActionListener {
 	 * Description of the property ActivityCategoryFacades.
 	 */
 	public ActivityCategoryFacade activityCategoryFacades = new ActivityCategoryFacade(this);
+	
+	/**
+	 * Description of the property Plan
+	 */
+	public PlanFacade planFacades = new PlanFacade(this);
 	
 	/**
 	 * The current user
@@ -278,12 +286,6 @@ public class CreatePlanView extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();
 		if(source == "Validate") {
-			/* Get the date in a String*/
-			int day = this.datePicker.getModel().getDay();
-			int month = this.datePicker.getModel().getMonth() + 1;
-			int year = this.datePicker.getModel().getYear();
-			String date = day + "-" + month + "-" + year;
-			
 			/* Clean error message */
 			this.errorMessage.setVisible(false);
 			this.name.setForeground(Color.black);
@@ -306,13 +308,6 @@ public class CreatePlanView extends JFrame implements ActionListener {
 				this.observation.setForeground(Color.red);
 				count++;
 			}
-			if (date.isEmpty()) {
-				this.errorMessage.setText("Enter a date please");
-				this.errorMessage.setVisible(true);
-				this.errorMessage.setForeground(Color.red);
-				this.dateOfBirth.setForeground(Color.red);
-				count++;
-			}
 			if(count > 0) {
 				this.errorMessage.setText("Please complete all fields");
 				this.errorMessage.setVisible(true);
@@ -323,13 +318,22 @@ public class CreatePlanView extends JFrame implements ActionListener {
 			System.out.println("public ? " + this.comboPublic.getSelectedItem());
 			
 			/* If all the fiels are fills, we save*/
-			if(!this.nameEntre.getText().isEmpty() && !this.observationEntre.getText().isEmpty() && !date.isEmpty()) {
-				System.out.println("NAME = " + this.nameEntre.getText() );
-				System.out.println("OBS = " + this.observationEntre.getText() );
-				System.out.println("DATE = " + date);
-				System.out.println("AC = " + this.allActivityCategory.get(this.comboActivityCategory.getSelectedIndex()).getName() );
-				System.out.println("PUBLIC = " + this.comboPublic.getSelectedItem());
-				/*FAIRE CLASSE POUR FAIRE REQUETE*/
+			if(!this.nameEntre.getText().isEmpty() && !this.observationEntre.getText().isEmpty()) {
+				/* Cast date to a valid format for postgresql database*/
+				java.util.Date dateOfUser = (Date) datePicker.getModel().getValue();
+				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+				final String stringDate= dateFormat.format(dateOfUser);
+				final java.sql.Date valideDateUser =  java.sql.Date.valueOf(stringDate);
+				
+				boolean isPublic;
+				if(this.comboPublic.getSelectedItem() == "Yes") {
+					isPublic = true;
+				}
+				else {
+					isPublic = false;
+				}
+				
+				this.planFacades.createPlan(this.nameEntre.getText(), this.observationEntre.getText(), valideDateUser, false, isPublic, this.allActivityCategory.get(this.comboActivityCategory.getSelectedIndex()), this.currentUser.getIdUser());
 			}
 		}
 		

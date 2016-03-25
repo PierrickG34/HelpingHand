@@ -11,7 +11,6 @@ import Factory.FactoryJDBC;
 public class ActivityCategoryManager {
 	
 	private ActivityCategory currentActivityCategory;
-	private ActivityCategory[] listActivityCategory;
 	public AbstractFactory userFactorys = new FactoryJDBC();
 
 	/**

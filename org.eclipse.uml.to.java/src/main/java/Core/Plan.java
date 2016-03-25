@@ -35,13 +35,15 @@ public abstract class Plan {
 	private boolean isPublic;
 	
 	private ActivityCategory activityCategory;
+
+	private int idUserCreatePlan;
 	
 	
 	public Plan() {
 		super();
 	}
 	
-	public Plan(String name, String obsPlan, Date deadline, boolean tutorial, boolean isPublic, ActivityCategory ac ) {
+	public Plan(String name, String obsPlan, Date deadline, boolean tutorial, boolean isPublic, ActivityCategory ac, int idUser) {
 		super();
 		this.namePlan = name;
 		this.observationPlan = obsPlan;
@@ -49,6 +51,7 @@ public abstract class Plan {
 		this.tutorial = tutorial;
 		this.isPublic = isPublic;
 		this.activityCategory = ac;
+		this.idUserCreatePlan = idUser;
 	}
 
 	public JDBConnexion getjDBConnexions() {

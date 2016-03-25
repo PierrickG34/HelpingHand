@@ -61,14 +61,6 @@ public abstract class AbstractFactory {
 	
 	public abstract Task createTask();
 
-	public Plan createPlan(String name, String observation, Date deadline, boolean tutorial, boolean isPublic,
-			ActivityCategory ac) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Plan createPlan() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public abstract Plan createPlan(String name, String observation, Date deadline, boolean tutorial, boolean isPublic,
+			ActivityCategory ac, int idUser);
 }
