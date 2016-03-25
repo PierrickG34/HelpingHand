@@ -8,6 +8,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import Core.User;
@@ -34,6 +35,9 @@ public class UserJDBC extends User {
 
 	// End of user code
 
+	public UserJDBC() {
+		super();
+	}
 	/**
 	 * The constructor.
 	 * @param login
@@ -158,6 +162,84 @@ public class UserJDBC extends User {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public void modifyAccount(String firstname, String lastname, String mobile, String dateofbirth, String address, String siretnumber, String websiteurl,  String password) {
+		if (firstname.isEmpty()){
+			firstname = this.getFirstName();
+		}
+		else {
+			this.setFirstName(firstname);
+		}
+		if (lastname.isEmpty()){
+			lastname = this.getSurName();
+		}
+		else {
+			this.setSurName(lastname);
+		}
+		if (mobile.isEmpty()) {
+			mobile = this.getMobile();
+		}
+		else {
+			this.setMobile(mobile);
+		}
+		if (dateofbirth.isEmpty()) {
+			dateofbirth = this.getDateOfBirth().toString();
+		}
+		else {
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy hh:mi:ss");
+			Date d;
+			try {
+				d = sdf.parse(dateofbirth);
+				this.setDateOfBirth(d);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		if (address.isEmpty()) {
+			address = this.getAddress();
+		}
+		else {
+			this.setAddress(address);		
+		}
+		if(siretnumber.isEmpty()) {
+			siretnumber = this.getSiretNumber();
+		}
+		else {
+			this.setSiretNumber(siretnumber);
+		}
+		if(websiteurl.isEmpty()) {
+			websiteurl = this.getWebsiteURL();
+		}
+		else {
+			this.setWebsiteURL(websiteurl);
+		}
+		if (password.isEmpty()) {
+			password = this.getPassword();
+		}
+		else {
+			this.setPassword(password);
+		}
+		try {
+			this.jDBConnexions.executeUpdate("UPDATE person SET firstname = '"+firstname+"', surname = '"+lastname+"', mobile = '"+mobile+"', dateofbirth = '"+dateofbirth+"', addressuser = '"+address+"', numbersiret = '"+siretnumber+"', urlwebsite = '"+websiteurl+"', password = '"+password+"' WHERE iduser = '"+this.getIdUser()+"'");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void deleteAccount() {
+		try {
+			this.jDBConnexions.executeUpdate("DELETE FROM person WHERE iduser = '"+this.getIdUser()+"'");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public List<User> getAllUsers() {
+		return this.jDBConnexions.getAllUsers("SELECT * FROM person");
 	}
 	
 	@Override

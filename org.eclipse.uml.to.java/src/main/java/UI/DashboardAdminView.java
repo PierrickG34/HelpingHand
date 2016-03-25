@@ -98,8 +98,7 @@ public class DashboardAdminView extends JFrame implements ActionListener {
 			System.out.println("Action a définir ici...");
 		}
 		else if (source == "Account"){
-			System.out.println("Je suis Account");
-			System.out.println("Action a définir ici...");
+			AccountAdminView accountAdminView = new AccountAdminView(this.currentUser);
 		}
 		else if (source == "Plan"){
 			System.out.println("Je suis Plan");

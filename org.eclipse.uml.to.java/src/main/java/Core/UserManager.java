@@ -1,6 +1,7 @@
 package Core;
 
 import java.util.Date;
+import java.util.List;
 
 import Factory.AbstractFactory;
 import Factory.FactoryJDBC;
@@ -38,6 +39,21 @@ public class UserManager {
 	public void modifyAccount(String mobile, String address, String password) {
 		UserJDBC userJDBC = (UserJDBC) this.currentUser;
 		userJDBC.modifyAccount(mobile,address,password);
+	}
+	
+	public void modifyAccount(User selected, String firstname, String lastname, String mobile, String dateofbirth, String address, String siretnumber, String websiteurl, String password) {
+		UserJDBC userJDBC = (UserJDBC) selected;
+		userJDBC.modifyAccount(firstname, lastname, mobile, dateofbirth, address, siretnumber, websiteurl, password);
+	}
+	
+	public void deleteAccount(User selected) {
+		UserJDBC userJDBC = (UserJDBC) selected;
+		userJDBC.deleteAccount();
+	}
+	
+	public List<User> getAllUsers() {
+		UserJDBC userJDBC = (UserJDBC) this.currentUser;
+		return userJDBC.getAllUsers();
 	}
 
 	public void setUser(User currentUser2) {

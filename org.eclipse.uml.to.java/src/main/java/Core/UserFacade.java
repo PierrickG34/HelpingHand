@@ -4,6 +4,7 @@
 package Core;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Observable;
 
 import Factory.FactoryJDBC;
@@ -76,6 +77,14 @@ public class UserFacade {
 	public void modifyAccount(String mobile, String address, String password) {
 		this.userManager.modifyAccount(mobile, address, password);
 	}
+	
+	public void modifyAccount(User selected, String firstname, String lastname, String mobile, String dateofbirth, String address, String siretnumber, String websiteurl, String password) {
+		this.userManager.modifyAccount(selected, firstname, lastname, mobile, dateofbirth, address, siretnumber, websiteurl, password);
+	}
+	
+	public void deleteAccount(User selected) {
+		this.userManager.deleteAccount(selected);
+	}
 	// End of user code
 	/**
 	 * Returns userManager.
@@ -83,6 +92,10 @@ public class UserFacade {
 	 */
 	public UserManager getuserManager() {
 		return this.userManager;
+	}
+	
+	public List<User> getAllUsers() {
+		return this.userManager.getAllUsers();
 	}
 
 	/**

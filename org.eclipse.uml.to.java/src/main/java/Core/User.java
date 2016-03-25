@@ -85,6 +85,10 @@ public abstract class User {
 
 	// End of user code
 
+	public User() {
+		super();
+	}
+	
 	/**
 	 * The constructor.
 	 * @param login

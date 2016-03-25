@@ -8,7 +8,10 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,6 +19,7 @@ import java.util.Map;
 import Core.ActivityCategory;
 import Core.Product;
 import Core.Task;
+import Core.User;
 
 // Start of user code (user defined imports)
 
@@ -202,6 +206,46 @@ public class JDBConnexion {
 		
 		return list;
 	}
+	
+	public List<User> getAllUsers(String request) {
+		List<User> list = new ArrayList<User>();
+		java.sql.Statement stmt = null;
+		System.out.println("Creating statement...");
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			stmt = this.conn.createStatement();
+			this.rs = stmt.executeQuery(request);
+			while ( rs.next() ) {
+				ResultSetMetaData resultMeta = rs.getMetaData();
+				User user = new UserJDBC();
+				if (resultMeta.getTableName(1).equals("person")) {
+					user.setIdUser(Integer.parseInt(rs.getObject("iduser").toString()));
+					user.setFirstName(rs.getObject("firstname").toString());
+					user.setSurName(rs.getObject("surname").toString());
+					user.setMobile(rs.getObject("mobile").toString());
+					user.setMailAddress(rs.getObject("email").toString());
+					user.setAddress(rs.getObject("addressuser").toString());
+					try {
+						Date date = formatter.parse(rs.getObject("dateofbirth").toString());
+						user.setDateOfBirth(date);
+					} catch (ParseException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					user.setPassword(rs.getObject("password").toString());
+					list.add(user);
+				}
+			}
+			rs.close();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+
 	
 	public List<Product> getAllProduct(String request) {
 		List<Product> list = new ArrayList<Product>();
