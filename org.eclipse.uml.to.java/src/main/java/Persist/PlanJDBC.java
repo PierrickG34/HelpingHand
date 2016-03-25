@@ -48,6 +48,13 @@ public class PlanJDBC extends Plan {
 		this.jDBConnexions.delete("DELETE FROM Plan where idplan = " + this.getIdPlan());
 	}
 
+	@Override
+	public List<Plan> getRandomPlan() {
+		List<Plan> list = new ArrayList<Plan>();
+		list = this.jDBConnexions.getRandomPlan("SELECT * FROM Plan ORDER BY RANDOM() LIMIT 2");
+		return list;
+	}
+
 //	public void modifyTask(Task task, String description, Product product) {
 //		if (description.isEmpty()) {
 //			description = this.getDescription();

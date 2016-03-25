@@ -6,14 +6,22 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
+import Core.Plan;
+import Core.PlanFacade;
 import Core.User;
 
-public class DashboardAdminView extends JFrame implements ActionListener {
+public class DashboardAdminView extends JFrame implements ActionListener, MouseListener {
 	
 	JButton dashboard = new JButton("Dashboard");
 	JButton activityCategory = new JButton("Activity Category");
@@ -25,6 +33,20 @@ public class DashboardAdminView extends JFrame implements ActionListener {
 	   
 	JButton profile = new JButton("Profile");
 	JButton notifications = new JButton("Notifications");
+	
+	/**
+	 * Description of the property ActivityCategoryFacades.
+	 */
+	public PlanFacade planFacades = new PlanFacade(this);
+	
+	List<Plan> randomPlan = new ArrayList<Plan>();
+	
+	JLabel name1 = new JLabel();
+	JLabel name2 = new JLabel();
+	
+	JTextArea obs1 = new JTextArea();
+	JTextArea obs2 = new JTextArea();
+	
 	
 	
 	private User currentUser;
@@ -68,13 +90,49 @@ public class DashboardAdminView extends JFrame implements ActionListener {
         panelButton.add(panelTopButton);
         panelButton.add(panelBottomButton);
         
-  
         contentPane.add(panelButton,BorderLayout.NORTH);
+        
+        /*-------------- Veritable view --------------------*/
+        JPanel panelAll = new JPanel();
+        JPanel panelSemiAll = new JPanel(new GridLayout(2, 1));
+        JPanel panelPlan1 = new JPanel(new GridLayout(3, 1));
+        JPanel panelPlan2 = new JPanel(new GridLayout(3, 1));
+        
+        /*Recuperate 2 random plan from the database to display*/
+        getRandomPlan();
 
+    	this.name1.setText(this.randomPlan.get(0).getNamePlan());
+    	this.name1.addMouseListener(this);
+    	this.name1.setName("Plan1");
+    	this.obs1.setText(this.randomPlan.get(0).getObservationPlan());
+    	this.obs1.setPreferredSize(new Dimension(900,60));
+    	this.obs1.setLineWrap(true);
+    	
+    	this.name2.setText(this.randomPlan.get(1).getNamePlan());
+    	this.name2.addMouseListener(this);
+    	this.name2.setName("Plan2");
+    	this.obs2.setText(this.randomPlan.get(1).getObservationPlan());
+    	this.obs2.setPreferredSize(new Dimension(900, 65));
+    	this.obs2.setLineWrap(true);
+        
+        panelPlan1.add(this.name1);
+        panelPlan1.add(this.obs1);
+        panelPlan2.add(this.name2);
+        panelPlan2.add(this.obs2);
+        
+        panelSemiAll.add(panelPlan1);
+        panelSemiAll.add(panelPlan2);
+        panelAll.add(panelSemiAll);
+        contentPane.add(panelAll,BorderLayout.WEST);
+        
         //Display
         setSize(400,120);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	
+	public void getRandomPlan() {
+		this.randomPlan = this.planFacades.getRandomPlan();
 	}
 
 	@Override
@@ -112,6 +170,42 @@ public class DashboardAdminView extends JFrame implements ActionListener {
 			System.out.println("Je suis Notifications");
 			System.out.println("Action a définir ici...");
 		}
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		String source = e.getComponent().getName();
+		if(source.equals("Plan1")) {
+			System.out.println("DashboardAdmin --> PLAN1");
+		}
+		else if(source.equals("Plan2")) {
+			System.out.println("DashboardAdmin --> PLAN2");
+		}
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -26,6 +26,12 @@ public class PlanManager {
 		Plan plan = this.planFactory.createPlan();
 		return plan.getAllPlan();
 	}
+	
+	public List<Plan> getRandomPlan() {
+		Plan plan = this.planFactory.createPlan();
+		return plan.getRandomPlan();
+	}
+	
 //
 //	public void modifyPlan(Plan plan, String name, String observation, Date deadline, boolean tutorial, boolean isPublic, ActivityCategory ac) {
 //		this.currentPlan = plan;

@@ -133,6 +133,8 @@ public abstract class Plan {
 	public abstract List<Plan> getAllPlan();
 	
 	public abstract void delete();
+	
+	public abstract List<Plan> getRandomPlan();
 
 
 }

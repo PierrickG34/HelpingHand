@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import UI.CreatePlanView;
+import UI.DashboardAdminView;
 import UI.PlanDeleteView;
 
 public class PlanFacade {
@@ -18,6 +19,10 @@ public class PlanFacade {
 		super();
 	}
 
+	public PlanFacade(DashboardAdminView dashboardAdminView) {
+		super();
+	}
+
 	public Plan createPlan(String name, String observation, Date deadline, boolean tutorial, boolean isPublic, String ac, int idUser) {
 		return this.planManager.createPlan(name, observation, deadline, tutorial, isPublic, ac, idUser);
 		
@@ -25,6 +30,10 @@ public class PlanFacade {
 
 	public List<Plan> getAllPlan() {
 		return this.planManager.getAllPlan();
+	}
+	
+	public List<Plan> getRandomPlan() {
+		return this.planManager.getRandomPlan();
 	}
 //
 //	public void modifyPlan(Plan plan, String name, String observation, Date deadline, boolean tutorial, boolean isPublic, ActivityCategory ac) {
