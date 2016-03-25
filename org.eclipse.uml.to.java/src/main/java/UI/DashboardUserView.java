@@ -93,8 +93,7 @@ public class DashboardUserView extends JFrame implements ActionListener {
 			System.out.println("Action a définir ici...");
 		}
 		else if (source == "My Plans"){
-			System.out.println("Je suis My Plans");
-			System.out.println("Action a définir ici...");
+			CreatePlanView createPlanView = new CreatePlanView(this.currentUser);
 		}
 		else if (source == "My Favorites"){
 			System.out.println("Je suis My Favorites");
