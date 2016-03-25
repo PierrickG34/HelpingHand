@@ -6,6 +6,7 @@ package Factory;
 import java.util.Date;
 
 import Core.ActivityCategory;
+import Core.Plan;
 import Core.Product;
 import Core.Task;
 import Factory.AbstractFactory;
@@ -112,6 +113,17 @@ public class FactoryJDBC extends AbstractFactory {
 	@Override
 	public Task createTask() {
 		return new TaskJDBC();
+	}
+	
+	@Override
+	public Plan createPlan(String name, String observation, Date deadline, boolean tutorial, boolean isPublic, ActivityCategory ac) {
+		Plan plan = new PlanJDBC(name, observation, deadline, tutorial, isPublic, ac);
+		return plan;
+	}
+	
+	@Override
+	public Plan createPlan() {
+		return new PlanJDBC();
 	}
 }
 

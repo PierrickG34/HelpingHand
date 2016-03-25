@@ -6,6 +6,7 @@ package Factory;
 import java.util.Date;
 
 import Core.ActivityCategory;
+import Core.Plan;
 import Core.Product;
 import Core.Task;
 import Core.User;
@@ -59,4 +60,15 @@ public abstract class AbstractFactory {
 	public abstract Task createTask(String name, String description, int idProduct, int idPlan);
 	
 	public abstract Task createTask();
+
+	public Plan createPlan(String name, String observation, Date deadline, boolean tutorial, boolean isPublic,
+			ActivityCategory ac) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Plan createPlan() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
