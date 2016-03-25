@@ -26,8 +26,8 @@ public class PlanFacade {
 //		this.planManager.modifyPlan(plan, name, observation, deadline, tutorial, isPublic, ac);
 //	}
 //
-//	public void deleteTask() {
-//		this.planManager.deletePlan();
-//	}
+	public void deleteTask(Plan plan) {
+		this.planManager.deletePlan(plan);
+	}
 
 }

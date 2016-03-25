@@ -33,7 +33,7 @@ public class PlanManager {
 //		currentPlanJDBC.modifyPlan(plan, name, observation, deadline, tutorial, isPublic, ac);
 //	}
 //
-//	public void deletePlan() {
-//		this.currentPlan.delete();
-//	}
+	public void deletePlan(Plan plan) {
+		plan.delete();
+	}
 }

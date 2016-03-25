@@ -44,8 +44,7 @@ public class PlanJDBC extends Plan {
 
 	@Override
 	public void delete() {
-		// TODO Auto-generated method stub
-		
+		this.jDBConnexions.delete("DELETE FROM Plan where idplan = " + this.getIdPlan());
 	}
 
 //	@Override
@@ -69,11 +68,6 @@ public class PlanJDBC extends Plan {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
-//	}
-//
-//	@Override
-//	public void delete() {
-//		this.jDBConnexions.delete("DELETE FROM task where idtask =" + this.getIdTask());
 //	}
 //
 //	public void modifyPlan(Plan plan, String name, String observation, Date deadline, boolean tutorial,
