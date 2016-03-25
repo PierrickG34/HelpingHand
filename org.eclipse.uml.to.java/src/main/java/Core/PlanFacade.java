@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import UI.CreatePlanView;
+import UI.PlanDeleteView;
 
 public class PlanFacade {
 
@@ -13,7 +14,11 @@ public class PlanFacade {
 		super();
 	}
 
-	public Plan createPlan(String name, String observation, Date deadline, boolean tutorial, boolean isPublic, ActivityCategory ac, int idUser) {
+	public PlanFacade(PlanDeleteView planDeleteView) {
+		super();
+	}
+
+	public Plan createPlan(String name, String observation, Date deadline, boolean tutorial, boolean isPublic, String ac, int idUser) {
 		return this.planManager.createPlan(name, observation, deadline, tutorial, isPublic, ac, idUser);
 		
 	}

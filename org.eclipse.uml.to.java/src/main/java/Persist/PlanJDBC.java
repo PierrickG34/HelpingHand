@@ -27,10 +27,10 @@ public class PlanJDBC extends Plan {
 	}
 	
 	public PlanJDBC(String name, String observation, Date deadline, boolean tutorial, boolean isPublic,
-			ActivityCategory ac, int idUser) {
+			String ac, int idUser) {
 		super(name, observation, deadline, tutorial, isPublic, ac, idUser);
 		try {
-			this.jDBConnexions.executeUpdate("INSERT INTO Plan VALUES (DEFAULT, '"+ name + "','"+ observation +"','" + deadline + "','" + isPublic + "','false','RIEN',"+ idUser +",'"+ac.getName()+"')");
+			this.jDBConnexions.executeUpdate("INSERT INTO Plan VALUES (DEFAULT, '"+ name + "','"+ observation +"','" + deadline + "','" + isPublic + "','false','RIEN',"+ idUser +",'"+ac+"')");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

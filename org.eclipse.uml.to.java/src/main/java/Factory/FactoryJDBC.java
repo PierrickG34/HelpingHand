@@ -117,7 +117,7 @@ public class FactoryJDBC extends AbstractFactory {
 	}
 	
 	@Override
-	public Plan createPlan(String name, String observation, Date deadline, boolean tutorial, boolean isPublic, ActivityCategory ac, int idUser) {
+	public Plan createPlan(String name, String observation, Date deadline, boolean tutorial, boolean isPublic, String ac, int idUser) {
 		return new PlanJDBC(name, observation, deadline, tutorial, isPublic, ac, idUser);
 	}
 

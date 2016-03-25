@@ -64,5 +64,5 @@ public abstract class AbstractFactory {
 	public abstract Plan createPlan();
 
 	public abstract Plan createPlan(String name, String observation, Date deadline, boolean tutorial, boolean isPublic,
-			ActivityCategory ac, int idUser);
+			String ac, int idUser);
 }

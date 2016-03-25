@@ -333,7 +333,7 @@ public class CreatePlanView extends JFrame implements ActionListener {
 					isPublic = false;
 				}
 				
-				this.planFacades.createPlan(this.nameEntre.getText(), this.observationEntre.getText(), valideDateUser, false, isPublic, this.allActivityCategory.get(this.comboActivityCategory.getSelectedIndex()), this.currentUser.getIdUser());
+				this.planFacades.createPlan(this.nameEntre.getText(), this.observationEntre.getText(), valideDateUser, false, isPublic, this.allActivityCategory.get(this.comboActivityCategory.getSelectedIndex()).getName(), this.currentUser.getIdUser());
 			}
 		}
 		

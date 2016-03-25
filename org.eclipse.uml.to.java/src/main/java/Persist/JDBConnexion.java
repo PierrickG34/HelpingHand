@@ -318,12 +318,12 @@ public class JDBConnexion {
 				if (resultMeta.getTableName(1).equals("plan")) {
 					plan.setIdPlan((int) rs.getObject("idplan"));
 					plan.setNamePlan((String) rs.getObject("name"));
-					plan.setObservationPlan((String) rs.getObject("observation"));
+					plan.setObservationPlan((String) rs.getObject("observations"));
 					plan.setDeadline((Date) rs.getObject("deadline"));
 					plan.setPublic((Boolean) rs.getObject("public"));
 					plan.setTutorial((Boolean) rs.getObject("tutorial"));
 					plan.setIdUserCreatePlan((int) rs.getObject("iduser"));
-					plan.setActivityCategory((ActivityCategory) rs.getObject("nameactivitycategory"));
+					plan.setActivityCategory((String) rs.getObject("nameactivitycategory"));
 					list.add(plan);
 				}
 			}

@@ -34,7 +34,7 @@ public abstract class Plan {
 	
 	private boolean isPublic;
 	
-	private ActivityCategory activityCategory;
+	private String activityCategory;
 
 	private int idUserCreatePlan;
 	
@@ -55,7 +55,7 @@ public abstract class Plan {
 		super();
 	}
 	
-	public Plan(String name, String obsPlan, Date deadline, boolean tutorial, boolean isPublic, ActivityCategory ac, int idUser) {
+	public Plan(String name, String obsPlan, Date deadline, boolean tutorial, boolean isPublic, String ac, int idUser) {
 		super();
 		this.namePlan = name;
 		this.observationPlan = obsPlan;
@@ -122,11 +122,11 @@ public abstract class Plan {
 		this.isPublic = isPublic;
 	}
 	
-	public ActivityCategory getActivityCategory() {
+	public String getActivityCategory() {
 		return activityCategory;
 	}
 
-	public void setActivityCategory(ActivityCategory ac) {
+	public void setActivityCategory(String ac) {
 		this.activityCategory = ac;
 	}
 	

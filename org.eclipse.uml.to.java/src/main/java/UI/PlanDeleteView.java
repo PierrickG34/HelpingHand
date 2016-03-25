@@ -3,89 +3,71 @@ package UI;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import Core.Plan;
+import Core.PlanFacade;
+import Core.Task;
+import Core.TaskFacade;
 import Core.User;
 
-public class PlanManageView extends JFrame implements ActionListener {
+public class PlanDeleteView extends JFrame implements ActionListener {
 
-	/**
-	 * Menu button for dashboard
-	 */
 	JButton dashboard = new JButton("Dashboard");
-	
-	/**
-	 * Menu button for activity category
-	 */
 	JButton activityCategory = new JButton("Activity Category");
-	
-	/**
-	 * Menu button for product category
-	 */
 	JButton productCategory = new JButton("Product Category");
-	
-	/**
-	 * Menu button for product
-	 */
 	JButton product = new JButton("Product");
-	
-	/**
-	 * Menu button for account
-	 */
 	JButton account = new JButton("Account");
-	
-	/**
-	 * Menu button for plan
-	 */
 	JButton plan = new JButton("Plan");
-	
-	/**
-	 * Menu button for task
-	 */
 	JButton task = new JButton("Task");
-	
-	/**
-	 * Menu button for profile
-	 */   
+	   
 	JButton profile = new JButton("Profile");
-	
-	/**
-	 * Menu button for notification
-	 */
 	JButton notifications = new JButton("Notifications");
 	
-	/**
-	 * Button for create an activity category
-	 */
-	JButton create = new JButton("Create a Plan");
+	JButton delete = new JButton("Delete");
 	
 	/**
-	 * Button for update an activity category
+	 * Descriptions for the windows
 	 */
-	JButton update = new JButton("Update a Plan");
-	
-	JButton delete = new JButton("Delete a Plan");
+	JLabel deleteTask = new JLabel(" Delete a Plan :");
 	
 	/**
-	 * The current user
+	 * Define the drop down menu with the task
 	 */
-	private User currentUser;
+	JComboBox<String> comboPlan = new JComboBox<String>();
+	
+	/**
+	 * Text to choose the activity category to delete
+	 */
+	JLabel choosePlan = new JLabel("Choose a Plan to delete:");
+	
+	/**
+	 * Description of the property ActivityCategoryFacades.
+	 */
+	public PlanFacade planFacades = new PlanFacade(this);
 
-	
 	/**
-	 * Constructor for the class
-	 * @param currentUser
+	 * Contain all the activity category of the database
 	 */
-	public PlanManageView(User currentUser) {
+	List<Plan> allPlan = new ArrayList<Plan>();
+	
+	
+	private User currentUser;
+	
+	public PlanDeleteView(User currentUser) {
 		super("Plan"); // Name of the frame
 		this.currentUser = currentUser;
-		
 		/* Defined actions on the different buttons */
 		this.dashboard.addActionListener(this);
 		this.activityCategory.addActionListener(this);
@@ -97,14 +79,12 @@ public class PlanManageView extends JFrame implements ActionListener {
 		this.profile.addActionListener(this);
 		this.notifications.addActionListener(this);
 		
-		/*Define the container*/
         Container contentPane = getContentPane(); 
         contentPane.setLayout(new BorderLayout());
         setMinimumSize(new Dimension(1000,500));
         setMaximumSize(new Dimension(1000,500));
         
-        /*Define container for the display*/
-        JPanel panelButton = new JPanel(new GridLayout(2, 1)); // 2 rows x 1 column
+        JPanel panelButton = new JPanel(new GridLayout(3, 1)); // 2 rows x 1 column
         JPanel panelTopButton = new JPanel();
         JPanel panelBottomButton = new JPanel();
         
@@ -121,51 +101,46 @@ public class PlanManageView extends JFrame implements ActionListener {
         
         panelButton.add(panelTopButton);
         panelButton.add(panelBottomButton);
+        Font font = new Font("bold", Font.BOLD,12);
+		this.deleteTask.setFont(font);
+		panelButton.add(this.deleteTask);
         
         contentPane.add(panelButton,BorderLayout.NORTH);
         
-  
         /*-------------- Veritable view --------------------*/
-        JPanel manageButton = new JPanel(new GridLayout(3, 1));
-        JPanel createButton = new JPanel();
-        JPanel updateButton = new JPanel();
-        JPanel deleteButton = new JPanel();
+		JPanel panelAll = new JPanel(new GridLayout(2, 1));
+		JPanel panelComboBoxPlan = new JPanel(new GridLayout(2, 1));
+		JPanel panelComboBoxAllPlan = new JPanel();
+		JPanel panelButtonDelete = new JPanel();
+		
+		//Recuperate the task and add to the combobox
+		this.allPlan = this.planFacades.getAllPlan();
+		for (int i = 0; i< this.allPlan.size(); i++) {
+			this.comboPlan.addItem(this.allPlan.get(i).getNamePlan());
+		}
+		panelComboBoxPlan.add(this.choosePlan);
+		panelComboBoxPlan.add(this.comboPlan);
+		panelComboBoxAllPlan.add(panelComboBoxPlan);
+		
+		panelButtonDelete.add(this.delete);
+		this.delete.addActionListener(this);
+		
+		panelAll.add(panelComboBoxAllPlan);
+		panelAll.add(panelButtonDelete);
+		
+		contentPane.add(panelAll, BorderLayout.WEST);
         
-        this.create.addActionListener(this);
-        this.update.addActionListener(this);
-        this.delete.addActionListener(this);
-        
-        createButton.add(this.create);
-        updateButton.add(this.update);
-        deleteButton.add(this.delete);
-        
-        manageButton.add(createButton);
-        manageButton.add(updateButton);
-        manageButton.add(deleteButton);
-        
-        contentPane.add(manageButton, BorderLayout.WEST);
-
-        //Display
+      //Display
         setSize(400,120);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-	
-	/**
-	 * Action when the user click on a button
-	 * @param e
-	 */
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();
-		if(source == "Create a Plan") {
-			System.out.println("PlanManageView --> DEJA FAIT");
-		}
-		else if(source == "Update a Plan") {
-			System.out.println("PlanManageView --> Button udpdate");
-		}
-		else if(source == "Delete a Plan") {
-			PlanDeleteView planDeleteView = new PlanDeleteView(this.currentUser);
+		if(source == "Delete") {
+			this.planFacades.deleteTask(this.allPlan.get(this.comboPlan.getSelectedIndex()));
 		}
 	}
 }
