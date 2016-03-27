@@ -408,6 +408,32 @@ public class JDBConnexion {
 		// End of user code
 	}
 
+	public List<Task> getTaskForPlan(String request) {
+		List<Task> list = new ArrayList<Task>();
+		java.sql.Statement stmt = null;
+		System.out.println("Creating statement...");
+		try {
+			stmt = this.conn.createStatement();
+			this.rs = stmt.executeQuery(request);
+			while ( rs.next() ) {
+				Task task = new TaskJDBC();
+				ResultSetMetaData resultMeta = rs.getMetaData();
+				if (resultMeta.getTableName(1).equals("task")) {
+					task.setName((String) rs.getObject("name"));
+					task.setDescription((String) rs.getObject("description"));
+					list.add(task);
+				}
+			}
+			rs.close();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+
 	// Start of user code (user defined methods for JDBConnexion)
 
 	// End of user code

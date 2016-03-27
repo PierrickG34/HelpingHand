@@ -42,4 +42,9 @@ public class PlanManager {
 	public void deletePlan(Plan plan) {
 		plan.delete();
 	}
+
+	public List<Task> getTaskForPlan(Integer idPlan) {
+		Task task = this.planFactory.createTask();
+		return task.getTaskForPlan(idPlan);
+	}
 }

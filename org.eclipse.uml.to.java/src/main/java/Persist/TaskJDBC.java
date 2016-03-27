@@ -72,4 +72,11 @@ public class TaskJDBC extends Task {
 	public void delete() {
 		this.jDBConnexions.delete("DELETE FROM task where idtask =" + this.getIdTask());
 	}
+
+	@Override
+	public List<Task> getTaskForPlan(Integer idPlan) {
+		List<Task> list = new ArrayList<Task>();
+		list = this.jDBConnexions.getTaskForPlan("SELECT t.name, description FROM Task t, Plan p WHERE t.idplan = p.idplan AND p.idplan = "+idPlan+";");
+		return list;
+	}
 }

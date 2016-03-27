@@ -15,6 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 import Core.Plan;
@@ -105,20 +106,22 @@ public class DashboardAdminView extends JFrame implements ActionListener, MouseL
     	this.name1.addMouseListener(this);
     	this.name1.setName("Plan1");
     	this.obs1.setText(this.randomPlan.get(0).getObservationPlan());
-    	this.obs1.setPreferredSize(new Dimension(900,60));
     	this.obs1.setLineWrap(true);
+    	JScrollPane zoneScrolable1 = new JScrollPane(this.obs1, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+    	zoneScrolable1.setPreferredSize(new Dimension(900, 65));
     	
     	this.name2.setText(this.randomPlan.get(1).getNamePlan());
     	this.name2.addMouseListener(this);
     	this.name2.setName("Plan2");
     	this.obs2.setText(this.randomPlan.get(1).getObservationPlan());
-    	this.obs2.setPreferredSize(new Dimension(900, 65));
     	this.obs2.setLineWrap(true);
+    	JScrollPane zoneScrolable2 = new JScrollPane(this.obs2, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+    	zoneScrolable2.setPreferredSize(new Dimension(900, 65));
         
         panelPlan1.add(this.name1);
-        panelPlan1.add(this.obs1);
+        panelPlan1.add(zoneScrolable1);
         panelPlan2.add(this.name2);
-        panelPlan2.add(this.obs2);
+        panelPlan2.add(zoneScrolable2);
         
         panelSemiAll.add(panelPlan1);
         panelSemiAll.add(panelPlan2);
@@ -177,9 +180,11 @@ public class DashboardAdminView extends JFrame implements ActionListener, MouseL
 		String source = e.getComponent().getName();
 		if(source.equals("Plan1")) {
 			System.out.println("DashboardAdmin --> PLAN1");
+			PlanView planView = new PlanView(this.currentUser, this.randomPlan.get(0));
 		}
 		else if(source.equals("Plan2")) {
 			System.out.println("DashboardAdmin --> PLAN2");
+			PlanView planView = new PlanView(this.currentUser, this.randomPlan.get(1));
 		}
 		
 	}

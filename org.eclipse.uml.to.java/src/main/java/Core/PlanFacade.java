@@ -6,6 +6,7 @@ import java.util.List;
 import UI.CreatePlanView;
 import UI.DashboardAdminView;
 import UI.PlanDeleteView;
+import UI.PlanView;
 
 public class PlanFacade {
 
@@ -20,6 +21,10 @@ public class PlanFacade {
 	}
 
 	public PlanFacade(DashboardAdminView dashboardAdminView) {
+		super();
+	}
+
+	public PlanFacade(PlanView planView) {
 		super();
 	}
 
@@ -42,6 +47,10 @@ public class PlanFacade {
 //
 	public void deleteTask(Plan plan) {
 		this.planManager.deletePlan(plan);
+	}
+
+	public List<Task> getTaskForPlan(Integer idPlan) {
+		return this.planManager.getTaskForPlan(idPlan);
 	}
 
 }

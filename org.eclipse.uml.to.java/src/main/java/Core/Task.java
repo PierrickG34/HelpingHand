@@ -87,5 +87,7 @@ public abstract class Task {
 	
 	public abstract void delete();
 
+	public abstract List<Task> getTaskForPlan(Integer idPlan2);
+
 
 }
