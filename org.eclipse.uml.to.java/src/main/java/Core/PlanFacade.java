@@ -7,6 +7,7 @@ import UI.CreatePlanView;
 import UI.DashboardAdminView;
 import UI.PlanDeleteView;
 import UI.PlanView;
+import UI.TaskCreateView;
 
 public class PlanFacade {
 
@@ -25,6 +26,10 @@ public class PlanFacade {
 	}
 
 	public PlanFacade(PlanView planView) {
+		super();
+	}
+
+	public PlanFacade(TaskCreateView taskCreateView) {
 		super();
 	}
 

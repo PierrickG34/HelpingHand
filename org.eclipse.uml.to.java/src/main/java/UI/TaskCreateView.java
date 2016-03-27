@@ -21,6 +21,8 @@ import javax.swing.SwingConstants;
 
 import Core.ActivityCategory;
 import Core.ActivityCategoryFacade;
+import Core.Plan;
+import Core.PlanFacade;
 import Core.Product;
 import Core.ProductFacade;
 
@@ -65,9 +67,19 @@ public class TaskCreateView extends JFrame implements ActionListener {
 	JLabel chooseProduct = new JLabel("Please select a product for your task");
 	
 	/**
+	 * Description for the choose plan
+	 */
+	JLabel choosePlan = new JLabel("Please select a plan for your task");
+	
+	/**
 	 * Define the drop down menu with the product
 	 */
-	JComboBox<String> combo = new JComboBox<String>();
+	JComboBox<String> comboProduct = new JComboBox<String>();
+	
+	/**
+	 * Define the drop down menu with the plan
+	 */
+	JComboBox<String> comboPlan = new JComboBox<String>();
 	
 	/**
 	 * Contain all the product of the database
@@ -75,9 +87,19 @@ public class TaskCreateView extends JFrame implements ActionListener {
 	List<Product> allProduct = new ArrayList<Product>();
 	
 	/**
+	 * Contain all the plab of the database
+	 */
+	List<Plan> allPlan = new ArrayList<Plan>();
+	
+	/**
 	 * Description of the property ActivityCategoryFacades.
 	 */
 	public ProductFacade productFacades = new ProductFacade(this);
+	
+	/**
+	 * Description of the property ActivityCategoryFacades.
+	 */
+	public PlanFacade planFacades = new PlanFacade(this);
 	
 	
 	/**
@@ -146,8 +168,9 @@ public class TaskCreateView extends JFrame implements ActionListener {
         JPanel panelCreateTask = new JPanel();
 		JPanel panelLabels = new JPanel(new GridLayout(0,1));
 		JPanel panelTextField = new JPanel(new GridLayout(0,1));
-		JPanel panelComboBox = new JPanel(new GridLayout(2, 1));
-		JPanel panelComboBoxAll = new JPanel();
+		JPanel panelComboBoxProduct = new JPanel(new GridLayout(2, 1));
+		JPanel panelComboBoxPlan = new JPanel(new GridLayout(2, 1));
+		JPanel panelComboBoxAll = new JPanel(new GridLayout(1, 2));
 		JPanel panelButtonValidate = new JPanel();
 		
 		//Name
@@ -163,14 +186,24 @@ public class TaskCreateView extends JFrame implements ActionListener {
 		panelTextField.add(this.descriptionEntre);
 		
 		//Combo list product
-		//Recuperate the activity Category and add to the combobox
-		this.allProduct = this.productFacades.getAllProduct();
+		//Recuperate the product and add to the combobox
+		this.getAllProduct();
 		for (int i = 0; i< this.allProduct.size(); i++) {
-			this.combo.addItem(this.allProduct.get(i).getName());
+			this.comboProduct.addItem(this.allProduct.get(i).getName());
 		}
-		panelComboBox.add(this.chooseProduct);
-		panelComboBox.add(this.combo);
-		panelComboBoxAll.add(panelComboBox);
+		panelComboBoxProduct.add(this.chooseProduct);
+		panelComboBoxProduct.add(this.comboProduct);
+		panelComboBoxAll.add(panelComboBoxProduct);
+		
+		//Combo list plan
+		//Recuperate the plan and add to the combobox
+		this.getAllPlan();
+		for (int i = 0; i< this.allPlan.size(); i++) {
+			this.comboPlan.addItem(this.allPlan.get(i).getNamePlan());
+		}
+		panelComboBoxProduct.add(this.choosePlan);
+		panelComboBoxProduct.add(this.comboPlan);
+		panelComboBoxAll.add(panelComboBoxPlan);
 		
 		
 		panelCreateTask.add(panelLabels);
@@ -193,11 +226,19 @@ public class TaskCreateView extends JFrame implements ActionListener {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
+	private void getAllProduct() {
+		this.allProduct = this.productFacades.getAllProduct();
+		
+	}
+
+	public void getAllPlan() {
+		this.allPlan = this.planFacades.getAllPlan();
+	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();
 		if(source == "Create") {
-			System.out.println("BUTTON CREATE");
 			/* Clean error message */
 			this.errorMessage.setVisible(false);
 			this.name.setForeground(Color.black);
@@ -228,8 +269,7 @@ public class TaskCreateView extends JFrame implements ActionListener {
 			
 			/*If all fields are filled, execute the request*/
 			if(!this.nameEntre.getText().isEmpty() && !this.descriptionEntre.getText().isEmpty()) {
-				System.out.println("On peut le creer!");
-				this.taskFacades.createTask(this.nameEntre.getText(), this.descriptionEntre.getText(), this.allProduct.get(this.combo.getSelectedIndex()).getId(), 4);
+				this.taskFacades.createTask(this.nameEntre.getText(), this.descriptionEntre.getText(), this.allProduct.get(this.comboProduct.getSelectedIndex()).getId(), this.allPlan.get(this.comboPlan.getSelectedIndex()).getIdPlan());
 			}
 		}
 	}
