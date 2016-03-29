@@ -9,6 +9,7 @@ import java.util.Observable;
 
 import UI.DeleteProductView;
 import UI.ProductCreateView;
+import UI.ProductCreateViewSeller;
 import UI.TaskCreateView;
 import UI.TaskUpdateView;
 import UI.UpdateProductView;
@@ -69,6 +70,10 @@ public class ProductFacade {
 		super();
 	}
 
+	public ProductFacade(ProductCreateViewSeller productCreateViewSeller) {
+		super();
+	}
+
 	/**
 	 * Description of the method createProduct.
 	 * @param name 
@@ -93,7 +98,7 @@ public class ProductFacade {
 	}
 	
 	/**
-	 * Return l'ensemble des products du vendeur donnée
+	 * Return l'ensemble des products du vendeur donnï¿½e
 	 * @param idVendeur
 	 * @return List<Product>
 	 */
@@ -110,7 +115,7 @@ public class ProductFacade {
 	}
 
 	/**
-	 * Returns l'ensemble des produits de la base de données
+	 * Returns l'ensemble des produits de la base de donnï¿½es
 	 * @return List<Product> 
 	 */
 	public List<Product> getAllProduct() {

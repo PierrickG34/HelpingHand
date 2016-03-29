@@ -139,6 +139,12 @@ public class ViewController {
 		this.helpinghand.revalidate();
 	}
 	
+	public void ProductCreateViewSeller() {
+		this.helpinghand.setContentPane(new ProductCreateViewSeller(this.currentUser, this));
+		this.helpinghand.repaint();
+		this.helpinghand.revalidate();
+	}
+	
 	public void ProductManageView() {
 		this.helpinghand.setContentPane(new ProductManageView(this.currentUser,this));
 		this.helpinghand.repaint();

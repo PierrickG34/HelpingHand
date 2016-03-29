@@ -57,7 +57,7 @@ public class ProductManageViewSeller extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();
 		if(source == "Create a Product") {
-			this.vc.ProductCreateView();
+			this.vc.ProductCreateViewSeller();
 		}
 		else if(source == "Update a Product") {
 			this.vc.UpdateProductView();
