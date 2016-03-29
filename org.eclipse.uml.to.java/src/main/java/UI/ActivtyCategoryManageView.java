@@ -31,6 +31,7 @@ public class ActivtyCategoryManageView extends JPanel implements ActionListener 
 	private User currentUser;
 	
 	private ViewController vc;
+	private MenuAdminView menuAdminView;
 	
 	/**
 	 * Constructor for the class
@@ -40,7 +41,8 @@ public class ActivtyCategoryManageView extends JPanel implements ActionListener 
 //		super("Activity Category"); // Name of the frame
 		this.currentUser = currentUser;
 		this.vc = vc;
-  
+		this.menuAdminView = new MenuAdminView(vc);
+		this.add(menuAdminView);
         /*-------------- Veritable view --------------------*/
         JPanel manageButton = new JPanel(new GridLayout(2, 1));
         JPanel createButton = new JPanel();

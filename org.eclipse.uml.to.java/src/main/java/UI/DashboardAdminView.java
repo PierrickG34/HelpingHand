@@ -47,7 +47,8 @@ public class DashboardAdminView extends JPanel implements ActionListener, MouseL
 	public DashboardAdminView(User currentUser, ViewController vc) {
 		this.currentUser = currentUser;
 		this.vc = vc;
-		this.menuadminView = new MenuAdminView(vc);
+		this.menuadminView = new MenuAdminView(this.vc);
+		this.add(menuadminView);
 		
         /*-------------- Veritable view --------------------*/
         JPanel panelAll = new JPanel();
