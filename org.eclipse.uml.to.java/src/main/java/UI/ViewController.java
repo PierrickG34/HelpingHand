@@ -22,11 +22,6 @@ public class ViewController {
 	}
 	
 	
-	
-	public void ActivityCategoryManageView() {
-		ActivtyCategoryManageView activityCategoryManageView = new ActivtyCategoryManageView(this.currentUser);
-	}
-	
 	//DASHBOARD
 	public void dashboardAdminView() {
 		this.helpinghand.setContentPane(new DashboardAdminView(this.currentUser,this));
