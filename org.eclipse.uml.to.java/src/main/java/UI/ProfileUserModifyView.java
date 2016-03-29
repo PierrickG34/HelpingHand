@@ -70,6 +70,8 @@ public class ProfileUserModifyView extends JPanel implements ActionListener {
 	JLabel errorMessage = new JLabel("");
 
 	private ViewController vc;
+	private MenuAdminView menuAdminView;
+	
 	/**
 	 * 
 	 * @param currentUser
@@ -78,6 +80,8 @@ public class ProfileUserModifyView extends JPanel implements ActionListener {
 //		super("Edit Profile");
 		this.currentUser = currentUser;
 		this.vc = vc;
+		this.menuAdminView = new MenuAdminView(this.vc);
+		this.add(menuAdminView);
 		this.userFacade = new UserFacade(currentUser);
 		
 //		Container contentPane = getContentPane(); 
@@ -89,26 +93,6 @@ public class ProfileUserModifyView extends JPanel implements ActionListener {
 		JPanel panelButton = new JPanel(new GridLayout(3, 1)); // 2 rows x 1 column
 		JPanel panelTopButton = new JPanel();
 		JPanel panelBottomButton = new JPanel();
-		JButton dashboard = new JButton("Dashboard");
-		JButton journal = new JButton("Journal");
-		JButton myPlans = new JButton("My Plans");
-		JButton myFavorites = new JButton("My Favorites");
-		JButton shoppingCart = new JButton("Shopping Cart");
-
-		JButton profile = new JButton("Profile");
-		JButton notifications = new JButton("Notifications");
-		panelTopButton.add(dashboard);
-		panelTopButton.add(journal);
-		panelTopButton.add(myPlans);
-		panelTopButton.add(myFavorites);
-		panelTopButton.add(shoppingCart);
-		panelBottomButton.add(profile);
-		panelBottomButton.add(notifications);
-		panelButton.add(panelTopButton);
-		panelButton.add(panelBottomButton);
-        Font font = new Font("bold", Font.BOLD,12);
-        this.editInformations.setFont(font);
-        panelButton.add(this.editInformations);
 
 		/*##### Display and edit the information #####*/
 		JPanel panelEditInformation = new JPanel();

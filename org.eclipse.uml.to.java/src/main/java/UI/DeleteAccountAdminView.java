@@ -25,16 +25,6 @@ package UI;
 
 	public class DeleteAccountAdminView extends JPanel implements ActionListener {
 		
-		JButton dashboard = new JButton("Dashboard");
-		JButton activityCategory = new JButton("Activity Category");
-		JButton productCategory = new JButton("Product Category");
-		JButton product = new JButton("Product");
-		JButton account = new JButton("Account");
-		JButton plan = new JButton("Plan");
-		JButton task = new JButton("Task");
-
-		JButton profile = new JButton("Profile");
-		JButton notifications = new JButton("Notifications");
 		
 		/**
 		 * Descriptions for the windows
@@ -70,6 +60,7 @@ package UI;
 		UserJDBC userJDBC;
 		
 		private User currentUser;
+		private MenuAdminView menuAdminView;
 
 		/**
 		 * Description of the property ActivityCategoryFacades.
@@ -89,45 +80,9 @@ package UI;
 			this.currentUser = currentUser;
 			this.vc = vc;
 			this.userFacade = new UserFacade(this.currentUser);
-			this.dashboard.addActionListener(this);
-			this.activityCategory.addActionListener(this);
-			this.productCategory.addActionListener(this);
-			this.product.addActionListener(this);
-			this.account.addActionListener(this);
-			this.plan.addActionListener(this);
-			this.task.addActionListener(this);
-			this.profile.addActionListener(this);
-			this.notifications.addActionListener(this);
-
-//			Container contentPane = getContentPane(); 
-//			contentPane.setLayout(new BorderLayout());
-//			setMinimumSize(new Dimension(1000,500));
-//			setMaximumSize(new Dimension(1000,500));
-
-			JPanel panelButton = new JPanel(new GridLayout(3, 1)); // 2 rows x 1 column
-			JPanel panelTopButton = new JPanel();
-			JPanel panelBottomButton = new JPanel();
-
-			panelTopButton.add(this.dashboard);
-			panelTopButton.add(this.activityCategory);
-			panelTopButton.add(this.productCategory);
-			panelTopButton.add(this.product);
-			panelTopButton.add(this.account);
-			panelTopButton.add(this.plan);
-			panelTopButton.add(this.task);
-
-			panelBottomButton.add(this.profile);
-			panelBottomButton.add(this.notifications);
-
-			panelButton.add(panelTopButton);
-			panelButton.add(panelBottomButton);
-	        Font font = new Font("bold", Font.BOLD,12);
-	        this.updateProduct.setFont(font);
-	        panelButton.add(this.updateProduct);
-
-//			contentPane.add(panelButton,BorderLayout.NORTH);
-	        this.add(panelButton,BorderLayout.NORTH);
-
+			this.menuAdminView = new MenuAdminView(this.vc);
+			this.add(menuAdminView);
+			
 			/*-------------- Veritable view --------------------*/
 			JPanel panelAll = new JPanel();
 			JPanel panelEdit = new JPanel();

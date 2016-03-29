@@ -21,13 +21,17 @@ public class AccountAdminView extends JPanel implements ActionListener {
 		private User currentUser;
 		
 		private ViewController vc;
+		private MenuAdminView menuAdminView;
 		
 		public AccountAdminView(User currentUser, ViewController vc) {
 //			super("Product"); // Name of the frame
 			/* Defined actions on the different buttons */
+			
 			this.currentUser = currentUser;
 			this.vc = vc;
-	  
+			this.menuAdminView = new MenuAdminView(this.vc);
+			this.add(menuAdminView);
+			
 	        /*-------------- Veritable view --------------------*/
 	        JPanel manageButton = new JPanel(new GridLayout(3, 1));
 	        JPanel createButton = new JPanel();

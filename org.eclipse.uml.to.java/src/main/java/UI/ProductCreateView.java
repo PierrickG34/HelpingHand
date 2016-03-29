@@ -80,50 +80,17 @@ public class ProductCreateView extends JPanel implements ActionListener {
 	 *  Describe the menu
 	 */
 
-	JButton dashboard = new JButton("Dashboard");
-	JButton journal = new JButton("Journal");
-	JButton myPlans = new JButton("My Plans");
-	JButton myFavorites = new JButton("My Favorites");
-	JButton myProducts = new JButton("My Products");
-	JButton shoppingCart = new JButton("Shopping Cart");
-	JButton profile = new JButton("Profile");
-	JButton notifications = new JButton("Notifications");
-
 	private ViewController vc;
+	private MenuAdminView menuAdminView;
 
 	public ProductCreateView(User user, ViewController vc)
 	{
 //		super("Product Creation");
 		this.currentUser = user;
 		this.vc = vc;
+		this.menuAdminView = new MenuAdminView(this.vc);
+		this.add(menuAdminView);
 		this.cancel.addActionListener(this);
-//		Container contentPane = getContentPane(); 
-//		contentPane.setLayout(new BorderLayout()); 
-//		setMinimumSize(new Dimension(1000,500));
-//		setMaximumSize(new Dimension(1000,500));
-
-
-		/*##### Display the menu bar #####*/
-
-		JPanel panelButton = new JPanel(new GridLayout(3, 1)); // 2 rows x 1 column
-		JPanel panelTopButton = new JPanel();
-		JPanel panelBottomButton = new JPanel();
-		JButton profile = new JButton("Profile");
-		JButton notifications = new JButton("Notifications");
-		panelTopButton.add(this.dashboard);
-		panelTopButton.add(this.journal);
-		panelTopButton.add(this.myPlans);
-		panelTopButton.add(this.myFavorites);
-		panelTopButton.add(this.shoppingCart);
-		panelBottomButton.add(this.profile);
-		panelBottomButton.add(this.notifications);
-		panelButton.add(panelTopButton);
-		panelButton.add(panelBottomButton);
-        Font font = new Font("bold", Font.BOLD,12);
-        this.createProduct.setFont(font);
-        panelButton.add(this.createProduct);
-
-
 
 
 		/*##### Display and edit the information #####*/
@@ -151,12 +118,6 @@ public class ProductCreateView extends JPanel implements ActionListener {
 		this.quantity.setHorizontalAlignment(SwingConstants.RIGHT);
 		panelLabels.add(this.quantity);
 		panelTextField.add(this.quantityEntre);
-
-
-//		contentPane.add(panelButton,BorderLayout.NORTH);
-//		contentPane.add(panelEditInformation, BorderLayout.LINE_START);
-		this.add(panelButton,BorderLayout.NORTH);
-		this.add(panelEditInformation, BorderLayout.LINE_START);
 
 
 

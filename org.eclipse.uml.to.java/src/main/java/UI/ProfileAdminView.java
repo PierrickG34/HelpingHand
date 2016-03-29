@@ -23,15 +23,6 @@ import Core.User;
 
 public class ProfileAdminView extends JPanel implements ActionListener {
 
-	JButton dashboard = new JButton("Dashboard");
-	JButton journal = new JButton("Journal");
-	JButton myPlans = new JButton("My Plans");
-	JButton myFavorites = new JButton("My Favorites");
-	JButton shoppingCart = new JButton("Shopping Cart");
-
-	JButton profile = new JButton("Profile");
-	JButton notifications = new JButton("Notifications");
-	
 	/**
 	 * Description for the firstname information
 	 */
@@ -83,6 +74,7 @@ public class ProfileAdminView extends JPanel implements ActionListener {
 	 */
 	private User currentUser;
 	private ViewController vc;
+	private MenuAdminView menuAdminView;
 
 
 	// Start of user code (user defined attributes for LoginView)
@@ -96,37 +88,8 @@ public class ProfileAdminView extends JPanel implements ActionListener {
 //		super("Profile"); // Name of the frame
 		this.currentUser = currentUser;
 		this.vc = vc;
-
-		/*##### Display the menu bar #####*/
-		/* Defined actions on the different buttons */
-		this.dashboard.addActionListener(this);
-		this.journal.addActionListener(this);
-		this.myPlans.addActionListener(this);
-		this.myFavorites.addActionListener(this);
-		this.shoppingCart.addActionListener(this);
-		this.profile.addActionListener(this);
-		this.notifications.addActionListener(this);
-
-//		Container contentPane = getContentPane(); 
-//		contentPane.setLayout(new BorderLayout());
-//		setMinimumSize(new Dimension(1000,500));
-//		setMaximumSize(new Dimension(1000,500));
-
-		JPanel panelButton = new JPanel(new GridLayout(3, 1)); // 2 rows x 1 column
-		JPanel panelTopButton = new JPanel();
-		JPanel panelBottomButton = new JPanel();
-		panelTopButton.add(dashboard);
-		panelTopButton.add(journal);
-		panelTopButton.add(myPlans);
-		panelTopButton.add(myFavorites);
-		panelTopButton.add(shoppingCart);
-		panelBottomButton.add(profile);
-		panelBottomButton.add(notifications);
-		panelButton.add(panelTopButton);
-		panelButton.add(panelBottomButton);
-        Font font = new Font("bold", Font.BOLD,12);
-        this.informations.setFont(font);
-        panelButton.add(this.informations);
+		this.menuAdminView = new MenuAdminView(this.vc);
+		this.add(menuAdminView);
 
 		/*##### Display the information of the user #####*/
 		this.firstName.setText(this.currentUser.getFirstName());
@@ -167,7 +130,6 @@ public class ProfileAdminView extends JPanel implements ActionListener {
 //		contentPane.add(panelButton,BorderLayout.NORTH);
 //		contentPane.add(panelInformations, BorderLayout.CENTER);
 //		contentPane.add(panelButtonValidate,  BorderLayout.SOUTH);
-		this.add(panelButton,BorderLayout.NORTH);
 		this.add(panelInformations, BorderLayout.CENTER);
 		this.add(panelButtonValidate,  BorderLayout.SOUTH);
 

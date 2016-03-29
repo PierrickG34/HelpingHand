@@ -22,50 +22,6 @@ import Excpetion.AlreadyExistException;
 
 public class CreateActivityCategoryView extends JPanel implements ActionListener {
 
-	/**
-	 * Menu button for dashboard
-	 */
-	JButton dashboard = new JButton("Dashboard");
-	
-	/**
-	 * Menu button for activity category
-	 */
-	JButton activityCategory = new JButton("Activity Category");
-	
-	/**
-	 * Menu button for product category
-	 */
-	JButton productCategory = new JButton("Product Category");
-	
-	/**
-	 * Menu button for product
-	 */
-	JButton product = new JButton("Product");
-	
-	/**
-	 * Menu button for account
-	 */
-	JButton account = new JButton("Account");
-	
-	/**
-	 * Menu button for plan
-	 */
-	JButton plan = new JButton("Plan");
-	
-	/**
-	 * Menu button for task
-	 */
-	JButton task = new JButton("Task");
-	
-	/**
-	 * Menu button for profile
-	 */   
-	JButton profile = new JButton("Profile");
-	
-	/**
-	 * Menu button for notification
-	 */
-	JButton notifications = new JButton("Notifications");
 	
 	/**
 	 * Descriptions for the windows
@@ -120,6 +76,7 @@ public class CreateActivityCategoryView extends JPanel implements ActionListener
     JLabel errorMessage = new JLabel("");
     
     private ViewController vc;
+    private MenuAdminView menuAdminView;
 	
     /**
      * Constructor
@@ -129,49 +86,9 @@ public class CreateActivityCategoryView extends JPanel implements ActionListener
 //		super("Activity Category"); // Name of the frame
 		this.currentUser = currentUser;
 		this.vc = vc;
+		this.menuAdminView = new MenuAdminView(this.vc);
+		this.add(menuAdminView);
 	
-		/* Defined actions on the different buttons */
-		this.dashboard.addActionListener(this);
-		this.activityCategory.addActionListener(this);
-		this.productCategory.addActionListener(this);
-		this.product.addActionListener(this);
-		this.account.addActionListener(this);
-		this.plan.addActionListener(this);
-		this.task.addActionListener(this);
-		this.profile.addActionListener(this);
-		this.notifications.addActionListener(this);
-		
-		/*Define the container*/
-//        Container contentPane = getContentPane(); 
-//        contentPane.setLayout(new BorderLayout());
-//        setMinimumSize(new Dimension(1000,500));
-//        setMaximumSize(new Dimension(1000,500));
-        
-        /*Define container for the display*/
-        JPanel panelButton = new JPanel(new GridLayout(3, 1)); // 2 rows x 1 column
-        JPanel panelTopButton = new JPanel();
-        JPanel panelBottomButton = new JPanel();
-        
-        panelTopButton.add(this.dashboard);
-        panelTopButton.add(this.activityCategory);
-        panelTopButton.add(this.productCategory);
-        panelTopButton.add(this.product);
-        panelTopButton.add(this.account);
-        panelTopButton.add(this.plan);
-        panelTopButton.add(this.task);
-        
-        panelBottomButton.add(this.profile);
-        panelBottomButton.add(this.notifications);
-        
-        panelButton.add(panelTopButton);
-        panelButton.add(panelBottomButton);
-        Font font = new Font("bold", Font.BOLD,12);
-        this.createActivityCategory.setFont(font);
-        panelButton.add(this.createActivityCategory);
-        
-//        contentPane.add(panelButton,BorderLayout.NORTH);
-        this.add(panelButton,BorderLayout.NORTH);
-        
   
         /*-------------- Veritable view --------------------*/
         JPanel panelAll = new JPanel(new GridLayout(2, 0));
