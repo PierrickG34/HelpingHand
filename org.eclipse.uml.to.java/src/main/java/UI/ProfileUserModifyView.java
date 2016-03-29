@@ -28,7 +28,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import Core.User;
 import Core.UserFacade;
 
-public class ProfileUserModifyView extends JFrame implements ActionListener {
+public class ProfileUserModifyView extends JPanel implements ActionListener {
 	
 	/**
 	 * Descriptions for the mobile field
@@ -74,14 +74,14 @@ public class ProfileUserModifyView extends JFrame implements ActionListener {
 	 * @param currentUser
 	 */
 	public ProfileUserModifyView(User currentUser) {
-		super("Edit Profile");
+//		super("Edit Profile");
 		this.currentUser = currentUser;
 		this.userFacade = new UserFacade(currentUser);
 		
-		Container contentPane = getContentPane(); 
-		contentPane.setLayout(new BorderLayout());
-		setMinimumSize(new Dimension(1000,500));
-		setMaximumSize(new Dimension(1000,500));
+//		Container contentPane = getContentPane(); 
+//		contentPane.setLayout(new BorderLayout());
+//		setMinimumSize(new Dimension(1000,500));
+//		setMaximumSize(new Dimension(1000,500));
 
 		/*##### Display the menu bar #####*/
 		JPanel panelButton = new JPanel(new GridLayout(3, 1)); // 2 rows x 1 column
@@ -146,13 +146,15 @@ public class ProfileUserModifyView extends JFrame implements ActionListener {
 		this.validate.addActionListener(this);
 
 
-		contentPane.add(panelButton,BorderLayout.NORTH);
-		contentPane.add(panelEditInformation, BorderLayout.CENTER);
+//		contentPane.add(panelButton,BorderLayout.NORTH);
+//		contentPane.add(panelEditInformation, BorderLayout.CENTER);
+		this.add(panelButton,BorderLayout.NORTH);
+		this.add(panelEditInformation, BorderLayout.CENTER);
 
 		//Display
-		setSize(400,120);
-		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		setSize(400,120);
+//		setVisible(true);
+//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	}
 

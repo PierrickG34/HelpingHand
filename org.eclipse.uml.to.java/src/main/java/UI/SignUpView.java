@@ -42,7 +42,7 @@ import Excpetion.AlreadyExistException;
 import Excpetion.LoginException;
 import Persist.DateLabelFormatter;
 
-public class SignUpView extends JFrame implements ActionListener {
+public class SignUpView extends JPanel implements ActionListener {
 	
 	/**
 	 * Permit to validate the sign up
@@ -135,13 +135,13 @@ public class SignUpView extends JFrame implements ActionListener {
 	 * The constructor who create the window
 	 */
 	public SignUpView() {
-		super("Sign Up");
+//		super("Sign Up");
 		this.validate.addActionListener(this);
 		this.cancel.addActionListener(this);
-        Container contentPane = getContentPane(); 
-        contentPane.setLayout(new BorderLayout()); 
-        setMinimumSize(new Dimension(1000,500));
-        setMaximumSize(new Dimension(1000,500));
+//        Container contentPane = getContentPane(); 
+//        contentPane.setLayout(new BorderLayout()); 
+//        setMinimumSize(new Dimension(1000,500));
+//        setMaximumSize(new Dimension(1000,500));
         
         JPanel panelSignUp = new JPanel();
         JPanel panelLabels = new JPanel(new GridLayout(0,1));
@@ -214,13 +214,15 @@ public class SignUpView extends JFrame implements ActionListener {
         panelSignUp.add(panelLabels);
 	    panelSignUp.add(panelTextField);
         
-        contentPane.add(panelSignUp, BorderLayout.CENTER);
-        contentPane.add(panelButtonEnd,BorderLayout.SOUTH);
+//        contentPane.add(panelSignUp, BorderLayout.CENTER);
+//        contentPane.add(panelButtonEnd,BorderLayout.SOUTH);
+        this.add(panelSignUp, BorderLayout.CENTER);
+        this.add(panelButtonEnd,BorderLayout.SOUTH);
         
         //Display
-        setSize(400,120);
-        setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        setSize(400,120);
+//        setVisible(true);
+//        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
 	/**
@@ -405,9 +407,9 @@ public class SignUpView extends JFrame implements ActionListener {
 					User newUser = this.userFacades.signUp(this.firstNameEntre.getText(), this.surNameEntre.getText(), this.mobileEntre.getText(), 
 						this.mailEntre.getText(), passwordEncrypted, valideDateUser, this.selectedFile.getName(), this.websiteURLEntre.getText(),
 						this.siretEntre.getText(), this.addressEntre.getText());
-					if (newUser != null) {
-						this.dispose();
-					}
+//					if (newUser != null) {
+//						this.dispose();
+//					}
 				}
 				catch (AlreadyExistException errorSignUp) {
 					this.errorMessage.setText(errorSignUp.getNameError());

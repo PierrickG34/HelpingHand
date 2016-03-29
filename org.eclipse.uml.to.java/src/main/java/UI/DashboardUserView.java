@@ -20,7 +20,7 @@ import javax.swing.SwingConstants;
 import Core.User;
 import Core.UserFacade;
 
-public class DashboardUserView extends JFrame implements ActionListener {
+public class DashboardUserView extends JPanel implements ActionListener {
 
    JButton dashboard = new JButton("Dashboard");
    JButton journal = new JButton("Journal");
@@ -40,7 +40,7 @@ public class DashboardUserView extends JFrame implements ActionListener {
 	 * The constructor who create the window
 	 */
 	public DashboardUserView(User currentUser) {
-		super("Profile"); // Name of the frame
+//		super("Profile"); // Name of the frame
 		this.currentUser = currentUser;
 		/* Defined actions on the different buttons */
 		this.dashboard.addActionListener(this);
@@ -51,10 +51,10 @@ public class DashboardUserView extends JFrame implements ActionListener {
 		this.profile.addActionListener(this);
 		this.notifications.addActionListener(this);
 		
-        Container contentPane = getContentPane(); 
-        contentPane.setLayout(new BorderLayout());
-        setMinimumSize(new Dimension(1000,500));
-        setMaximumSize(new Dimension(1000,500));
+//        Container contentPane = getContentPane(); 
+//        contentPane.setLayout(new BorderLayout());
+//        setMinimumSize(new Dimension(1000,500));
+//        setMaximumSize(new Dimension(1000,500));
         
         JPanel panelButton = new JPanel(new GridLayout(2, 1)); // 2 rows x 1 column
         JPanel panelTopButton = new JPanel();
@@ -73,12 +73,13 @@ public class DashboardUserView extends JFrame implements ActionListener {
         panelButton.add(panelBottomButton);
         
   
-        contentPane.add(panelButton,BorderLayout.NORTH);
-
+//        contentPane.add(panelButton,BorderLayout.NORTH);
+        this.add(panelButton,BorderLayout.NORTH);
+        
         //Display
-        setSize(400,120);
-        setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        setSize(400,120);
+//        setVisible(true);
+//        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
 	@Override

@@ -20,7 +20,7 @@ import Core.Task;
 import Core.TaskFacade;
 import Core.User;
 
-public class TaskDeleteView extends JFrame implements ActionListener {
+public class TaskDeleteView extends JPanel implements ActionListener {
 
 	JButton dashboard = new JButton("Dashboard");
 	JButton activityCategory = new JButton("Activity Category");
@@ -64,7 +64,7 @@ public class TaskDeleteView extends JFrame implements ActionListener {
 	private User currentUser;
 	
 	public TaskDeleteView(User currentUser) {
-		super("Task"); // Name of the frame
+//		super("Task"); // Name of the frame
 		this.currentUser = currentUser;
 		/* Defined actions on the different buttons */
 		this.dashboard.addActionListener(this);
@@ -77,10 +77,10 @@ public class TaskDeleteView extends JFrame implements ActionListener {
 		this.profile.addActionListener(this);
 		this.notifications.addActionListener(this);
 		
-        Container contentPane = getContentPane(); 
-        contentPane.setLayout(new BorderLayout());
-        setMinimumSize(new Dimension(1000,500));
-        setMaximumSize(new Dimension(1000,500));
+//        Container contentPane = getContentPane(); 
+//        contentPane.setLayout(new BorderLayout());
+//        setMinimumSize(new Dimension(1000,500));
+//        setMaximumSize(new Dimension(1000,500));
         
         JPanel panelButton = new JPanel(new GridLayout(3, 1)); // 2 rows x 1 column
         JPanel panelTopButton = new JPanel();
@@ -103,7 +103,8 @@ public class TaskDeleteView extends JFrame implements ActionListener {
 		this.deleteTask.setFont(font);
 		panelButton.add(this.deleteTask);
         
-        contentPane.add(panelButton,BorderLayout.NORTH);
+//        contentPane.add(panelButton,BorderLayout.NORTH);
+		this.add(panelButton,BorderLayout.NORTH);
         
         /*-------------- Veritable view --------------------*/
 		JPanel panelAll = new JPanel(new GridLayout(2, 1));
@@ -126,12 +127,13 @@ public class TaskDeleteView extends JFrame implements ActionListener {
 		panelAll.add(panelComboBoxAllTask);
 		panelAll.add(panelButtonDelete);
 		
-		contentPane.add(panelAll, BorderLayout.WEST);
+//		contentPane.add(panelAll, BorderLayout.WEST);
+		this.add(panelAll, BorderLayout.WEST);
         
       //Display
-        setSize(400,120);
-        setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        setSize(400,120);
+//        setVisible(true);
+//        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 	@Override

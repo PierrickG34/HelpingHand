@@ -23,7 +23,7 @@ import Core.User;
 import Core.UserFacade;
 import Excpetion.AlreadyExistException;
 
-public class ProductCreateView extends JFrame implements ActionListener {
+public class ProductCreateView extends JPanel implements ActionListener {
 
 
 	/**
@@ -92,13 +92,13 @@ public class ProductCreateView extends JFrame implements ActionListener {
 
 	public ProductCreateView(User user)
 	{
-		super("Product Creation");
+//		super("Product Creation");
 		this.currentUser = user;
 		this.cancel.addActionListener(this);
-		Container contentPane = getContentPane(); 
-		contentPane.setLayout(new BorderLayout()); 
-		setMinimumSize(new Dimension(1000,500));
-		setMaximumSize(new Dimension(1000,500));
+//		Container contentPane = getContentPane(); 
+//		contentPane.setLayout(new BorderLayout()); 
+//		setMinimumSize(new Dimension(1000,500));
+//		setMaximumSize(new Dimension(1000,500));
 
 
 		/*##### Display the menu bar #####*/
@@ -151,8 +151,10 @@ public class ProductCreateView extends JFrame implements ActionListener {
 		panelTextField.add(this.quantityEntre);
 
 
-		contentPane.add(panelButton,BorderLayout.NORTH);
-		contentPane.add(panelEditInformation, BorderLayout.LINE_START);
+//		contentPane.add(panelButton,BorderLayout.NORTH);
+//		contentPane.add(panelEditInformation, BorderLayout.LINE_START);
+		this.add(panelButton,BorderLayout.NORTH);
+		this.add(panelEditInformation, BorderLayout.LINE_START);
 
 
 
@@ -167,15 +169,16 @@ public class ProductCreateView extends JFrame implements ActionListener {
 		panelAll.add(panelButtonValidate);
 
 		//contentPane.add(panelButton,BorderLayout.NORTH);
-		contentPane.add(panelAll, BorderLayout.CENTER);
+//		contentPane.add(panelAll, BorderLayout.CENTER);
+		this.add(panelAll, BorderLayout.CENTER);
 
 
 
 
 		//Display
-		setSize(400,120);
-		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		setSize(400,120);
+//		setVisible(true);
+//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		this.errorMessage.setHorizontalAlignment(JLabel.CENTER);
 		this.errorMessage.setVisible(false);
@@ -215,9 +218,9 @@ public class ProductCreateView extends JFrame implements ActionListener {
 			{	
 				Product newProduct = this.productFacades.createProduct(this.nameEntre.getText(), Double.parseDouble(this.priceEntre.getText()), Integer.parseInt(this.quantityEntre.getText()), 
 						this.categoryEntre.getText(), this.currentUser.getIdUser());
-				if (newProduct != null) {				
-					this.dispose();
-				}
+//				if (newProduct != null) {				
+//					this.dispose();
+//				}
 			}	
 		}
 	}

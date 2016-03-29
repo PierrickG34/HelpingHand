@@ -27,7 +27,7 @@ import Persist.ActivityCategoryJDBC;
 /**
  * The Class UpdateActivityCategoryView.
  */
-public class UpdateActivityCategoryView extends JFrame implements ActionListener {
+public class UpdateActivityCategoryView extends JPanel implements ActionListener {
 
 	/** The dashboard button. */
 	JButton dashboard = new JButton("Dashboard");
@@ -108,7 +108,7 @@ public class UpdateActivityCategoryView extends JFrame implements ActionListener
 	 * @param currentUser the current user
 	 */
 	public UpdateActivityCategoryView(User currentUser) {
-		super("DashBoard"); // Name of the frame
+//		super("DashBoard"); // Name of the frame
 		this.currentUser = currentUser;
 		/* Defined actions on the different buttons */
 		this.dashboard.addActionListener(this);
@@ -121,10 +121,10 @@ public class UpdateActivityCategoryView extends JFrame implements ActionListener
 		this.profile.addActionListener(this);
 		this.notifications.addActionListener(this);
 
-		Container contentPane = getContentPane(); 
-		contentPane.setLayout(new BorderLayout());
-		setMinimumSize(new Dimension(1000,500));
-		setMaximumSize(new Dimension(1000,500));
+//		Container contentPane = getContentPane(); 
+//		contentPane.setLayout(new BorderLayout());
+//		setMinimumSize(new Dimension(1000,500));
+//		setMaximumSize(new Dimension(1000,500));
 
 		JPanel panelButton = new JPanel(new GridLayout(3, 1)); // 2 rows x 1 column
 		JPanel panelTopButton = new JPanel();
@@ -147,7 +147,8 @@ public class UpdateActivityCategoryView extends JFrame implements ActionListener
         this.updateActivityCategory.setFont(font);
         panelButton.add(this.updateActivityCategory);
 
-		contentPane.add(panelButton,BorderLayout.NORTH);
+//		contentPane.add(panelButton,BorderLayout.NORTH);
+        this.add(panelButton,BorderLayout.NORTH);
 
 		/*-------------- Veritable view --------------------*/
 		JPanel panelAll = new JPanel();
@@ -190,12 +191,13 @@ public class UpdateActivityCategoryView extends JFrame implements ActionListener
 		this.panelEditAll.add(panelButtonValidate);
 		panelAll.add(this.panelEditAll);
 
-		contentPane.add(panelAll, BorderLayout.WEST);
+//		contentPane.add(panelAll, BorderLayout.WEST);
+		this.add(panelAll, BorderLayout.WEST);
 
 		//Display
-		setSize(400,120);
-		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		setSize(400,120);
+//		setVisible(true);
+//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 	/* (non-Javadoc)
