@@ -6,6 +6,7 @@ import java.util.List;
 import UI.CreatePlanView;
 import UI.DashboardAdminView;
 import UI.DashboardUserView;
+import UI.MyPlanViewUser;
 import UI.PlanDeleteView;
 import UI.PlanView;
 import UI.PlanViewUser;
@@ -43,6 +44,10 @@ public class PlanFacade {
 		super();
 	}
 
+	public PlanFacade(MyPlanViewUser myPlanViewUser) {
+		super();
+	}
+
 	public Plan createPlan(String name, String observation, Date deadline, boolean tutorial, boolean isPublic, String ac, int idUser) {
 		return this.planManager.createPlan(name, observation, deadline, tutorial, isPublic, ac, idUser);
 		
@@ -55,11 +60,11 @@ public class PlanFacade {
 	public List<Plan> getRandomPlan() {
 		return this.planManager.getRandomPlan();
 	}
-//
-//	public void modifyPlan(Plan plan, String name, String observation, Date deadline, boolean tutorial, boolean isPublic, ActivityCategory ac) {
-//		this.planManager.modifyPlan(plan, name, observation, deadline, tutorial, isPublic, ac);
-//	}
-//
+
+	public List<Plan> getMyPlan(int idUser) {
+		return this.planManager.getMyPlan(idUser);
+	}
+	
 	public void deleteTask(Plan plan) {
 		this.planManager.deletePlan(plan);
 	}

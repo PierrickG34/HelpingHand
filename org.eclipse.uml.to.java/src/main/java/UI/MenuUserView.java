@@ -62,7 +62,7 @@ public class MenuUserView extends JPanel implements ActionListener {
 			System.out.println("Action pas faite");
 		}
 		else if (source == "My Plans"){
-			this.vc.CreatePlanView();
+			this.vc.MyPlanViewUser();
 		}
 		else if (source == "My Favorites"){
 			System.out.println("Action pas faite");

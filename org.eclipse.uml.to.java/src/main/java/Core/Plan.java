@@ -135,6 +135,8 @@ public abstract class Plan {
 	public abstract void delete();
 	
 	public abstract List<Plan> getRandomPlan();
+	
+	public abstract List<Plan> getMyPlan(int idUser);
 
 
 }

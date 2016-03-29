@@ -55,23 +55,9 @@ public class PlanJDBC extends Plan {
 		return list;
 	}
 
-//	public void modifyTask(Task task, String description, Product product) {
-//		if (description.isEmpty()) {
-//			description = this.getDescription();
-//		}
-//		else {
-//			this.setDescription(description);
-//		}
-//		try {
-//			this.jDBConnexions.executeUpdate("UPDATE task SET description = '"+ description +"' where idtask = '"+task.getIdTask()+"'");
-//			this.jDBConnexions.executeUpdate(("UPDATE contain SET idproduct = '"+product.getId()+"' WHERE idtask = '"+task.getIdTask()+"'"));
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//	}
-//
-//	public void modifyPlan(Plan plan, String name, String observation, Date deadline, boolean tutorial,
-//			boolean isPublic, ActivityCategory ac) {
-//	}
+	public List<Plan> getMyPlan(int idUser) {
+		List<Plan> list = new ArrayList<Plan>();
+		list = this.jDBConnexions.getMyPlan("SELECT * FROM plan WHERE iduser = '" +idUser+ "' ORDER BY RANDOM() LIMIT 2;");
+		return list;
+	}
 }

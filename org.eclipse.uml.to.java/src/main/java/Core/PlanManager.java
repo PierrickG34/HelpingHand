@@ -32,13 +32,11 @@ public class PlanManager {
 		return plan.getRandomPlan();
 	}
 	
-//
-//	public void modifyPlan(Plan plan, String name, String observation, Date deadline, boolean tutorial, boolean isPublic, ActivityCategory ac) {
-//		this.currentPlan = plan;
-//		PlanJDBC currentPlanJDBC = (PlanJDBC) this.currentPlan;
-//		currentPlanJDBC.modifyPlan(plan, name, observation, deadline, tutorial, isPublic, ac);
-//	}
-//
+	public List<Plan> getMyPlan(int idUser) {
+		Plan plan = this.planFactory.createPlan();
+		return plan.getMyPlan(idUser);
+	}
+	
 	public void deletePlan(Plan plan) {
 		plan.delete();
 	}

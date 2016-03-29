@@ -369,6 +369,38 @@ public class JDBConnexion {
 		return list;
 	}
 	
+	public List<Plan> getMyPlan(String request) {
+		List<Plan> list = new ArrayList<Plan>();
+		java.sql.Statement stmt = null;
+		System.out.println("Creating statement...");
+		try {
+			stmt = this.conn.createStatement();
+			this.rs = stmt.executeQuery(request);
+			while ( rs.next() ) {
+				Plan plan = new PlanJDBC();
+				ResultSetMetaData resultMeta = rs.getMetaData();
+				if (resultMeta.getTableName(1).equals("plan")) {
+					plan.setIdPlan((int) rs.getObject("idplan"));
+					plan.setNamePlan((String) rs.getObject("name"));
+					plan.setObservationPlan((String) rs.getObject("observations"));
+					plan.setDeadline((Date) rs.getObject("deadline"));
+					plan.setPublic((Boolean) rs.getObject("public"));
+					plan.setTutorial((Boolean) rs.getObject("tutorial"));
+					plan.setIdUserCreatePlan((int) rs.getObject("iduser"));
+					plan.setActivityCategory((String) rs.getObject("nameactivitycategory"));
+					list.add(plan);
+				}
+			}
+			rs.close();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
 	public void delete(String request)
 	{
 		java.sql.Statement stmt = null;
