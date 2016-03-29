@@ -107,7 +107,7 @@ public class DashboardUserView extends JPanel implements ActionListener {
 			System.out.println("Action a définir ici...");
 		}
 		else if (source == "Profile"){
-			ProfileUserView profilUserView = new ProfileUserView(this.currentUser);
+//			ProfileUserView profilUserView = new ProfileUserView(this.currentUser);
 		}
 		else if (source == "Notifications"){
 			System.out.println("Je suis Notifications");
