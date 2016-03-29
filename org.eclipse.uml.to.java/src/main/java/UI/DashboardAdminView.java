@@ -145,32 +145,25 @@ public class DashboardAdminView extends JPanel implements ActionListener, MouseL
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();
 		if (source == "Dashboard") {
-			System.out.println("Je suis Dashboard");
-			System.out.println("Action a définir ici...");
+			this.vc.dashboardAdminView();
 		}
 		else if (source == "Activity Category" ){
-//			ActivtyCategoryManageView activityCategory = new ActivtyCategoryManageView(this.currentUser);
-		}
-		else if (source == "Product Category"){
-			System.out.println("Je suis Product Category");
-			System.out.println("Action a définir ici...");
+			this.vc.ActivtyCategoryManageView();
 		}
 		else if (source == "Product"){
-			System.out.println("Je suis Product");
-			System.out.println("Action a définir ici...");
+			this.vc.ProductManageView();
 		}
 		else if (source == "Account"){
-//			AccountAdminView accountAdminView = new AccountAdminView(this.currentUser);
+			this.vc.dashboardAdminView();
 		}
 		else if (source == "Plan"){
-//			PlanManageView planManageView = new PlanManageView(this.currentUser);
+			this.vc.PlanManageView();
 		}
 		else if (source == "Task"){
-//			TaskManageView taskManageView = new TaskManageView(this.currentUser);
+			this.vc.TaskManageView();
 		}
 		else if (source == "Profile"){
-			System.out.println("Je suis Profile");
-			System.out.println("Action a définir ici...");
+			this.vc.ProfileUserView();
 		}
 		else if (source == "Notifications"){
 			System.out.println("Je suis Notifications");
@@ -183,11 +176,11 @@ public class DashboardAdminView extends JPanel implements ActionListener, MouseL
 		String source = e.getComponent().getName();
 		if(source.equals("Plan1")) {
 			System.out.println("DashboardAdmin --> PLAN1");
-//			PlanView planView = new PlanView(this.currentUser, this.randomPlan.get(0));
+			this.vc.PlanView(this.randomPlan.get(0));
 		}
 		else if(source.equals("Plan2")) {
 			System.out.println("DashboardAdmin --> PLAN2");
-//			PlanView planView = new PlanView(this.currentUser, this.randomPlan.get(1));
+			this.vc.PlanView(this.randomPlan.get(1));
 		}
 		
 	}
