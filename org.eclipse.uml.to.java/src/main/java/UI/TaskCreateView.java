@@ -31,17 +31,6 @@ import Core.User;
 import Excpetion.AlreadyExistException;
 
 public class TaskCreateView extends JPanel implements ActionListener {
-
-	JButton dashboard = new JButton("Dashboard");
-	JButton activityCategory = new JButton("Activity Category");
-	JButton productCategory = new JButton("Product Category");
-	JButton product = new JButton("Product");
-	JButton account = new JButton("Account");
-	JButton plan = new JButton("Plan");
-	JButton task = new JButton("Task");
-	   
-	JButton profile = new JButton("Profile");
-	JButton notifications = new JButton("Notifications");
 	
 	/**
 	 * Descriptions for the mobile field
@@ -114,6 +103,7 @@ public class TaskCreateView extends JPanel implements ActionListener {
 //	
 	private User currentUser;
 	private ViewController vc;
+	private MenuAdminView menuAdminView;
 	
 	    /**
      * Describe error message
@@ -124,47 +114,8 @@ public class TaskCreateView extends JPanel implements ActionListener {
 //		super("Task"); // Name of the frame
 		this.currentUser = currentUser;
 		this.vc = vc;
-		/* Defined actions on the different buttons */
-		this.dashboard.addActionListener(this);
-		this.activityCategory.addActionListener(this);
-		this.productCategory.addActionListener(this);
-		this.product.addActionListener(this);
-		this.account.addActionListener(this);
-		this.plan.addActionListener(this);
-		this.task.addActionListener(this);
-		this.profile.addActionListener(this);
-		this.notifications.addActionListener(this);
-		
-//        Container contentPane = getContentPane(); 
-//        contentPane.setLayout(new BorderLayout());
-//        setMinimumSize(new Dimension(1000,500));
-//        setMaximumSize(new Dimension(1000,500));
-        
-        JPanel panelButton = new JPanel(new GridLayout(3, 1)); // 2 rows x 1 column
-        JPanel panelTopButton = new JPanel();
-        JPanel panelBottomButton = new JPanel();
-        
-        panelTopButton.add(this.dashboard);
-        panelTopButton.add(this.activityCategory);
-        panelTopButton.add(this.productCategory);
-        panelTopButton.add(this.product);
-        panelTopButton.add(this.account);
-        panelTopButton.add(this.plan);
-        panelTopButton.add(this.task);
-        
-        panelBottomButton.add(this.profile);
-        panelBottomButton.add(this.notifications);
-        
-        panelButton.add(panelTopButton);
-        panelButton.add(panelBottomButton);
-        Font font = new Font("bold", Font.BOLD,12);
-        this.createTask.setFont(font);
-        panelButton.add(this.createTask);
-        
-//        contentPane.add(panelButton,BorderLayout.NORTH);
-        this.add(panelButton,BorderLayout.NORTH);
-        
-  
+		this.menuAdminView = new MenuAdminView(vc);
+		this.add(menuAdminView);
         /*-------------- Veritable view --------------------*/
         JPanel panelAll = new JPanel(new GridLayout(2, 0));
         JPanel panelSemiAll = new JPanel(new GridLayout(2, 0));
@@ -221,13 +172,8 @@ public class TaskCreateView extends JPanel implements ActionListener {
 		
 		panelAll.add(panelSemiAll);
 		panelAll.add(panelButtonValidate);
-//		contentPane.add(panelAll, BorderLayout.CENTER);
 		this.add(panelAll, BorderLayout.CENTER);
 
-        //Display
-//        setSize(400,120);
-//        setVisible(true);
-//        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
 	private void getAllProduct() {

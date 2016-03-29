@@ -30,17 +30,6 @@ import Persist.ActivityCategoryJDBC;
 
 public class TaskUpdateView extends JPanel implements ActionListener {
 
-	JButton dashboard = new JButton("Dashboard");
-	JButton activityCategory = new JButton("Activity Category");
-	JButton productCategory = new JButton("Product Category");
-	JButton product = new JButton("Product");
-	JButton account = new JButton("Account");
-	JButton plan = new JButton("Plan");
-	JButton task = new JButton("Task");
-
-	JButton profile = new JButton("Profile");
-	JButton notifications = new JButton("Notifications");
-
 	/**
 	 * Descriptions for the windows
 	 */
@@ -110,51 +99,14 @@ public class TaskUpdateView extends JPanel implements ActionListener {
 
 	private User currentUser;
 	private ViewController vc;
+	private MenuAdminView menuAdminView;
 
 	public TaskUpdateView(User currentUser, ViewController vc) {
-//		super("Task"); // Name of the frame
 		this.currentUser = currentUser;
 		this.vc = vc;
-		/* Defined actions on the different buttons */
-		this.dashboard.addActionListener(this);
-		this.activityCategory.addActionListener(this);
-		this.productCategory.addActionListener(this);
-		this.product.addActionListener(this);
-		this.account.addActionListener(this);
-		this.plan.addActionListener(this);
-		this.task.addActionListener(this);
-		this.profile.addActionListener(this);
-		this.notifications.addActionListener(this);
-
-//		Container contentPane = getContentPane(); 
-//		contentPane.setLayout(new BorderLayout());
-//		setMinimumSize(new Dimension(1000,500));
-//		setMaximumSize(new Dimension(1000,500));
-
-		JPanel panelButton = new JPanel(new GridLayout(3, 1)); // 2 rows x 1 column
-		JPanel panelTopButton = new JPanel();
-		JPanel panelBottomButton = new JPanel();
-
-		panelTopButton.add(this.dashboard);
-		panelTopButton.add(this.activityCategory);
-		panelTopButton.add(this.productCategory);
-		panelTopButton.add(this.product);
-		panelTopButton.add(this.account);
-		panelTopButton.add(this.plan);
-		panelTopButton.add(this.task);
-
-		panelBottomButton.add(this.profile);
-		panelBottomButton.add(this.notifications);
-
-		panelButton.add(panelTopButton);
-		panelButton.add(panelBottomButton);
-		Font font = new Font("bold", Font.BOLD,12);
-		this.updateTask.setFont(font);
-		panelButton.add(this.updateTask);
-
-//		contentPane.add(panelButton,BorderLayout.NORTH);
-		this.add(panelButton,BorderLayout.NORTH);
-
+		this.menuAdminView = new MenuAdminView(vc);
+		this.add(menuAdminView);
+		
 		/*-------------- Veritable view --------------------*/
 		JPanel panelAll = new JPanel(new GridLayout(2, 0));
 		JPanel panelSemiAll = new JPanel(new GridLayout(2, 0));
@@ -207,15 +159,9 @@ public class TaskUpdateView extends JPanel implements ActionListener {
 		panelAll.add(panelComboBoxAllTask);
 		panelAll.add(this.panelEditAll);
 
-//		contentPane.add(panelAll, BorderLayout.WEST);
-//		contentPane.add(this.panelEditAll, BorderLayout.CENTER);
 		this.add(panelAll, BorderLayout.WEST);
 		this.add(this.panelEditAll, BorderLayout.CENTER);
 
-		//Display
-//		setSize(400,120);
-//		setVisible(true);
-//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 	@Override
@@ -229,7 +175,6 @@ public class TaskUpdateView extends JPanel implements ActionListener {
 		}
 		if(source == "Submit") {
 			System.out.println("BUTTON SUBMIT");
-			//this.activityCategoryFacades.modifyActivityCategory(this.allActivityCategory.get(this.combo.getSelectedIndex()), this.shortDetailActivityCategoryEntre.getText(), this.longDetailActivityCategoryEntre.getText());
 			this.taskFacades.modifyTask(this.allTask.get(this.comboTask.getSelectedIndex()), this.descriptionEntre.getText(), this.allProduct.get(this.comboProduct.getSelectedIndex()));
 		}
 	}
