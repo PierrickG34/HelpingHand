@@ -83,13 +83,8 @@ public class DashboardAdminView extends JPanel implements ActionListener, MouseL
         panelSemiAll.add(panelPlan1);
         panelSemiAll.add(panelPlan2);
         panelAll.add(panelSemiAll);
-//        contentPane.add(panelAll,BorderLayout.WEST);
         this.add(panelAll, BorderLayout.WEST);
         
-//        //Display
-//        setSize(400,120);
-//        setVisible(true);
-//        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
 	public void getRandomPlan() {
@@ -101,14 +96,11 @@ public class DashboardAdminView extends JPanel implements ActionListener, MouseL
 	public void mouseClicked(MouseEvent e) {
 		String source = e.getComponent().getName();
 		if(source.equals("Plan1")) {
-			System.out.println("DashboardAdmin --> PLAN1");
 			this.vc.PlanView(this.randomPlan.get(0));
 		}
 		else if(source.equals("Plan2")) {
-			System.out.println("DashboardAdmin --> PLAN2");
 			this.vc.PlanView(this.randomPlan.get(1));
 		}
-		
 	}
 
 	@Override

@@ -5,8 +5,10 @@ import java.util.List;
 
 import UI.CreatePlanView;
 import UI.DashboardAdminView;
+import UI.DashboardUserView;
 import UI.PlanDeleteView;
 import UI.PlanView;
+import UI.PlanViewUser;
 import UI.TaskCreateView;
 
 public class PlanFacade {
@@ -30,6 +32,14 @@ public class PlanFacade {
 	}
 
 	public PlanFacade(TaskCreateView taskCreateView) {
+		super();
+	}
+
+	public PlanFacade(DashboardUserView dashboardUserView) {
+		super();
+	}
+
+	public PlanFacade(PlanViewUser planViewUser) {
 		super();
 	}
 
