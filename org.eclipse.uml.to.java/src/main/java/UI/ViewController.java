@@ -21,7 +21,6 @@ public class ViewController {
 		helpinghand.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
-	
 	//DASHBOARD
 	public void dashboardAdminView() {
 		this.helpinghand.setContentPane(new DashboardAdminView(this.currentUser,this));
@@ -44,8 +43,20 @@ public class ViewController {
 		this.helpinghand.setContentPane(new ProfileUserView(this.currentUser,this));
 	}
 	
+	public void ProfileSellerView() {
+		this.helpinghand.setContentPane(new ProfileSellerView(this.currentUser,this));
+	}
+	
+	public void ProfileAdminView() {
+		this.helpinghand.setContentPane(new ProfileAdminView(this.currentUser,this));
+	}
+	
 	public void ProfileUserModifyView() {
 		this.helpinghand.setContentPane(new ProfileUserModifyView(this.currentUser,this));
+	}
+	
+	public void ProfileSellerModifyView() {
+		this.helpinghand.setContentPane(new ProfileSellerModifyView(this.currentUser,this));
 	}
 	
 	public void UpdateAccountAdminView() {
