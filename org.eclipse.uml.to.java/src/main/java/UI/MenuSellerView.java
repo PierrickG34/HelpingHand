@@ -71,7 +71,7 @@ public class MenuSellerView extends JPanel implements ActionListener {
 			System.out.println("Action pas faite");
 		}
 		else if (source == "My Products") {
-			this.vc.ProductManageView();
+			this.vc.ProductManageViewSeller();
 		}
 		else if (source == "Shopping Cart"){
 			System.out.println("Action pas faite");
