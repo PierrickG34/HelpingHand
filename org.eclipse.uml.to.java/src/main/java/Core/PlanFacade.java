@@ -8,6 +8,7 @@ import UI.CreatePlanView;
 import UI.DashboardAdminView;
 import UI.DashboardSellerView;
 import UI.DashboardUserView;
+import UI.MyPlanViewSeller;
 import UI.MyPlanViewUser;
 import UI.PlanDeleteView;
 import UI.PlanView;
@@ -60,6 +61,10 @@ public class PlanFacade {
 	}
 
 	public PlanFacade(PlanViewSeller planViewSeller) {
+		super();
+	}
+
+	public PlanFacade(MyPlanViewSeller myPlanViewSeller) {
 		super();
 	}
 
