@@ -103,47 +103,13 @@ public class UpdateProductView extends JPanel implements ActionListener {
 
 	private User currentUser;
 	private ViewController vc;
+	private MenuSellerView menuSellerView;
 	
 public UpdateProductView(User currentUser,ViewController vc) {
-//		super("DashBoard"); // Name of the frame
 		this.currentUser = currentUser;
 		this.vc = vc;
-		/* Defined actions on the different buttons */
-		this.dashboard.addActionListener(this);
-		this.activityCategory.addActionListener(this);
-		this.productCategory.addActionListener(this);
-		this.product.addActionListener(this);
-		this.account.addActionListener(this);
-		this.plan.addActionListener(this);
-		this.task.addActionListener(this);
-		this.profile.addActionListener(this);
-		this.notifications.addActionListener(this);
-
-//		Container contentPane = getContentPane(); 
-//		contentPane.setLayout(new BorderLayout());
-//		setMinimumSize(new Dimension(1000,500));
-//		setMaximumSize(new Dimension(1000,500));
-
-		JPanel panelButton = new JPanel(new GridLayout(2, 1)); // 2 rows x 1 column
-		JPanel panelTopButton = new JPanel();
-		JPanel panelBottomButton = new JPanel();
-
-		panelTopButton.add(this.dashboard);
-		panelTopButton.add(this.activityCategory);
-		panelTopButton.add(this.productCategory);
-		panelTopButton.add(this.product);
-		panelTopButton.add(this.account);
-		panelTopButton.add(this.plan);
-		panelTopButton.add(this.task);
-
-		panelBottomButton.add(this.profile);
-		panelBottomButton.add(this.notifications);
-
-		panelButton.add(panelTopButton);
-		panelButton.add(panelBottomButton);
-
-//		contentPane.add(panelButton,BorderLayout.NORTH);
-		this.add(panelButton,BorderLayout.NORTH);
+		this.menuSellerView = new MenuSellerView(this.vc);
+		this.add(menuSellerView);
 
 		/*-------------- Veritable view --------------------*/
 		JPanel panelAll = new JPanel();
@@ -198,13 +164,8 @@ public UpdateProductView(User currentUser,ViewController vc) {
 		this.panelEditAll.add(panelButtonValidate);
 		panelAll.add(this.panelEditAll);
 
-//		contentPane.add(panelAll, BorderLayout.WEST);
 		this.add(panelAll, BorderLayout.WEST);
 
-		//Display
-//		setSize(400,120);
-//		setVisible(true);
-//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 	@Override
