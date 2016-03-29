@@ -169,7 +169,7 @@ public class PlanManageView extends JPanel implements ActionListener {
 			System.out.println("PlanManageView --> Button udpdate");
 		}
 		else if(source == "Delete a Plan") {
-			//PlanDeleteView planDeleteView = new PlanDeleteView(this.currentUser);
+			this.vc.PlanDeleteView();
 		}
 	}
 }

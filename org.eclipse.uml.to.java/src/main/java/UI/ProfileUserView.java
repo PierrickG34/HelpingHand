@@ -181,7 +181,7 @@ public class ProfileUserView extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();
 		if (source == "Modify informations") {
-			//ProfileUserModifyView profileUserModifyView = new ProfileUserModifyView(this.currentUser);
+			this.vc.ProfileUserModifyView();
 		}
 
 	}
