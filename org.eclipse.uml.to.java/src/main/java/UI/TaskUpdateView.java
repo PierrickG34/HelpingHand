@@ -28,7 +28,7 @@ import Core.TaskFacade;
 import Core.User;
 import Persist.ActivityCategoryJDBC;
 
-public class TaskUpdateView extends JFrame implements ActionListener {
+public class TaskUpdateView extends JPanel implements ActionListener {
 
 	JButton dashboard = new JButton("Dashboard");
 	JButton activityCategory = new JButton("Activity Category");
@@ -111,7 +111,7 @@ public class TaskUpdateView extends JFrame implements ActionListener {
 	private User currentUser;
 
 	public TaskUpdateView(User currentUser) {
-		super("Task"); // Name of the frame
+//		super("Task"); // Name of the frame
 		this.currentUser = currentUser;
 		/* Defined actions on the different buttons */
 		this.dashboard.addActionListener(this);
@@ -124,10 +124,10 @@ public class TaskUpdateView extends JFrame implements ActionListener {
 		this.profile.addActionListener(this);
 		this.notifications.addActionListener(this);
 
-		Container contentPane = getContentPane(); 
-		contentPane.setLayout(new BorderLayout());
-		setMinimumSize(new Dimension(1000,500));
-		setMaximumSize(new Dimension(1000,500));
+//		Container contentPane = getContentPane(); 
+//		contentPane.setLayout(new BorderLayout());
+//		setMinimumSize(new Dimension(1000,500));
+//		setMaximumSize(new Dimension(1000,500));
 
 		JPanel panelButton = new JPanel(new GridLayout(3, 1)); // 2 rows x 1 column
 		JPanel panelTopButton = new JPanel();
@@ -150,7 +150,8 @@ public class TaskUpdateView extends JFrame implements ActionListener {
 		this.updateTask.setFont(font);
 		panelButton.add(this.updateTask);
 
-		contentPane.add(panelButton,BorderLayout.NORTH);
+//		contentPane.add(panelButton,BorderLayout.NORTH);
+		this.add(panelButton,BorderLayout.NORTH);
 
 		/*-------------- Veritable view --------------------*/
 		JPanel panelAll = new JPanel(new GridLayout(2, 0));
@@ -204,13 +205,15 @@ public class TaskUpdateView extends JFrame implements ActionListener {
 		panelAll.add(panelComboBoxAllTask);
 		panelAll.add(this.panelEditAll);
 
-		contentPane.add(panelAll, BorderLayout.WEST);
-		contentPane.add(this.panelEditAll, BorderLayout.CENTER);
+//		contentPane.add(panelAll, BorderLayout.WEST);
+//		contentPane.add(this.panelEditAll, BorderLayout.CENTER);
+		this.add(panelAll, BorderLayout.WEST);
+		this.add(this.panelEditAll, BorderLayout.CENTER);
 
 		//Display
-		setSize(400,120);
-		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		setSize(400,120);
+//		setVisible(true);
+//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 	@Override

@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 
 import Core.User;
 
-public class ActivtyCategoryManageView extends JFrame implements ActionListener {
+public class ActivtyCategoryManageView extends JPanel implements ActionListener {
 
 	/**
 	 * Menu button for dashboard
@@ -80,7 +80,7 @@ public class ActivtyCategoryManageView extends JFrame implements ActionListener 
 	 * @param currentUser
 	 */
 	public ActivtyCategoryManageView(User currentUser) {
-		super("Activity Category"); // Name of the frame
+//		super("Activity Category"); // Name of the frame
 		this.currentUser = currentUser;
 		
 		/* Defined actions on the different buttons */
@@ -95,10 +95,10 @@ public class ActivtyCategoryManageView extends JFrame implements ActionListener 
 		this.notifications.addActionListener(this);
 		
 		/*Define the container*/
-        Container contentPane = getContentPane(); 
-        contentPane.setLayout(new BorderLayout());
-        setMinimumSize(new Dimension(1000,500));
-        setMaximumSize(new Dimension(1000,500));
+//        Container contentPane = getContentPane(); 
+//        contentPane.setLayout(new BorderLayout());
+//        setMinimumSize(new Dimension(1000,500));
+//        setMaximumSize(new Dimension(1000,500));
         
         /*Define container for the display*/
         JPanel panelButton = new JPanel(new GridLayout(2, 1)); // 2 rows x 1 column
@@ -119,8 +119,8 @@ public class ActivtyCategoryManageView extends JFrame implements ActionListener 
         panelButton.add(panelTopButton);
         panelButton.add(panelBottomButton);
         
-        contentPane.add(panelButton,BorderLayout.NORTH);
-        
+//        contentPane.add(panelButton,BorderLayout.NORTH);
+        this.add(panelButton,BorderLayout.NORTH);
   
         /*-------------- Veritable view --------------------*/
         JPanel manageButton = new JPanel(new GridLayout(2, 1));
@@ -136,12 +136,13 @@ public class ActivtyCategoryManageView extends JFrame implements ActionListener 
         manageButton.add(createButton);
         manageButton.add(updateButton);
         
-        contentPane.add(manageButton, BorderLayout.WEST);
+//        contentPane.add(manageButton, BorderLayout.WEST);
+        this.add(manageButton, BorderLayout.WEST);
 
-        //Display
-        setSize(400,120);
-        setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        //Display
+//        setSize(400,120);
+//        setVisible(true);
+//        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
 	/**

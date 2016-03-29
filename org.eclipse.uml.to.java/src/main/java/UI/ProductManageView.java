@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 
 import Core.User;
 
-public class ProductManageView extends JFrame implements ActionListener {
+public class ProductManageView extends JPanel implements ActionListener {
 
 	JButton dashboard = new JButton("Dashboard");
 	JButton activityCategory = new JButton("Activity Category");
@@ -34,7 +34,7 @@ public class ProductManageView extends JFrame implements ActionListener {
 	private User currentUser;
 	
 	public ProductManageView(User currentUser) {
-		super("Product"); // Name of the frame
+//		super("Product"); // Name of the frame
 		this.currentUser = currentUser;
 		/* Defined actions on the different buttons */
 		this.dashboard.addActionListener(this);
@@ -47,10 +47,10 @@ public class ProductManageView extends JFrame implements ActionListener {
 		this.profile.addActionListener(this);
 		this.notifications.addActionListener(this);
 		
-        Container contentPane = getContentPane(); 
-        contentPane.setLayout(new BorderLayout());
-        setMinimumSize(new Dimension(1000,500));
-        setMaximumSize(new Dimension(1000,500));
+//        Container contentPane = getContentPane(); 
+//        contentPane.setLayout(new BorderLayout());
+//        setMinimumSize(new Dimension(1000,500));
+//        setMaximumSize(new Dimension(1000,500));
         
         JPanel panelButton = new JPanel(new GridLayout(2, 1)); // 2 rows x 1 column
         JPanel panelTopButton = new JPanel();
@@ -70,7 +70,8 @@ public class ProductManageView extends JFrame implements ActionListener {
         panelButton.add(panelTopButton);
         panelButton.add(panelBottomButton);
         
-        contentPane.add(panelButton,BorderLayout.NORTH);
+//        contentPane.add(panelButton,BorderLayout.NORTH);
+        this.add(panelButton,BorderLayout.NORTH);
         
   
         /*-------------- Veritable view --------------------*/
@@ -91,12 +92,13 @@ public class ProductManageView extends JFrame implements ActionListener {
         manageButton.add(updateButton);
         manageButton.add(deleteButton);
         
-        contentPane.add(manageButton, BorderLayout.WEST);
+//        contentPane.add(manageButton, BorderLayout.WEST);
+        this.add(manageButton, BorderLayout.WEST);
 
         //Display
-        setSize(400,120);
-        setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        setSize(400,120);
+//        setVisible(true);
+//        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
 	@Override

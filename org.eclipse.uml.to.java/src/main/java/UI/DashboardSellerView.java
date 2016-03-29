@@ -21,7 +21,7 @@ import javax.swing.SwingConstants;
 import Core.User;
 import Core.UserFacade;
 
-public class DashboardSellerView extends JFrame implements ActionListener {
+public class DashboardSellerView extends JPanel implements ActionListener {
 
 	   
 	   private User currentUser;
@@ -43,7 +43,7 @@ public class DashboardSellerView extends JFrame implements ActionListener {
 	 * The constructor who create the window
 	 */
 	public DashboardSellerView(User currentUser) {
-		super("DashBoard"); // Name of the frame
+//		super("DashBoard"); // Name of the frame
 		/* Defined actions on the different buttons */
 		this.currentUser = currentUser;
 		this.dashboard.addActionListener(this);
@@ -55,10 +55,10 @@ public class DashboardSellerView extends JFrame implements ActionListener {
 		this.profile.addActionListener(this);
 		this.notifications.addActionListener(this);
 		
-        Container contentPane = getContentPane(); 
-        contentPane.setLayout(new BorderLayout());
-        setMinimumSize(new Dimension(1000,500));
-        setMaximumSize(new Dimension(1000,500));
+//        Container contentPane = getContentPane(); 
+//        contentPane.setLayout(new BorderLayout());
+//        setMinimumSize(new Dimension(1000,500));
+//        setMaximumSize(new Dimension(1000,500));
         
         JPanel panelButton = new JPanel(new GridLayout(2, 1)); // 2 rows x 1 column
         JPanel panelTopButton = new JPanel();
@@ -78,12 +78,13 @@ public class DashboardSellerView extends JFrame implements ActionListener {
         panelButton.add(panelBottomButton);
         
   
-        contentPane.add(panelButton,BorderLayout.NORTH);
+//        contentPane.add(panelButton,BorderLayout.NORTH);
+        this.add(panelButton,BorderLayout.NORTH);
 
         //Display
-        setSize(400,120);
-        setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        setSize(400,120);
+//        setVisible(true);
+//        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
 	@Override

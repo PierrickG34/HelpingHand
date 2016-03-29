@@ -20,7 +20,7 @@ import Core.ActivityCategoryFacade;
 import Core.User;
 import Excpetion.AlreadyExistException;
 
-public class CreateActivityCategoryView extends JFrame implements ActionListener {
+public class CreateActivityCategoryView extends JPanel implements ActionListener {
 
 	/**
 	 * Menu button for dashboard
@@ -124,7 +124,7 @@ public class CreateActivityCategoryView extends JFrame implements ActionListener
      * @param currentUser
      */
 	public CreateActivityCategoryView(User currentUser) {
-		super("Activity Category"); // Name of the frame
+//		super("Activity Category"); // Name of the frame
 		this.currentUser = currentUser;
 		
 		/* Defined actions on the different buttons */
@@ -139,10 +139,10 @@ public class CreateActivityCategoryView extends JFrame implements ActionListener
 		this.notifications.addActionListener(this);
 		
 		/*Define the container*/
-        Container contentPane = getContentPane(); 
-        contentPane.setLayout(new BorderLayout());
-        setMinimumSize(new Dimension(1000,500));
-        setMaximumSize(new Dimension(1000,500));
+//        Container contentPane = getContentPane(); 
+//        contentPane.setLayout(new BorderLayout());
+//        setMinimumSize(new Dimension(1000,500));
+//        setMaximumSize(new Dimension(1000,500));
         
         /*Define container for the display*/
         JPanel panelButton = new JPanel(new GridLayout(3, 1)); // 2 rows x 1 column
@@ -166,7 +166,8 @@ public class CreateActivityCategoryView extends JFrame implements ActionListener
         this.createActivityCategory.setFont(font);
         panelButton.add(this.createActivityCategory);
         
-        contentPane.add(panelButton,BorderLayout.NORTH);
+//        contentPane.add(panelButton,BorderLayout.NORTH);
+        this.add(panelButton,BorderLayout.NORTH);
         
   
         /*-------------- Veritable view --------------------*/
@@ -203,12 +204,13 @@ public class CreateActivityCategoryView extends JFrame implements ActionListener
 		
 		panelAll.add(panelCreateActivityCategory);
 		panelAll.add(panelButtonValidate);
-		contentPane.add(panelAll, BorderLayout.WEST);
+//		contentPane.add(panelAll, BorderLayout.WEST);
+		this.add(panelAll, BorderLayout.WEST);
 
-        //Display
-        setSize(400,120);
-        setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        //Display
+//        setSize(400,120);
+//        setVisible(true);
+//        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
 	@Override

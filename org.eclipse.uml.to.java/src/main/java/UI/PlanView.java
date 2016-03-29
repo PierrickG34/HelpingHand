@@ -23,7 +23,7 @@ import Core.PlanFacade;
 import Core.Task;
 import Core.User;
 
-public class PlanView extends JFrame implements ActionListener {
+public class PlanView extends JPanel implements ActionListener {
 	
 	JButton dashboard = new JButton("Dashboard");
 	JButton activityCategory = new JButton("Activity Category");
@@ -55,7 +55,7 @@ public class PlanView extends JFrame implements ActionListener {
 	
 	
 	public PlanView(User currentUser, Plan currentPlan) {
-		super("DashBoard"); // Name of the frame
+//		super("DashBoard"); // Name of the frame
 		this.currentUser = currentUser;
 		this.currentPlan = currentPlan;
 		/* Defined actions on the different buttons */
@@ -69,10 +69,10 @@ public class PlanView extends JFrame implements ActionListener {
 		this.profile.addActionListener(this);
 		this.notifications.addActionListener(this);
 		
-        Container contentPane = getContentPane(); 
-        contentPane.setLayout(new BorderLayout());
-        setMinimumSize(new Dimension(1000,500));
-        setMaximumSize(new Dimension(1000,500));
+//        Container contentPane = getContentPane(); 
+//        contentPane.setLayout(new BorderLayout());
+//        setMinimumSize(new Dimension(1000,500));
+//        setMaximumSize(new Dimension(1000,500));
         
         JPanel panelButton = new JPanel(new GridLayout(3, 1)); // 2 rows x 1 column
         JPanel panelTopButton = new JPanel();
@@ -95,7 +95,8 @@ public class PlanView extends JFrame implements ActionListener {
         this.informationsPlan.setFont(font);
         panelButton.add(this.informationsPlan);
         
-        contentPane.add(panelButton,BorderLayout.NORTH);
+//        contentPane.add(panelButton,BorderLayout.NORTH);
+        this.add(panelButton,BorderLayout.NORTH);
         
         /*-------------- Veritable view --------------------*/
         getTaskForPlan(this.currentPlan.getIdPlan());
@@ -156,12 +157,13 @@ public class PlanView extends JFrame implements ActionListener {
         panelRight.add(panelCopy);
         panelRight.add(panelFavorite);
         panelAll.add(panelRight);
-        contentPane.add(panelAll,BorderLayout.WEST);
+//        contentPane.add(panelAll,BorderLayout.WEST);
+        this.add(panelAll,BorderLayout.WEST);
         
       //Display
-        setSize(400,120);
-        setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        setSize(400,120);
+//        setVisible(true);
+//        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 

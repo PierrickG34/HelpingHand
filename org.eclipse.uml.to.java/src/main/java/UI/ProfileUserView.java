@@ -21,7 +21,7 @@ import javax.swing.border.Border;
 
 import Core.User;
 
-public class ProfileUserView extends JFrame implements ActionListener {
+public class ProfileUserView extends JPanel implements ActionListener {
 
 	JButton dashboard = new JButton("Dashboard");
 	JButton journal = new JButton("Journal");
@@ -93,7 +93,7 @@ public class ProfileUserView extends JFrame implements ActionListener {
 	 * The constructor who create the window
 	 */
 	public ProfileUserView(User currentUser) {
-		super("Profile"); // Name of the frame
+//		super("Profile"); // Name of the frame
 		this.currentUser = currentUser;
 
 		/*##### Display the menu bar #####*/
@@ -106,10 +106,10 @@ public class ProfileUserView extends JFrame implements ActionListener {
 		this.profile.addActionListener(this);
 		this.notifications.addActionListener(this);
 
-		Container contentPane = getContentPane(); 
-		contentPane.setLayout(new BorderLayout());
-		setMinimumSize(new Dimension(1000,500));
-		setMaximumSize(new Dimension(1000,500));
+//		Container contentPane = getContentPane(); 
+//		contentPane.setLayout(new BorderLayout());
+//		setMinimumSize(new Dimension(1000,500));
+//		setMaximumSize(new Dimension(1000,500));
 
 		JPanel panelButton = new JPanel(new GridLayout(3, 1)); // 2 rows x 1 column
 		JPanel panelTopButton = new JPanel();
@@ -163,14 +163,17 @@ public class ProfileUserView extends JFrame implements ActionListener {
 		this.modify.addActionListener(this);
 
 
-		contentPane.add(panelButton,BorderLayout.NORTH);
-		contentPane.add(panelInformations, BorderLayout.CENTER);
-		contentPane.add(panelButtonValidate,  BorderLayout.SOUTH);
+//		contentPane.add(panelButton,BorderLayout.NORTH);
+//		contentPane.add(panelInformations, BorderLayout.CENTER);
+//		contentPane.add(panelButtonValidate,  BorderLayout.SOUTH);
+		this.add(panelButton,BorderLayout.NORTH);
+		this.add(panelInformations, BorderLayout.CENTER);
+		this.add(panelButtonValidate,  BorderLayout.SOUTH);
 
-		//Display
-		setSize(400,120);
-		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		//Display
+//		setSize(400,120);
+//		setVisible(true);
+//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 	@Override
