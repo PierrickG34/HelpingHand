@@ -3,6 +3,7 @@ package Core;
 import java.util.Date;
 import java.util.List;
 
+import UI.CreatePlanUserView;
 import UI.CreatePlanView;
 import UI.DashboardAdminView;
 import UI.DashboardUserView;
@@ -45,6 +46,10 @@ public class PlanFacade {
 	}
 
 	public PlanFacade(MyPlanViewUser myPlanViewUser) {
+		super();
+	}
+
+	public PlanFacade(CreatePlanUserView createPlanUserView) {
 		super();
 	}
 

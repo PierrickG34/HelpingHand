@@ -39,7 +39,7 @@ public class MyPlanViewUser extends JPanel implements ActionListener, MouseListe
 	 */
 	public PlanFacade planFacades = new PlanFacade(this);
 	
-	List<Plan> randomPlan = new ArrayList<Plan>();
+	List<Plan> myPlan = new ArrayList<Plan>();
 	
 	JLabel name1 = new JLabel();
 	JLabel name2 = new JLabel();
@@ -63,56 +63,68 @@ public class MyPlanViewUser extends JPanel implements ActionListener, MouseListe
         JPanel panelSemiAll = new JPanel(new GridLayout(3, 1));
         JPanel panelPlan1 = new JPanel(new GridLayout(3, 1));
         JPanel panelPlan2 = new JPanel(new GridLayout(3, 1));
+        JPanel panelCreatePlan = new JPanel();
         
         /*Recuperate 2 random plan from the database to display*/
         this.getMyPlan();
-        if(this.randomPlan.size() >= 2) {
+        if(this.myPlan.size() >= 1) {
 
-	    	this.name1.setText(this.randomPlan.get(0).getNamePlan());
+	    	this.name1.setText(this.myPlan.get(0).getNamePlan());
 	    	this.name1.addMouseListener(this);
 	    	this.name1.setName("Plan1");
-	    	this.obs1.setText(this.randomPlan.get(0).getObservationPlan());
+	    	this.obs1.setText(this.myPlan.get(0).getObservationPlan());
 	    	this.obs1.setLineWrap(true);
 	    	JScrollPane zoneScrolable1 = new JScrollPane(this.obs1, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 	    	zoneScrolable1.setPreferredSize(new Dimension(900, 65));
-	    	
-	    	this.name2.setText(this.randomPlan.get(1).getNamePlan());
-	    	this.name2.addMouseListener(this);
-	    	this.name2.setName("Plan2");
-	    	this.obs2.setText(this.randomPlan.get(1).getObservationPlan());
-	    	this.obs2.setLineWrap(true);
-	    	JScrollPane zoneScrolable2 = new JScrollPane(this.obs2, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-	    	zoneScrolable2.setPreferredSize(new Dimension(900, 65));
 	        
 	        panelPlan1.add(this.name1);
 	        panelPlan1.add(zoneScrolable1);
-	        panelPlan2.add(this.name2);
-	        panelPlan2.add(zoneScrolable2);
+	        panelSemiAll.add(panelPlan1);
+	    	
         }
         
-        panelSemiAll.add(panelPlan1);
-        panelSemiAll.add(panelPlan2);
-        panelSemiAll.add(this.createPlan, BorderLayout.CENTER);
+        if(this.myPlan.size() >= 2) {
+	    	this.name2.setText(this.myPlan.get(1).getNamePlan());
+	    	this.name2.addMouseListener(this);
+	    	this.name2.setName("Plan2");
+	    	this.obs2.setText(this.myPlan.get(1).getObservationPlan());
+	    	this.obs2.setLineWrap(true);
+	    	JScrollPane zoneScrolable2 = new JScrollPane(this.obs2, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+	    	zoneScrolable2.setPreferredSize(new Dimension(900, 65));
+	    	
+	        panelPlan2.add(this.name2);
+	        panelPlan2.add(zoneScrolable2);
+	        panelSemiAll.add(panelPlan2);
+        }
+        
+        
+        panelCreatePlan.add(this.createPlan);
+        panelSemiAll.add(panelCreatePlan, BorderLayout.CENTER);
+        this.createPlan.addActionListener(this);
         panelAll.add(panelSemiAll);
         this.add(panelAll, BorderLayout.WEST);	
 	}
 	
 	public void getMyPlan() {
-		this.randomPlan = this.planFacades.getMyPlan(this.currentUser.getIdUser());
+		this.myPlan = this.planFacades.getMyPlan(this.currentUser.getIdUser());
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		String source = e.getActionCommand();
+		if (source == "Create a Plan") {
+			this.vc.CreatePlanUserView();
+		}
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		String source = e.getComponent().getName();
 		if(source.equals("Plan1")) {
-			this.vc.PlanViewUser(this.randomPlan.get(0));
+			this.vc.PlanViewUser(this.myPlan.get(0));
 		}
 		else if(source.equals("Plan2")) {
-			this.vc.PlanViewUser(this.randomPlan.get(1));
+			this.vc.PlanViewUser(this.myPlan.get(1));
 		}
 	}
 

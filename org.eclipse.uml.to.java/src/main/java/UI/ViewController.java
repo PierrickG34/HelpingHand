@@ -120,6 +120,12 @@ public class ViewController {
 		this.helpinghand.revalidate();
 	}
 	
+	public void CreatePlanUserView() {
+		this.helpinghand.setContentPane(new CreatePlanUserView(this.currentUser, this));
+		this.helpinghand.repaint();
+		this.helpinghand.revalidate();
+	}
+	
 	//PRODUCT
 	public void ProductCreateView() {
 		this.helpinghand.setContentPane(new ProductCreateView(this.currentUser, this));
