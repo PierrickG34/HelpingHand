@@ -89,7 +89,7 @@ public class DashboardUserView extends JPanel implements ActionListener, MouseLi
         panelSemiAll.add(panelPlan1);
         panelSemiAll.add(panelPlan2);
         panelAll.add(panelSemiAll);
-        this.add(panelAll, BorderLayout.WEST);	
+        this.add(panelAll, BorderLayout.CENTER);	
 	}
 	
 	public void getRandomPlan() {

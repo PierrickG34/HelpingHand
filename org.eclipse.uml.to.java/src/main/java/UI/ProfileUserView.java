@@ -91,13 +91,13 @@ public class ProfileUserView extends JPanel implements ActionListener {
 		this.add(menuUserView);
 
 		/*##### Display the information of the user #####*/
-		this.firstName.setText(this.currentUser.getFirstName());
+		this.firstName.setText("Name: " + this.currentUser.getFirstName());
 		this.firstName.setHorizontalAlignment(JLabel.CENTER);
-		this.surName.setText(this.currentUser.getSurName());
+		this.surName.setText("First name: " + this.currentUser.getSurName());
 		this.surName.setHorizontalAlignment(JLabel.CENTER);
-		this.mobile.setText(this.currentUser.getMobile());
+		this.mobile.setText("Mobile: " + this.currentUser.getMobile());
 		this.mobile.setHorizontalAlignment(JLabel.CENTER);
-		this.mail.setText(this.currentUser.getMailAddress());
+		this.mail.setText("Mail: " + this.currentUser.getMailAddress());
 		this.mail.setHorizontalAlignment(JLabel.CENTER);
 		// Create an instance of SimpleDateFormat used for formatting 
 		// the string representation of date (month/day/year)
@@ -107,12 +107,14 @@ public class ProfileUserView extends JPanel implements ActionListener {
 		// Using DateFormat format method we can create a string 
 		// representation of a date with the defined format.
 		String reportDate = df.format(dateOfBirthToParse);
-		this.dateOfBirth.setText(reportDate);
+		this.dateOfBirth.setText("Date of birth: " + reportDate);
 		this.dateOfBirth.setHorizontalAlignment(JLabel.CENTER);
-		this.password.setText(this.currentUser.getPassword());
+		this.password.setText("Password: " + this.currentUser.getPassword());
 		this.password.setHorizontalAlignment(JLabel.CENTER);
-		this.address.setText(this.currentUser.getAddress());
+		this.address.setText("Address: " + this.currentUser.getAddress());
 		this.address.setHorizontalAlignment(JLabel.CENTER);
+		
+		JPanel panelAll = new JPanel();
 		JPanel panelInformations = new JPanel(new GridLayout(7,1));
 		JPanel panelButtonValidate = new JPanel();
 		panelInformations.add(this.firstName);
@@ -125,8 +127,10 @@ public class ProfileUserView extends JPanel implements ActionListener {
 		panelButtonValidate.add(this.modify);
 		this.modify.addActionListener(this);
 
-		this.add(panelInformations, BorderLayout.CENTER);
-		this.add(panelButtonValidate,  BorderLayout.SOUTH);
+		
+		panelAll.add(panelInformations, BorderLayout.WEST);
+		panelAll.add(panelButtonValidate,  BorderLayout.SOUTH);
+		this.add(panelAll);
 
 	}
 

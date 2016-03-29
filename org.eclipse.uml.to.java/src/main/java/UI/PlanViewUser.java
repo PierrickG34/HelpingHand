@@ -97,9 +97,11 @@ public class PlanViewUser extends JPanel implements ActionListener {
         
         // Copy 
         panelCopy.add(this.copyPlan);
+        this.copyPlan.addActionListener(this);
         
         // Favorite
         panelFavorite.add(this.addFavorite);
+        this.addFavorite.addActionListener(this);
         
         
         panelLeft.add(panelName);
@@ -125,5 +127,12 @@ public class PlanViewUser extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		String source = e.getActionCommand();
+		if (source == "Copy to my Plans") {
+			System.out.println("Action pas faite");
+		}
+		else if (source == "Add to my Favorites") {
+			System.out.println("Action pas faite");
+		}
 	}
 }

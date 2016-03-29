@@ -70,7 +70,7 @@ public class ProfileUserModifyView extends JPanel implements ActionListener {
 	JLabel errorMessage = new JLabel("");
 
 	private ViewController vc;
-	private MenuAdminView menuAdminView;
+	private MenuUserView menuUserView;
 	
 	/**
 	 * 
@@ -80,19 +80,9 @@ public class ProfileUserModifyView extends JPanel implements ActionListener {
 //		super("Edit Profile");
 		this.currentUser = currentUser;
 		this.vc = vc;
-		this.menuAdminView = new MenuAdminView(this.vc);
-		this.add(menuAdminView);
+		this.menuUserView = new MenuUserView(this.vc);
+		this.add(menuUserView);
 		this.userFacade = new UserFacade(currentUser);
-		
-//		Container contentPane = getContentPane(); 
-//		contentPane.setLayout(new BorderLayout());
-//		setMinimumSize(new Dimension(1000,500));
-//		setMaximumSize(new Dimension(1000,500));
-
-		/*##### Display the menu bar #####*/
-		JPanel panelButton = new JPanel(new GridLayout(3, 1)); // 2 rows x 1 column
-		JPanel panelTopButton = new JPanel();
-		JPanel panelBottomButton = new JPanel();
 
 		/*##### Display and edit the information #####*/
 		JPanel panelEditInformation = new JPanel();
@@ -131,16 +121,7 @@ public class ProfileUserModifyView extends JPanel implements ActionListener {
 		panelEditInformation.add(panelButtonValidate, BorderLayout.SOUTH);
 		this.validate.addActionListener(this);
 
-
-//		contentPane.add(panelButton,BorderLayout.NORTH);
-//		contentPane.add(panelEditInformation, BorderLayout.CENTER);
-		this.add(panelButton,BorderLayout.NORTH);
 		this.add(panelEditInformation, BorderLayout.CENTER);
-
-		//Display
-//		setSize(400,120);
-//		setVisible(true);
-//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	}
 
