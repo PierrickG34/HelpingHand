@@ -31,10 +31,13 @@ public class AccountAdminView extends JPanel implements ActionListener {
 		
 		private User currentUser;
 		
-		public AccountAdminView(User currentUser) {
+		private ViewController vc;
+		
+		public AccountAdminView(User currentUser, ViewController vc) {
 //			super("Product"); // Name of the frame
 			/* Defined actions on the different buttons */
 			this.currentUser = currentUser;
+			this.vc = vc;
 			this.dashboard.addActionListener(this);
 			this.activityCategory.addActionListener(this);
 			this.productCategory.addActionListener(this);
@@ -104,7 +107,7 @@ public class AccountAdminView extends JPanel implements ActionListener {
 				UpdateAccountAdminView updateAccountAdminView = new UpdateAccountAdminView(this.currentUser);
 			}
 			else if(source == "Delete an Account") {
-				DeleteAccountAdminView deleteAccountAdminView = new DeleteAccountAdminView(this.currentUser);
+//				DeleteAccountAdminView deleteAccountAdminView = new DeleteAccountAdminView(this.currentUser);
 			}
 		}
 }

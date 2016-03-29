@@ -78,10 +78,13 @@ public class DeleteProductView extends JPanel implements ActionListener {
 	List<Product> allProduct = new ArrayList<Product>();
 
 	private User currentUser;
+	
+	private ViewController vc;
 
-public DeleteProductView(User currentUser) {
+public DeleteProductView(User currentUser, ViewController vc) {
 //		super("DashBoard"); // Name of the frame
 		this.currentUser = currentUser;
+		this.vc = vc;
 		/* Defined actions on the different buttons */
 		this.dashboard.addActionListener(this);
 		this.activityCategory.addActionListener(this);

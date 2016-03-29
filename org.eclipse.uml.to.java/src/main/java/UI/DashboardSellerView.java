@@ -34,6 +34,8 @@ public class DashboardSellerView extends JPanel implements ActionListener {
 	   
 	   JButton profile = new JButton("Profile");
 	   JButton notifications = new JButton("Notifications");
+	   
+	   private ViewController vc;
 	
 	// Start of user code (user defined attributes for LoginView)
 
@@ -42,10 +44,11 @@ public class DashboardSellerView extends JPanel implements ActionListener {
 	/**
 	 * The constructor who create the window
 	 */
-	public DashboardSellerView(User currentUser) {
+	public DashboardSellerView(User currentUser, ViewController vc) {
 //		super("DashBoard"); // Name of the frame
 		/* Defined actions on the different buttons */
 		this.currentUser = currentUser;
+		this.vc = vc;
 		this.dashboard.addActionListener(this);
 		this.journal.addActionListener(this);
 		this.myPlans.addActionListener(this);

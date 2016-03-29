@@ -75,13 +75,16 @@ public class ActivtyCategoryManageView extends JPanel implements ActionListener 
 	 */
 	private User currentUser;
 	
+	private ViewController vc;
+	
 	/**
 	 * Constructor for the class
 	 * @param currentUser
 	 */
-	public ActivtyCategoryManageView(User currentUser) {
+	public ActivtyCategoryManageView(User currentUser, ViewController vc) {
 //		super("Activity Category"); // Name of the frame
 		this.currentUser = currentUser;
+		this.vc = vc;
 		
 		/* Defined actions on the different buttons */
 		this.dashboard.addActionListener(this);
@@ -153,7 +156,7 @@ public class ActivtyCategoryManageView extends JPanel implements ActionListener 
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();
 		if(source == "Create an Activity Category") {
-			CreateActivityCategoryView createActivityCategory = new CreateActivityCategoryView(this.currentUser);
+//			CreateActivityCategoryView createActivityCategory = new CreateActivityCategoryView(this.currentUser);
 		}
 		else if(source == "Update an Activity Category") {
 			UpdateActivityCategoryView updateActivityCategory = new UpdateActivityCategoryView(this.currentUser);
