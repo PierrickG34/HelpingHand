@@ -102,10 +102,12 @@ public class UpdateProductView extends JPanel implements ActionListener {
 	List<Product> allProduct = new ArrayList<Product>();
 
 	private User currentUser;
-
-public UpdateProductView(User currentUser) {
+	private ViewController vc;
+	
+public UpdateProductView(User currentUser,ViewController vc) {
 //		super("DashBoard"); // Name of the frame
 		this.currentUser = currentUser;
+		this.vc = vc;
 		/* Defined actions on the different buttons */
 		this.dashboard.addActionListener(this);
 		this.activityCategory.addActionListener(this);

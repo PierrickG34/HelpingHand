@@ -62,10 +62,12 @@ public class TaskDeleteView extends JPanel implements ActionListener {
 	
 	
 	private User currentUser;
+	private ViewController vc;
 	
-	public TaskDeleteView(User currentUser) {
+	public TaskDeleteView(User currentUser, ViewController vc) {
 //		super("Task"); // Name of the frame
 		this.currentUser = currentUser;
+		this.vc = vc;
 		/* Defined actions on the different buttons */
 		this.dashboard.addActionListener(this);
 		this.activityCategory.addActionListener(this);

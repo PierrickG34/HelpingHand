@@ -113,15 +113,17 @@ public class TaskCreateView extends JPanel implements ActionListener {
 	public TaskFacade taskFacades = new TaskFacade(this);
 //	
 	private User currentUser;
+	private ViewController vc;
 	
 	    /**
      * Describe error message
      */
     JLabel errorMessage = new JLabel("");
 	
-	public TaskCreateView(User currentUser) {
+	public TaskCreateView(User currentUser, ViewController vc) {
 //		super("Task"); // Name of the frame
 		this.currentUser = currentUser;
+		this.vc = vc;
 		/* Defined actions on the different buttons */
 		this.dashboard.addActionListener(this);
 		this.activityCategory.addActionListener(this);

@@ -76,15 +76,17 @@ public class PlanManageView extends JPanel implements ActionListener {
 	 * The current user
 	 */
 	private User currentUser;
+	private ViewController vc;
 
 	
 	/**
 	 * Constructor for the class
 	 * @param currentUser
 	 */
-	public PlanManageView(User currentUser) {
+	public PlanManageView(User currentUser, ViewController vc) {
 //		super("Plan"); // Name of the frame
 		this.currentUser = currentUser;
+		this.vc = vc;
 		
 		/* Defined actions on the different buttons */
 		this.dashboard.addActionListener(this);
@@ -167,7 +169,7 @@ public class PlanManageView extends JPanel implements ActionListener {
 			System.out.println("PlanManageView --> Button udpdate");
 		}
 		else if(source == "Delete a Plan") {
-			PlanDeleteView planDeleteView = new PlanDeleteView(this.currentUser);
+			//PlanDeleteView planDeleteView = new PlanDeleteView(this.currentUser);
 		}
 	}
 }

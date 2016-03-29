@@ -118,6 +118,7 @@ package UI;
 		UserJDBC userJDBC;
 		
 		private User currentUser;
+		private ViewController vc;
 
 		/**
 		 * Description of the property ActivityCategoryFacades.
@@ -130,10 +131,11 @@ package UI;
 		List<User> allUsers = new ArrayList<User>();
 
 
-	public UpdateAccountAdminView(User currentUser) {
+	public UpdateAccountAdminView(User currentUser, ViewController vc) {
 //			super("DashBoard"); // Name of the frame
 			/* Defined actions on the different buttons */
 			this.currentUser = currentUser;
+			this.vc = vc;
 			this.userFacade = new UserFacade(this.currentUser);
 			this.dashboard.addActionListener(this);
 			this.activityCategory.addActionListener(this);

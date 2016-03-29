@@ -89,11 +89,13 @@ public class ProductCreateView extends JPanel implements ActionListener {
 	JButton profile = new JButton("Profile");
 	JButton notifications = new JButton("Notifications");
 
+	private ViewController vc;
 
-	public ProductCreateView(User user)
+	public ProductCreateView(User user, ViewController vc)
 	{
 //		super("Product Creation");
 		this.currentUser = user;
+		this.vc = vc;
 		this.cancel.addActionListener(this);
 //		Container contentPane = getContentPane(); 
 //		contentPane.setLayout(new BorderLayout()); 

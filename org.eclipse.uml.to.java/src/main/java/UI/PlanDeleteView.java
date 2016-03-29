@@ -64,10 +64,12 @@ public class PlanDeleteView extends JPanel implements ActionListener {
 	
 	
 	private User currentUser;
+	private ViewController vc;
 	
-	public PlanDeleteView(User currentUser) {
+	public PlanDeleteView(User currentUser, ViewController vc) {
 //		super("Plan"); // Name of the frame
 		this.currentUser = currentUser;
+		this.vc = vc;
 		/* Defined actions on the different buttons */
 		this.dashboard.addActionListener(this);
 		this.activityCategory.addActionListener(this);

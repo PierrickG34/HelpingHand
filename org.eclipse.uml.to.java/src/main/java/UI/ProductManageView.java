@@ -32,10 +32,12 @@ public class ProductManageView extends JPanel implements ActionListener {
 	
 	
 	private User currentUser;
+	private ViewController vc;
 	
-	public ProductManageView(User currentUser) {
+	public ProductManageView(User currentUser, ViewController vc) {
 //		super("Product"); // Name of the frame
 		this.currentUser = currentUser;
+		this.vc = vc;
 		/* Defined actions on the different buttons */
 		this.dashboard.addActionListener(this);
 		this.activityCategory.addActionListener(this);
@@ -106,10 +108,10 @@ public class ProductManageView extends JPanel implements ActionListener {
 		String source = e.getActionCommand();
 		if(source == "Create a Product") {
 			System.out.println("BUTTON CREATE");
-			ProductCreateView profilUserView = new ProductCreateView(this.currentUser);
+			//ProductCreateView profilUserView = new ProductCreateView(this.currentUser);
 		}
 		else if(source == "Update a Product") {
-			UpdateProductView profilUserView = new UpdateProductView(this.currentUser);
+			//UpdateProductView profilUserView = new UpdateProductView(this.currentUser);
 		}
 		else if(source == "Delete a Product") {
 			DeleteProductView profilUserView = new DeleteProductView(this.currentUser);

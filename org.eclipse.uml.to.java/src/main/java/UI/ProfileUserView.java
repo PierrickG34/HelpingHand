@@ -82,7 +82,7 @@ public class ProfileUserView extends JPanel implements ActionListener {
 	 * 
 	 */
 	private User currentUser;
-
+	private ViewController vc;
 
 
 	// Start of user code (user defined attributes for LoginView)
@@ -92,9 +92,10 @@ public class ProfileUserView extends JPanel implements ActionListener {
 	/**
 	 * The constructor who create the window
 	 */
-	public ProfileUserView(User currentUser) {
+	public ProfileUserView(User currentUser, ViewController vc) {
 //		super("Profile"); // Name of the frame
 		this.currentUser = currentUser;
+		this.vc = vc;
 
 		/*##### Display the menu bar #####*/
 		/* Defined actions on the different buttons */
@@ -180,7 +181,7 @@ public class ProfileUserView extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();
 		if (source == "Modify informations") {
-			ProfileUserModifyView profileUserModifyView = new ProfileUserModifyView(this.currentUser);
+			//ProfileUserModifyView profileUserModifyView = new ProfileUserModifyView(this.currentUser);
 		}
 
 	}

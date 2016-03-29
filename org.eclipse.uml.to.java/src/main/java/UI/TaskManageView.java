@@ -32,10 +32,12 @@ public class TaskManageView extends JPanel implements ActionListener {
 	
 	
 	private User currentUser;
+	private ViewController vc;
 	
-	public TaskManageView(User currentUser) {
+	public TaskManageView(User currentUser, ViewController vc) {
 //		super("Task"); // Name of the frame
 		this.currentUser = currentUser;
+		this.vc = vc;
 		/* Defined actions on the different buttons */
 		this.dashboard.addActionListener(this);
 		this.activityCategory.addActionListener(this);
@@ -105,14 +107,14 @@ public class TaskManageView extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();
 		if(source == "Create a Task") {
-			TaskCreateView taskCreateView = new TaskCreateView(this.currentUser);
+			//TaskCreateView taskCreateView = new TaskCreateView(this.currentUser);
 		}
 		else if(source == "Update a Task") {
-			TaskUpdateView taskUpdateView = new TaskUpdateView(this.currentUser);
+			//TaskUpdateView taskUpdateView = new TaskUpdateView(this.currentUser);
 		}
 		else if(source == "Delete a Task") {
 			System.out.println("BUTTON DELETE");
-			TaskDeleteView taskDeleteView = new TaskDeleteView(this.currentUser);
+			//TaskDeleteView taskDeleteView = new TaskDeleteView(this.currentUser);
 		}
 	}
 }

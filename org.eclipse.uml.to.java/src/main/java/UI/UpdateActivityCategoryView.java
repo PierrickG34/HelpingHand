@@ -101,15 +101,17 @@ public class UpdateActivityCategoryView extends JPanel implements ActionListener
 
 	/** The current user. */
 	private User currentUser;
+	private ViewController vc;
 
 	/**
 	 * Instantiates a new update activity category view.
 	 *
 	 * @param currentUser the current user
 	 */
-	public UpdateActivityCategoryView(User currentUser) {
+	public UpdateActivityCategoryView(User currentUser, ViewController vc) {
 //		super("DashBoard"); // Name of the frame
 		this.currentUser = currentUser;
+		this.vc = vc;
 		/* Defined actions on the different buttons */
 		this.dashboard.addActionListener(this);
 		this.activityCategory.addActionListener(this);

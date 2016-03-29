@@ -109,10 +109,12 @@ public class TaskUpdateView extends JPanel implements ActionListener {
 	List<Task> allTask = new ArrayList<Task>();
 
 	private User currentUser;
+	private ViewController vc;
 
-	public TaskUpdateView(User currentUser) {
+	public TaskUpdateView(User currentUser, ViewController vc) {
 //		super("Task"); // Name of the frame
 		this.currentUser = currentUser;
+		this.vc = vc;
 		/* Defined actions on the different buttons */
 		this.dashboard.addActionListener(this);
 		this.activityCategory.addActionListener(this);

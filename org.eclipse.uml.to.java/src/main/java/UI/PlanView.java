@@ -51,13 +51,15 @@ public class PlanView extends JPanel implements ActionListener {
 	
 	private User currentUser;
 	private Plan currentPlan;
+	private ViewController vc;
 	
 	
 	
-	public PlanView(User currentUser, Plan currentPlan) {
+	public PlanView(User currentUser, Plan currentPlan, ViewController vc) {
 //		super("DashBoard"); // Name of the frame
 		this.currentUser = currentUser;
 		this.currentPlan = currentPlan;
+		this.vc = vc;
 		/* Defined actions on the different buttons */
 		this.dashboard.addActionListener(this);
 		this.activityCategory.addActionListener(this);

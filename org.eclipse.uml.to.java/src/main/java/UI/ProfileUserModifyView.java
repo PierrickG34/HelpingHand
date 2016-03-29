@@ -69,13 +69,15 @@ public class ProfileUserModifyView extends JPanel implements ActionListener {
 	 */
 	JLabel errorMessage = new JLabel("");
 
+	private ViewController vc;
 	/**
 	 * 
 	 * @param currentUser
 	 */
-	public ProfileUserModifyView(User currentUser) {
+	public ProfileUserModifyView(User currentUser, ViewController vc) {
 //		super("Edit Profile");
 		this.currentUser = currentUser;
+		this.vc = vc;
 		this.userFacade = new UserFacade(currentUser);
 		
 //		Container contentPane = getContentPane(); 
