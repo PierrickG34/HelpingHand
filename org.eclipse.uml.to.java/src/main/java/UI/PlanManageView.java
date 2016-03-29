@@ -163,10 +163,10 @@ public class PlanManageView extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();
 		if(source == "Create a Plan") {
-			System.out.println("PlanManageView --> DEJA FAIT");
+			this.vc.CreatePlanView();
 		}
 		else if(source == "Update a Plan") {
-			System.out.println("PlanManageView --> Button udpdate");
+		//UPDATE
 		}
 		else if(source == "Delete a Plan") {
 			this.vc.PlanDeleteView();

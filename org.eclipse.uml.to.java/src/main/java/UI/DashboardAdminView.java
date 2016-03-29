@@ -24,17 +24,6 @@ import Core.User;
 
 public class DashboardAdminView extends JPanel implements ActionListener, MouseListener {
 	
-	JButton dashboard = new JButton("Dashboard");
-	JButton activityCategory = new JButton("Activity Category");
-	JButton productCategory = new JButton("Product Category");
-	JButton product = new JButton("Product");
-	JButton account = new JButton("Account");
-	JButton plan = new JButton("Plan");
-	JButton task = new JButton("Task");
-	   
-	JButton profile = new JButton("Profile");
-	JButton notifications = new JButton("Notifications");
-	
 	/**
 	 * Description of the property ActivityCategoryFacades.
 	 */
@@ -48,7 +37,7 @@ public class DashboardAdminView extends JPanel implements ActionListener, MouseL
 	JTextArea obs1 = new JTextArea();
 	JTextArea obs2 = new JTextArea();
 	
-	
+	private MenuAdminView menuadminView;
 	
 	private User currentUser;
 	
@@ -58,43 +47,8 @@ public class DashboardAdminView extends JPanel implements ActionListener, MouseL
 	public DashboardAdminView(User currentUser, ViewController vc) {
 		this.currentUser = currentUser;
 		this.vc = vc;
-		/* Defined actions on the different buttons */
-		this.dashboard.addActionListener(this);
-		this.activityCategory.addActionListener(this);
-		this.productCategory.addActionListener(this);
-		this.product.addActionListener(this);
-		this.account.addActionListener(this);
-		this.plan.addActionListener(this);
-		this.task.addActionListener(this);
-		this.profile.addActionListener(this);
-		this.notifications.addActionListener(this);
+		this.menuadminView = new MenuAdminView(vc);
 		
-//        Container contentPane = getContentPane(); 
-//        contentPane.setLayout(new BorderLayout());
-//        setMinimumSize(new Dimension(1000,500));
-//        setMaximumSize(new Dimension(1000,500));
-        
-        JPanel panelButton = new JPanel(new GridLayout(3, 1)); // 2 rows x 1 column
-        JPanel panelTopButton = new JPanel();
-        JPanel panelBottomButton = new JPanel();
-        
-        panelTopButton.add(this.dashboard);
-        panelTopButton.add(this.activityCategory);
-        panelTopButton.add(this.productCategory);
-        panelTopButton.add(this.product);
-        panelTopButton.add(this.account);
-        panelTopButton.add(this.plan);
-        panelTopButton.add(this.task);
-        
-        panelBottomButton.add(this.profile);
-        panelBottomButton.add(this.notifications);
-        
-        panelButton.add(panelTopButton);
-        panelButton.add(panelBottomButton);
-        
-//        contentPane.add(panelButton,BorderLayout.NORTH);
-        this.add(panelButton,BorderLayout.NORTH);
-        
         /*-------------- Veritable view --------------------*/
         JPanel panelAll = new JPanel();
         JPanel panelSemiAll = new JPanel(new GridLayout(2, 1));
@@ -141,53 +95,17 @@ public class DashboardAdminView extends JPanel implements ActionListener, MouseL
 		this.randomPlan = this.planFacades.getRandomPlan();
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		String source = e.getActionCommand();
-		if (source == "Dashboard") {
-			System.out.println("Je suis Dashboard");
-			System.out.println("Action a définir ici...");
-		}
-		else if (source == "Activity Category" ){
-//			ActivtyCategoryManageView activityCategory = new ActivtyCategoryManageView(this.currentUser);
-		}
-		else if (source == "Product Category"){
-			System.out.println("Je suis Product Category");
-			System.out.println("Action a définir ici...");
-		}
-		else if (source == "Product"){
-			System.out.println("Je suis Product");
-			System.out.println("Action a définir ici...");
-		}
-		else if (source == "Account"){
-//			AccountAdminView accountAdminView = new AccountAdminView(this.currentUser);
-		}
-		else if (source == "Plan"){
-//			PlanManageView planManageView = new PlanManageView(this.currentUser);
-		}
-		else if (source == "Task"){
-//			TaskManageView taskManageView = new TaskManageView(this.currentUser);
-		}
-		else if (source == "Profile"){
-			System.out.println("Je suis Profile");
-			System.out.println("Action a définir ici...");
-		}
-		else if (source == "Notifications"){
-			System.out.println("Je suis Notifications");
-			System.out.println("Action a définir ici...");
-		}
-	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		String source = e.getComponent().getName();
 		if(source.equals("Plan1")) {
 			System.out.println("DashboardAdmin --> PLAN1");
-//			PlanView planView = new PlanView(this.currentUser, this.randomPlan.get(0));
+			this.vc.PlanView(this.randomPlan.get(0));
 		}
 		else if(source.equals("Plan2")) {
 			System.out.println("DashboardAdmin --> PLAN2");
-//			PlanView planView = new PlanView(this.currentUser, this.randomPlan.get(1));
+			this.vc.PlanView(this.randomPlan.get(1));
 		}
 		
 	}
@@ -212,6 +130,12 @@ public class DashboardAdminView extends JPanel implements ActionListener, MouseL
 
 	@Override
 	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
