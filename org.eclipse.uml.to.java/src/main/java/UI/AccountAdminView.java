@@ -104,7 +104,7 @@ public class AccountAdminView extends JPanel implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			String source = e.getActionCommand();
 			if(source == "Update an Account") {
-				UpdateAccountAdminView updateAccountAdminView = new UpdateAccountAdminView(this.currentUser);
+//				UpdateAccountAdminView updateAccountAdminView = new UpdateAccountAdminView(this.currentUser);
 			}
 			else if(source == "Delete an Account") {
 //				DeleteAccountAdminView deleteAccountAdminView = new DeleteAccountAdminView(this.currentUser);

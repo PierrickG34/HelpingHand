@@ -159,7 +159,7 @@ public class ActivtyCategoryManageView extends JPanel implements ActionListener 
 //			CreateActivityCategoryView createActivityCategory = new CreateActivityCategoryView(this.currentUser);
 		}
 		else if(source == "Update an Activity Category") {
-			UpdateActivityCategoryView updateActivityCategory = new UpdateActivityCategoryView(this.currentUser);
+//			UpdateActivityCategoryView updateActivityCategory = new UpdateActivityCategoryView(this.currentUser);
 		}
 	}
 }

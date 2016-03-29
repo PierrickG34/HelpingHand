@@ -163,10 +163,10 @@ public class DashboardAdminView extends JPanel implements ActionListener, MouseL
 //			AccountAdminView accountAdminView = new AccountAdminView(this.currentUser);
 		}
 		else if (source == "Plan"){
-			PlanManageView planManageView = new PlanManageView(this.currentUser);
+//			PlanManageView planManageView = new PlanManageView(this.currentUser);
 		}
 		else if (source == "Task"){
-			TaskManageView taskManageView = new TaskManageView(this.currentUser);
+//			TaskManageView taskManageView = new TaskManageView(this.currentUser);
 		}
 		else if (source == "Profile"){
 			System.out.println("Je suis Profile");
@@ -183,11 +183,11 @@ public class DashboardAdminView extends JPanel implements ActionListener, MouseL
 		String source = e.getComponent().getName();
 		if(source.equals("Plan1")) {
 			System.out.println("DashboardAdmin --> PLAN1");
-			PlanView planView = new PlanView(this.currentUser, this.randomPlan.get(0));
+//			PlanView planView = new PlanView(this.currentUser, this.randomPlan.get(0));
 		}
 		else if(source.equals("Plan2")) {
 			System.out.println("DashboardAdmin --> PLAN2");
-			PlanView planView = new PlanView(this.currentUser, this.randomPlan.get(1));
+//			PlanView planView = new PlanView(this.currentUser, this.randomPlan.get(1));
 		}
 		
 	}

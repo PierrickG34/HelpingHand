@@ -114,7 +114,7 @@ public class ProductManageView extends JPanel implements ActionListener {
 			//UpdateProductView profilUserView = new UpdateProductView(this.currentUser);
 		}
 		else if(source == "Delete a Product") {
-			DeleteProductView profilUserView = new DeleteProductView(this.currentUser);
+//			DeleteProductView profilUserView = new DeleteProductView(this.currentUser);
 		}
 	}
 }
