@@ -248,11 +248,11 @@ public class LoginView extends JFrame implements ActionListener {
 						}
 						else if (!currentUser.getSiretNumber().isEmpty()) {
 							//DashboardSellerView dashSeller = new DashboardSellerView(currentUser);
-							vc.dashboardAdminView();
+							vc.dashboardSellerView();
 						}
 						else {
 							//DashboardUserView dashUser = new DashboardUserView(currentUser);
-							vc.dashboardAdminView();
+							vc.dashboardUserView();
 						}
 						//this.dispose();
 						//DashboardAdminView test = new DashboardAdminView(currentUser);
