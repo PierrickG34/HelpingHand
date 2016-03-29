@@ -52,10 +52,12 @@ public class DashboardAdminView extends JPanel implements ActionListener, MouseL
 	
 	private User currentUser;
 	
+	private ViewController vc;
 	
 	
-	public DashboardAdminView(User currentUser) {
+	public DashboardAdminView(User currentUser, ViewController vc) {
 		this.currentUser = currentUser;
+		this.vc = vc;
 		/* Defined actions on the different buttons */
 		this.dashboard.addActionListener(this);
 		this.activityCategory.addActionListener(this);
@@ -147,7 +149,7 @@ public class DashboardAdminView extends JPanel implements ActionListener, MouseL
 			System.out.println("Action a définir ici...");
 		}
 		else if (source == "Activity Category" ){
-			ActivtyCategoryManageView activityCategory = new ActivtyCategoryManageView(this.currentUser);
+//			ActivtyCategoryManageView activityCategory = new ActivtyCategoryManageView(this.currentUser);
 		}
 		else if (source == "Product Category"){
 			System.out.println("Je suis Product Category");
@@ -158,7 +160,7 @@ public class DashboardAdminView extends JPanel implements ActionListener, MouseL
 			System.out.println("Action a définir ici...");
 		}
 		else if (source == "Account"){
-			AccountAdminView accountAdminView = new AccountAdminView(this.currentUser);
+//			AccountAdminView accountAdminView = new AccountAdminView(this.currentUser);
 		}
 		else if (source == "Plan"){
 			PlanManageView planManageView = new PlanManageView(this.currentUser);

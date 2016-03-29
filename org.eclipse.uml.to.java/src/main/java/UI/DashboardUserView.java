@@ -31,6 +31,7 @@ public class DashboardUserView extends JPanel implements ActionListener {
    JButton profile = new JButton("Profile");
    JButton notifications = new JButton("Notifications");
    User currentUser;
+   private ViewController vc;
 	
 	// Start of user code (user defined attributes for LoginView)
 
@@ -39,9 +40,10 @@ public class DashboardUserView extends JPanel implements ActionListener {
 	/**
 	 * The constructor who create the window
 	 */
-	public DashboardUserView(User currentUser) {
+	public DashboardUserView(User currentUser, ViewController vc) {
 //		super("Profile"); // Name of the frame
 		this.currentUser = currentUser;
+		this.vc = vc;
 		/* Defined actions on the different buttons */
 		this.dashboard.addActionListener(this);
 		this.journal.addActionListener(this);
@@ -94,7 +96,7 @@ public class DashboardUserView extends JPanel implements ActionListener {
 			System.out.println("Action a définir ici...");
 		}
 		else if (source == "My Plans"){
-			CreatePlanView createPlanView = new CreatePlanView(this.currentUser);
+//			CreatePlanView createPlanView = new CreatePlanView(this.currentUser);
 		}
 		else if (source == "My Favorites"){
 			System.out.println("Je suis My Favorites");

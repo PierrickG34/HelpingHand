@@ -128,10 +128,6 @@ public class CreatePlanView extends JPanel implements ActionListener {
 	/** Text to choose the activity category to delete. */
 	JLabel choosePublic = new JLabel("Choose public : ");
 	
-	
-	
-
-	
 	/**
 	 * Description for the button validate
 	 */
@@ -156,15 +152,17 @@ public class CreatePlanView extends JPanel implements ActionListener {
      * Describe error message
      */
     JLabel errorMessage = new JLabel("");
+    
+    private ViewController vc;
 	
     /**
      * Constructor
      * @param currentUser
      */
-	public CreatePlanView(User currentUser) {
+	public CreatePlanView(User currentUser, ViewController vc) {
 //		super("Task"); // Name of the frame
 		this.currentUser = currentUser;
-		
+		this.vc = vc;
 		/* Defined actions on the different buttons */
 		this.dashboard.addActionListener(this);
 		this.activityCategory.addActionListener(this);

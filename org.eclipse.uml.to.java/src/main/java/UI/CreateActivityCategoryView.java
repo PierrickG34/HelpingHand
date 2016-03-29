@@ -118,15 +118,18 @@ public class CreateActivityCategoryView extends JPanel implements ActionListener
      * Describe error message
      */
     JLabel errorMessage = new JLabel("");
+    
+    private ViewController vc;
 	
     /**
      * Constructor
      * @param currentUser
      */
-	public CreateActivityCategoryView(User currentUser) {
+	public CreateActivityCategoryView(User currentUser, ViewController vc) {
 //		super("Activity Category"); // Name of the frame
 		this.currentUser = currentUser;
-		
+		this.vc = vc;
+	
 		/* Defined actions on the different buttons */
 		this.dashboard.addActionListener(this);
 		this.activityCategory.addActionListener(this);
