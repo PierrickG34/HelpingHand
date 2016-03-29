@@ -108,13 +108,13 @@ public class ProductManageView extends JPanel implements ActionListener {
 		String source = e.getActionCommand();
 		if(source == "Create a Product") {
 			System.out.println("BUTTON CREATE");
-			//ProductCreateView profilUserView = new ProductCreateView(this.currentUser);
+			this.vc.ProductCreateView();
 		}
 		else if(source == "Update a Product") {
-			//UpdateProductView profilUserView = new UpdateProductView(this.currentUser);
+			this.vc.UpdateProductView();
 		}
 		else if(source == "Delete a Product") {
-//			DeleteProductView profilUserView = new DeleteProductView(this.currentUser);
+			this.vc.DeleteProductView();
 		}
 	}
 }

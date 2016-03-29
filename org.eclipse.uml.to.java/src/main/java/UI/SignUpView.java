@@ -385,17 +385,7 @@ public class SignUpView extends JPanel implements ActionListener {
 					&& isValidMobile(this.mobileEntre.getText()) && !this.mailEntre.getText().isEmpty() && isValidEmail((this.mailEntre.getText())) && !date.isEmpty() && !String.valueOf((this.passwordEntre.getPassword())).isEmpty() 
 					&& !this.addressEntre.getText().isEmpty()) {
 				String passwordEncrypted = encrypt(String.valueOf((this.passwordEntre.getPassword())));
-//				System.out.println("FIRSTNAME:" + this.firstNameEntre.getText());
-//				System.out.println("SURNAME:" + this.surNameEntre.getText());
-//				System.out.println("MOBILE:" + this.mobileEntre.getText());
-//				System.out.println("MAIL:" + this.mailEntre.getText());	
-//				System.out.println("DATEOFBIRTH" + date );
-//				System.out.println("PROFILEPICTURE:" + this.selectedFile.getName());
-//				System.out.println("PASSWORD:" + String.valueOf((this.passwordEntre.getPassword())));
-//				System.out.println("ADDRESS:" + this.addressEntre.getText());
-//				System.out.println("SIRET:" + this.siretEntre.getText());
-//				System.out.println("WEBSITEURL:" + this.websiteURLEntre.getText());
-			
+
 				/* Cast date to a valid format for postgresql database*/
 				java.util.Date dateOfUser = (Date) datePicker.getModel().getValue();
 				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -407,9 +397,6 @@ public class SignUpView extends JPanel implements ActionListener {
 					User newUser = this.userFacades.signUp(this.firstNameEntre.getText(), this.surNameEntre.getText(), this.mobileEntre.getText(), 
 						this.mailEntre.getText(), passwordEncrypted, valideDateUser, this.selectedFile.getName(), this.websiteURLEntre.getText(),
 						this.siretEntre.getText(), this.addressEntre.getText());
-//					if (newUser != null) {
-//						this.dispose();
-//					}
 				}
 				catch (AlreadyExistException errorSignUp) {
 					this.errorMessage.setText(errorSignUp.getNameError());

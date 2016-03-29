@@ -107,14 +107,14 @@ public class TaskManageView extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();
 		if(source == "Create a Task") {
-			//TaskCreateView taskCreateView = new TaskCreateView(this.currentUser);
+			this.vc.TaskCreateView();
 		}
 		else if(source == "Update a Task") {
-			//TaskUpdateView taskUpdateView = new TaskUpdateView(this.currentUser);
+			this.vc.TaskUpdateView();
 		}
 		else if(source == "Delete a Task") {
 			System.out.println("BUTTON DELETE");
-			//TaskDeleteView taskDeleteView = new TaskDeleteView(this.currentUser);
+			this.vc.TaskDeleteView();
 		}
 	}
 }
