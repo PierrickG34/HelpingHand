@@ -24,7 +24,7 @@ public class DashboardUserView extends JPanel implements ActionListener {
 
    User currentUser;
    private ViewController vc;
-   private MenuAdminView menuAdminView;
+   private MenuUserView menuUserView;
 	
 	// Start of user code (user defined attributes for LoginView)
 
@@ -37,8 +37,8 @@ public class DashboardUserView extends JPanel implements ActionListener {
 //		super("Profile"); // Name of the frame
 		this.currentUser = currentUser;
 		this.vc = vc;
-		this.menuAdminView = new MenuAdminView(this.vc);
-		this.add(menuAdminView);
+		this.menuUserView = new MenuUserView(this.vc);
+		this.add(menuUserView);
 		
 	}
 	

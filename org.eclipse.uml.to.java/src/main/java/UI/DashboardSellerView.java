@@ -27,7 +27,7 @@ public class DashboardSellerView extends JPanel implements ActionListener {
 	   private User currentUser;
 	   
 	   private ViewController vc;
-	   private MenuAdminView menuAdminView;
+	   private MenuSellerView menuSellerView;
 	
 	// Start of user code (user defined attributes for LoginView)
 
@@ -41,8 +41,8 @@ public class DashboardSellerView extends JPanel implements ActionListener {
 		/* Defined actions on the different buttons */
 		this.currentUser = currentUser;
 		this.vc = vc;
-		this.menuAdminView = new MenuAdminView(this.vc);
-		this.add(menuAdminView);
+		this.menuSellerView = new MenuSellerView(this.vc);
+		this.add(menuSellerView);
 	}
 
 	@Override
