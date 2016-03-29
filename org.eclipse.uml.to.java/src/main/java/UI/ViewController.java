@@ -114,6 +114,12 @@ public class ViewController {
 		this.helpinghand.revalidate();
 	}
 	
+	public void PlanViewSeller(Plan plan) {
+		this.helpinghand.setContentPane(new PlanViewSeller(this.currentUser, plan,this));
+		this.helpinghand.repaint();
+		this.helpinghand.revalidate();
+	}
+	
 	public void CreatePlanView() {
 		this.helpinghand.setContentPane(new CreatePlanView(this.currentUser, this));
 		this.helpinghand.repaint();

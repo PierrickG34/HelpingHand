@@ -6,10 +6,12 @@ import java.util.List;
 import UI.CreatePlanUserView;
 import UI.CreatePlanView;
 import UI.DashboardAdminView;
+import UI.DashboardSellerView;
 import UI.DashboardUserView;
 import UI.MyPlanViewUser;
 import UI.PlanDeleteView;
 import UI.PlanView;
+import UI.PlanViewSeller;
 import UI.PlanViewUser;
 import UI.TaskCreateView;
 
@@ -50,6 +52,14 @@ public class PlanFacade {
 	}
 
 	public PlanFacade(CreatePlanUserView createPlanUserView) {
+		super();
+	}
+
+	public PlanFacade(DashboardSellerView dashboardSellerView) {
+		super();
+	}
+
+	public PlanFacade(PlanViewSeller planViewSeller) {
 		super();
 	}
 
