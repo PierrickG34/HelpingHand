@@ -241,14 +241,18 @@ public class LoginView extends JFrame implements ActionListener {
 				try {
 					User currentUser = this.userFacades.login(this.emailEntre.getText(), passwordEncrypted);
 					if (currentUser != null) {
+						ViewController vc = new ViewController(currentUser);
 						if(currentUser.getAdmin() == true) {
-							DashboardAdminView dashAdmin = new DashboardAdminView(currentUser);
+							//DashboardAdminView dashAdmin = new DashboardAdminView(currentUser);
+							vc.dashboardAdminView();
 						}
 						else if (!currentUser.getSiretNumber().isEmpty()) {
-							DashboardSellerView dashSeller = new DashboardSellerView(currentUser);
+							//DashboardSellerView dashSeller = new DashboardSellerView(currentUser);
+							vc.dashboardAdminView();
 						}
 						else {
-							DashboardUserView dashUser = new DashboardUserView(currentUser);
+							//DashboardUserView dashUser = new DashboardUserView(currentUser);
+							vc.dashboardAdminView();
 						}
 						//this.dispose();
 						//DashboardAdminView test = new DashboardAdminView(currentUser);

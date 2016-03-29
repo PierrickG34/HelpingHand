@@ -22,7 +22,7 @@ import Core.Plan;
 import Core.PlanFacade;
 import Core.User;
 
-public class DashboardAdminView extends JFrame implements ActionListener, MouseListener {
+public class DashboardAdminView extends JPanel implements ActionListener, MouseListener {
 	
 	JButton dashboard = new JButton("Dashboard");
 	JButton activityCategory = new JButton("Activity Category");
@@ -55,7 +55,6 @@ public class DashboardAdminView extends JFrame implements ActionListener, MouseL
 	
 	
 	public DashboardAdminView(User currentUser) {
-		super("DashBoard"); // Name of the frame
 		this.currentUser = currentUser;
 		/* Defined actions on the different buttons */
 		this.dashboard.addActionListener(this);
@@ -68,10 +67,10 @@ public class DashboardAdminView extends JFrame implements ActionListener, MouseL
 		this.profile.addActionListener(this);
 		this.notifications.addActionListener(this);
 		
-        Container contentPane = getContentPane(); 
-        contentPane.setLayout(new BorderLayout());
-        setMinimumSize(new Dimension(1000,500));
-        setMaximumSize(new Dimension(1000,500));
+//        Container contentPane = getContentPane(); 
+//        contentPane.setLayout(new BorderLayout());
+//        setMinimumSize(new Dimension(1000,500));
+//        setMaximumSize(new Dimension(1000,500));
         
         JPanel panelButton = new JPanel(new GridLayout(3, 1)); // 2 rows x 1 column
         JPanel panelTopButton = new JPanel();
@@ -91,7 +90,8 @@ public class DashboardAdminView extends JFrame implements ActionListener, MouseL
         panelButton.add(panelTopButton);
         panelButton.add(panelBottomButton);
         
-        contentPane.add(panelButton,BorderLayout.NORTH);
+//        contentPane.add(panelButton,BorderLayout.NORTH);
+        this.add(panelButton,BorderLayout.NORTH);
         
         /*-------------- Veritable view --------------------*/
         JPanel panelAll = new JPanel();
@@ -126,12 +126,13 @@ public class DashboardAdminView extends JFrame implements ActionListener, MouseL
         panelSemiAll.add(panelPlan1);
         panelSemiAll.add(panelPlan2);
         panelAll.add(panelSemiAll);
-        contentPane.add(panelAll,BorderLayout.WEST);
+//        contentPane.add(panelAll,BorderLayout.WEST);
+        this.add(panelAll, BorderLayout.WEST);
         
-        //Display
-        setSize(400,120);
-        setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        //Display
+//        setSize(400,120);
+//        setVisible(true);
+//        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
 	public void getRandomPlan() {
