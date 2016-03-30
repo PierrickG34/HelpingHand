@@ -25,7 +25,6 @@ public class ProductManageView extends JPanel implements ActionListener {
 	private MenuAdminView menuAdminView;
 	
 	public ProductManageView(User currentUser, ViewController vc) {
-//		super("Product"); // Name of the frame
 		this.currentUser = currentUser;
 		this.vc = vc;
 		this.menuAdminView = new MenuAdminView(this.vc);
@@ -33,7 +32,7 @@ public class ProductManageView extends JPanel implements ActionListener {
         
   
         /*-------------- Veritable view --------------------*/
-        JPanel manageButton = new JPanel(new GridLayout(3, 1));
+        JPanel manageButton = new JPanel();
         JPanel createButton = new JPanel();
         JPanel updateButton = new JPanel();
         JPanel deleteButton = new JPanel();
@@ -50,24 +49,18 @@ public class ProductManageView extends JPanel implements ActionListener {
         manageButton.add(updateButton);
         manageButton.add(deleteButton);
         
-//        contentPane.add(manageButton, BorderLayout.WEST);
         this.add(manageButton, BorderLayout.WEST);
 
-        //Display
-//        setSize(400,120);
-//        setVisible(true);
-//        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();
 		if(source == "Create a Product") {
-			System.out.println("BUTTON CREATE");
 			this.vc.ProductCreateView();
 		}
 		else if(source == "Update a Product") {
-			this.vc.UpdateProductView();
+			this.vc.UpdateProductAdminView();
 		}
 		else if(source == "Delete a Product") {
 			this.vc.DeleteProductView();

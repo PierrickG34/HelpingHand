@@ -26,7 +26,7 @@ import Core.User;
 import Persist.ActivityCategoryJDBC;
 import Persist.ProductJDBC;
 
-public class UpdateProductView extends JPanel implements ActionListener {
+public class UpdateProductAdminView extends JPanel implements ActionListener {
 
 	/**
 	 * Description for the button validate
@@ -92,13 +92,13 @@ public class UpdateProductView extends JPanel implements ActionListener {
 
 	private User currentUser;
 	private ViewController vc;
-	private MenuSellerView menuSellerView;
+	private MenuAdminView menuAdminView;
 	
-public UpdateProductView(User currentUser,ViewController vc) {
+public UpdateProductAdminView(User currentUser,ViewController vc) {
 		this.currentUser = currentUser;
 		this.vc = vc;
-		this.menuSellerView = new MenuSellerView(this.vc);
-		this.add(menuSellerView);
+		this.menuAdminView = new MenuAdminView(this.vc);
+		this.add(menuAdminView);
 
 		/*-------------- Veritable view --------------------*/
 		JPanel panelAll = new JPanel(new GridLayout(1, 2));
@@ -112,7 +112,7 @@ public UpdateProductView(User currentUser,ViewController vc) {
 		this.chooseProductButton.addActionListener(this);
 
 		//Recuperate the product and add to the combobox
-		this.allProduct = this.productFacades.getAllProduct(this.currentUser.getIdUser());
+		this.allProduct = this.productFacades.getAllProduct();
 		for (int i = 0; i< this.allProduct.size(); i++) {
 			this.combo.addItem(this.allProduct.get(i).getName());
 		}
