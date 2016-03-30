@@ -21,12 +21,6 @@ public class ViewController {
 		helpinghand.setTitle("Helping Hand");
 		helpinghand.setMinimumSize((new Dimension(1000,500)));
 		helpinghand.setMaximumSize((new Dimension(1000,500)));
-		try {
-			helpinghand.setIconImage(ImageIO.read(new File("icon.png")));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		helpinghand.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
