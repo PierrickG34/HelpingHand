@@ -248,6 +248,7 @@ public class CreatePlanView extends JPanel implements ActionListener {
 				}
 				
 				this.planFacades.createPlan(this.nameEntre.getText(), this.observationEntre.getText(), valideDateUser, false, isPublic, this.allActivityCategory.get(this.comboActivityCategory.getSelectedIndex()).getName(), this.currentUser.getIdUser());
+				this.vc.PlanManageView();
 			}
 		}
 		
