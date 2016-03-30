@@ -127,6 +127,7 @@ public class ProductCreateViewSeller extends JPanel implements ActionListener {
 		panelEditInformation.add(panelTextField);
 		panelButtonValidate.add(this.validateCreationProduct);
 		panelButtonValidate.add(this.cancel);
+		this.cancel.addActionListener(this);
 		panelButtonValidate.add(this.errorMessage);
 		panelAll.add(panelEditInformation);
 		panelAll.add(panelButtonValidate);
