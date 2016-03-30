@@ -13,6 +13,7 @@ import UI.ProductCreateView;
 import UI.ProductCreateViewSeller;
 import UI.TaskCreateView;
 import UI.TaskUpdateView;
+import UI.UpdateProductAdminView;
 import UI.UpdateProductView;
 
 /**
@@ -76,6 +77,11 @@ public class ProductFacade {
 	}
 
 	public ProductFacade(DeleteProductViewSeller deleteProductViewSeller) {
+		super();
+	}
+
+	public ProductFacade(UpdateProductAdminView updateProductAdminView) {
+		// TODO Auto-generated constructor stub
 		super();
 	}
 

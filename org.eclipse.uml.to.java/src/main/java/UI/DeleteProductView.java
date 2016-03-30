@@ -79,7 +79,7 @@ public DeleteProductView(User currentUser, ViewController vc) {
 		this.add(menuAdminView);
 
 		/*-------------- Veritable view --------------------*/
-		JPanel panelAll = new JPanel();
+		JPanel panelAll = new JPanel(new GridLayout(1, 2));
 		JPanel panelEdit = new JPanel();
 		JPanel panelButtonValidate = new JPanel();
 		JPanel panelComboBox = new JPanel(new GridLayout(3, 1));
@@ -88,7 +88,7 @@ public DeleteProductView(User currentUser, ViewController vc) {
 		this.chooseProductButton.addActionListener(this);
 
 		//Recuperate the product and add to the combobox
-		this.allProduct = this.productFacades.getAllProduct(this.currentUser.getIdUser());
+		this.allProduct = this.productFacades.getAllProduct();
 		for (int i = 0; i< this.allProduct.size(); i++) {
 			this.combo.addItem(this.allProduct.get(i).getName());
 		}
@@ -104,13 +104,8 @@ public DeleteProductView(User currentUser, ViewController vc) {
 		this.panelEditAll.add(panelButtonValidate);
 		panelAll.add(this.panelEditAll);
 
-//		contentPane.add(panelAll, BorderLayout.WEST);
 		this.add(panelAll, BorderLayout.WEST);
 
-		//Display
-//		setSize(400,120);
-//		setVisible(true);
-//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 	@Override
