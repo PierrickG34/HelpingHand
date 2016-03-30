@@ -113,7 +113,7 @@ public class MyPlanViewSeller extends JPanel implements ActionListener, MouseLis
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();
 		if (source == "Create a Plan") {
-			this.vc.CreatePlanUserView();
+			this.vc.CreatePlanSellerView();
 		}
 	}
 

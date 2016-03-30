@@ -127,16 +127,10 @@ package UI;
 				System.out.println(this.allUsers.get(0));
 				System.out.println(this.allUsers.get(0).getFirstName());
 				this.panelEditAll.setVisible(true);
-				
-				
-				/* Aller dans la base de données avec l'id de la category*/
-//				this.currentActivityCategory = new ActivityCategoryJDBC("1", "2", "3", "4");
-//				this.nameActivityCategoryEntre.setToolTipText(this.currentActivityCategory.getName());
-//				this.shortDetailActivityCategoryEntre.setToolTipText(this.currentActivityCategory.getShortDetail());
-//				this.longDetailActivityCategoryEntre.setToolTipText(this.currentActivityCategory.getLongDetail());
 			}
 			if(source == "Submit") {
 				this.userFacade.deleteAccount(this.allUsers.get(this.combo.getSelectedIndex()));
+				this.vc.DeleteAccountAdminView();
 			}
 		}
 }

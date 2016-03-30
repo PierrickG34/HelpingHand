@@ -160,7 +160,6 @@ public class TaskUpdateView extends JPanel implements ActionListener {
 		panelAll.add(this.panelEditAll);
 
 		this.add(panelAll, BorderLayout.CENTER);
-		//this.add(this.panelEditAll, BorderLayout.CENTER);
 
 	}
 
@@ -170,12 +169,11 @@ public class TaskUpdateView extends JPanel implements ActionListener {
 		if(source == "Choose") {
 			this.panelEditAll.setVisible(true);
 
-			/* Aller dans la base de données avec l'id de la category*/
 			this.descriptionEntre.setToolTipText(this.allTask.get(this.comboTask.getSelectedIndex()).getDescription());
 		}
 		if(source == "Submit") {
-			System.out.println("BUTTON SUBMIT");
 			this.taskFacades.modifyTask(this.allTask.get(this.comboTask.getSelectedIndex()), this.descriptionEntre.getText(), this.allProduct.get(this.comboProduct.getSelectedIndex()));
+			this.vc.TaskManageView();
 		}
 	}
 }

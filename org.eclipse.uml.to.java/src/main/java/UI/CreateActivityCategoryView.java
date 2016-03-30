@@ -176,6 +176,7 @@ public class CreateActivityCategoryView extends JPanel implements ActionListener
 			if(!this.nameEntre.getText().isEmpty() && !this.shortDetailEntre.getText().isEmpty() && !this.longDetailEntre.getText().isEmpty() && !this.currentUser.getIdUser().equals("")) {
 				try {
 					this.activityCategoryFacades.createActivityCategory(this.nameEntre.getText(), this.shortDetailEntre.getText(), this.longDetailEntre.getText(), this.currentUser.getIdUser());
+					this.vc.ActivtyCategoryManageView();
 				} catch (AlreadyExistException errorCreateActivityCategory) {
 					this.errorMessage.setText(errorCreateActivityCategory.getNameError());
 					this.errorMessage.setForeground(Color.red);

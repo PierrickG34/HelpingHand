@@ -184,6 +184,7 @@ public class ProfileAdminModifyView extends JPanel implements ActionListener {
 			if(isValideMobile || !this.addressEntre.getText().isEmpty() ||
 					this.passwordEntre.getPassword().length != 0) {
 				this.userFacade.modifyAccount(this.mobileEntre.getText(), this.addressEntre.getText(), encrypt(String.valueOf((this.passwordEntre.getPassword()))));
+				this.vc.AccountAdminView();
 			}
 		}
 	}

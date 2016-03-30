@@ -138,6 +138,12 @@ public class ViewController {
 		this.helpinghand.revalidate();
 	}
 	
+	public void CreatePlanSellerView() {
+		this.helpinghand.setContentPane(new CreatePlanSellerView(this.currentUser, this));
+		this.helpinghand.repaint();
+		this.helpinghand.revalidate();
+	}
+	
 	//PRODUCT
 	public void ProductCreateView() {
 		this.helpinghand.setContentPane(new ProductCreateView(this.currentUser, this));
@@ -243,4 +249,5 @@ public class ViewController {
 		this.helpinghand.repaint();
 		this.helpinghand.revalidate();
 	}
+
 }

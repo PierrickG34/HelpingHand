@@ -220,6 +220,7 @@ public class TaskCreateView extends JPanel implements ActionListener {
 			/*If all fields are filled, execute the request*/
 			if(!this.nameEntre.getText().isEmpty() && !this.descriptionEntre.getText().isEmpty()) {
 				this.taskFacades.createTask(this.nameEntre.getText(), this.descriptionEntre.getText(), this.allProduct.get(this.comboProduct.getSelectedIndex()).getId(), this.allPlan.get(this.comboPlan.getSelectedIndex()).getIdPlan());
+				this.vc.TaskManageView();
 			}
 		}
 	}

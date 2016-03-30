@@ -5,6 +5,7 @@ import java.util.List;
 
 import Persist.ActivityCategoryJDBC;
 import UI.CreateActivityCategoryView;
+import UI.CreatePlanSellerView;
 import UI.CreatePlanUserView;
 import UI.CreatePlanView;
 import UI.UpdateActivityCategoryView;
@@ -34,6 +35,10 @@ public class ActivityCategoryFacade {
 	}
 
 	public ActivityCategoryFacade(CreatePlanUserView createPlanUserView) {
+		super();
+	}
+
+	public ActivityCategoryFacade(CreatePlanSellerView createPlanSellerView) {
 		super();
 	}
 

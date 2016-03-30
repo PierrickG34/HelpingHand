@@ -222,6 +222,7 @@ package UI;
 			}
 			if(source == "Submit") {
 				this.userFacade.modifyAccount(this.allUsers.get(this.combo.getSelectedIndex()),this.firstnameEntre.getText(),this.lastnameEntre.getText(),this.mobileEntre.getText(),this.dateofbirthEntre.getText(),this.addressEntre.getText(),this.siretnumberEntre.getText(),this.websiteurlEntre.getText(),this.passwordEntre.getText());
+				this.vc.AccountAdminView();
 			}
 		}
 }

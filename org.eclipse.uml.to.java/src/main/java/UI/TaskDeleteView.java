@@ -91,6 +91,7 @@ public class TaskDeleteView extends JPanel implements ActionListener {
 		String source = e.getActionCommand();
 		if(source == "Delete") {
 			this.taskFacades.deleteTask(this.allTask.get(this.comboTask.getSelectedIndex()));
+			this.vc.TaskDeleteView();
 		}
 	}
 }

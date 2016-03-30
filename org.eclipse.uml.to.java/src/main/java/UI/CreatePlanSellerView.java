@@ -32,7 +32,7 @@ import Core.PlanFacade;
 import Core.User;
 import Persist.DateLabelFormatter;
 
-public class CreatePlanUserView extends JPanel implements ActionListener {
+public class CreatePlanSellerView extends JPanel implements ActionListener {
 	
 	/**
 	 * Descriptions for the windows
@@ -107,17 +107,17 @@ public class CreatePlanUserView extends JPanel implements ActionListener {
     JLabel errorMessage = new JLabel("");
     
     private ViewController vc;
-	private MenuUserView menuUserView;
+	private MenuSellerView menuSellerView;
 	
     /**
      * Constructor
      * @param currentUser
      */
-	public CreatePlanUserView(User currentUser, ViewController vc) {
+	public CreatePlanSellerView(User currentUser, ViewController vc) {
 		this.currentUser = currentUser;
 		this.vc = vc;
-		this.menuUserView = new MenuUserView(this.vc);
-		this.add(menuUserView);
+		this.menuSellerView = new MenuSellerView(this.vc);
+		this.add(menuSellerView);
 	
         /*-------------- Veritable view --------------------*/
         JPanel panelAll = new JPanel(new GridLayout(2,0));
@@ -238,7 +238,7 @@ public class CreatePlanUserView extends JPanel implements ActionListener {
 				}
 				
 				this.planFacades.createPlan(this.nameEntre.getText(), this.observationEntre.getText(), valideDateUser, false, isPublic, this.allActivityCategory.get(this.comboActivityCategory.getSelectedIndex()).getName(), this.currentUser.getIdUser());
-				this.vc.MyPlanViewUser();
+				this.vc.MyPlanViewSeller();
 			}
 		}
 		
