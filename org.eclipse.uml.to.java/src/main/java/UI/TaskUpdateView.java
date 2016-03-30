@@ -108,7 +108,7 @@ public class TaskUpdateView extends JPanel implements ActionListener {
 		this.add(menuAdminView);
 		
 		/*-------------- Veritable view --------------------*/
-		JPanel panelAll = new JPanel(new GridLayout(2, 0));
+		JPanel panelAll = new JPanel(new GridLayout(1, 2));
 		JPanel panelSemiAll = new JPanel(new GridLayout(2, 0));
 		JPanel panelEdit = new JPanel();
 		JPanel panelButtonValidate = new JPanel();
@@ -159,8 +159,8 @@ public class TaskUpdateView extends JPanel implements ActionListener {
 		panelAll.add(panelComboBoxAllTask);
 		panelAll.add(this.panelEditAll);
 
-		this.add(panelAll, BorderLayout.WEST);
-		this.add(this.panelEditAll, BorderLayout.CENTER);
+		this.add(panelAll, BorderLayout.CENTER);
+		//this.add(this.panelEditAll, BorderLayout.CENTER);
 
 	}
 
