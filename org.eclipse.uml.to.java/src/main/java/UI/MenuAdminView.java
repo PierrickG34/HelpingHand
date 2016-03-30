@@ -84,7 +84,7 @@ public class MenuAdminView extends JPanel implements ActionListener {
 			this.vc.TaskManageView();
 		}
 		else if (source == "Profile"){
-			this.vc.ProfileUserView();
+			this.vc.ProfileAdminView();
 		}
 		else if (source == "Notifications"){
 			System.out.println("Action pas faite");
