@@ -56,14 +56,13 @@ public class TaskDeleteView extends JPanel implements ActionListener {
 	
 	
 	public TaskDeleteView(User currentUser, ViewController vc) {
-//		super("Task"); // Name of the frame
 		this.currentUser = currentUser;
 		this.vc = vc;
 		this.menuAdminView = new MenuAdminView(vc);
 		this.add(menuAdminView);
 		
         /*-------------- Veritable view --------------------*/
-		JPanel panelAll = new JPanel(new GridLayout(2, 1));
+		JPanel panelAll = new JPanel();
 		JPanel panelComboBoxTask = new JPanel(new GridLayout(2, 1));
 		JPanel panelComboBoxAllTask = new JPanel();
 		JPanel panelButtonDelete = new JPanel();
