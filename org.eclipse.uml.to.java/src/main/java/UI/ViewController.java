@@ -1,7 +1,10 @@
 package UI;
 
 import java.awt.Dimension;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
 import Core.Plan;
@@ -18,6 +21,12 @@ public class ViewController {
 		helpinghand.setTitle("Helping Hand");
 		helpinghand.setMinimumSize((new Dimension(1000,500)));
 		helpinghand.setMaximumSize((new Dimension(1000,500)));
+		try {
+			helpinghand.setIconImage(ImageIO.read(new File("icon.png")));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		helpinghand.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
