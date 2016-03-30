@@ -53,6 +53,16 @@ public class ProfileSellerView extends JPanel implements ActionListener {
 	 * Description for the dateOfBirth information
 	 */
 	JLabel dateOfBirth = new JLabel("");
+	
+	/**
+	 * Description for the siretNumber information
+	 */
+	JLabel siretNumber = new JLabel("");
+	
+	/**
+	 * Description for the website URL information
+	 */
+	JLabel websiteURL = new JLabel("");
 
 	/**
 	 * Description for the password information
@@ -101,6 +111,10 @@ public class ProfileSellerView extends JPanel implements ActionListener {
 		this.mobile.setHorizontalAlignment(JLabel.CENTER);
 		this.mail.setText(this.currentUser.getMailAddress());
 		this.mail.setHorizontalAlignment(JLabel.CENTER);
+		this.websiteURL.setText(this.currentUser.getWebsiteURL());
+		this.websiteURL.setHorizontalAlignment(JLabel.CENTER);
+		this.siretNumber.setText(this.currentUser.getSiretNumber());
+		this.siretNumber.setHorizontalAlignment(JLabel.CENTER);
 		// Create an instance of SimpleDateFormat used for formatting 
 		// the string representation of date (month/day/year)
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
@@ -117,7 +131,7 @@ public class ProfileSellerView extends JPanel implements ActionListener {
 		this.address.setHorizontalAlignment(JLabel.CENTER);
 		
 		JPanel panelAll = new JPanel();
-		JPanel panelInformations = new JPanel(new GridLayout(7,1));
+		JPanel panelInformations = new JPanel(new GridLayout(9,1));
 		JPanel panelButtonValidate = new JPanel();
 		panelInformations.add(this.firstName);
 		panelInformations.add(this.surName);
@@ -126,21 +140,15 @@ public class ProfileSellerView extends JPanel implements ActionListener {
 		panelInformations.add(this.dateOfBirth);
 		panelInformations.add(this.password);
 		panelInformations.add(this.address);
+		panelInformations.add(this.siretNumber);
+		panelInformations.add(this.websiteURL);
 		panelButtonValidate.add(this.modify);
 		this.modify.addActionListener(this);
 
-
-//		contentPane.add(panelButton,BorderLayout.NORTH);
-//		contentPane.add(panelInformations, BorderLayout.CENTER);
-//		contentPane.add(panelButtonValidate,  BorderLayout.SOUTH);
 		panelAll.add(panelInformations, BorderLayout.WEST);
 		panelAll.add(panelButtonValidate,  BorderLayout.SOUTH);
 		this.add(panelAll);
 
-//		//Display
-//		setSize(400,120);
-//		setVisible(true);
-//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 	@Override

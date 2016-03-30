@@ -52,6 +52,18 @@ public class ProfileSellerModifyView extends JPanel implements ActionListener {
 	 */
 	JLabel address = new JLabel("Address :");
 	JTextField addressEntre = new JTextField("", 15);
+	
+	/**
+	 * Descriptions for the siret number field
+	 */
+	JLabel siretNumber = new JLabel("Siret Number :");
+	JTextField siretNumberEntre = new JTextField("", 15);
+	
+	/**
+	 * Descriptions for the websiteURL field
+	 */
+	JLabel websiteURL = new JLabel("Website URL :");
+	JTextField websiteURLEntre = new JTextField("", 15);
 
 	/**
 	 * Description for the password information
@@ -76,18 +88,12 @@ public class ProfileSellerModifyView extends JPanel implements ActionListener {
 	 * @param currentUser
 	 */
 	public ProfileSellerModifyView(User currentUser, ViewController vc) {
-//		super("Edit Profile");
 		this.currentUser = currentUser;
 		this.vc = vc;
 		this.menuSellerView = new MenuSellerView(this.vc);
 		this.add(menuSellerView);
 		this.userFacade = new UserFacade(currentUser);
 		
-//		Container contentPane = getContentPane(); 
-//		contentPane.setLayout(new BorderLayout());
-//		setMinimumSize(new Dimension(1000,500));
-//		setMaximumSize(new Dimension(1000,500));
-
 
 		/*##### Display and edit the information #####*/
 		JPanel panelEditInformation = new JPanel();
@@ -103,6 +109,15 @@ public class ProfileSellerModifyView extends JPanel implements ActionListener {
 		this.address.setPreferredSize(this.addressEntre.getPreferredSize());
 		this.address.setHorizontalAlignment(SwingConstants.RIGHT);
 		panelLabels.add(this.address);
+		//SiretNumber
+		this.siretNumber.setPreferredSize(this.siretNumberEntre.getPreferredSize());
+		this.siretNumber.setHorizontalAlignment(SwingConstants.RIGHT);
+		panelLabels.add(this.siretNumber);
+		//WebsiteURL
+		this.websiteURL.setPreferredSize(this.websiteURLEntre.getPreferredSize());
+		this.websiteURL.setHorizontalAlignment(SwingConstants.RIGHT);
+		panelLabels.add(this.websiteURL);
+		
 		//Password
 		this.password.setPreferredSize(this.passwordEntre.getPreferredSize());
 		this.password.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -110,9 +125,13 @@ public class ProfileSellerModifyView extends JPanel implements ActionListener {
 
 		this.mobileEntre.setToolTipText(this.currentUser.getMobile());
 		this.addressEntre.setToolTipText(this.currentUser.getAddress());
+		this.siretNumber.setToolTipText(this.currentUser.getSiretNumber());
+		this.websiteURL.setToolTipText(this.currentUser.getWebsiteURL());
 		this.passwordEntre.setToolTipText(this.currentUser.getPassword());
 		panelTextField.add(this.mobileEntre);
 		panelTextField.add(this.addressEntre);
+		panelTextField.add(this.siretNumberEntre);
+		panelTextField.add(this.websiteURLEntre);
 		panelTextField.add(this.passwordEntre);
 
 		this.errorMessage.setHorizontalAlignment(JLabel.CENTER);
@@ -125,17 +144,7 @@ public class ProfileSellerModifyView extends JPanel implements ActionListener {
 		panelButtonValidate.add(validate);
 		panelEditInformation.add(panelButtonValidate, BorderLayout.SOUTH);
 		this.validate.addActionListener(this);
-
-
-//		contentPane.add(panelButton,BorderLayout.NORTH);
-//		contentPane.add(panelEditInformation, BorderLayout.CENTER);
 		this.add(panelEditInformation, BorderLayout.CENTER);
-
-		//Display
-//		setSize(400,120);
-//		setVisible(true);
-//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 	}
 
 	/**
