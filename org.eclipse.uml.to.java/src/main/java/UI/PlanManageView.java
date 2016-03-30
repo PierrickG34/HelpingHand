@@ -47,7 +47,7 @@ public class PlanManageView extends JPanel implements ActionListener {
 		this.add(menuAdminView);
   
         /*-------------- Veritable view --------------------*/
-        JPanel manageButton = new JPanel(new GridLayout(3, 1));
+        JPanel manageButton = new JPanel();
         JPanel createButton = new JPanel();
         JPanel updateButton = new JPanel();
         JPanel deleteButton = new JPanel();
@@ -64,13 +64,7 @@ public class PlanManageView extends JPanel implements ActionListener {
         manageButton.add(updateButton);
         manageButton.add(deleteButton);
         
-//        contentPane.add(manageButton, BorderLayout.WEST);
         this.add(manageButton, BorderLayout.WEST);
-
-        //Display
-//        setSize(400,120);
-//        setVisible(true);
-//        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
 	/**
@@ -84,7 +78,7 @@ public class PlanManageView extends JPanel implements ActionListener {
 			this.vc.CreatePlanView();
 		}
 		else if(source == "Update a Plan") {
-		//UPDATE
+			System.out.println("Action pas faite");
 		}
 		else if(source == "Delete a Plan") {
 			this.vc.PlanDeleteView();

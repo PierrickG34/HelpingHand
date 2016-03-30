@@ -84,7 +84,8 @@ package UI;
 			this.add(menuAdminView);
 			
 			/*-------------- Veritable view --------------------*/
-			JPanel panelAll = new JPanel();
+			JPanel panelAll = new JPanel(new GridLayout(1, 2));
+			JPanel panelSemiAll = new JPanel();
 			JPanel panelEdit = new JPanel();
 			JPanel panelButtonValidate = new JPanel();
 			JPanel panelComboBox = new JPanel(new GridLayout(3, 1));
@@ -104,7 +105,8 @@ package UI;
 			panelComboBox.add(this.chooseProductButton);
 	        
 			panelButtonValidate.add(submit, BorderLayout.CENTER);
-			panelAll.add(panelComboBox);
+	        panelSemiAll.add(panelComboBox);
+	        panelAll.add(panelSemiAll);
 			panelEdit.add(panelLabels);
 			panelEdit.add(panelTextFiel);
 			this.panelEditAll.setVisible(false);
@@ -112,13 +114,7 @@ package UI;
 			this.panelEditAll.add(panelButtonValidate);
 			panelAll.add(this.panelEditAll);
 
-//			contentPane.add(panelAll, BorderLayout.WEST);
-			this.add(panelAll, BorderLayout.WEST);
-
-			//Display
-//			setSize(400,120);
-//			setVisible(true);
-//			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			this.add(panelAll);
 		}
 
 		@Override

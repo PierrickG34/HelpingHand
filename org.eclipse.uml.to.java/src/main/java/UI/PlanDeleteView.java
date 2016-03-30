@@ -64,7 +64,7 @@ public class PlanDeleteView extends JPanel implements ActionListener {
 		this.add(menuAdminView);
         
         /*-------------- Veritable view --------------------*/
-		JPanel panelAll = new JPanel(new GridLayout(2, 1));
+		JPanel panelAll = new JPanel();
 		JPanel panelComboBoxPlan = new JPanel(new GridLayout(2, 1));
 		JPanel panelComboBoxAllPlan = new JPanel();
 		JPanel panelButtonDelete = new JPanel();
@@ -84,13 +84,7 @@ public class PlanDeleteView extends JPanel implements ActionListener {
 		panelAll.add(panelComboBoxAllPlan);
 		panelAll.add(panelButtonDelete);
 		
-//		contentPane.add(panelAll, BorderLayout.WEST);
 		this.add(panelAll, BorderLayout.WEST);
-        
-      //Display
-//        setSize(400,120);
-//        setVisible(true);
-//        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 	@Override
@@ -98,6 +92,7 @@ public class PlanDeleteView extends JPanel implements ActionListener {
 		String source = e.getActionCommand();
 		if(source == "Delete") {
 			this.planFacades.deleteTask(this.allPlan.get(this.comboPlan.getSelectedIndex()));
+			this.vc.PlanManageView();
 		}
 	}
 }
