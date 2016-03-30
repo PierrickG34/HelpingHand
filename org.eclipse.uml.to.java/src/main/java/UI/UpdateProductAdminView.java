@@ -171,6 +171,7 @@ public UpdateProductAdminView(User currentUser,ViewController vc) {
 		}
 		if(source == "Submit") {
 			this.productFacades.modifyProduct(this.allProduct.get(this.combo.getSelectedIndex()), this.nameProductEntre.getText(), this.priceProductEntre.getText(), this.categoryProductEntre.getText(),this.quantityProductEntre.getText());
+			this.vc.ProductManageView();
 		}
 	}
 }

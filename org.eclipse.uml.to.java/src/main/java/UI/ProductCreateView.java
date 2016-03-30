@@ -181,6 +181,7 @@ public class ProductCreateView extends JPanel implements ActionListener {
 			{	
 				Product newProduct = this.productFacades.createProduct(this.nameEntre.getText(), Double.parseDouble(this.priceEntre.getText()), Integer.parseInt(this.quantityEntre.getText()), 
 						this.categoryEntre.getText(), this.currentUser.getIdUser());
+				this.vc.ProductManageView();
 			}	
 		}
 		if (source == "Cancel") {

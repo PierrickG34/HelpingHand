@@ -116,6 +116,7 @@ public DeleteProductView(User currentUser, ViewController vc) {
 		}
 		if(source == "Delete") {
 			this.productFacades.DeleteProduct(this.allProduct.get(this.combo.getSelectedIndex()));
+			this.vc.DeleteProductView();
 		}
 	}
 }
