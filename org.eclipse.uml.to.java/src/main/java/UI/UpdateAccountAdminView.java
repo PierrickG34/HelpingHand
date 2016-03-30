@@ -130,7 +130,8 @@ package UI;
 			this.add(menuAdminView);
 			
 			/*-------------- Veritable view --------------------*/
-			JPanel panelAll = new JPanel();
+			JPanel panelAll = new JPanel(new GridLayout(1, 2));
+			JPanel panelSemiAll = new JPanel();
 			JPanel panelEdit = new JPanel();
 			JPanel panelButtonValidate = new JPanel();
 			JPanel panelComboBox = new JPanel(new GridLayout(3, 1));
@@ -199,8 +200,9 @@ package UI;
 	        panelLabels.add(this.password);
 	        panelTextFiel.add(this.passwordEntre);
 	        
-			panelButtonValidate.add(submit, BorderLayout.CENTER);
-			panelAll.add(panelComboBox);
+	        panelButtonValidate.add(submit, BorderLayout.CENTER);
+	        panelSemiAll.add(panelComboBox);
+	        panelAll.add(panelSemiAll);
 			panelEdit.add(panelLabels);
 			panelEdit.add(panelTextFiel);
 			this.panelEditAll.setVisible(false);
@@ -208,7 +210,7 @@ package UI;
 			this.panelEditAll.add(panelButtonValidate);
 			panelAll.add(this.panelEditAll);
 
-			this.add(panelAll, BorderLayout.WEST);
+			this.add(panelAll);
 
 		}
 
@@ -217,13 +219,6 @@ package UI;
 			String source = e.getActionCommand();
 			if(source == "Choose") {
 				this.panelEditAll.setVisible(true);
-				
-				
-				/* Aller dans la base de données avec l'id de la category*/
-//				this.currentActivityCategory = new ActivityCategoryJDBC("1", "2", "3", "4");
-//				this.nameActivityCategoryEntre.setToolTipText(this.currentActivityCategory.getName());
-//				this.shortDetailActivityCategoryEntre.setToolTipText(this.currentActivityCategory.getShortDetail());
-//				this.longDetailActivityCategoryEntre.setToolTipText(this.currentActivityCategory.getLongDetail());
 			}
 			if(source == "Submit") {
 				this.userFacade.modifyAccount(this.allUsers.get(this.combo.getSelectedIndex()),this.firstnameEntre.getText(),this.lastnameEntre.getText(),this.mobileEntre.getText(),this.dateofbirthEntre.getText(),this.addressEntre.getText(),this.siretnumberEntre.getText(),this.websiteurlEntre.getText(),this.passwordEntre.getText());

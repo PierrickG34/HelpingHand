@@ -112,13 +112,7 @@ package UI;
 			this.panelEditAll.add(panelButtonValidate);
 			panelAll.add(this.panelEditAll);
 
-//			contentPane.add(panelAll, BorderLayout.WEST);
 			this.add(panelAll, BorderLayout.WEST);
-
-			//Display
-//			setSize(400,120);
-//			setVisible(true);
-//			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		}
 
 		@Override
