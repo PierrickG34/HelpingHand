@@ -112,7 +112,7 @@ public UpdateProductView(User currentUser,ViewController vc) {
 		this.add(menuSellerView);
 
 		/*-------------- Veritable view --------------------*/
-		JPanel panelAll = new JPanel();
+		JPanel panelAll = new JPanel(new GridLayout(1, 2));
 		JPanel panelEdit = new JPanel();
 		JPanel panelButtonValidate = new JPanel();
 		JPanel panelComboBox = new JPanel(new GridLayout(3, 1));
@@ -136,7 +136,7 @@ public UpdateProductView(User currentUser,ViewController vc) {
         this.nameProduct.setHorizontalAlignment(SwingConstants.RIGHT);
         panelLabels.add(this.nameProduct);
         panelTextFiel.add(this.nameProductEntre);
-        
+        	
         // Price
         this.priceProduct.setPreferredSize(this.priceProductEntre.getPreferredSize());
         this.priceProduct.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -181,7 +181,7 @@ public UpdateProductView(User currentUser,ViewController vc) {
 			this.categoryProductEntre.setToolTipText(this.allProduct.get(this.combo.getSelectedIndex()).getCategory());
 		}
 		if(source == "Submit") {
-			this.productFacades.modifyProduct(this.allProduct.get(this.combo.getSelectedIndex()), this.nameProductEntre.getText(), this.priceProductEntre.getText(),this.quantityProductEntre.getText(), this.categoryProductEntre.getText());
+			this.productFacades.modifyProduct(this.allProduct.get(this.combo.getSelectedIndex()), this.nameProductEntre.getText(), this.priceProductEntre.getText(), this.categoryProductEntre.getText(),this.quantityProductEntre.getText());
 		}
 	}
 }
