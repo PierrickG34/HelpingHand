@@ -148,6 +148,7 @@ public class UpdateActivityCategoryView extends JPanel implements ActionListener
 		}
 		if(source == "Submit") {
 			this.activityCategoryFacades.modifyActivityCategory(this.allActivityCategory.get(this.combo.getSelectedIndex()), this.shortDetailActivityCategoryEntre.getText(), this.longDetailActivityCategoryEntre.getText());
+			this.vc.ActivtyCategoryManageView();
 		}
 	}
 }
