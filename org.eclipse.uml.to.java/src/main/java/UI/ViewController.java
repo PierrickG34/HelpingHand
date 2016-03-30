@@ -71,6 +71,12 @@ public class ViewController {
 		this.helpinghand.revalidate();
 	}
 	
+	public void ProfileAdminModifyView() {
+		this.helpinghand.setContentPane(new ProfileAdminModifyView(this.currentUser,this));
+		this.helpinghand.repaint();
+		this.helpinghand.revalidate();
+	}
+	
 	public void ProfileSellerModifyView() {
 		this.helpinghand.setContentPane(new ProfileSellerModifyView(this.currentUser,this));
 		this.helpinghand.repaint();
