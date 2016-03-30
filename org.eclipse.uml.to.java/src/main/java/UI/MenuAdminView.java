@@ -30,12 +30,14 @@ public class MenuAdminView extends JPanel implements ActionListener {
 		this.dashboard.addActionListener(this);
 		this.activityCategory.addActionListener(this);
 		this.productCategory.addActionListener(this);
+		this.productCategory.setEnabled(false);
 		this.product.addActionListener(this);
 		this.account.addActionListener(this);
 		this.plan.addActionListener(this);
 		this.task.addActionListener(this);
 		this.profile.addActionListener(this);
 		this.notifications.addActionListener(this);
+		this.notifications.setEnabled(false);
 		
 		JPanel panelButton = new JPanel(new GridLayout(3, 1)); // 2 rows x 1 column
         JPanel panelTopButton = new JPanel();
