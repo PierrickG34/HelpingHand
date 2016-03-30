@@ -65,6 +65,8 @@ public class ProductJDBC extends Product{
 	public void modifyProduct(Product ac, String name, String price, String category, String quantity) {
 		double priceP = 0;
 		Integer quantityP = 0;
+		Double p;
+		int q;
 		if (name.isEmpty()) {
 			name = this.getName();
 		}
@@ -78,20 +80,24 @@ public class ProductJDBC extends Product{
 			this.setCategory(category);
 		}
 		if (price.isEmpty()) {
-			priceP = this.getPrice();
+			price = this.getPrice().toString();
+			p = Double.parseDouble(price);
 		}
 		else {
 			this.setPrice(Double.parseDouble(price));
+			p = Double.parseDouble(price);
 		}
 		if (quantity.isEmpty()) {
-			quantityP = this.getQuantity();
+			quantity = String.valueOf(this.getQuantity());
+			q = Integer.parseInt(quantity);
 		}
 		else {
-			this.setQuantity(Integer.parseInt(price));
+			this.setQuantity(Integer.parseInt(quantity));
+			q = Integer.parseInt(quantity);
 		}
 		String id = String.valueOf(ac.getId());
 		try {
-			this.jDBConnexions.executeUpdate("UPDATE product SET name = '"+name+"', price = '"+priceP+"', quantity = '"+quantityP+"', category = '" + category + "' WHERE idp = '" + id+"'");
+			this.jDBConnexions.executeUpdate("UPDATE product SET name = '"+name+"', price = '"+p+"', quantity = '"+q+"', category = '" + category + "' WHERE idp = '" + id+"'");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -108,7 +114,7 @@ public class ProductJDBC extends Product{
 	}
 
 	/**
-	 * Returns l'ensemble des produits de la base de données
+	 * Returns l'ensemble des produits de la base de donnï¿½es
 	 * @return List<Product> 
 	 */
 	@Override

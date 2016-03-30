@@ -41,10 +41,10 @@ public class ProductManager {
 
 
 
-	public void modifyProduct(Product product, String name, String price, String quantity, String category) {
+	public void modifyProduct(Product product, String name, String price, String category, String quantity) {
 		this.currentProduct = product;
 		ProductJDBC currentProductJDBC = (ProductJDBC) this.currentProduct;
-		currentProductJDBC.modifyProduct(product, name, price,quantity,category);		
+		currentProductJDBC.modifyProduct(product, name, price,category,quantity);		
 	}
 
 

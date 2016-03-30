@@ -130,8 +130,8 @@ public class ProductFacade {
 	 * @quantity
 	 * @category
 	 */
-	public void modifyProduct(Product product, String name, String price, String quantity, String category) {
-		this.productManager.modifyProduct(product,name,price,quantity,category);
+	public void modifyProduct(Product product, String name, String price, String category, String quantity) {
+		this.productManager.modifyProduct(product,name,price,category,quantity);
 	}
 
 	/**

@@ -60,7 +60,7 @@ public class ProductCreateViewSeller extends JPanel implements ActionListener {
 	/**
 	 * Description for the button validate
 	 */
-	JButton validateCreationProduct = new JButton("ValidateCreationProduct");
+	JButton validateCreationProduct = new JButton("Validate Creation Product");
 
 	/**
 	 * Permit to cancel the creation
@@ -141,7 +141,7 @@ public class ProductCreateViewSeller extends JPanel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();
-		if (source == "ValidateCreationProduct") {
+		if (source == "Validate Creation Product") {
 			this.errorMessage.setVisible(false);
 			this.name.setForeground(Color.black);
 			this.price.setForeground(Color.black);
@@ -171,7 +171,10 @@ public class ProductCreateViewSeller extends JPanel implements ActionListener {
 			{	
 				Product newProduct = this.productFacades.createProduct(this.nameEntre.getText(), Double.parseDouble(this.priceEntre.getText()), Integer.parseInt(this.quantityEntre.getText()), 
 						this.categoryEntre.getText(), this.currentUser.getIdUser());
-			}	
+			}
+		}
+		else if (source == "Cancel") {
+			this.vc.ProductManageViewSeller();
 		}
 	}
 }
