@@ -33,8 +33,7 @@ public class AccountAdminView extends JPanel implements ActionListener {
 			this.add(menuAdminView);
 			
 	        /*-------------- Veritable view --------------------*/
-	        JPanel manageButton = new JPanel(new GridLayout(3, 1));
-	        JPanel createButton = new JPanel();
+	        JPanel manageButton = new JPanel();
 	        JPanel updateButton = new JPanel();
 	        JPanel deleteButton = new JPanel();
 	        
@@ -44,7 +43,6 @@ public class AccountAdminView extends JPanel implements ActionListener {
 	        updateButton.add(this.update);
 	        deleteButton.add(this.delete);
 	        
-	        manageButton.add(createButton);
 	        manageButton.add(updateButton);
 	        manageButton.add(deleteButton);
 	        
