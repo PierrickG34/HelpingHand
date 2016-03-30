@@ -74,7 +74,7 @@ public class ProfileSellerView extends JPanel implements ActionListener {
 	 */
 	private User currentUser;
 	private ViewController vc;
-	private MenuAdminView menuAdminView;
+	private MenuSellerView menuSellerView;
 
 
 	// Start of user code (user defined attributes for LoginView)
@@ -88,8 +88,8 @@ public class ProfileSellerView extends JPanel implements ActionListener {
 //		super("Profile"); // Name of the frame
 		this.currentUser = currentUser;
 		this.vc = vc;
-		this.menuAdminView = new MenuAdminView(this.vc);
-		this.add(menuAdminView);
+		this.menuSellerView = new MenuSellerView(this.vc);
+		this.add(menuSellerView);
 
 
 		/*##### Display the information of the user #####*/
@@ -115,6 +115,8 @@ public class ProfileSellerView extends JPanel implements ActionListener {
 		this.password.setHorizontalAlignment(JLabel.CENTER);
 		this.address.setText(this.currentUser.getAddress());
 		this.address.setHorizontalAlignment(JLabel.CENTER);
+		
+		JPanel panelAll = new JPanel();
 		JPanel panelInformations = new JPanel(new GridLayout(7,1));
 		JPanel panelButtonValidate = new JPanel();
 		panelInformations.add(this.firstName);
@@ -131,8 +133,9 @@ public class ProfileSellerView extends JPanel implements ActionListener {
 //		contentPane.add(panelButton,BorderLayout.NORTH);
 //		contentPane.add(panelInformations, BorderLayout.CENTER);
 //		contentPane.add(panelButtonValidate,  BorderLayout.SOUTH);
-		this.add(panelInformations, BorderLayout.CENTER);
-		this.add(panelButtonValidate,  BorderLayout.SOUTH);
+		panelAll.add(panelInformations, BorderLayout.WEST);
+		panelAll.add(panelButtonValidate,  BorderLayout.SOUTH);
+		this.add(panelAll);
 
 //		//Display
 //		setSize(400,120);

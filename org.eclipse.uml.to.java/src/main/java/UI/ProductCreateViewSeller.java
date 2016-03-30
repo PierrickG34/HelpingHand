@@ -122,16 +122,16 @@ public class ProductCreateViewSeller extends JPanel implements ActionListener {
 
 
 		this.validateCreationProduct.addActionListener(this);
+		this.cancel.addActionListener(this);
 
 		panelEditInformation.add(panelLabels);
 		panelEditInformation.add(panelTextField);
 		panelButtonValidate.add(this.validateCreationProduct);
 		panelButtonValidate.add(this.cancel);
 		panelButtonValidate.add(this.errorMessage);
-		panelAll.add(panelEditInformation);
-		panelAll.add(panelButtonValidate);
-
-		this.add(panelAll, BorderLayout.CENTER);
+		panelAll.add(panelEditInformation, BorderLayout.WEST);
+		panelAll.add(panelButtonValidate, BorderLayout.SOUTH);
+		this.add(panelAll);
 
 		this.errorMessage.setHorizontalAlignment(JLabel.CENTER);
 		this.errorMessage.setVisible(false);
@@ -172,6 +172,9 @@ public class ProductCreateViewSeller extends JPanel implements ActionListener {
 				Product newProduct = this.productFacades.createProduct(this.nameEntre.getText(), Double.parseDouble(this.priceEntre.getText()), Integer.parseInt(this.quantityEntre.getText()), 
 						this.categoryEntre.getText(), this.currentUser.getIdUser());
 			}	
+		}
+		if (source == "Cancel") {
+			this.vc.ProductCreateViewSeller();
 		}
 	}
 }

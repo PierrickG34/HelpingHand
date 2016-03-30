@@ -70,7 +70,7 @@ public class ProfileSellerModifyView extends JPanel implements ActionListener {
 	JLabel errorMessage = new JLabel("");
 
 	private ViewController vc;
-	private MenuAdminView menuAdminView;
+	private MenuSellerView menuSellerView;
 	/**
 	 * 
 	 * @param currentUser
@@ -79,8 +79,8 @@ public class ProfileSellerModifyView extends JPanel implements ActionListener {
 //		super("Edit Profile");
 		this.currentUser = currentUser;
 		this.vc = vc;
-		this.menuAdminView = new MenuAdminView(this.vc);
-		this.add(menuAdminView);
+		this.menuSellerView = new MenuSellerView(this.vc);
+		this.add(menuSellerView);
 		this.userFacade = new UserFacade(currentUser);
 		
 //		Container contentPane = getContentPane(); 

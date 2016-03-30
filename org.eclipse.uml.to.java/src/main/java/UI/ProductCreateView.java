@@ -90,7 +90,6 @@ public class ProductCreateView extends JPanel implements ActionListener {
 		this.vc = vc;
 		this.menuAdminView = new MenuAdminView(this.vc);
 		this.add(menuAdminView);
-		this.cancel.addActionListener(this);
 
 
 		/*##### Display and edit the information #####*/
@@ -122,6 +121,7 @@ public class ProductCreateView extends JPanel implements ActionListener {
 
 
 		this.validateCreationProduct.addActionListener(this);
+		this.cancel.addActionListener(this);
 
 		panelEditInformation.add(panelLabels);
 		panelEditInformation.add(panelTextField);
@@ -182,6 +182,9 @@ public class ProductCreateView extends JPanel implements ActionListener {
 				Product newProduct = this.productFacades.createProduct(this.nameEntre.getText(), Double.parseDouble(this.priceEntre.getText()), Integer.parseInt(this.quantityEntre.getText()), 
 						this.categoryEntre.getText(), this.currentUser.getIdUser());
 			}	
+		}
+		if (source == "Cancel") {
+			this.vc.ProductManageView();
 		}
 	}
 }

@@ -164,7 +164,7 @@ public UpdateProductView(User currentUser,ViewController vc) {
 		this.panelEditAll.add(panelButtonValidate);
 		panelAll.add(this.panelEditAll);
 
-		this.add(panelAll, BorderLayout.WEST);
+		this.add(panelAll);
 
 	}
 

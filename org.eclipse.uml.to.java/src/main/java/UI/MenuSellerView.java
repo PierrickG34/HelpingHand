@@ -77,7 +77,7 @@ public class MenuSellerView extends JPanel implements ActionListener {
 			System.out.println("Action pas faite");
 		}
 		else if (source == "Profile"){
-			this.vc.ProfileUserView();
+			this.vc.ProfileSellerView();
 		}
 		else if (source == "Notifications"){
 			System.out.println("Action pas faite");
