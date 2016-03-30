@@ -53,7 +53,7 @@ public class TaskCreateView extends JPanel implements ActionListener {
 	/**
 	 * Description for the choose product
 	 */
-	JLabel chooseProduct = new JLabel("Please select a product for your task");
+	JLabel chooseProduct = new JLabel("Please select a product for your task   ");
 	
 	/**
 	 * Description for the choose plan
@@ -129,13 +129,13 @@ public class TaskCreateView extends JPanel implements ActionListener {
 		
 		//Name
 		this.name.setPreferredSize(this.nameEntre.getPreferredSize());
-		this.name.setHorizontalAlignment(SwingConstants.RIGHT);
+		//this.name.setHorizontalAlignment(SwingConstants.CENTER);
 		panelLabels.add(this.name);
 		panelTextField.add(this.nameEntre);
 		
 		//Description
 		this.description.setPreferredSize(this.descriptionEntre.getPreferredSize());
-		this.description.setHorizontalAlignment(SwingConstants.RIGHT);
+		//this.description.setHorizontalAlignment(SwingConstants.CENTER);
 		panelLabels.add(this.description);
 		panelTextField.add(this.descriptionEntre);
 		
@@ -147,7 +147,7 @@ public class TaskCreateView extends JPanel implements ActionListener {
 		}
 		panelComboBoxProduct.add(this.chooseProduct);
 		panelComboBoxProduct.add(this.comboProduct);
-		panelComboBoxAll.add(panelComboBoxProduct);
+		panelComboBoxAll.add(panelComboBoxProduct, BorderLayout.CENTER);
 		
 		//Combo list plan
 		//Recuperate the plan and add to the combobox
@@ -155,9 +155,9 @@ public class TaskCreateView extends JPanel implements ActionListener {
 		for (int i = 0; i< this.allPlan.size(); i++) {
 			this.comboPlan.addItem(this.allPlan.get(i).getNamePlan());
 		}
-		panelComboBoxProduct.add(this.choosePlan);
-		panelComboBoxProduct.add(this.comboPlan);
-		panelComboBoxAll.add(panelComboBoxPlan);
+		panelComboBoxPlan.add(this.choosePlan, BorderLayout.CENTER);
+		panelComboBoxPlan.add(this.comboPlan, BorderLayout.CENTER);
+		panelComboBoxAll.add(panelComboBoxPlan, BorderLayout.CENTER);
 		
 		
 		panelCreateTask.add(panelLabels);

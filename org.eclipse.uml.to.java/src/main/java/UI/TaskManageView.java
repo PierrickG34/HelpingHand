@@ -14,17 +14,6 @@ import javax.swing.JPanel;
 import Core.User;
 
 public class TaskManageView extends JPanel implements ActionListener {
-
-	JButton dashboard = new JButton("Dashboard");
-	JButton activityCategory = new JButton("Activity Category");
-	JButton productCategory = new JButton("Product Category");
-	JButton product = new JButton("Product");
-	JButton account = new JButton("Account");
-	JButton plan = new JButton("Plan");
-	JButton task = new JButton("Task");
-	   
-	JButton profile = new JButton("Profile");
-	JButton notifications = new JButton("Notifications");
 	
 	JButton create = new JButton("Create a Task");
 	JButton update = new JButton("Update a Task");
@@ -42,7 +31,7 @@ public class TaskManageView extends JPanel implements ActionListener {
 		this.add(menuAdminView);
 		
         /*-------------- Veritable view --------------------*/
-        JPanel manageButton = new JPanel(new GridLayout(3, 1));
+        JPanel manageButton = new JPanel();
         JPanel createButton = new JPanel();
         JPanel updateButton = new JPanel();
         JPanel deleteButton = new JPanel();
