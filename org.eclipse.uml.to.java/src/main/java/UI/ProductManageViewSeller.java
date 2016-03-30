@@ -63,7 +63,7 @@ public class ProductManageViewSeller extends JPanel implements ActionListener {
 			this.vc.UpdateProductView();
 		}
 		else if(source == "Delete a Product") {
-			this.vc.DeleteProductView();
+			this.vc.DeleteProductViewSeller();
 		}
 	}
 }

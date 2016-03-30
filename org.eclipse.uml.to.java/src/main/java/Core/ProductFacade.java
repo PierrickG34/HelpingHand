@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Observable;
 
 import UI.DeleteProductView;
+import UI.DeleteProductViewSeller;
 import UI.ProductCreateView;
 import UI.ProductCreateViewSeller;
 import UI.TaskCreateView;
@@ -71,6 +72,10 @@ public class ProductFacade {
 	}
 
 	public ProductFacade(ProductCreateViewSeller productCreateViewSeller) {
+		super();
+	}
+
+	public ProductFacade(DeleteProductViewSeller deleteProductViewSeller) {
 		super();
 	}
 

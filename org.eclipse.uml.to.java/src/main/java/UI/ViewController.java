@@ -169,6 +169,13 @@ public class ViewController {
 		this.helpinghand.revalidate();
 	}
 	
+	public void DeleteProductViewSeller() {
+		this.helpinghand.setContentPane(new DeleteProductViewSeller(this.currentUser,this));
+		this.helpinghand.repaint();
+		this.helpinghand.revalidate();
+	}
+	
+	
 	//TASK
 	public void TaskCreateView() {
 		this.helpinghand.setContentPane(new TaskCreateView(this.currentUser,this));
@@ -224,5 +231,4 @@ public class ViewController {
 		this.helpinghand.repaint();
 		this.helpinghand.revalidate();
 	}
-	
 }
