@@ -27,11 +27,15 @@ public class MenuUserView extends JPanel implements ActionListener {
 		/* Defined actions on the different buttons */
 		this.dashboard.addActionListener(this);
 		this.journal.addActionListener(this);
+		this.journal.setEnabled(false);
 		this.myPlans.addActionListener(this);
 		this.myFavorites.addActionListener(this);
+		this.myFavorites.setEnabled(false);
 		this.shoppingCart.addActionListener(this);
+		this.shoppingCart.setEnabled(false);
 		this.profile.addActionListener(this);
 		this.notifications.addActionListener(this);
+		this.notifications.setEnabled(false);
 		
 		JPanel panelButton = new JPanel(new GridLayout(2, 1)); // 2 rows x 1 column
         JPanel panelTopButton = new JPanel();
