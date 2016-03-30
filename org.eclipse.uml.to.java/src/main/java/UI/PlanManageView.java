@@ -47,7 +47,7 @@ public class PlanManageView extends JPanel implements ActionListener {
 		this.add(menuAdminView);
   
         /*-------------- Veritable view --------------------*/
-        JPanel manageButton = new JPanel(new GridLayout(3, 1));
+        JPanel manageButton = new JPanel();
         JPanel createButton = new JPanel();
         JPanel updateButton = new JPanel();
         JPanel deleteButton = new JPanel();
