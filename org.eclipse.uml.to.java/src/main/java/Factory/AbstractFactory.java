@@ -63,68 +63,66 @@ public abstract class AbstractFactory {
 	public abstract ActivityCategory createActivityCategory(String name, String shortDetail, String longDetail ,int idUser);
 	
 	/**
-	 * Creates a new Abstract object.
+	 * Creates a new Abstract produt.
 	 *
 	 * @param name the name
 	 * @param price the price
 	 * @param quantity the quantity
 	 * @param category the category
-	 * @param idVendeur the id vendeur
+	 * @param idVendeur the idvendeur
 	 * @return the product jdbc
 	 */
 	public abstract ProductJDBC createProduct(String name, Double price, int quantity, String category, int idVendeur);
 	
-	// Start of user code (user defined methods for AbstractUserFactory)
 
 	/**
-	 * Creates a new Abstract object.
+	 * Creates a new Abstract create category.
 	 *
 	 * @return the activity category
 	 */
 	public abstract ActivityCategory createCategory();
 
 	/**
-	 * Creates a new Abstract object.
+	 * Creates a new Abstract product.
 	 *
 	 * @return the product
 	 */
 	public abstract Product createProduct();
-	// End of user code
 
 	/**
-	 * Creates a new Abstract object.
+	 * Creates a new Abstract task.
 	 *
 	 * @param name the name
 	 * @param description the description
-	 * @param idProduct the id product
-	 * @param idPlan the id plan
+	 * @param idProduct the idproduct
+	 * @param idPlan the idplan
 	 * @return the task
 	 */
 	public abstract Task createTask(String name, String description, int idProduct, int idPlan);
 	
 	/**
-	 * Creates a new Abstract object.
+	 * Creates a new Abstract task.
 	 *
 	 * @return the task
 	 */
 	public abstract Task createTask();
 	
 	/**
-	 * Creates a new Abstract object.
+	 * Creates a new Abstract plan.
 	 *
 	 * @return the plan
 	 */
 	public abstract Plan createPlan();
 
 	/**
-	 * Creates a new Abstract object.
+	 * Creates a new Abstract plan.
 	 *
 	 * @param name the name
 	 * @param observation the observation
 	 * @param deadline the deadline
 	 * @param tutorial the tutorial
 	 * @param isPublic the is public
-	 * @param ac the ac
+	 * @param ac the activity category
 	 * @param idUser the id user
 	 * @return the plan
 	 */
