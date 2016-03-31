@@ -1,23 +1,19 @@
 package Core;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import Persist.JDBConnexion;
 
-// TODO: Auto-generated Javadoc
 /**
  * Description of ActivityCategory.
  * 
- * @author pierrickgiuliani
+ * @author HelpingHand
  */
 public abstract class ActivityCategory {
 
 	/**
 	 * Description of the property jDBConnexions.
 	 */
-	//public JDBConnexion jDBConnexions = new JDBConnexion();
 	public JDBConnexion jDBConnexions = JDBConnexion.createConnect();
 
 	/**
@@ -31,12 +27,12 @@ public abstract class ActivityCategory {
 	private String name = "";
 	
 	/**
-	 * Description of the property password.
+	 * Description of the property shortDetail.
 	 */
 	private String shortDetail = "";
 	
 	/**
-	 * Description of the property password.
+	 * Description of the property longDetail.
 	 */
 	private String longDetail = "";
 	

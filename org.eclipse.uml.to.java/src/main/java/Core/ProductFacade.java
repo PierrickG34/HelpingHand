@@ -3,9 +3,7 @@
  *******************************************************************************/
 package Core;
 
-import java.util.Date;
 import java.util.List;
-import java.util.Observable;
 
 import UI.DeleteProductView;
 import UI.DeleteProductViewSeller;
@@ -16,11 +14,10 @@ import UI.TaskUpdateView;
 import UI.UpdateProductAdminView;
 import UI.UpdateProductView;
 
-// TODO: Auto-generated Javadoc
 /**
  * Description of UserFacade.
  * 
- * @author pierrickgiuliani
+ * @author HelpingHand
  */
 public class ProductFacade {
 
@@ -37,9 +34,7 @@ public class ProductFacade {
 	 * @param productCreateView the product create view
 	 */
 	public ProductFacade(ProductCreateView productCreateView) {
-		// Start of user code constructor for UserFacade)
 		super();
-		// End of user code
 	}
 
 	/**
@@ -113,7 +108,7 @@ public class ProductFacade {
 	 * @param price the price
 	 * @param quantity the quantity
 	 * @param category the category
-	 * @param idVendeur the id vendeur
+	 * @param idVendeur the id seller
 	 * @return Product
 	 */
 
@@ -131,9 +126,9 @@ public class ProductFacade {
 	}
 	
 	/**
-	 * Return l'ensemble des products du vendeur donn�e.
+	 * Return all products of the seller.
 	 *
-	 * @param idVendeur the id vendeur
+	 * @param idVendeur the id of the seller
 	 * @return List<Product>
 	 */
 	public List<Product> getAllProduct(Integer idVendeur) {
@@ -150,7 +145,7 @@ public class ProductFacade {
 	}
 
 	/**
-	 * Returns l'ensemble des produits de la base de donn�es.
+	 * Returns all products of the database.
 	 *
 	 * @return List<Product>
 	 */

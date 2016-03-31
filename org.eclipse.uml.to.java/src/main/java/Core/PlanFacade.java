@@ -17,9 +17,10 @@ import UI.PlanViewSeller;
 import UI.PlanViewUser;
 import UI.TaskCreateView;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class PlanFacade.
+ * 
+ * @author HelpingHand
  */
 public class PlanFacade {
 

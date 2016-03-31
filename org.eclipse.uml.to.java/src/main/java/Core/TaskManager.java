@@ -7,16 +7,17 @@ import Factory.FactoryJDBC;
 import Persist.ActivityCategoryJDBC;
 import Persist.TaskJDBC;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class TaskManager.
+ * 
+ * @author HelpingHand
  */
 public class TaskManager {
 	
 	/** The current task. */
 	private Task currentTask;
 	
-	/** The task factorys. */
+	/** The task factory. */
 	public AbstractFactory taskFactorys = new FactoryJDBC();
 
 	/**

@@ -1,30 +1,30 @@
 package Core;
 
-import java.util.Date;
 import java.util.List;
-
-import Persist.ActivityCategoryJDBC;
 
 import Factory.AbstractFactory;
 import Factory.FactoryJDBC;
+import Persist.ActivityCategoryJDBC;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ActivityCategoryManager.
+ * 
+ * @author HelpingHand
  */
+ 
 public class ActivityCategoryManager {
 	
 	/** The current activity category. */
 	private ActivityCategory currentActivityCategory;
 	
-	/** The user factorys. */
+	/** The user factory. */
 	public AbstractFactory userFactorys = new FactoryJDBC();
 
 	/**
 	 * The constructor.
 	 */
 	public ActivityCategoryManager() {
-		super();		// End of user code
+		super();
 	}
 	
 	/**

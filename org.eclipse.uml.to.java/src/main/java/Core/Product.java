@@ -1,27 +1,14 @@
-
-
-
-/*******************************************************************************
- * 2016, All rights reserved.
- *******************************************************************************/
 package Core;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import Persist.ProductJDBC;
-import Persist.UserJDBC;
 
-// TODO: Auto-generated Javadoc
-// Start of product code (product defined imports)
-
-// End of product code
 
 /**
- * Description of Produt.
+ * Description of Product.
  * 
- * @author beuleJ�r�my
+ * @author HelpingHand
  */
 public abstract class Product {
 	
@@ -67,14 +54,12 @@ public abstract class Product {
 	 * @param idVendeur the id vendeur
 	 */
 	public Product(String name, Double price, int quantity, String category, Integer idVendeur) {
-		// Start of user code constructor for Product)
 		super();
 		this.name = name;
 		this.price = price;
 		this.quantity = quantity;
 		this.category = category;
 		this.idVendeur = idVendeur;
-		// End of user code
 	}
 	
 	/**
@@ -86,10 +71,6 @@ public abstract class Product {
 	 * Save.
 	 */
 	public abstract void save();
-
-
-
-	//Getteur et Setteur
 	
 	/**
 	 * Returns idProduct.
@@ -185,9 +166,9 @@ public abstract class Product {
 	}
 	
 	/**
-	 * Returns l'ensemble des produits du vendeur.
+	 * Returns all products of the seller.
 	 *
-	 * @param idVendeur the id vendeur
+	 * @param idVendeur the id seller
 	 * @return List<Product>
 	 */
 
@@ -196,14 +177,14 @@ public abstract class Product {
 	}
 	
 	/**
-	 * Returns l'ensemble des produits de la base de donn�es.
+	 * Returns all products in the database.
 	 *
 	 * @return List<Product>
 	 */
 	public abstract List<Product> getAllProduct();
 
 	/**
-	 * Supprimer currentProduct.
+	 * Delete currentProduct.
 	 */
 	public abstract void delete();
 }

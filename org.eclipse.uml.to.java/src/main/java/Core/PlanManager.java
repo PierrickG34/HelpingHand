@@ -5,13 +5,11 @@ import java.util.List;
 
 import Factory.AbstractFactory;
 import Factory.FactoryJDBC;
-import Persist.ActivityCategoryJDBC;
-import Persist.PlanJDBC;
-import Persist.TaskJDBC;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class PlanManager.
+ * 
+ * @author HelpingHand
  */
 public class PlanManager {
 	

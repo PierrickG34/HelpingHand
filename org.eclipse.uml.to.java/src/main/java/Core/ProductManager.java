@@ -1,15 +1,15 @@
 package Core;
 
-import java.util.Date;
 import java.util.List;
 
 import Factory.AbstractFactory;
 import Factory.FactoryJDBC;
 import Persist.ProductJDBC;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ProductManager.
+ * 
+ * @author HelpingHand
  */
 public class ProductManager {
 	

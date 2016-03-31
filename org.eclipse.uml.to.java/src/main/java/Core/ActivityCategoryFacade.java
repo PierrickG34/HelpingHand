@@ -1,20 +1,17 @@
 package Core;
 
-import java.util.Date;
 import java.util.List;
 
-import Persist.ActivityCategoryJDBC;
 import UI.CreateActivityCategoryView;
 import UI.CreatePlanSellerView;
 import UI.CreatePlanUserView;
 import UI.CreatePlanView;
 import UI.UpdateActivityCategoryView;
 
-// TODO: Auto-generated Javadoc
 /**
  * Description of ActivityCategoryFacade.
  * 
- * @author pierrickgiuliani
+ * @author HelpingHand
  */
 public class ActivityCategoryFacade {
 

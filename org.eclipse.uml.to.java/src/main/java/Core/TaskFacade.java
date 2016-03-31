@@ -6,9 +6,10 @@ import UI.TaskCreateView;
 import UI.TaskDeleteView;
 import UI.TaskUpdateView;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class TaskFacade.
+ * 
+ * @author HelpingHand
  */
 public class TaskFacade {
 	

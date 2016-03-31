@@ -4,16 +4,16 @@ import java.util.List;
 
 import Persist.JDBConnexion;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Task.
+ * 
+ * @author HelpingHand
  */
 public abstract class Task {
 	
 	/**
 	 * Description of the property jDBConnexions.
 	 */
-	//public JDBConnexion jDBConnexions = new JDBConnexion();
 	public JDBConnexion jDBConnexions = JDBConnexion.createConnect();
 	
 	/** Description of the id Task. */
@@ -53,18 +53,18 @@ public abstract class Task {
 	}
 
 	/**
-	 * Gets the j db connexions.
+	 * Gets the jdb connexions.
 	 *
-	 * @return the j db connexions
+	 * @return the jdb connexions
 	 */
 	public JDBConnexion getjDBConnexions() {
 		return jDBConnexions;
 	}
 
 	/**
-	 * Sets the j db connexions.
+	 * Sets the jdb connexions.
 	 *
-	 * @param jDBConnexions the new j db connexions
+	 * @param jDBConnexions the new jdb connexions
 	 */
 	public void setjDBConnexions(JDBConnexion jDBConnexions) {
 		this.jDBConnexions = jDBConnexions;
