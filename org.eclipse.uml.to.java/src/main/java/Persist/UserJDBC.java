@@ -15,65 +15,55 @@ import Core.User;
 import Excpetion.AlreadyExistException;
 // Start of user code (user defined imports)
 import Excpetion.LoginException;
-import Excpetion.PasswordException;
-
-// TODO: Auto-generated Javadoc
-// End of user code
 
 /**
  * Description of UserJDBC.
  * 
- * @author pierrickgiuliani
+ * @author Helping Hand
  */
 public class UserJDBC extends User {
-	// Start of user code (user defined attributes for UserJDBC)
-	
+
 	/**
 	 * Description of the property jDBConnexions.
 	 */
-	//public JDBConnexion jDBConnexions = new JDBConnexion();
 	public JDBConnexion jDBConnexions = JDBConnexion.createConnect();
 
-	// End of user code
 
 	/**
-	 * Instantiates a new user jdbc.
+	 * Instantiates a new userJDBC.
 	 */
 	public UserJDBC() {
 		super();
 	}
-	
+
 	/**
 	 * The constructor.
 	 *
 	 * @param login the login
 	 */
 	public UserJDBC(String login) {
-		// Start of user code constructor for UserJDBC
 		super(login);
-		// Connexion to the database with the login
-		
+
 		try {
 			this.jDBConnexions.executeRequest("SELECT * FROM Person WHERE email = '" + login + "';");
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		this.setUser(login);
 	}
-	
-	
+
+
 	/**
-	 * Instantiates a new user jdbc.
+	 * Instantiates a new userJDBC.
 	 *
 	 * @param firstName the first name
-	 * @param surName the sur name
+	 * @param surName the surname
 	 * @param mobile the mobile
 	 * @param mailAddress the mail address
 	 * @param password the password
 	 * @param dateOfBirth the date of birth
-	 * @param webSiteURL the web site url
-	 * @param siretNumber the siret number
+	 * @param webSiteURL the web siteurl
+	 * @param siretNumber the siretnumber
 	 * @param address the address
 	 */
 	public UserJDBC(String firstName, String surName, String mobile, String mailAddress, String password, Date dateOfBirth, String webSiteURL, String siretNumber, String address) {
@@ -84,13 +74,9 @@ public class UserJDBC extends User {
 			this.jDBConnexions.executeUpdate("INSERT INTO Person VALUES (DEFAULT, '"+ firstName + "','"+ surName +"','" + mobile + "','" 
 					+ mailAddress +"','" + password + "','" + formatter.format(dateOfBirth) + "','" + " " + "','" + webSiteURL + "','" + siretNumber + "', 'false', '"+ address +"')");
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			//e.printStackTrace();
 			throw new AlreadyExistException("Your email is already used, please choose an other.");
 		}
 	}
-
-	// Start of user code (user defined methods for UserJDBC)
 
 	/**
 	 * Permit to set the information in the database for the user.
@@ -100,9 +86,7 @@ public class UserJDBC extends User {
 	 */
 	public void setUser(String login) throws LoginException {
 		Map m = new HashMap();
-		
-		// Start of user code for method setUser
-		// End of user code
+
 		m = this.jDBConnexions.getM();
 		if (m.isEmpty()) {
 			throw new LoginException("Invalid login");
@@ -123,7 +107,6 @@ public class UserJDBC extends User {
 				System.out.println(d);
 				this.setDateOfBirth(d);
 			} catch (ParseException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			this.setWebsiteURL((String) m.get("urlwebsite"));
@@ -136,14 +119,12 @@ public class UserJDBC extends User {
 			{
 				this.setAdmin(false);
 			}
-			
+
 		}
 	}
-	
 
-	// End of user code
 	/**
-	 * Returns jDBConnexions.
+	 * Getter jdbc connexion
 	 * @return jDBConnexions 
 	 */
 	public JDBConnexion getJDBConnexions() {
@@ -158,7 +139,7 @@ public class UserJDBC extends User {
 	public void setJDBConnexions(JDBConnexion newJDBConnexions) {
 		this.jDBConnexions = newJDBConnexions;
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see Core.User#modifyAccount(java.lang.String, java.lang.String, java.lang.String)
 	 */
@@ -184,11 +165,10 @@ public class UserJDBC extends User {
 		try {
 			this.jDBConnexions.executeUpdate("UPDATE person SET mobile = '"+mobile+"', addressuser = '"+address+"', password = '"+password+"' WHERE iduser = '"+this.getIdUser()+"'");
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
 	 * Modify account.
 	 *
@@ -230,7 +210,6 @@ public class UserJDBC extends User {
 				d = sdf.parse(dateofbirth);
 				this.setDateOfBirth(d);
 			} catch (ParseException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -261,11 +240,10 @@ public class UserJDBC extends User {
 		try {
 			this.jDBConnexions.executeUpdate("UPDATE person SET firstname = '"+firstname+"', surname = '"+lastname+"', mobile = '"+mobile+"', dateofbirth = '"+dateofbirth+"', addressuser = '"+address+"', numbersiret = '"+siretnumber+"', urlwebsite = '"+websiteurl+"', password = '"+password+"' WHERE iduser = '"+this.getIdUser()+"'");
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
 	 * Delete account.
 	 */
@@ -273,11 +251,10 @@ public class UserJDBC extends User {
 		try {
 			this.jDBConnexions.executeUpdate("DELETE FROM person WHERE iduser = '"+this.getIdUser()+"'");
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
 	 * Gets the all users.
 	 *
@@ -286,14 +263,12 @@ public class UserJDBC extends User {
 	public List<User> getAllUsers() {
 		return this.jDBConnexions.getAllUsers("SELECT * FROM person");
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see Core.User#save()
 	 */
 	@Override
 	public void save() {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

@@ -5,22 +5,17 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import Core.ActivityCategory;
 import Core.Plan;
-import Core.Product;
-import Core.Task;
-import Excpetion.AlreadyExistException;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class PlanJDBC.
+ * @author Helping Hand
  */
 public class PlanJDBC extends Plan {
 	
 	/**
 	 * Description of the property jDBConnexions.
 	 */
-	//public JDBConnexion jDBConnexions = new JDBConnexion();
 	public JDBConnexion jDBConnexions = JDBConnexion.createConnect();
 	
 	/**
@@ -31,14 +26,14 @@ public class PlanJDBC extends Plan {
 	}
 	
 	/**
-	 * Instantiates a new plan jdbc.
+	 * Instantiates a new planJDBC.
 	 *
 	 * @param name the name
 	 * @param observation the observation
 	 * @param deadline the deadline
 	 * @param tutorial the tutorial
 	 * @param isPublic the is public
-	 * @param ac the ac
+	 * @param ac the activitycategory
 	 * @param idUser the id user
 	 */
 	public PlanJDBC(String name, String observation, Date deadline, boolean tutorial, boolean isPublic,
