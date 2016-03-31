@@ -6,9 +6,9 @@ import java.util.Calendar;
 
 import javax.swing.JFormattedTextField.AbstractFormatter;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class DateLabelFormatter.
+ * @author Helping Hand
  */
 public class DateLabelFormatter extends AbstractFormatter {
 

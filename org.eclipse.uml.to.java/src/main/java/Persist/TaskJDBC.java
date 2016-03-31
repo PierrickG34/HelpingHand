@@ -4,32 +4,30 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import Core.ActivityCategory;
 import Core.Product;
 import Core.Task;
 import Excpetion.AlreadyExistException;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class TaskJDBC.
+ * @author Helping Hand
  */
 public class TaskJDBC extends Task {
 	
 	/**
 	 * Description of the property jDBConnexions.
 	 */
-	//public JDBConnexion jDBConnexions = new JDBConnexion();
 	public JDBConnexion jDBConnexions = JDBConnexion.createConnect();
 	
 	/**
-	 * Instantiates a new task jdbc.
+	 * Instantiates a new taskJDBC.
 	 */
 	public TaskJDBC() {
 		super();
 	}
 
 	/**
-	 * Instantiates a new task jdbc.
+	 * Instantiates a new taskJDBC.
 	 *
 	 * @param idProduct the id product
 	 */
@@ -37,14 +35,13 @@ public class TaskJDBC extends Task {
 		try {
 			this.jDBConnexions.executeUpdate("INSERT INTO contain VALUES ((SELECT CURRVAL(pg_get_serial_sequence('task','idtask'))), '"+idProduct+"')");
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
 	
 	/**
-	 * Instantiates a new task jdbc.
+	 * Instantiates a new taskJDBC.
 	 *
 	 * @param name the name
 	 * @param description the description
@@ -56,8 +53,6 @@ public class TaskJDBC extends Task {
 		try {
 			this.jDBConnexions.executeUpdate("INSERT INTO task VALUES (DEFAULT, '"+ name + "','"+ description +"','"+idPlan+"')");
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			//e.printStackTrace();
 			throw new AlreadyExistException("Your task is already used, please choose an other.");
 		}
 	}
@@ -90,7 +85,6 @@ public class TaskJDBC extends Task {
 			this.jDBConnexions.executeUpdate("UPDATE task SET description = '"+ description +"' where idtask = '"+task.getIdTask()+"'");
 			this.jDBConnexions.executeUpdate(("UPDATE contain SET idproduct = '"+product.getId()+"' WHERE idtask = '"+task.getIdTask()+"'"));
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

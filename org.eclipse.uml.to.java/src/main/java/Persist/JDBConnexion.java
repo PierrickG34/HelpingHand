@@ -22,32 +22,28 @@ import Core.Product;
 import Core.Task;
 import Core.User;
 
-// TODO: Auto-generated Javadoc
-// Start of user code (user defined imports)
-
-// End of user code
 
 /**
  * Description of JDBConnexion.
  * 
- * @author pierrickgiuliani
+ * @author Helping Hand
  */
 public class JDBConnexion {
-	// Start of user code (user defined attributes for JDBConnexion)
-	/** The conn. */
+	
+	/** The connection */
 	private Connection conn;
 	
 	/** The result meta. */
 	private ResultSetMetaData resultMeta;
 	
-	/** The rs. */
+	/** The resulSet. */
 	private ResultSet rs;
 	
-	/** The m. */
+	/** The map. */
 	private HashMap m;
 	// End of user code
 	
-	/** Maybe a suppr?. */
+	/** Chek if is already connected. */
 	private static boolean isConnected = false;
 	
 	/** The connexion. */
@@ -57,30 +53,20 @@ public class JDBConnexion {
 	 * The constructor to connect to the database.
 	 */
 	private JDBConnexion() {
-		// Start of user code constructor for JDBConnexion)
 		super();
 		try {
 			Class.forName("org.postgresql.Driver");
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		System.out.println("Driver O.K.");
 
 		String url = "jdbc:postgresql://ec2-54-227-245-197.compute-1.amazonaws.com:5432/d4i5fck68498ce?sslmode=require";
 		String user = "ambpfzhcrpupmx";
 		String passwd = "PeSnt07zQFVWKQrsqcRd1GzW6I";
 
-		System.out.println("Connexion sur: ");
-		System.out.println("**USER = " +user);
-		System.out.println("**PassWord = " +passwd);
-		System.out.println("**URL = " +url);
-		
 		try {
 			this.openConnexion(url, user, passwd);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -100,9 +86,9 @@ public class JDBConnexion {
 
 	
 	/**
-	 * Gets the m.
+	 * Gets the map.
 	 *
-	 * @return the m
+	 * @return the map
 	 */
 	public HashMap getM() {
 		return m;
@@ -110,9 +96,9 @@ public class JDBConnexion {
 
 
 	/**
-	 * Sets the m.
+	 * Sets the map.
 	 *
-	 * @param m the new m
+	 * @param m the new map
 	 */
 	public void setM(HashMap m) {
 		this.m = m;
@@ -124,18 +110,16 @@ public class JDBConnexion {
 	 *
 	 * @param url the url
 	 * @param user the user
-	 * @param passwd the passwd
+	 * @param passwd the password
 	 * @return true if the connexion is established
 	 * @throws SQLException the SQL exception
 	 */
 	public Boolean openConnexion(String url, String user, String passwd) throws SQLException {
-		// Start of user code for method openConnexion
 		boolean isConnected = false;
 		this.conn = DriverManager.getConnection(url, user, passwd);
 		isConnected = true;
-		System.out.println("\nConnexion effective !\n");
+
 		return(isConnected);
-		// End of user code
 	}
 
 	/**
@@ -154,8 +138,6 @@ public class JDBConnexion {
 		}
 		rs.close();
 		
-		System.out.println("... Statement finish \n");
-
 		return m;
 	}
 
@@ -164,8 +146,6 @@ public class JDBConnexion {
 	 * Description of the method close.
 	 */
 	public void close() {
-		// Start of user code for method close
-		// End of user code
 	}
 
 	/**
@@ -175,19 +155,12 @@ public class JDBConnexion {
 	 * @throws SQLException the SQL exception
 	 */
 	public void executeRequest(String request) throws SQLException {
-		// Start of user code for method executeRequest
-
-		// End of user code
-
 		java.sql.Statement stmt = null;
-		System.out.println("Creating statement...");
 		stmt = this.conn.createStatement();
 		this.rs = stmt.executeQuery(request);
 		this.resultMeta = this.rs.getMetaData();
 
 		this.m = (HashMap) extractData();
-		
-		// End of user code
 	}
 	
 	/**
@@ -199,7 +172,6 @@ public class JDBConnexion {
 	public List<ActivityCategory> getAllActivityCategory(String request) {
 		List<ActivityCategory> list = new ArrayList<ActivityCategory>();
 		java.sql.Statement stmt = null;
-		System.out.println("Creating statement...");
 		try {
 			stmt = this.conn.createStatement();
 			this.rs = stmt.executeQuery(request);
@@ -217,7 +189,6 @@ public class JDBConnexion {
 			rs.close();
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -233,7 +204,6 @@ public class JDBConnexion {
 	public List<User> getAllUsers(String request) {
 		List<User> list = new ArrayList<User>();
 		java.sql.Statement stmt = null;
-		System.out.println("Creating statement...");
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		try {
 			stmt = this.conn.createStatement();
@@ -252,7 +222,6 @@ public class JDBConnexion {
 						Date date = formatter.parse(rs.getObject("dateofbirth").toString());
 						user.setDateOfBirth(date);
 					} catch (ParseException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 					user.setPassword(rs.getObject("password").toString());
@@ -262,7 +231,6 @@ public class JDBConnexion {
 			rs.close();
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -279,7 +247,6 @@ public class JDBConnexion {
 	public List<Product> getAllProduct(String request) {
 		List<Product> list = new ArrayList<Product>();
 		java.sql.Statement stmt = null;
-		System.out.println("Creating statement...");
 		try {
 			stmt = this.conn.createStatement();
 			this.rs = stmt.executeQuery(request);
@@ -299,7 +266,6 @@ public class JDBConnexion {
 			rs.close();
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return list;
@@ -314,7 +280,6 @@ public class JDBConnexion {
 	public List<Task> getAllTask(String request) {
 		List<Task> list = new ArrayList<Task>();
 		java.sql.Statement stmt = null;
-		System.out.println("Creating statement...");
 		try {
 			stmt = this.conn.createStatement();
 			this.rs = stmt.executeQuery(request);
@@ -332,7 +297,6 @@ public class JDBConnexion {
 			rs.close();
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -348,7 +312,6 @@ public class JDBConnexion {
 	public List<Plan> getAllPlan(String request) {
 		List<Plan> list = new ArrayList<Plan>();
 		java.sql.Statement stmt = null;
-		System.out.println("Creating statement...");
 		try {
 			stmt = this.conn.createStatement();
 			this.rs = stmt.executeQuery(request);
@@ -370,7 +333,6 @@ public class JDBConnexion {
 			rs.close();
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -386,7 +348,6 @@ public class JDBConnexion {
 	public List<Plan> getRandomPlan(String request) {
 		List<Plan> list = new ArrayList<Plan>();
 		java.sql.Statement stmt = null;
-		System.out.println("Creating statement...");
 		try {
 			stmt = this.conn.createStatement();
 			this.rs = stmt.executeQuery(request);
@@ -408,7 +369,6 @@ public class JDBConnexion {
 			rs.close();
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -424,7 +384,6 @@ public class JDBConnexion {
 	public List<Plan> getMyPlan(String request) {
 		List<Plan> list = new ArrayList<Plan>();
 		java.sql.Statement stmt = null;
-		System.out.println("Creating statement...");
 		try {
 			stmt = this.conn.createStatement();
 			this.rs = stmt.executeQuery(request);
@@ -446,7 +405,6 @@ public class JDBConnexion {
 			rs.close();
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -461,12 +419,10 @@ public class JDBConnexion {
 	public void delete(String request)
 	{
 		java.sql.Statement stmt = null;
-		System.out.println("Creating statement...");
 			try {
 				stmt = this.conn.createStatement();
 				stmt.executeUpdate(request);
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 	}
@@ -479,7 +435,6 @@ public class JDBConnexion {
 	 */
 	public void executeUpdate(String request) throws SQLException {
 		java.sql.Statement stmt = null;
-		System.out.println("Creating statement...");
 		stmt = this.conn.createStatement();
 		stmt.executeUpdate(request);
 	}
@@ -488,8 +443,6 @@ public class JDBConnexion {
 	 * Description of the method fetchArray.
 	 */
 	public void fetchArray() {
-		// Start of user code for method fetchArray
-		// End of user code
 	}
 
 	/**
@@ -498,10 +451,8 @@ public class JDBConnexion {
 	 * @return the integer
 	 */
 	public Integer nbReponse() {
-		// Start of user code for method nbReponse
 		Integer nbReponse = Integer.valueOf(0);
 		return nbReponse;
-		// End of user code
 	}
 
 	/**
@@ -513,7 +464,6 @@ public class JDBConnexion {
 	public List<Task> getTaskForPlan(String request) {
 		List<Task> list = new ArrayList<Task>();
 		java.sql.Statement stmt = null;
-		System.out.println("Creating statement...");
 		try {
 			stmt = this.conn.createStatement();
 			this.rs = stmt.executeQuery(request);
@@ -529,14 +479,9 @@ public class JDBConnexion {
 			rs.close();
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		return list;
 	}
-
-	// Start of user code (user defined methods for JDBConnexion)
-
-	// End of user code
 }

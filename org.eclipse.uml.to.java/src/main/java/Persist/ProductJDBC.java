@@ -1,22 +1,18 @@
 package Persist;
 
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import Core.ActivityCategory;
 import Core.Product;
-import Excpetion.AlreadyExistException;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ProductJDBC.
+ * @author Helping Hand
  */
 public class ProductJDBC extends Product{
 	
-	/** The j db connexions. */
-	//public static JDBConnexion jDBConnexions = new JDBConnexion();
+	/** The JDBconnexions. */
 	public static JDBConnexion jDBConnexions = JDBConnexion.createConnect();
 	
 	/**
@@ -28,8 +24,6 @@ public class ProductJDBC extends Product{
 	 * @param category the category
 	 * @param idVendeur the id vendeur
 	 * @return Product
-	 * @parem name
-	 * @parem price
 	 */
 	public ProductJDBC(String name, Double price, int quantity, String category, Integer idVendeur) {
 		super(name, price, quantity, category,idVendeur);
@@ -37,20 +31,15 @@ public class ProductJDBC extends Product{
 			jDBConnexions.executeUpdate("INSERT INTO Product VALUES (DEFAULT, '"+ name + "','"+ price +"','" + "Poisson" + "','" 
 					+ quantity  + "','" + idVendeur +"')");
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-			//throw new AlreadyExistException("Your email is already used, please choose an other.");
 		}
-		
-		
 	}
 	
 
 	/**
-	 * Instantiates a new product jdbc.
+	 * Instantiates a new productJDBC.
 	 */
 	public ProductJDBC() {
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -59,26 +48,22 @@ public class ProductJDBC extends Product{
 	 * @param id the id
 	 * @return List<Product>
 	 */
-	
 	public static List<Product> getAllProduct(Integer id) {
 		List<Product> list = new ArrayList<Product>();
-		System.out.println("Je passe ici");
 		list = jDBConnexions.getAllProduct("SELECT * FROM product where idvendeur =" + id) ;
 		return list;
 	}
 	
 	/**
-	 * modifie le currentProduct.
+	 * modifie le product.
 	 *
-	 * @param ac the ac
+	 * @param ac the activity category
 	 * @param name the name
 	 * @param price the price
 	 * @param category the category
 	 * @param quantity the quantity
 	 */
 	public void modifyProduct(Product ac, String name, String price, String category, String quantity) {
-		double priceP = 0;
-		Integer quantityP = 0;
 		Double p;
 		int q;
 		if (name.isEmpty()) {
@@ -117,21 +102,16 @@ public class ProductJDBC extends Product{
 			e.printStackTrace();
 		}
 	}
-	              
-
-
 
 	/* (non-Javadoc)
 	 * @see Core.Product#save()
 	 */
 	@Override
 	public void save() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	/**
-	 * Returns l'ensemble des produits de la base de donn�es.
+	 * Returns l'ensemble des produits de la base de donnees.
 	 *
 	 * @return List<Product>
 	 */
@@ -143,10 +123,10 @@ public class ProductJDBC extends Product{
 	}
 
 	/**
-	 * supprime le currentProduct.
+	 * supprime le Product.
 	 */
 	
 	public void delete() {
-			this.jDBConnexions.delete("DELETE FROM product where idp =" + this.getId());
+		this.jDBConnexions.delete("DELETE FROM product where idp =" + this.getId());
 	}
 }
