@@ -2,8 +2,6 @@
 package UI;
 
 import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,23 +10,18 @@ import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
 
-import Core.ActivityCategory;
-import Core.ActivityCategoryFacade;
 import Core.Product;
 import Core.ProductFacade;
 import Core.User;
-import Persist.ActivityCategoryJDBC;
 import Persist.ProductJDBC;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class DeleteProductViewSeller.
+ * 
+ * @author HelpingHand
  */
 public class DeleteProductViewSeller extends JPanel implements ActionListener {
 	
@@ -39,20 +32,20 @@ public class DeleteProductViewSeller extends JPanel implements ActionListener {
 	/** The combo. */
 	JComboBox<String> combo = new JComboBox<String>();
 
-	/** Text to choose the activity category to delete. */
+	/** Text to choose the product to delete. */
 	JLabel chooseProduct = new JLabel("Choose an product :");
 
-	/** Button who permit to validate the activity category choosen. */
+	/** Button who permit to validate the product choosen. */
 	JButton chooseProductButton = new JButton("Choose");
 
 	/** This panel permit to display information. */
 	JPanel panelEditAll = new JPanel(new GridLayout(2,0));
 	
-	/** Define the current activit category that the admin choose. */
+	/** Define the current product that the admin choose. */
 	ProductJDBC currentProductJDBC;
 
 	/**
-	 * Description of the property ActivityCategoryFacades.
+	 * Description of the property ProductFacades.
 	 */
 	public ProductFacade productFacades = new ProductFacade(this);
 	
@@ -65,17 +58,16 @@ public class DeleteProductViewSeller extends JPanel implements ActionListener {
 	/** The menu seller view. */
 	private MenuSellerView menuSellerView;
 	
-	/** The vc. */
+	/** The ViewController. */
 	private ViewController vc;
 
 /**
  * Instantiates a new delete product view seller.
  *
  * @param currentUser the current user
- * @param vc the vc
+ * @param vc the ViewController
  */
 public DeleteProductViewSeller(User currentUser, ViewController vc) {
-//		super("DashBoard"); // Name of the frame
 		this.currentUser = currentUser;
 		this.vc = vc;
 		this.menuSellerView = new MenuSellerView(this.vc);

@@ -1,31 +1,25 @@
 package UI;
 
 	import java.awt.BorderLayout;
-	import java.awt.Container;
-	import java.awt.Dimension;
-	import java.awt.Font;
-	import java.awt.GridLayout;
-	import java.awt.event.ActionEvent;
-	import java.awt.event.ActionListener;
-	import java.util.ArrayList;
-	import java.util.List;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
-	import javax.swing.JButton;
-	import javax.swing.JComboBox;
-	import javax.swing.JFrame;
-	import javax.swing.JLabel;
-	import javax.swing.JPanel;
-	import javax.swing.JTextField;
-	import javax.swing.SwingConstants;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
+import Core.User;
+import Core.UserFacade;
+import Persist.UserJDBC;
 
-	import Core.User;
-	import Core.UserFacade;
-	import Persist.UserJDBC;
-
-	// TODO: Auto-generated Javadoc
 /**
 	 * The Class DeleteAccountAdminView.
+	 * 
+	 * @author HelpingHand
 	 */
 	public class DeleteAccountAdminView extends JPanel implements ActionListener {
 		
@@ -66,14 +60,14 @@ package UI;
 		/** Contain all the activity category of the database. */
 		List<User> allUsers = new ArrayList<User>();
 
-		/** The vc. */
+		/** The View Controller. */
 		private ViewController vc;
 
 	/**
 	 * Instantiates a new delete account admin view.
 	 *
 	 * @param currentUser the current user
-	 * @param vc the vc
+	 * @param vc the ViewController
 	 */
 	public DeleteAccountAdminView(User currentUser, ViewController vc) {
 //			super("DashBoard"); // Name of the frame

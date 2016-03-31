@@ -8,9 +8,10 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class MenuUserView.
+ * 
+ * @author HelpingHand
  */
 public class MenuUserView extends JPanel implements ActionListener {
 
@@ -35,13 +36,13 @@ public class MenuUserView extends JPanel implements ActionListener {
 	/** The notifications. */
 	private JButton notifications = new JButton("Notifications");
 	
-	/** The vc. */
+	/** The ViewController. */
 	private ViewController vc;
 	
 	/**
 	 * Instantiates a new menu user view.
 	 *
-	 * @param vc the vc
+	 * @param vc the ViewController
 	 */
 	public MenuUserView(ViewController  vc) {
 		this.vc = vc;

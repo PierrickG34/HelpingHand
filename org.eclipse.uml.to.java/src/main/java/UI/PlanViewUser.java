@@ -1,9 +1,7 @@
 package UI;
 
 import java.awt.BorderLayout;
-import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,21 +9,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.swing.text.DefaultCaret;
 
 import Core.Plan;
 import Core.PlanFacade;
 import Core.Task;
 import Core.User;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class PlanViewUser.
+ * 
+ * @author HelpingHand
  */
 public class PlanViewUser extends JPanel implements ActionListener {
 	
@@ -35,7 +32,7 @@ public class PlanViewUser extends JPanel implements ActionListener {
 	/** The name plan. */
 	JLabel namePlan = new JLabel ("");
 	
-	/** The AC plan. */
+	/** The ActivityCategory AC plan. */
 	JLabel ACPlan = new JLabel ("");
 	
 	/** The obs plan. */
@@ -69,7 +66,7 @@ public class PlanViewUser extends JPanel implements ActionListener {
 	/** The current plan. */
 	private Plan currentPlan;
 	
-	/** The vc. */
+	/** The ViewController. */
 	private ViewController vc;
 	
 	/** The menu user view. */
@@ -82,7 +79,7 @@ public class PlanViewUser extends JPanel implements ActionListener {
 	 *
 	 * @param currentUser the current user
 	 * @param currentPlan the current plan
-	 * @param vc the vc
+	 * @param vc the ViewController
 	 */
 	public PlanViewUser(User currentUser, Plan currentPlan, ViewController vc) {
 		this.currentUser = currentUser;

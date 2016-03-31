@@ -2,62 +2,55 @@ package UI;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.imageio.ImageIO;
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
 import Core.User;
 import Core.UserFacade;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ProfileAdminModifyView.
+ * 
+ * @author HelpingHand
  */
 public class ProfileAdminModifyView extends JPanel implements ActionListener {
-	
+
 	/** Descriptions for the mobile field. */
 	JLabel editInformations = new JLabel("  Edit informations  :");
 
 	/** Describe the current user. */
 	private User currentUser;
-	
+
 	/** The user facade. */
 	private UserFacade userFacade;
 
 	/** Descriptions for the mobile field. */
 	JLabel mobile = new JLabel("Mobile :");
-	
+
 	/** The mobile entre. */
 	JTextField mobileEntre = new JTextField("", 15);
 
 	/** Descriptions for the address field. */
 	JLabel address = new JLabel("Address :");
-	
+
 	/** The address entre. */
 	JTextField addressEntre = new JTextField("", 15);
 
 	/** Description for the password information. */
 	JLabel password = new JLabel("Password:");
-	
+
 	/** The password entre. */
 	JPasswordField passwordEntre = new JPasswordField("", 15);
 
@@ -69,10 +62,10 @@ public class ProfileAdminModifyView extends JPanel implements ActionListener {
 
 	/** The vc. */
 	private ViewController vc;
-	
+
 	/** The menu admin view. */
 	private MenuAdminView menuAdminView;
-	
+
 	/**
 	 * Instantiates a new profile admin modify view.
 	 *
@@ -80,7 +73,7 @@ public class ProfileAdminModifyView extends JPanel implements ActionListener {
 	 * @param vc the vc
 	 */
 	public ProfileAdminModifyView(User currentUser, ViewController vc) {
-//		super("Edit Profile");
+		//		super("Edit Profile");
 		this.currentUser = currentUser;
 		this.vc = vc;
 		this.menuAdminView = new MenuAdminView(this.vc);

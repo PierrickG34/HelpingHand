@@ -2,15 +2,11 @@ package UI;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -20,9 +16,10 @@ import Core.ActivityCategoryFacade;
 import Core.User;
 import Excpetion.AlreadyExistException;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class CreateActivityCategoryView.
+ * 
+ * @author HelpingHand
  */
 public class CreateActivityCategoryView extends JPanel implements ActionListener {
 
@@ -62,7 +59,7 @@ public class CreateActivityCategoryView extends JPanel implements ActionListener
 	 /** Describe error message. */
     JLabel errorMessage = new JLabel("");
     
-    /** The vc. */
+    /** The ViewController. */
     private ViewController vc;
     
     /** The menu admin view. */
@@ -75,12 +72,10 @@ public class CreateActivityCategoryView extends JPanel implements ActionListener
      * @param vc the vc
      */
 	public CreateActivityCategoryView(User currentUser, ViewController vc) {
-//		super("Activity Category"); // Name of the frame
 		this.currentUser = currentUser;
 		this.vc = vc;
 		this.menuAdminView = new MenuAdminView(this.vc);
 		this.add(menuAdminView);
-	
   
         /*-------------- Veritable view --------------------*/
         JPanel panelAll = new JPanel(new GridLayout(2, 0));
@@ -116,13 +111,7 @@ public class CreateActivityCategoryView extends JPanel implements ActionListener
 		
 		panelAll.add(panelCreateActivityCategory);
 		panelAll.add(panelButtonValidate);
-//		contentPane.add(panelAll, BorderLayout.WEST);
 		this.add(panelAll, BorderLayout.WEST);
-
-//        //Display
-//        setSize(400,120);
-//        setVisible(true);
-//        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
 	/* (non-Javadoc)

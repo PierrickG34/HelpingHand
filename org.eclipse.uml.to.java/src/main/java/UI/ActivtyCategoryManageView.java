@@ -1,21 +1,19 @@
 package UI;
 
 import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import Core.User;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ActivtyCategoryManageView.
+ * 
+ * @author HelpingHand
  */
 public class ActivtyCategoryManageView extends JPanel implements ActionListener {
 
@@ -28,7 +26,7 @@ public class ActivtyCategoryManageView extends JPanel implements ActionListener 
 	/** The current user. */
 	private User currentUser;
 	
-	/** The vc. */
+	/** The ViewController. */
 	private ViewController vc;
 	
 	/** The menu admin view. */
@@ -41,11 +39,11 @@ public class ActivtyCategoryManageView extends JPanel implements ActionListener 
 	 * @param vc the vc
 	 */
 	public ActivtyCategoryManageView(User currentUser, ViewController vc) {
-//		super("Activity Category"); // Name of the frame
 		this.currentUser = currentUser;
 		this.vc = vc;
 		this.menuAdminView = new MenuAdminView(vc);
 		this.add(menuAdminView);
+		
         /*-------------- Veritable view --------------------*/
         JPanel manageButton = new JPanel(new GridLayout(2, 1));
         JPanel createButton = new JPanel();
@@ -59,8 +57,7 @@ public class ActivtyCategoryManageView extends JPanel implements ActionListener 
         
         manageButton.add(createButton);
         manageButton.add(updateButton);
-        
-//        contentPane.add(manageButton, BorderLayout.WEST);
+       
         this.add(manageButton, BorderLayout.WEST);
 
 	}

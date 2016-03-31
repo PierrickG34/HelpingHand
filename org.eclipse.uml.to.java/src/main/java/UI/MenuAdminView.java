@@ -11,6 +11,8 @@ import javax.swing.JPanel;
 // TODO: Auto-generated Javadoc
 /**
  * The Class MenuAdminView.
+ * 
+ * @author HelpingHand
  */
 public class MenuAdminView extends JPanel implements ActionListener {
 	
@@ -41,13 +43,13 @@ public class MenuAdminView extends JPanel implements ActionListener {
 	/** The notifications. */
 	private JButton notifications = new JButton("Notifications");
 	
-	/** The vc. */
+	/** The ViewControler. */
 	private ViewController vc;
 	
 	/**
 	 * Instantiates a new menu admin view.
 	 *
-	 * @param vc the vc
+	 * @param vc the ViewController
 	 */
 	public MenuAdminView(ViewController vc) {
 		this.vc = vc;
@@ -65,7 +67,7 @@ public class MenuAdminView extends JPanel implements ActionListener {
 		this.notifications.addActionListener(this);
 		this.notifications.setEnabled(false);
 		
-		JPanel panelButton = new JPanel(new GridLayout(3, 1)); // 2 rows x 1 column
+		JPanel panelButton = new JPanel(new GridLayout(3, 1)); // 3 rows x 1 column
         JPanel panelTopButton = new JPanel();
         JPanel panelBottomButton = new JPanel();
         
@@ -96,7 +98,6 @@ public class MenuAdminView extends JPanel implements ActionListener {
 			this.vc.dashboardAdminView();
 		}
 		else if (source == "Activity Category" ){
-//			ActivtyCategoryManageView activityCategory = new ActivtyCategoryManageView(this.currentUser);
 			this.vc.ActivtyCategoryManageView();
 		}
 		else if (source == "Product Category"){
