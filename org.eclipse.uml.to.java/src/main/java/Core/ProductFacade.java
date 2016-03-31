@@ -16,6 +16,7 @@ import UI.TaskUpdateView;
 import UI.UpdateProductAdminView;
 import UI.UpdateProductView;
 
+// TODO: Auto-generated Javadoc
 /**
  * Description of UserFacade.
  * 
@@ -32,7 +33,8 @@ public class ProductFacade {
 
 	/**
 	 * The constructor.
-	 * @param ProductCreateView 
+	 *
+	 * @param productCreateView the product create view
 	 */
 	public ProductFacade(ProductCreateView productCreateView) {
 		// Start of user code constructor for UserFacade)
@@ -42,7 +44,8 @@ public class ProductFacade {
 
 	/**
 	 * The constructor.
-	 * @param ProductUpdateView
+	 *
+	 * @param updateProductView the update product view
 	 */
 	public ProductFacade(UpdateProductView updateProductView) {
 		super();
@@ -50,7 +53,8 @@ public class ProductFacade {
 	
 	/**
 	 * The constructor.
-	 * @param TasCreateView
+	 *
+	 * @param taskCreateView the task create view
 	 */
 	public ProductFacade(TaskCreateView taskCreateView) {
 		super();
@@ -58,7 +62,8 @@ public class ProductFacade {
 	
 	/**
 	 * The constructor.
-	 * @param TasUpdateView
+	 *
+	 * @param taskUpdateView the task update view
 	 */
 	public ProductFacade(TaskUpdateView taskUpdateView) {
 		super();
@@ -66,20 +71,36 @@ public class ProductFacade {
 
 	/**
 	 * The constructor.
-	 * @param DeleteProductView
+	 *
+	 * @param deleteProductView the delete product view
 	 */
 	public ProductFacade(DeleteProductView deleteProductView) {
 		super();
 	}
 
+	/**
+	 * Instantiates a new product facade.
+	 *
+	 * @param productCreateViewSeller the product create view seller
+	 */
 	public ProductFacade(ProductCreateViewSeller productCreateViewSeller) {
 		super();
 	}
 
+	/**
+	 * Instantiates a new product facade.
+	 *
+	 * @param deleteProductViewSeller the delete product view seller
+	 */
 	public ProductFacade(DeleteProductViewSeller deleteProductViewSeller) {
 		super();
 	}
 
+	/**
+	 * Instantiates a new product facade.
+	 *
+	 * @param updateProductAdminView the update product admin view
+	 */
 	public ProductFacade(UpdateProductAdminView updateProductAdminView) {
 		// TODO Auto-generated constructor stub
 		super();
@@ -87,11 +108,12 @@ public class ProductFacade {
 
 	/**
 	 * Description of the method createProduct.
-	 * @param name 
-	 * @param price
-	 * @param quantity
-	 * @param category
-	 * @param idVendeur
+	 *
+	 * @param name the name
+	 * @param price the price
+	 * @param quantity the quantity
+	 * @param category the category
+	 * @param idVendeur the id vendeur
 	 * @return Product
 	 */
 
@@ -109,8 +131,9 @@ public class ProductFacade {
 	}
 	
 	/**
-	 * Return l'ensemble des products du vendeur donn�e
-	 * @param idVendeur
+	 * Return l'ensemble des products du vendeur donn�e.
+	 *
+	 * @param idVendeur the id vendeur
 	 * @return List<Product>
 	 */
 	public List<Product> getAllProduct(Integer idVendeur) {
@@ -119,35 +142,43 @@ public class ProductFacade {
 	
 	/**
 	 * Sets a value to attribute userManager. 
-	 * @param newuserManager 
+	 *
+	 * @param newProductManager the new product manager
 	 */
 	public void setproductManager(ProductManager newProductManager) {
 		this.productManager = newProductManager;
 	}
 
 	/**
-	 * Returns l'ensemble des produits de la base de donn�es
-	 * @return List<Product> 
+	 * Returns l'ensemble des produits de la base de donn�es.
+	 *
+	 * @return List<Product>
 	 */
 	public List<Product> getAllProduct() {
 		return this.productManager.getAllProduct();
 	}
 
 	/**
-	 * modifie le currentProduct
-	 * @param product
-	 * @name
-	 * @price
-	 * @quantity
-	 * @category
+	 * modifie le currentProduct.
+	 *
+	 * @param product the product
+	 * @param name the name
+	 * @param price the price
+	 * @param category the category
+	 * @param quantity the quantity
+	 * @name 
+	 * @price 
+	 * @quantity 
+	 * @category 
 	 */
 	public void modifyProduct(Product product, String name, String price, String category, String quantity) {
 		this.productManager.modifyProduct(product,name,price,category,quantity);
 	}
 
 	/**
-	 * Supprimer currentProduct
-	 * @param product
+	 * Supprimer currentProduct.
+	 *
+	 * @param product the product
 	 */
 	public void DeleteProduct(Product product) {
 		this.productManager.deleteProduct(product);		

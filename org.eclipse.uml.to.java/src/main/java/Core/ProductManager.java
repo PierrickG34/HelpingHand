@@ -7,11 +7,24 @@ import Factory.AbstractFactory;
 import Factory.FactoryJDBC;
 import Persist.ProductJDBC;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ProductManager.
+ */
 public class ProductManager {
+	
+	/** The current product. */
 	private Product currentProduct;
+	
+	/** The list product. */
 	private Product[] listProduct;
+	
+	/** The jdbc factorys. */
 	public AbstractFactory jdbcFactorys = new FactoryJDBC();
 	
+	/**
+	 * Instantiates a new product manager.
+	 */
 	public ProductManager() {
 		super();		// End of user code
 	}
@@ -19,12 +32,28 @@ public class ProductManager {
 	
 
 	
+	/**
+	 * Creates the product.
+	 *
+	 * @param name the name
+	 * @param price the price
+	 * @param quantity the quantity
+	 * @param category the category
+	 * @param idVendeur the id vendeur
+	 * @return the product
+	 */
 	public Product createProduct(String name, Double price, int quantity, String category, Integer idVendeur)
 	{
 		this.currentProduct = this.jdbcFactorys.createProduct(name,price,quantity,category,idVendeur);
 		return this.currentProduct;
 	}
 	
+	/**
+	 * Gets the all product.
+	 *
+	 * @param id the id
+	 * @return the all product
+	 */
 	public List<Product> getAllProduct(Integer id) {
 		Product product = this.jdbcFactorys.createProduct();
 		return product.getAllProduct(id);
@@ -33,6 +62,11 @@ public class ProductManager {
 
 
 
+	/**
+	 * Gets the all product.
+	 *
+	 * @return the all product
+	 */
 	public List<Product> getAllProduct() {
 		Product product = this.jdbcFactorys.createProduct();
 		return product.getAllProduct();
@@ -41,6 +75,15 @@ public class ProductManager {
 
 
 
+	/**
+	 * Modify product.
+	 *
+	 * @param product the product
+	 * @param name the name
+	 * @param price the price
+	 * @param category the category
+	 * @param quantity the quantity
+	 */
 	public void modifyProduct(Product product, String name, String price, String category, String quantity) {
 		this.currentProduct = product;
 		ProductJDBC currentProductJDBC = (ProductJDBC) this.currentProduct;
@@ -50,6 +93,11 @@ public class ProductManager {
 
 
 
+	/**
+	 * Delete product.
+	 *
+	 * @param product the product
+	 */
 	public void deleteProduct(Product product) {
 		product.delete();
 	}

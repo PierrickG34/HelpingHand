@@ -13,6 +13,7 @@ import java.util.List;
 import Persist.ProductJDBC;
 import Persist.UserJDBC;
 
+// TODO: Auto-generated Javadoc
 // Start of product code (product defined imports)
 
 // End of product code
@@ -58,11 +59,12 @@ public abstract class Product {
 	
 	/**
 	 * The constructor.
-	 * @param name
-	 * @param price
-	 * @param quantity
-	 * @param category
-	 * @param idVendeur
+	 *
+	 * @param name the name
+	 * @param price the price
+	 * @param quantity the quantity
+	 * @param category the category
+	 * @param idVendeur the id vendeur
 	 */
 	public Product(String name, Double price, int quantity, String category, Integer idVendeur) {
 		// Start of user code constructor for Product)
@@ -75,7 +77,14 @@ public abstract class Product {
 		// End of user code
 	}
 	
+	/**
+	 * Instantiates a new product.
+	 */
 	public Product() {}
+	
+	/**
+	 * Save.
+	 */
 	public abstract void save();
 
 
@@ -92,7 +101,8 @@ public abstract class Product {
 
 	/**
 	 * Sets a value to attribute idUProduct. 
-	 * @param newIdProduct
+	 *
+	 * @param newIdProduct the new id
 	 */
 	public void setId(Integer newIdProduct) {
 		this.idProduct = newIdProduct;
@@ -109,7 +119,8 @@ public abstract class Product {
 	
 	/**
 	 * Sets a value to attribute product name. 
-	 * @param newName
+	 *
+	 * @param newName the new name produc
 	 */
 	public void setNameProduc(String newName)
 	{
@@ -127,7 +138,8 @@ public abstract class Product {
 	
 	/**
 	 * Sets a value to attribute product price. 
-	 * @param newPrice
+	 *
+	 * @param newPrice the new price
 	 */
 	public void setPrice(Double newPrice)
 	{
@@ -145,7 +157,8 @@ public abstract class Product {
 	
 	/**
 	 * Sets a value to attribute product category. 
-	 * @param newCategory
+	 *
+	 * @param newCategory the new category
 	 */
 	public void setCategory(String newCategory)
 	{
@@ -163,7 +176,8 @@ public abstract class Product {
 	
 	/**
 	 * Sets a value to attribute product quantity. 
-	 * @param newQuantity
+	 *
+	 * @param newQuantity the new quantity
 	 */
 	public void setQuantity(int newQuantity)
 	{
@@ -171,9 +185,10 @@ public abstract class Product {
 	}
 	
 	/**
-	 * Returns l'ensemble des produits du vendeur
-	 * @param idVendeur
-	 * @return List<Product> 
+	 * Returns l'ensemble des produits du vendeur.
+	 *
+	 * @param idVendeur the id vendeur
+	 * @return List<Product>
 	 */
 
 	public static List<Product> getAllProduct(Integer idVendeur) {
@@ -181,13 +196,14 @@ public abstract class Product {
 	}
 	
 	/**
-	 * Returns l'ensemble des produits de la base de données
-	 * @return List<Product> 
+	 * Returns l'ensemble des produits de la base de donnï¿½es.
+	 *
+	 * @return List<Product>
 	 */
 	public abstract List<Product> getAllProduct();
 
 	/**
-	 * Supprimer currentProduct
+	 * Supprimer currentProduct.
 	 */
 	public abstract void delete();
 }

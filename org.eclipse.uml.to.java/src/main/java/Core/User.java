@@ -9,6 +9,7 @@ import Excpetion.LoginException;
 import Excpetion.PasswordException;
 import Persist.UserJDBC;
 
+// TODO: Auto-generated Javadoc
 // Start of user code (user defined imports)
 
 // End of user code
@@ -75,9 +76,7 @@ public abstract class User {
 	 */
 	private Boolean admin = Boolean.FALSE;
 	
-	/**
-	 * Description of the address (postal)
-	 */
+	/** Description of the address (postal). */
 	
 	private String address = "";
 
@@ -85,13 +84,17 @@ public abstract class User {
 
 	// End of user code
 
+	/**
+	 * Instantiates a new user.
+	 */
 	public User() {
 		super();
 	}
 	
 	/**
 	 * The constructor.
-	 * @param login
+	 *
+	 * @param login the login
 	 */
 	public User(String login) {
 		// Start of user code constructor for User)
@@ -100,6 +103,19 @@ public abstract class User {
 		// End of user code
 	}
 	
+	/**
+	 * Instantiates a new user.
+	 *
+	 * @param firstName the first name
+	 * @param surName the sur name
+	 * @param mobile the mobile
+	 * @param mailAddress the mail address
+	 * @param password the password
+	 * @param dateOfBirth the date of birth
+	 * @param webSiteURL the web site url
+	 * @param siretNumber the siret number
+	 * @param address the address
+	 */
 	public User(String firstName, String surName, String mobile, String mailAddress, String password, 
 			Date dateOfBirth, String webSiteURL, String siretNumber, String address) {
 		super();
@@ -114,11 +130,15 @@ public abstract class User {
 		this.address = address;
 	}
 	
+	/**
+	 * Save.
+	 */
 	public abstract void save();
 
 	/**
 	 * Description of the method validatePassword.
-	 * @param passwordIn
+	 *
+	 * @param passwordIn the password in
 	 * @return true if the password correspond, else false
 	 */
 	public boolean validatePassword(String passwordIn) {
@@ -132,7 +152,8 @@ public abstract class User {
 
 	/**
 	 * Description of the method setUser.
-	 * @param login 
+	 *
+	 * @return the id user
 	 */
 	/*public void setUser(String login) {
 		// Start of user code for method setUser
@@ -154,7 +175,8 @@ public abstract class User {
 
 	/**
 	 * Sets a value to attribute idUser. 
-	 * @param newIdUser 
+	 *
+	 * @param newIdUser the new id user
 	 */
 	public void setIdUser(Integer newIdUser) {
 		this.idUser = newIdUser;
@@ -170,23 +192,26 @@ public abstract class User {
 
 	/**
 	 * Sets a value to attribute password. 
-	 * @param newPassword 
+	 *
+	 * @param newPassword the new password
 	 */
 	public void setPassword(String newPassword) {
 		this.password = newPassword;
 	}
 	
 	/**
-	 * Return address postal
-	 * @return
+	 * Return address postal.
+	 *
+	 * @return the address
 	 */
 	public String getAddress() {
 		return this.address;
 	}
 	
 	/**
-	 * Sets a value to attribute address
-	 * @param newAddress
+	 * Sets a value to attribute address.
+	 *
+	 * @param newAddress the new address
 	 */
 	public void setAddress(String newAddress) {
 		this.address = newAddress;
@@ -202,7 +227,8 @@ public abstract class User {
 
 	/**
 	 * Sets a value to attribute firstName. 
-	 * @param newFirstName 
+	 *
+	 * @param newFirstName the new first name
 	 */
 	public void setFirstName(String newFirstName) {
 		this.firstName = newFirstName;
@@ -218,7 +244,8 @@ public abstract class User {
 
 	/**
 	 * Sets a value to attribute surName. 
-	 * @param newSurName 
+	 *
+	 * @param newSurName the new sur name
 	 */
 	public void setSurName(String newSurName) {
 		this.surName = newSurName;
@@ -234,7 +261,8 @@ public abstract class User {
 
 	/**
 	 * Sets a value to attribute mobile. 
-	 * @param newMobile 
+	 *
+	 * @param newMobile the new mobile
 	 */
 	public void setMobile(String newMobile) {
 		this.mobile = newMobile;
@@ -250,7 +278,8 @@ public abstract class User {
 
 	/**
 	 * Sets a value to attribute mailAddress. 
-	 * @param newMailAddress 
+	 *
+	 * @param newMailAddress the new mail address
 	 */
 	public void setMailAddress(String newMailAddress) {
 		this.mailAddress = newMailAddress;
@@ -266,7 +295,8 @@ public abstract class User {
 
 	/**
 	 * Sets a value to attribute dateOfBirth. 
-	 * @param newDateOfBirth 
+	 *
+	 * @param newDateOfBirth the new date of birth
 	 */
 	public void setDateOfBirth(Date newDateOfBirth) {
 		this.dateOfBirth = newDateOfBirth;
@@ -282,7 +312,8 @@ public abstract class User {
 
 	/**
 	 * Sets a value to attribute profilePicture. 
-	 * @param newProfilePicture 
+	 *
+	 * @param newProfilePicture the new profile picture
 	 */
 	public void setProfilePicture(String newProfilePicture) {
 		this.profilePicture = newProfilePicture;
@@ -298,7 +329,8 @@ public abstract class User {
 
 	/**
 	 * Sets a value to attribute siretNumber. 
-	 * @param newSiretNumber 
+	 *
+	 * @param newSiretNumber the new siret number
 	 */
 	public void setSiretNumber(String newSiretNumber) {
 		this.siretNumber = newSiretNumber;
@@ -314,7 +346,8 @@ public abstract class User {
 
 	/**
 	 * Sets a value to attribute websiteURL. 
-	 * @param newWebsiteURL 
+	 *
+	 * @param newWebsiteURL the new website url
 	 */
 	public void setWebsiteURL(String newWebsiteURL) {
 		this.websiteURL = newWebsiteURL;
@@ -330,13 +363,21 @@ public abstract class User {
 
 	/**
 	 * Sets a value to attribute admin. 
-	 * @param newAdmin 
+	 *
+	 * @param newAdmin the new admin
 	 */
 	public void setAdmin(Boolean newAdmin) {
 		this.admin = newAdmin;
 	}
 
 	
+	/**
+	 * Modify account.
+	 *
+	 * @param mobile the mobile
+	 * @param address the address
+	 * @param password the password
+	 */
 	public void modifyAccount(String mobile, String address, String password) {
 		this.setMobile(mobile);
 		this.setAddress(address);
