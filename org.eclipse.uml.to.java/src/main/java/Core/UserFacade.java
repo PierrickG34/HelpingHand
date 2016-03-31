@@ -5,9 +5,7 @@ package Core;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Observable;
 
-import Factory.FactoryJDBC;
 import UI.LoginView;
 import UI.ProfileUserModifyView;
 import UI.SignUpView;

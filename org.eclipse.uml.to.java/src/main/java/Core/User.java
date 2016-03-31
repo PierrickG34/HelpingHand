@@ -5,9 +5,7 @@ package Core;
 
 import java.util.Date;
 
-import Excpetion.LoginException;
 import Excpetion.PasswordException;
-import Persist.UserJDBC;
 
 /**
  * Description of User.
