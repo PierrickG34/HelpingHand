@@ -5,16 +5,18 @@ package HelpingHand;
 
 import UI.LoginView;
 
-// Start of user code (user defined imports)
-
-// End of user code
-
 /**
  * Description of main.
  * 
- * @author pierrickgiuliani
+ * @author HelpingHand
  */
 public class main {
+	
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 */
 	public static void main(String[] args) {
 	
 	LoginView loginViews = new LoginView();
