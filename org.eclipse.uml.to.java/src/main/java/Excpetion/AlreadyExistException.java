@@ -1,9 +1,11 @@
 package Excpetion;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class AlreadyExistException.
+ * @author Helping Hand
  */
+
 public class AlreadyExistException extends RuntimeException {
 	
 	/** The name exception. */
