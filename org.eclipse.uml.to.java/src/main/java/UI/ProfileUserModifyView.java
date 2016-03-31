@@ -2,63 +2,55 @@ package UI;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.imageio.ImageIO;
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
 import Core.User;
 import Core.UserFacade;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ProfileUserModifyView.
+ * @author HelpingHand
  */
 public class ProfileUserModifyView extends JPanel implements ActionListener {
-	
-	/** Descriptions for the mobile field. */
+
+	/** Descriptions for the edit information. */
 	JLabel editInformations = new JLabel("  Edit informations  :");
 
 	/** Describe the current user. */
 	private User currentUser;
-	
+
 	/** The user facade. */
 	private UserFacade userFacade;
 
 	/** Descriptions for the mobile field. */
 	JLabel mobile = new JLabel("Mobile :");
-	
-	/** The mobile entre. */
+
+	/** The mobile type. */
 	JTextField mobileEntre = new JTextField("", 15);
 
 	/** Descriptions for the address field. */
 	JLabel address = new JLabel("Address :");
-	
-	/** The address entre. */
+
+	/** The address type. */
 	JTextField addressEntre = new JTextField("", 15);
 
 	/** Description for the password information. */
 	JLabel password = new JLabel("Password:");
-	
-	/** The password entre. */
+
+	/** The password type. */
 	JPasswordField passwordEntre = new JPasswordField("", 15);
 
 	/** Description for the button validate. */
@@ -67,20 +59,19 @@ public class ProfileUserModifyView extends JPanel implements ActionListener {
 	/** Describe error message. */
 	JLabel errorMessage = new JLabel("");
 
-	/** The vc. */
+	/** The ViewController. */
 	private ViewController vc;
-	
+
 	/** The menu user view. */
 	private MenuUserView menuUserView;
-	
+
 	/**
 	 * Instantiates a new profile user modify view.
 	 *
 	 * @param currentUser the current user
-	 * @param vc the vc
+	 * @param vc the ViewController
 	 */
 	public ProfileUserModifyView(User currentUser, ViewController vc) {
-//		super("Edit Profile");
 		this.currentUser = currentUser;
 		this.vc = vc;
 		this.menuUserView = new MenuUserView(this.vc);

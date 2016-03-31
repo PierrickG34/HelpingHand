@@ -2,8 +2,6 @@
 package UI;
 
 import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,93 +10,88 @@ import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import Core.ActivityCategory;
-import Core.ActivityCategoryFacade;
 import Core.Product;
 import Core.ProductFacade;
 import Core.User;
-import Persist.ActivityCategoryJDBC;
 import Persist.ProductJDBC;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class UpdateProductView.
+ * @author Helping Hand 
  */
 public class UpdateProductView extends JPanel implements ActionListener {
 
-	/** Description for the button validate. */
+	/** Description for the button submit. */
 	JButton submit = new JButton("Submit");
-
 
 	/** The combo. */
 	JComboBox<String> combo = new JComboBox<String>();
 
-	/** Text to choose the activity category to delete. */
+	/** Text to choose the product to delete. */
 	JLabel chooseProduct = new JLabel("Choose an product :");
 
-	/** Button who permit to validate the activity category choosen. */
+	/** Button who permit to validate the product choosen. */
 	JButton chooseProductButton = new JButton("Choose");
 
-	/** Descriptions for the name of an activity category. */
+	/** Descriptions for the name of a product. */
 	JLabel nameProduct = new JLabel("Name :");
-	
-	/** The name product entre. */
+
+	/** The name product type. */
 	JTextField nameProductEntre = new JTextField("", 15);
 
-	/** Descriptions for the short detail of an activity category. */
+	/** Descriptions for the price of a product. */
 	JLabel priceProduct = new JLabel("price :");
-	
-	/** The price product entre. */
+
+	/** The price product type. */
 	JTextField priceProductEntre = new JTextField("", 15);
 
-	/** Descriptions for the short detail of an activity category. */
+	/** Descriptions for the quantity of a product. */
 	JLabel quantityProduct = new JLabel("quantity :");
-	
-	/** The quantity product entre. */
+
+	/** The quantity product type. */
 	JTextField quantityProductEntre = new JTextField("", 15);
-	
-	/** Descriptions for the short detail of an activity category. */
+
+	/** Descriptions for the category product. */
 	JLabel categoryProduct = new JLabel("category :");
-	
-	/** The category product entre. */
+
+	/** The category product type. */
 	JTextField categoryProductEntre = new JTextField("", 15);
-	
+
 	/** This panel permit to display information. */
 	JPanel panelEditAll = new JPanel(new GridLayout(2,0));
-	
-	/** Define the current activit category that the admin choose. */
+
+	/** Define the current produt that the admin choose. */
 	ProductJDBC currentProductJDBC;
 
 	/**
-	 * Description of the property ActivityCategoryFacades.
+	 * Description of the property ProductFacade.
 	 */
 	public ProductFacade productFacades = new ProductFacade(this);
-	
-	/** Contain all the activity category of the database. */
+
+	/** Contain all the product of the database. */
 	List<Product> allProduct = new ArrayList<Product>();
 
 	/** The current user. */
 	private User currentUser;
-	
-	/** The vc. */
+
+	/** The ViewController. */
 	private ViewController vc;
-	
+
 	/** The menu seller view. */
 	private MenuSellerView menuSellerView;
-	
-/**
- * Instantiates a new update product view.
- *
- * @param currentUser the current user
- * @param vc the vc
- */
-public UpdateProductView(User currentUser,ViewController vc) {
+
+	/**
+	 * Instantiates a new update product view.
+	 *
+	 * @param currentUser the current user
+	 * @param vc the ViewController
+	 */
+	public UpdateProductView(User currentUser,ViewController vc) {
 		this.currentUser = currentUser;
 		this.vc = vc;
 		this.menuSellerView = new MenuSellerView(this.vc);
@@ -123,31 +116,31 @@ public UpdateProductView(User currentUser,ViewController vc) {
 		panelComboBox.add(this.chooseProduct);
 		panelComboBox.add(this.combo);
 		panelComboBox.add(this.chooseProductButton);
-	 
-		// Name 
-        this.nameProduct.setPreferredSize(this.nameProductEntre.getPreferredSize());
-        this.nameProduct.setHorizontalAlignment(SwingConstants.RIGHT);
-        panelLabels.add(this.nameProduct);
-        panelTextFiel.add(this.nameProductEntre);
-        	
-        // Price
-        this.priceProduct.setPreferredSize(this.priceProductEntre.getPreferredSize());
-        this.priceProduct.setHorizontalAlignment(SwingConstants.RIGHT);
-        panelLabels.add(this.priceProduct);
-        panelTextFiel.add(this.priceProductEntre);
 
-        // quantity
-        this.quantityProduct.setPreferredSize(this.quantityProductEntre.getPreferredSize());
-        this.quantityProduct.setHorizontalAlignment(SwingConstants.RIGHT);
-        panelLabels.add(this.quantityProduct);
-        panelTextFiel.add(this.quantityProductEntre);
-        
-        //Category
-        this.categoryProduct.setPreferredSize(this.categoryProductEntre.getPreferredSize());
-        this.categoryProduct.setHorizontalAlignment(SwingConstants.RIGHT);
-        panelLabels.add(this.categoryProduct);
-        panelTextFiel.add(this.categoryProductEntre);
-        
+		// Name 
+		this.nameProduct.setPreferredSize(this.nameProductEntre.getPreferredSize());
+		this.nameProduct.setHorizontalAlignment(SwingConstants.RIGHT);
+		panelLabels.add(this.nameProduct);
+		panelTextFiel.add(this.nameProductEntre);
+
+		// Price
+		this.priceProduct.setPreferredSize(this.priceProductEntre.getPreferredSize());
+		this.priceProduct.setHorizontalAlignment(SwingConstants.RIGHT);
+		panelLabels.add(this.priceProduct);
+		panelTextFiel.add(this.priceProductEntre);
+
+		// Quantity
+		this.quantityProduct.setPreferredSize(this.quantityProductEntre.getPreferredSize());
+		this.quantityProduct.setHorizontalAlignment(SwingConstants.RIGHT);
+		panelLabels.add(this.quantityProduct);
+		panelTextFiel.add(this.quantityProductEntre);
+
+		//Category
+		this.categoryProduct.setPreferredSize(this.categoryProductEntre.getPreferredSize());
+		this.categoryProduct.setHorizontalAlignment(SwingConstants.RIGHT);
+		panelLabels.add(this.categoryProduct);
+		panelTextFiel.add(this.categoryProductEntre);
+
 		panelButtonValidate.add(submit, BorderLayout.CENTER);
 		panelAll.add(panelComboBox);
 		panelEdit.add(panelLabels);
@@ -169,8 +162,8 @@ public UpdateProductView(User currentUser,ViewController vc) {
 		String source = e.getActionCommand();
 		if(source == "Choose") {
 			this.panelEditAll.setVisible(true);
-		
-		/* Aller dans la base de données avec l'id de l'utilisateur*/
+
+			/* Display the information about the product in the database*/
 			this.nameProductEntre.setToolTipText(this.allProduct.get(this.combo.getSelectedIndex()).getName());
 			this.priceProductEntre.setToolTipText(String.valueOf(this.allProduct.get(this.combo.getSelectedIndex()).getPrice()));
 			this.quantityProductEntre.setToolTipText(String.valueOf(this.allProduct.get(this.combo.getSelectedIndex()).getQuantity()));

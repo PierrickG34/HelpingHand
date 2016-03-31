@@ -1,35 +1,27 @@
 package UI;
 
 import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.border.Border;
 
 import Core.User;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ProfileUserView.
+ * @author HelpingHand
  */
 public class ProfileUserView extends JPanel implements ActionListener {
-	
-	/** Description for the firstname information. */
-	JLabel informations = new JLabel(" Informations: ");
 
+	/** Description for the information. */
+	JLabel informations = new JLabel(" Informations: ");
 
 	/** Description for the firstname information. */
 	JLabel firstName = new JLabel("");
@@ -57,23 +49,18 @@ public class ProfileUserView extends JPanel implements ActionListener {
 
 	/** The current user. */
 	private User currentUser;
-	
-	/** The vc. */
+
+	/** The ViewController. */
 	private ViewController vc;
-	
+
 	/** The menu user view. */
 	private MenuUserView menuUserView;
-
-
-	// Start of user code (user defined attributes for LoginView)
-
-	// End of user code
 
 	/**
 	 * The constructor who create the window.
 	 *
 	 * @param currentUser the current user
-	 * @param vc the vc
+	 * @param vc the ViewController
 	 */
 	public ProfileUserView(User currentUser, ViewController vc) {
 		this.currentUser = currentUser;
@@ -104,7 +91,7 @@ public class ProfileUserView extends JPanel implements ActionListener {
 		this.password.setHorizontalAlignment(JLabel.CENTER);
 		this.address.setText("Address: " + this.currentUser.getAddress());
 		this.address.setHorizontalAlignment(JLabel.CENTER);
-		
+
 		JPanel panelAll = new JPanel();
 		JPanel panelInformations = new JPanel(new GridLayout(7,1));
 		JPanel panelButtonValidate = new JPanel();
@@ -118,7 +105,7 @@ public class ProfileUserView extends JPanel implements ActionListener {
 		panelButtonValidate.add(this.modify);
 		this.modify.addActionListener(this);
 
-		
+
 		panelAll.add(panelInformations, BorderLayout.WEST);
 		panelAll.add(panelButtonValidate,  BorderLayout.SOUTH);
 		this.add(panelAll);

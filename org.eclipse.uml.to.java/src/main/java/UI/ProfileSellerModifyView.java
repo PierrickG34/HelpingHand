@@ -2,75 +2,67 @@ package UI;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.imageio.ImageIO;
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
 import Core.User;
 import Core.UserFacade;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ProfileSellerModifyView.
+ * @author HelpingHand
  */
 public class ProfileSellerModifyView extends JPanel implements ActionListener {
-	
-	/** Descriptions for the mobile field. */
+
+	/** Descriptions for the edit informations. */
 	JLabel editInformations = new JLabel("  Edit informations  :");
 
 	/** Describe the current user. */
 	private User currentUser;
-	
+
 	/** The user facade. */
 	private UserFacade userFacade;
 
 	/** Descriptions for the mobile field. */
 	JLabel mobile = new JLabel("Mobile :");
-	
-	/** The mobile entre. */
+
+	/** The mobile type. */
 	JTextField mobileEntre = new JTextField("", 15);
 
 	/** Descriptions for the address field. */
 	JLabel address = new JLabel("Address :");
-	
-	/** The address entre. */
+
+	/** The address type. */
 	JTextField addressEntre = new JTextField("", 15);
-	
+
 	/** Descriptions for the siret number field. */
 	JLabel siretNumber = new JLabel("Siret Number :");
-	
-	/** The siret number entre. */
+
+	/** The siret number type. */
 	JTextField siretNumberEntre = new JTextField("", 15);
-	
+
 	/** Descriptions for the websiteURL field. */
 	JLabel websiteURL = new JLabel("Website URL :");
-	
-	/** The website url entre. */
+
+	/** The website url type. */
 	JTextField websiteURLEntre = new JTextField("", 15);
 
 	/** Description for the password information. */
 	JLabel password = new JLabel("Password:");
-	
-	/** The password entre. */
+
+	/** The password type. */
 	JPasswordField passwordEntre = new JPasswordField("", 15);
 
 	/** Description for the button validate. */
@@ -79,17 +71,17 @@ public class ProfileSellerModifyView extends JPanel implements ActionListener {
 	/** Describe error message. */
 	JLabel errorMessage = new JLabel("");
 
-	/** The vc. */
+	/** The ViewController. */
 	private ViewController vc;
-	
+
 	/** The menu seller view. */
 	private MenuSellerView menuSellerView;
-	
+
 	/**
 	 * Instantiates a new profile seller modify view.
 	 *
 	 * @param currentUser the current user
-	 * @param vc the vc
+	 * @param vc the ViewController
 	 */
 	public ProfileSellerModifyView(User currentUser, ViewController vc) {
 		this.currentUser = currentUser;
@@ -97,7 +89,7 @@ public class ProfileSellerModifyView extends JPanel implements ActionListener {
 		this.menuSellerView = new MenuSellerView(this.vc);
 		this.add(menuSellerView);
 		this.userFacade = new UserFacade(currentUser);
-		
+
 
 		/*##### Display and edit the information #####*/
 		JPanel panelEditInformation = new JPanel();
@@ -121,7 +113,7 @@ public class ProfileSellerModifyView extends JPanel implements ActionListener {
 		this.websiteURL.setPreferredSize(this.websiteURLEntre.getPreferredSize());
 		this.websiteURL.setHorizontalAlignment(SwingConstants.RIGHT);
 		panelLabels.add(this.websiteURL);
-		
+
 		//Password
 		this.password.setPreferredSize(this.passwordEntre.getPreferredSize());
 		this.password.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -177,7 +169,6 @@ public class ProfileSellerModifyView extends JPanel implements ActionListener {
 		try {
 			md = MessageDigest.getInstance("MD5");
 		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		md.update(passwordToEncript.getBytes());

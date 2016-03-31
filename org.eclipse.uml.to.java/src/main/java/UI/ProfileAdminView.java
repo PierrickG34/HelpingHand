@@ -1,35 +1,27 @@
 package UI;
 
 import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.border.Border;
 
 import Core.User;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ProfileAdminView.
+ * @author HelpingHand
  */
 public class ProfileAdminView extends JPanel implements ActionListener {
 
-	/** Description for the firstname information. */
+	/** Description for the information. */
 	JLabel informations = new JLabel(" Informations: ");
-
 
 	/** Description for the firstname information. */
 	JLabel firstName = new JLabel("");
@@ -57,26 +49,20 @@ public class ProfileAdminView extends JPanel implements ActionListener {
 
 	/** The current user. */
 	private User currentUser;
-	
-	/** The vc. */
+
+	/** The ViewController. */
 	private ViewController vc;
-	
+
 	/** The menu admin view. */
 	private MenuAdminView menuAdminView;
-
-
-	// Start of user code (user defined attributes for LoginView)
-
-	// End of user code
 
 	/**
 	 * The constructor who create the window.
 	 *
 	 * @param currentUser the current user
-	 * @param vc the vc
+	 * @param vc the ViewController
 	 */
 	public ProfileAdminView(User currentUser, ViewController vc) {
-//		super("Profile"); // Name of the frame
 		this.currentUser = currentUser;
 		this.vc = vc;
 		this.menuAdminView = new MenuAdminView(this.vc);
@@ -116,7 +102,7 @@ public class ProfileAdminView extends JPanel implements ActionListener {
 		panelInformations.add(this.address);
 		panelButtonValidate.add(this.modify);
 		this.modify.addActionListener(this);
-		
+
 		this.add(panelInformations, BorderLayout.CENTER);
 		this.add(panelButtonValidate,  BorderLayout.SOUTH);
 	}

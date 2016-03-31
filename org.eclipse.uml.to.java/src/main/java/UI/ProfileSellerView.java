@@ -1,35 +1,27 @@
 package UI;
 
 import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.border.Border;
 
 import Core.User;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ProfileSellerView.
+ * @author HelpingHand
  */
 public class ProfileSellerView extends JPanel implements ActionListener {
-	
-	/** Description for the firstname information. */
-	JLabel informations = new JLabel(" Informations: ");
 
+	/** Description for the information. */
+	JLabel informations = new JLabel(" Informations: ");
 
 	/** Description for the firstname information. */
 	JLabel firstName = new JLabel("");
@@ -45,10 +37,10 @@ public class ProfileSellerView extends JPanel implements ActionListener {
 
 	/** Description for the dateOfBirth information. */
 	JLabel dateOfBirth = new JLabel("");
-	
+
 	/** Description for the siretNumber information. */
 	JLabel siretNumber = new JLabel("");
-	
+
 	/** Description for the website URL information. */
 	JLabel websiteURL = new JLabel("");
 
@@ -63,26 +55,21 @@ public class ProfileSellerView extends JPanel implements ActionListener {
 
 	/** The current user. */
 	private User currentUser;
-	
-	/** The vc. */
+
+	/** The ViewController. */
 	private ViewController vc;
-	
+
 	/** The menu seller view. */
 	private MenuSellerView menuSellerView;
 
-
-	// Start of user code (user defined attributes for LoginView)
-
-	// End of user code
 
 	/**
 	 * The constructor who create the window.
 	 *
 	 * @param currentUser the current user
-	 * @param vc the vc
+	 * @param vc the ViewController
 	 */
 	public ProfileSellerView(User currentUser, ViewController vc) {
-//		super("Profile"); // Name of the frame
 		this.currentUser = currentUser;
 		this.vc = vc;
 		this.menuSellerView = new MenuSellerView(this.vc);
@@ -116,7 +103,7 @@ public class ProfileSellerView extends JPanel implements ActionListener {
 		this.password.setHorizontalAlignment(JLabel.CENTER);
 		this.address.setText(this.currentUser.getAddress());
 		this.address.setHorizontalAlignment(JLabel.CENTER);
-		
+
 		JPanel panelAll = new JPanel();
 		JPanel panelInformations = new JPanel(new GridLayout(9,1));
 		JPanel panelButtonValidate = new JPanel();

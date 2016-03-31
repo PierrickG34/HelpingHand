@@ -1,9 +1,6 @@
 package UI;
 
 import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,34 +9,28 @@ import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.swing.plaf.PanelUI;
 
-import Core.ActivityCategory;
-import Core.ActivityCategoryFacade;
 import Core.Product;
 import Core.ProductFacade;
 import Core.Task;
 import Core.TaskFacade;
 import Core.User;
-import Persist.ActivityCategoryJDBC;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class TaskUpdateView.
+ * @author HelpingHand
  */
 public class TaskUpdateView extends JPanel implements ActionListener {
 
-	/** Descriptions for the windows. */
+	/** Descriptions for the update Task. */
 	JLabel updateTask = new JLabel("  Update a Task :");
 
-	/** Description for the button validate. */
+	/** Description for the button submit. */
 	JButton submit = new JButton("Submit");
-
 
 	/** Define the drop down menu with the task. */
 	JComboBox<String> comboTask = new JComboBox<String>();
@@ -58,7 +49,7 @@ public class TaskUpdateView extends JPanel implements ActionListener {
 	/** Description for the choose product. */
 	JLabel chooseProduct = new JLabel("Please select a product for your task");
 
-	/** Text to choose the activity category to delete. */
+	/** Description to choose the task to delete. */
 	JLabel chooseTask = new JLabel("Choose a Task  :");
 
 	/** Button who permit to validate the activity category choosen. */
@@ -66,15 +57,15 @@ public class TaskUpdateView extends JPanel implements ActionListener {
 
 	/** Descriptions for the description of a task. */
 	JLabel description = new JLabel("Description :");
-	
-	/** The description entre. */
+
+	/** The description type. */
 	JTextField descriptionEntre = new JTextField("", 15);
 
 	/** This panel permit to display information. */
 	JPanel panelEditAll = new JPanel(new GridLayout(2,0));
 
 	/**
-	 * Description of the property ActivityCategoryFacades.
+	 * Description of the property TaskFacade.
 	 */
 	public TaskFacade taskFacades = new TaskFacade(this);
 
@@ -83,10 +74,10 @@ public class TaskUpdateView extends JPanel implements ActionListener {
 
 	/** The current user. */
 	private User currentUser;
-	
-	/** The vc. */
+
+	/** The ViewController. */
 	private ViewController vc;
-	
+
 	/** The menu admin view. */
 	private MenuAdminView menuAdminView;
 
@@ -94,14 +85,14 @@ public class TaskUpdateView extends JPanel implements ActionListener {
 	 * Instantiates a new task update view.
 	 *
 	 * @param currentUser the current user
-	 * @param vc the vc
+	 * @param vc the ViewController
 	 */
 	public TaskUpdateView(User currentUser, ViewController vc) {
 		this.currentUser = currentUser;
 		this.vc = vc;
 		this.menuAdminView = new MenuAdminView(vc);
 		this.add(menuAdminView);
-		
+
 		/*-------------- Veritable view --------------------*/
 		JPanel panelAll = new JPanel(new GridLayout(1, 2));
 		JPanel panelSemiAll = new JPanel(new GridLayout(2, 0));

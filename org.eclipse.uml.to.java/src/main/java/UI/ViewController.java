@@ -1,25 +1,23 @@
 package UI;
 
 import java.awt.Dimension;
-import java.io.File;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
 import Core.Plan;
 import Core.User;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class ViewController.
+ * @author Helping Hand
  */
 public class ViewController {
 
 	/** The current user. */
 	private User currentUser;
 	
-	/** The helpinghand. */
+	/** The helpinghand windows. */
 	private JFrame helpinghand = new JFrame();
 	
 	/**
@@ -36,10 +34,11 @@ public class ViewController {
 		helpinghand.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
+	/*DASHBOARD*/
+	
 	/**
-	 * Dashboard admin view.
+	 * Allows to launch the view Dashboard admin view.
 	 */
-	//DASHBOARD
 	public void dashboardAdminView() {
 		this.helpinghand.setContentPane(new DashboardAdminView(this.currentUser,this));
 		this.helpinghand.repaint();
@@ -47,7 +46,7 @@ public class ViewController {
 	}
 	
 	/**
-	 * Dashboard user view.
+	 * Allows to launch the view Dashboard user view.
 	 */
 	public void dashboardUserView() {
 		this.helpinghand.setContentPane(new DashboardUserView(this.currentUser,this));
@@ -56,7 +55,7 @@ public class ViewController {
 	}
 	
 	/**
-	 * Dashboard seller view.
+	 * Allows to launch the view Dashboard seller view.
 	 */
 	public void dashboardSellerView() {
 		this.helpinghand.setContentPane(new DashboardSellerView(this.currentUser,this));
@@ -64,10 +63,11 @@ public class ViewController {
 		this.helpinghand.revalidate();
 	}
 	
+	
+	/*ACCOUNT*/
 	/**
-	 * Account admin view.
+	 * Allows to launch the view Account admin view.
 	 */
-	//ACCOUNT
 	public void AccountAdminView() {
 		this.helpinghand.setContentPane(new AccountAdminView(this.currentUser,this));
 		this.helpinghand.repaint();
@@ -75,7 +75,7 @@ public class ViewController {
 	}
 	
 	/**
-	 * Profile user view.
+	 * Allows to launch the view Profile user view.
 	 */
 	public void ProfileUserView() {
 		this.helpinghand.setContentPane(new ProfileUserView(this.currentUser,this));
@@ -84,7 +84,7 @@ public class ViewController {
 	}
 	
 	/**
-	 * Profile seller view.
+	 * Allows to launch the view Profile seller view.
 	 */
 	public void ProfileSellerView() {
 		this.helpinghand.setContentPane(new ProfileSellerView(this.currentUser,this));
@@ -93,7 +93,7 @@ public class ViewController {
 	}
 	
 	/**
-	 * Profile admin view.
+	 * Allows to launch the view Profile admin view.
 	 */
 	public void ProfileAdminView() {
 		this.helpinghand.setContentPane(new ProfileAdminView(this.currentUser,this));
@@ -102,7 +102,7 @@ public class ViewController {
 	}
 	
 	/**
-	 * Profile user modify view.
+	 * Allows to launch the view Profile user modify view.
 	 */
 	public void ProfileUserModifyView() {
 		this.helpinghand.setContentPane(new ProfileUserModifyView(this.currentUser,this));
@@ -111,7 +111,7 @@ public class ViewController {
 	}
 	
 	/**
-	 * Profile admin modify view.
+	 * Allows to launch the view Profile admin modify view.
 	 */
 	public void ProfileAdminModifyView() {
 		this.helpinghand.setContentPane(new ProfileAdminModifyView(this.currentUser,this));
@@ -120,7 +120,7 @@ public class ViewController {
 	}
 	
 	/**
-	 * Profile seller modify view.
+	 * Allows to launch the view Profile seller modify view.
 	 */
 	public void ProfileSellerModifyView() {
 		this.helpinghand.setContentPane(new ProfileSellerModifyView(this.currentUser,this));
@@ -129,7 +129,7 @@ public class ViewController {
 	}
 	
 	/**
-	 * Update account admin view.
+	 * Allows to launch the view Update account admin view.
 	 */
 	public void UpdateAccountAdminView() {
 		this.helpinghand.setContentPane(new UpdateAccountAdminView(this.currentUser,this));
@@ -138,7 +138,7 @@ public class ViewController {
 	}
 	
 	/**
-	 * Delete account admin view.
+	 * Allows to launch the view Delete account admin view.
 	 */
 	public void DeleteAccountAdminView() {
 		this.helpinghand.setContentPane(new DeleteAccountAdminView(this.currentUser,this));
@@ -146,10 +146,11 @@ public class ViewController {
 		this.helpinghand.revalidate();
 	}
 	
+	/*PLAN*/
+	
 	/**
-	 * Plan delete view.
+	 * Allows to launch the view Plan delete view.
 	 */
-	//PLAN
 	public void PlanDeleteView() {
 		this.helpinghand.setContentPane(new PlanDeleteView(this.currentUser,this));
 		this.helpinghand.repaint();
@@ -157,7 +158,7 @@ public class ViewController {
 	}
 	
 	/**
-	 * Plan manage view.
+	 * Allows to launch the view Plan manage view.
 	 */
 	public void PlanManageView() {
 		this.helpinghand.setContentPane(new PlanManageView(this.currentUser,this));
@@ -166,7 +167,7 @@ public class ViewController {
 	}
 	
 	/**
-	 * Plan view.
+	 * Allows to launch the view Plan view.
 	 *
 	 * @param plan the plan
 	 */
@@ -177,7 +178,7 @@ public class ViewController {
 	}
 	
 	/**
-	 * Plan view user.
+	 * Allows to launch the view Plan view user.
 	 *
 	 * @param plan the plan
 	 */
@@ -188,7 +189,7 @@ public class ViewController {
 	}
 	
 	/**
-	 * Plan view seller.
+	 * Allows to launch the view Plan view seller.
 	 *
 	 * @param plan the plan
 	 */
@@ -199,7 +200,7 @@ public class ViewController {
 	}
 	
 	/**
-	 * Creates the plan view.
+	 * Allows to launch the view Creates plan view.
 	 */
 	public void CreatePlanView() {
 		this.helpinghand.setContentPane(new CreatePlanView(this.currentUser, this));
@@ -208,7 +209,7 @@ public class ViewController {
 	}
 	
 	/**
-	 * Creates the plan user view.
+	 * Allows to launch the view Creates plan user view.
 	 */
 	public void CreatePlanUserView() {
 		this.helpinghand.setContentPane(new CreatePlanUserView(this.currentUser, this));
@@ -217,7 +218,7 @@ public class ViewController {
 	}
 	
 	/**
-	 * Creates the plan seller view.
+	 * Allows to launch the view Creates plan seller view.
 	 */
 	public void CreatePlanSellerView() {
 		this.helpinghand.setContentPane(new CreatePlanSellerView(this.currentUser, this));
@@ -225,10 +226,11 @@ public class ViewController {
 		this.helpinghand.revalidate();
 	}
 	
+	/*PRODUT*/
+	
 	/**
-	 * Product create view.
+	 * Allows to launch the view Product create view.
 	 */
-	//PRODUCT
 	public void ProductCreateView() {
 		this.helpinghand.setContentPane(new ProductCreateView(this.currentUser, this));
 		this.helpinghand.repaint();
@@ -236,7 +238,7 @@ public class ViewController {
 	}
 	
 	/**
-	 * Product create view seller.
+	 * Allows to launch the view Product create view seller.
 	 */
 	public void ProductCreateViewSeller() {
 		this.helpinghand.setContentPane(new ProductCreateViewSeller(this.currentUser, this));
@@ -245,7 +247,7 @@ public class ViewController {
 	}
 	
 	/**
-	 * Product manage view.
+	 * Allows to launch the view Product manage view.
 	 */
 	public void ProductManageView() {
 		this.helpinghand.setContentPane(new ProductManageView(this.currentUser,this));
@@ -254,7 +256,7 @@ public class ViewController {
 	}
 	
 	/**
-	 * Delete product view.
+	 * Allows to launch the view Delete product view.
 	 */
 	public void DeleteProductView() {
 		this.helpinghand.setContentPane(new DeleteProductView(this.currentUser,this));
@@ -263,7 +265,7 @@ public class ViewController {
 	}
 	
 	/**
-	 * Update product view.
+	 * Allows to launch the view Update product view.
 	 */
 	public void UpdateProductView() {
 		this.helpinghand.setContentPane(new UpdateProductView(this.currentUser,this));
@@ -272,7 +274,7 @@ public class ViewController {
 	}
 	
 	/**
-	 * Update product admin view.
+	 * Allows to launch the view Update product admin view.
 	 */
 	public void UpdateProductAdminView() {
 		this.helpinghand.setContentPane(new UpdateProductAdminView(this.currentUser,this));
@@ -281,7 +283,7 @@ public class ViewController {
 	}
 	
 	/**
-	 * Product manage view seller.
+	 * Allows to launch the view Product manage view seller.
 	 */
 	public void ProductManageViewSeller() {
 		this.helpinghand.setContentPane(new ProductManageViewSeller(this.currentUser,this));
@@ -290,7 +292,7 @@ public class ViewController {
 	}
 	
 	/**
-	 * Delete product view seller.
+	 * Allows to launch the view Delete product view seller.
 	 */
 	public void DeleteProductViewSeller() {
 		this.helpinghand.setContentPane(new DeleteProductViewSeller(this.currentUser,this));
@@ -298,11 +300,11 @@ public class ViewController {
 		this.helpinghand.revalidate();
 	}
 	
+	/*TASK*/
 	
 	/**
-	 * Task create view.
+	 * Allows to launch the view Task create view.
 	 */
-	//TASK
 	public void TaskCreateView() {
 		this.helpinghand.setContentPane(new TaskCreateView(this.currentUser,this));
 		this.helpinghand.repaint();
@@ -310,7 +312,7 @@ public class ViewController {
 	}
 	
 	/**
-	 * Task delete view.
+	 * Allows to launch the view Task delete view.
 	 */
 	public void TaskDeleteView() {
 		this.helpinghand.setContentPane(new TaskDeleteView(this.currentUser,this));
@@ -319,7 +321,7 @@ public class ViewController {
 	}
 	
 	/**
-	 * Task manage view.
+	 * Allows to launch the view Task manage view.
 	 */
 	public void TaskManageView() {
 		this.helpinghand.setContentPane(new TaskManageView(this.currentUser,this));
@@ -328,7 +330,7 @@ public class ViewController {
 	}
 	
 	/**
-	 * Task update view.
+	 * Allows to launch the view Task update view.
 	 */
 	public void TaskUpdateView() {
 		this.helpinghand.setContentPane(new TaskUpdateView(this.currentUser,this));
@@ -336,10 +338,11 @@ public class ViewController {
 		this.helpinghand.revalidate();
 	}
 	
+	/*ACTIVITY CATEGORY*/
+	
 	/**
-	 * Creates the activity category view.
+	 * Allows to launch the view Creates the activity category view.
 	 */
-	//ACTIVITY CATEGORY
 	public void CreateActivityCategoryView() {
 		this.helpinghand.setContentPane(new CreateActivityCategoryView(this.currentUser,this));
 		this.helpinghand.repaint();
@@ -347,7 +350,7 @@ public class ViewController {
 	}
 	
 	/**
-	 * Activty category manage view.
+	 * Allows to launch the view Activty category manage view.
 	 */
 	public void ActivtyCategoryManageView() {
 		this.helpinghand.setContentPane(new ActivtyCategoryManageView(this.currentUser,this));
@@ -356,7 +359,7 @@ public class ViewController {
 	}
 	
 	/**
-	 * Update activity category view.
+	 * Allows to launch the view Update activity category view.
 	 */
 	public void UpdateActivityCategoryView() {
 		this.helpinghand.setContentPane(new UpdateActivityCategoryView(this.currentUser,this));
@@ -365,7 +368,7 @@ public class ViewController {
 	}
 
 	/**
-	 * My plan view user.
+	 * Allows to launch the view My plan view user.
 	 */
 	public void MyPlanViewUser() {
 		this.helpinghand.setContentPane(new MyPlanViewUser(this.currentUser,this));
@@ -374,7 +377,7 @@ public class ViewController {
 	}
 
 	/**
-	 * My plan view seller.
+	 * Allows to launch the view My plan view seller.
 	 */
 	public void MyPlanViewSeller() {
 		this.helpinghand.setContentPane(new MyPlanViewSeller(this.currentUser,this));
