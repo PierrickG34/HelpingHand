@@ -13,21 +13,18 @@ import Persist.ActivityCategoryJDBC;
 import Persist.PlanJDBC;
 import Persist.ProductJDBC;
 import Persist.TaskJDBC;
-// Start of user code (user defined imports)
 import Persist.UserJDBC;
 
-// TODO: Auto-generated Javadoc
-// End of user code
 
 /**
  * Description of UserFactory.
  * 
- * @author pierrickgiuliani
+ * @author HelpingHand
  */
 public class FactoryJDBC extends AbstractFactory {
 	
 	/**
-	 * Description of the property users.
+	 * Description of the property usersJDBC.
 	 */
 	public UserJDBC userJDBC = null;
 	
@@ -35,19 +32,12 @@ public class FactoryJDBC extends AbstractFactory {
 	 * Description of the property activityCategoryJDBC.
 	 */
 	public ActivityCategoryJDBC activityCategoryJDBC = null;
-	
-
-	// Start of user code (user defined attributes for UserFactory)
-
-	// End of user code
 
 	/**
 	 * The constructor.
 	 */
 	public FactoryJDBC() {
-		// Start of user code constructor for UserFactory)
 		super();
-		// End of user code
 	}
 
 	/**
@@ -57,9 +47,7 @@ public class FactoryJDBC extends AbstractFactory {
 	 * @return the user jdbc
 	 */
 	public UserJDBC createUser(String login) {
-		// Start of user code for method createUser
 		return new UserJDBC(login);
-		// End of user code
 	}
 	
 	/* (non-Javadoc)
@@ -77,13 +65,8 @@ public class FactoryJDBC extends AbstractFactory {
 		return new ProductJDBC(name,price,quantity,category,idVendeur);
 	}
 	
-	
-
-	// Start of user code (user defined methods for UserFactory)
-
-	// End of user code
 	/**
-	 * Returns users.
+	 * Description of the getter user.
 	 * @return users 
 	 */
 	public UserJDBC getUsers() {
