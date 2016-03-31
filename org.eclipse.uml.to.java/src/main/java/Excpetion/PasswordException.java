@@ -3,6 +3,7 @@ package Excpetion;
 // TODO: Auto-generated Javadoc
 /**
  * The Class PasswordException.
+ * @author Helping Hand
  */
 public class PasswordException extends RuntimeException {
 	

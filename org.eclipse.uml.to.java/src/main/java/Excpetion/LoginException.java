@@ -1,8 +1,9 @@
 package Excpetion;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class LoginException.
+ * @author Helping Hand
  */
 public class LoginException extends RuntimeException {
 	
