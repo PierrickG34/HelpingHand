@@ -17,6 +17,7 @@ import Excpetion.AlreadyExistException;
 import Excpetion.LoginException;
 import Excpetion.PasswordException;
 
+// TODO: Auto-generated Javadoc
 // End of user code
 
 /**
@@ -35,12 +36,17 @@ public class UserJDBC extends User {
 
 	// End of user code
 
+	/**
+	 * Instantiates a new user jdbc.
+	 */
 	public UserJDBC() {
 		super();
 	}
+	
 	/**
 	 * The constructor.
-	 * @param login
+	 *
+	 * @param login the login
 	 */
 	public UserJDBC(String login) {
 		// Start of user code constructor for UserJDBC
@@ -57,6 +63,19 @@ public class UserJDBC extends User {
 	}
 	
 	
+	/**
+	 * Instantiates a new user jdbc.
+	 *
+	 * @param firstName the first name
+	 * @param surName the sur name
+	 * @param mobile the mobile
+	 * @param mailAddress the mail address
+	 * @param password the password
+	 * @param dateOfBirth the date of birth
+	 * @param webSiteURL the web site url
+	 * @param siretNumber the siret number
+	 * @param address the address
+	 */
 	public UserJDBC(String firstName, String surName, String mobile, String mailAddress, String password, Date dateOfBirth, String webSiteURL, String siretNumber, String address) {
 		super(firstName, surName, mobile, mailAddress, password, dateOfBirth, webSiteURL, siretNumber, address);
 
@@ -74,8 +93,10 @@ public class UserJDBC extends User {
 	// Start of user code (user defined methods for UserJDBC)
 
 	/**
-	 * Permit to set the information in the database for the user
-	 * @param login 
+	 * Permit to set the information in the database for the user.
+	 *
+	 * @param login the new user
+	 * @throws LoginException the login exception
 	 */
 	public void setUser(String login) throws LoginException {
 		Map m = new HashMap();
@@ -131,12 +152,16 @@ public class UserJDBC extends User {
 
 	/**
 	 * Sets a value to attribute jDBConnexions. 
-	 * @param newJDBConnexions 
+	 *
+	 * @param newJDBConnexions the new JDB connexions
 	 */
 	public void setJDBConnexions(JDBConnexion newJDBConnexions) {
 		this.jDBConnexions = newJDBConnexions;
 	}
 	
+	/* (non-Javadoc)
+	 * @see Core.User#modifyAccount(java.lang.String, java.lang.String, java.lang.String)
+	 */
 	public void modifyAccount(String mobile, String address, String password) {
 		if (mobile.isEmpty()) {
 			mobile = this.getMobile();
@@ -164,6 +189,18 @@ public class UserJDBC extends User {
 		}
 	}
 	
+	/**
+	 * Modify account.
+	 *
+	 * @param firstname the firstname
+	 * @param lastname the lastname
+	 * @param mobile the mobile
+	 * @param dateofbirth the dateofbirth
+	 * @param address the address
+	 * @param siretnumber the siretnumber
+	 * @param websiteurl the websiteurl
+	 * @param password the password
+	 */
 	public void modifyAccount(String firstname, String lastname, String mobile, String dateofbirth, String address, String siretnumber, String websiteurl,  String password) {
 		if (firstname.isEmpty()){
 			firstname = this.getFirstName();
@@ -229,6 +266,9 @@ public class UserJDBC extends User {
 		}
 	}
 	
+	/**
+	 * Delete account.
+	 */
 	public void deleteAccount() {
 		try {
 			this.jDBConnexions.executeUpdate("DELETE FROM person WHERE iduser = '"+this.getIdUser()+"'");
@@ -238,10 +278,18 @@ public class UserJDBC extends User {
 		}
 	}
 	
+	/**
+	 * Gets the all users.
+	 *
+	 * @return the all users
+	 */
 	public List<User> getAllUsers() {
 		return this.jDBConnexions.getAllUsers("SELECT * FROM person");
 	}
 	
+	/* (non-Javadoc)
+	 * @see Core.User#save()
+	 */
 	@Override
 	public void save() {
 		// TODO Auto-generated method stub

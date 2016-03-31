@@ -13,29 +13,32 @@ import javax.swing.JPanel;
 
 import Core.User;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ActivtyCategoryManageView.
+ */
 public class ActivtyCategoryManageView extends JPanel implements ActionListener {
 
-	/**
-	 * Button for create an activity category
-	 */
+	/** Button for create an activity category. */
 	JButton create = new JButton("Create an Activity Category");
 	
-	/**
-	 * Button for update an activity category
-	 */
+	/** Button for update an activity category. */
 	JButton update = new JButton("Update an Activity Category");
 	
-	/**
-	 * The current user
-	 */
+	/** The current user. */
 	private User currentUser;
 	
+	/** The vc. */
 	private ViewController vc;
+	
+	/** The menu admin view. */
 	private MenuAdminView menuAdminView;
 	
 	/**
-	 * Constructor for the class
-	 * @param currentUser
+	 * Constructor for the class.
+	 *
+	 * @param currentUser the current user
+	 * @param vc the vc
 	 */
 	public ActivtyCategoryManageView(User currentUser, ViewController vc) {
 //		super("Activity Category"); // Name of the frame
@@ -63,8 +66,9 @@ public class ActivtyCategoryManageView extends JPanel implements ActionListener 
 	}
 	
 	/**
-	 * Action when the user click on a button
-	 * @param e
+	 * Action when the user click on a button.
+	 *
+	 * @param e the e
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {

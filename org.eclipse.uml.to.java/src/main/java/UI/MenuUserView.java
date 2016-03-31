@@ -8,19 +8,41 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class MenuUserView.
+ */
 public class MenuUserView extends JPanel implements ActionListener {
 
+	/** The dashboard. */
 	private JButton dashboard = new JButton("Dashboard");
+	
+	/** The journal. */
 	private JButton journal = new JButton("Journal");
+	
+	/** The my plans. */
 	private JButton myPlans = new JButton("My Plans");
+	
+	/** The my favorites. */
 	private JButton myFavorites = new JButton("My Favorites");
+	
+	/** The shopping cart. */
 	private JButton shoppingCart = new JButton("Shopping Cart");
 
+	/** The profile. */
 	private JButton profile = new JButton("Profile");
+	
+	/** The notifications. */
 	private JButton notifications = new JButton("Notifications");
 	
+	/** The vc. */
 	private ViewController vc;
 	
+	/**
+	 * Instantiates a new menu user view.
+	 *
+	 * @param vc the vc
+	 */
 	public MenuUserView(ViewController  vc) {
 		this.vc = vc;
 		
@@ -56,6 +78,9 @@ public class MenuUserView extends JPanel implements ActionListener {
         this.add(panelButton,BorderLayout.NORTH);
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();

@@ -23,43 +23,39 @@ package UI;
 	import Core.UserFacade;
 	import Persist.UserJDBC;
 
+	// TODO: Auto-generated Javadoc
+/**
+	 * The Class DeleteAccountAdminView.
+	 */
 	public class DeleteAccountAdminView extends JPanel implements ActionListener {
 		
 		
-		/**
-		 * Descriptions for the windows
-		 */
+		/** Descriptions for the windows. */
 		JLabel updateProduct = new JLabel(" Update an Account :");
 
-		/**
-		 * Description for the button validate
-		 */
+		/** Description for the button validate. */
 		JButton submit = new JButton("Submit");
 
 
+		/** The combo. */
 		JComboBox<String> combo = new JComboBox<String>();
 
-		/**
-		 * Text to choose the activity category to delete
-		 */
+		/** Text to choose the activity category to delete. */
 		JLabel chooseProduct = new JLabel("Choose an Account :");
 
-		/**
-		 * Button who permit to validate the activity category choosen
-		 */
+		/** Button who permit to validate the activity category choosen. */
 		JButton chooseProductButton = new JButton("Delete");
 
-		/**
-		 * This panel permit to display information 
-		 */
+		/** This panel permit to display information. */
 		JPanel panelEditAll = new JPanel(new GridLayout(2,0));
 		
-		/**
-		 * Define the current activit category that the admin choose
-		 */
+		/** Define the current activit category that the admin choose. */
 		UserJDBC userJDBC;
 		
+		/** The current user. */
 		private User currentUser;
+		
+		/** The menu admin view. */
 		private MenuAdminView menuAdminView;
 
 		/**
@@ -67,13 +63,18 @@ package UI;
 		 */
 		public UserFacade userFacade;
 		
-		/**
-		 * Contain all the activity category of the database
-		 */
+		/** Contain all the activity category of the database. */
 		List<User> allUsers = new ArrayList<User>();
 
+		/** The vc. */
 		private ViewController vc;
 
+	/**
+	 * Instantiates a new delete account admin view.
+	 *
+	 * @param currentUser the current user
+	 * @param vc the vc
+	 */
 	public DeleteAccountAdminView(User currentUser, ViewController vc) {
 //			super("DashBoard"); // Name of the frame
 			/* Defined actions on the different buttons */
@@ -117,6 +118,9 @@ package UI;
 			this.add(panelAll);
 		}
 
+		/* (non-Javadoc)
+		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+		 */
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			String source = e.getActionCommand();

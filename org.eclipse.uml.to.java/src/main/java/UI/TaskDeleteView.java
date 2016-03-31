@@ -20,23 +20,22 @@ import Core.Task;
 import Core.TaskFacade;
 import Core.User;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class TaskDeleteView.
+ */
 public class TaskDeleteView extends JPanel implements ActionListener {
 	
+	/** The delete. */
 	JButton delete = new JButton("Delete");
 	
-	/**
-	 * Descriptions for the windows
-	 */
+	/** Descriptions for the windows. */
 	JLabel deleteTask = new JLabel("  Delete a Task :");
 	
-	/**
-	 * Define the drop down menu with the task
-	 */
+	/** Define the drop down menu with the task. */
 	JComboBox<String> comboTask = new JComboBox<String>();
 	
-	/**
-	 * Text to choose the activity category to delete
-	 */
+	/** Text to choose the activity category to delete. */
 	JLabel chooseTask = new JLabel("Choose a Task to delete:");
 	
 	/**
@@ -44,17 +43,26 @@ public class TaskDeleteView extends JPanel implements ActionListener {
 	 */
 	public TaskFacade taskFacades = new TaskFacade(this);
 
-	/**
-	 * Contain all the activity category of the database
-	 */
+	/** Contain all the activity category of the database. */
 	List<Task> allTask = new ArrayList<Task>();
 	
 	
+	/** The current user. */
 	private User currentUser;
+	
+	/** The vc. */
 	private ViewController vc;
+	
+	/** The menu admin view. */
 	private MenuAdminView menuAdminView;
 	
 	
+	/**
+	 * Instantiates a new task delete view.
+	 *
+	 * @param currentUser the current user
+	 * @param vc the vc
+	 */
 	public TaskDeleteView(User currentUser, ViewController vc) {
 		this.currentUser = currentUser;
 		this.vc = vc;
@@ -86,6 +94,9 @@ public class TaskDeleteView extends JPanel implements ActionListener {
         
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();

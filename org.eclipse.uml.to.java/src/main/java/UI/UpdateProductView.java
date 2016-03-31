@@ -26,58 +26,53 @@ import Core.User;
 import Persist.ActivityCategoryJDBC;
 import Persist.ProductJDBC;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class UpdateProductView.
+ */
 public class UpdateProductView extends JPanel implements ActionListener {
 
-	/**
-	 * Description for the button validate
-	 */
+	/** Description for the button validate. */
 	JButton submit = new JButton("Submit");
 
 
+	/** The combo. */
 	JComboBox<String> combo = new JComboBox<String>();
 
-	/**
-	 * Text to choose the activity category to delete
-	 */
+	/** Text to choose the activity category to delete. */
 	JLabel chooseProduct = new JLabel("Choose an product :");
 
-	/**
-	 * Button who permit to validate the activity category choosen
-	 */
+	/** Button who permit to validate the activity category choosen. */
 	JButton chooseProductButton = new JButton("Choose");
 
-	/**
-	 * Descriptions for the name of an activity category
-	 */
+	/** Descriptions for the name of an activity category. */
 	JLabel nameProduct = new JLabel("Name :");
+	
+	/** The name product entre. */
 	JTextField nameProductEntre = new JTextField("", 15);
 
-	/**
-	 * Descriptions for the short detail of an activity category
-	 */
+	/** Descriptions for the short detail of an activity category. */
 	JLabel priceProduct = new JLabel("price :");
+	
+	/** The price product entre. */
 	JTextField priceProductEntre = new JTextField("", 15);
 
-	/**
-	 * Descriptions for the short detail of an activity category
-	 */
+	/** Descriptions for the short detail of an activity category. */
 	JLabel quantityProduct = new JLabel("quantity :");
+	
+	/** The quantity product entre. */
 	JTextField quantityProductEntre = new JTextField("", 15);
 	
-	/**
-	 * Descriptions for the short detail of an activity category
-	 */
+	/** Descriptions for the short detail of an activity category. */
 	JLabel categoryProduct = new JLabel("category :");
+	
+	/** The category product entre. */
 	JTextField categoryProductEntre = new JTextField("", 15);
 	
-	/**
-	 * This panel permit to display information 
-	 */
+	/** This panel permit to display information. */
 	JPanel panelEditAll = new JPanel(new GridLayout(2,0));
 	
-	/**
-	 * Define the current activit category that the admin choose
-	 */
+	/** Define the current activit category that the admin choose. */
 	ProductJDBC currentProductJDBC;
 
 	/**
@@ -85,15 +80,24 @@ public class UpdateProductView extends JPanel implements ActionListener {
 	 */
 	public ProductFacade productFacades = new ProductFacade(this);
 	
-	/**
-	 * Contain all the activity category of the database
-	 */
+	/** Contain all the activity category of the database. */
 	List<Product> allProduct = new ArrayList<Product>();
 
+	/** The current user. */
 	private User currentUser;
+	
+	/** The vc. */
 	private ViewController vc;
+	
+	/** The menu seller view. */
 	private MenuSellerView menuSellerView;
 	
+/**
+ * Instantiates a new update product view.
+ *
+ * @param currentUser the current user
+ * @param vc the vc
+ */
 public UpdateProductView(User currentUser,ViewController vc) {
 		this.currentUser = currentUser;
 		this.vc = vc;
@@ -157,6 +161,9 @@ public UpdateProductView(User currentUser,ViewController vc) {
 
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();

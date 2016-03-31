@@ -12,17 +12,34 @@ import javax.swing.JPanel;
 
 import Core.User;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class AccountAdminView.
+ */
 public class AccountAdminView extends JPanel implements ActionListener {
 		
+		/** The update. */
 		JButton update = new JButton("Update an Account");
+		
+		/** The delete. */
 		JButton delete = new JButton("Delete an Account");
 		
 		
+		/** The current user. */
 		private User currentUser;
 		
+		/** The vc. */
 		private ViewController vc;
+		
+		/** The menu admin view. */
 		private MenuAdminView menuAdminView;
 		
+		/**
+		 * Instantiates a new account admin view.
+		 *
+		 * @param currentUser the current user
+		 * @param vc the vc
+		 */
 		public AccountAdminView(User currentUser, ViewController vc) {
 //			super("Product"); // Name of the frame
 			/* Defined actions on the different buttons */
@@ -50,6 +67,9 @@ public class AccountAdminView extends JPanel implements ActionListener {
 
 		}
 		
+		/* (non-Javadoc)
+		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+		 */
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			String source = e.getActionCommand();

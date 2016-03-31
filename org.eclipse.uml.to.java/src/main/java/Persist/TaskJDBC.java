@@ -9,6 +9,10 @@ import Core.Product;
 import Core.Task;
 import Excpetion.AlreadyExistException;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class TaskJDBC.
+ */
 public class TaskJDBC extends Task {
 	
 	/**
@@ -18,12 +22,17 @@ public class TaskJDBC extends Task {
 	public JDBConnexion jDBConnexions = JDBConnexion.createConnect();
 	
 	/**
-	 * 
+	 * Instantiates a new task jdbc.
 	 */
 	public TaskJDBC() {
 		super();
 	}
 
+	/**
+	 * Instantiates a new task jdbc.
+	 *
+	 * @param idProduct the id product
+	 */
 	public TaskJDBC(int idProduct) {
 		try {
 			this.jDBConnexions.executeUpdate("INSERT INTO contain VALUES ((SELECT CURRVAL(pg_get_serial_sequence('task','idtask'))), '"+idProduct+"')");
@@ -34,6 +43,14 @@ public class TaskJDBC extends Task {
 	}
 
 	
+	/**
+	 * Instantiates a new task jdbc.
+	 *
+	 * @param name the name
+	 * @param description the description
+	 * @param idProduct the id product
+	 * @param idPlan the id plan
+	 */
 	public TaskJDBC(String name, String description, int idProduct, int idPlan) {
 		super(name, description);
 		try {
@@ -45,6 +62,9 @@ public class TaskJDBC extends Task {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see Core.Task#getAllTask()
+	 */
 	@Override
 	public List<Task> getAllTask() {
 		List<Task> list = new ArrayList<Task>();
@@ -52,6 +72,13 @@ public class TaskJDBC extends Task {
 		return list;
 	}
 
+	/**
+	 * Modify task.
+	 *
+	 * @param task the task
+	 * @param description the description
+	 * @param product the product
+	 */
 	public void modifyTask(Task task, String description, Product product) {
 		if (description.isEmpty()) {
 			description = this.getDescription();
@@ -68,11 +95,17 @@ public class TaskJDBC extends Task {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see Core.Task#delete()
+	 */
 	@Override
 	public void delete() {
 		this.jDBConnexions.delete("DELETE FROM task where idtask =" + this.getIdTask());
 	}
 
+	/* (non-Javadoc)
+	 * @see Core.Task#getTaskForPlan(java.lang.Integer)
+	 */
 	@Override
 	public List<Task> getTaskForPlan(Integer idPlan) {
 		List<Task> list = new ArrayList<Task>();

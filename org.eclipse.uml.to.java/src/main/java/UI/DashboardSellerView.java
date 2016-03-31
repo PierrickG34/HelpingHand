@@ -29,25 +29,40 @@ import Core.PlanFacade;
 import Core.User;
 import Core.UserFacade;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class DashboardSellerView.
+ */
 public class DashboardSellerView extends JPanel implements ActionListener, MouseListener {
 
 	   
-	   private User currentUser;
+	   /** The current user. */
+   	private User currentUser;
 	   
-	   private ViewController vc;
-	   private MenuSellerView menuSellerView;
+	   /** The vc. */
+   	private ViewController vc;
+	   
+   	/** The menu seller view. */
+   	private MenuSellerView menuSellerView;
 	   
 	   /**
 		 * Description of the property ActivityCategoryFacades.
 		 */
 		public PlanFacade planFacades = new PlanFacade(this);
 		
+		/** The random plan. */
 		List<Plan> randomPlan = new ArrayList<Plan>();
 		
+		/** The name1. */
 		JLabel name1 = new JLabel();
+		
+		/** The name2. */
 		JLabel name2 = new JLabel();
 		
+		/** The obs1. */
 		JTextArea obs1 = new JTextArea();
+		
+		/** The obs2. */
 		JTextArea obs2 = new JTextArea();
 	
 	// Start of user code (user defined attributes for LoginView)
@@ -55,7 +70,10 @@ public class DashboardSellerView extends JPanel implements ActionListener, Mouse
 	// End of user code
 
 	/**
-	 * The constructor who create the window
+	 * The constructor who create the window.
+	 *
+	 * @param currentUser the current user
+	 * @param vc the vc
 	 */
 	public DashboardSellerView(User currentUser, ViewController vc) {
 		/* Defined actions on the different buttons */
@@ -100,16 +118,27 @@ public class DashboardSellerView extends JPanel implements ActionListener, Mouse
         this.add(panelAll, BorderLayout.CENTER);
 	}
 	
+	/**
+	 * Gets the random plan.
+	 *
+	 * @return the random plan
+	 */
 	public void getRandomPlan() {
 		this.randomPlan = this.planFacades.getRandomPlan();
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.MouseListener#mouseClicked(java.awt.event.MouseEvent)
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		String source = e.getComponent().getName();
@@ -121,24 +150,36 @@ public class DashboardSellerView extends JPanel implements ActionListener, Mouse
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.MouseListener#mousePressed(java.awt.event.MouseEvent)
+	 */
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
+	 */
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.MouseListener#mouseEntered(java.awt.event.MouseEvent)
+	 */
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.MouseListener#mouseExited(java.awt.event.MouseEvent)
+	 */
 	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub

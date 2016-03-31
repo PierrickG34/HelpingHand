@@ -20,44 +20,35 @@ import Core.ActivityCategoryFacade;
 import Core.User;
 import Excpetion.AlreadyExistException;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class CreateActivityCategoryView.
+ */
 public class CreateActivityCategoryView extends JPanel implements ActionListener {
 
 	
-	/**
-	 * Descriptions for the windows
-	 */
+	/** Descriptions for the windows. */
 	JLabel createActivityCategory = new JLabel("  Create an activity category :");
 	
-	/**
-	 * Descriptions for the name field
-	 */
+	/** Descriptions for the name field. */
 	JLabel name = new JLabel("Name :");
-	/**
-	 * Descriptions for the name field
-	 */
+	
+	/** Descriptions for the name field. */
 	JTextField nameEntre = new JTextField("", 15);
 	
-	/**
-	 * Descriptions for the short detail field
-	 */
+	/** Descriptions for the short detail field. */
 	JLabel shortDetail = new JLabel("Short Detail :");
-	/**
-	 * Descriptions for the short detail field
-	 */
+	
+	/** Descriptions for the short detail field. */
 	JTextField shortDetailEntre = new JTextField("", 15);
 	
-	/**
-	 * Descriptions for the long detail field
-	 */
+	/** Descriptions for the long detail field. */
 	JLabel longDetail = new JLabel("Long Detail :");
-	/**
-	 * Descriptions for the long detail field
-	 */
+	
+	/** Descriptions for the long detail field. */
 	JTextField longDetailEntre = new JTextField("", 15);
 	
-	/**
-	 * Description for the button validate
-	 */
+	/** Description for the button validate. */
 	JButton validate = new JButton("Validate");
 	
 	/**
@@ -65,22 +56,23 @@ public class CreateActivityCategoryView extends JPanel implements ActionListener
 	 */
 	public ActivityCategoryFacade activityCategoryFacades = new ActivityCategoryFacade(this);
 	
-	/**
-	 * The current user
-	 */
+	/** The current user. */
 	private User currentUser;
 	
-	 /**
-     * Describe error message
-     */
+	 /** Describe error message. */
     JLabel errorMessage = new JLabel("");
     
+    /** The vc. */
     private ViewController vc;
+    
+    /** The menu admin view. */
     private MenuAdminView menuAdminView;
 	
     /**
-     * Constructor
-     * @param currentUser
+     * Constructor.
+     *
+     * @param currentUser the current user
+     * @param vc the vc
      */
 	public CreateActivityCategoryView(User currentUser, ViewController vc) {
 //		super("Activity Category"); // Name of the frame
@@ -133,6 +125,9 @@ public class CreateActivityCategoryView extends JPanel implements ActionListener
 //        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
+	/* (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();

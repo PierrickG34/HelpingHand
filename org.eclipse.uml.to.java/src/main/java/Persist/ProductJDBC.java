@@ -9,18 +9,27 @@ import Core.ActivityCategory;
 import Core.Product;
 import Excpetion.AlreadyExistException;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ProductJDBC.
+ */
 public class ProductJDBC extends Product{
 	
+	/** The j db connexions. */
 	//public static JDBConnexion jDBConnexions = new JDBConnexion();
 	public static JDBConnexion jDBConnexions = JDBConnexion.createConnect();
 	
-	/**Constructeur ProductJDBC
+	/**
+	 * Constructeur ProductJDBC.
+	 *
+	 * @param name the name
+	 * @param price the price
+	 * @param quantity the quantity
+	 * @param category the category
+	 * @param idVendeur the id vendeur
+	 * @return Product
 	 * @parem name
 	 * @parem price
-	 * @param quantity
-	 * @param category
-	 * @param idVendeur
-	 * @return Product
 	 */
 	public ProductJDBC(String name, Double price, int quantity, String category, Integer idVendeur) {
 		super(name, price, quantity, category,idVendeur);
@@ -37,14 +46,18 @@ public class ProductJDBC extends Product{
 	}
 	
 
+	/**
+	 * Instantiates a new product jdbc.
+	 */
 	public ProductJDBC() {
 		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * Returns l'ensemble des produits du currentVendeur
-	 * @param idVendeur
-	 * @return List<Product> 
+	 * Returns l'ensemble des produits du currentVendeur.
+	 *
+	 * @param id the id
+	 * @return List<Product>
 	 */
 	
 	public static List<Product> getAllProduct(Integer id) {
@@ -55,12 +68,13 @@ public class ProductJDBC extends Product{
 	}
 	
 	/**
-	 * modifie le currentProduct
-	 * @param Product
-	 * @param name
-	 * @param price
-	 * @param category
-	 * @param quantity 
+	 * modifie le currentProduct.
+	 *
+	 * @param ac the ac
+	 * @param name the name
+	 * @param price the price
+	 * @param category the category
+	 * @param quantity the quantity
 	 */
 	public void modifyProduct(Product ac, String name, String price, String category, String quantity) {
 		double priceP = 0;
@@ -107,6 +121,9 @@ public class ProductJDBC extends Product{
 
 
 
+	/* (non-Javadoc)
+	 * @see Core.Product#save()
+	 */
 	@Override
 	public void save() {
 		// TODO Auto-generated method stub
@@ -114,8 +131,9 @@ public class ProductJDBC extends Product{
 	}
 
 	/**
-	 * Returns l'ensemble des produits de la base de donn�es
-	 * @return List<Product> 
+	 * Returns l'ensemble des produits de la base de donn�es.
+	 *
+	 * @return List<Product>
 	 */
 	@Override
 	public List<Product> getAllProduct() {
@@ -125,7 +143,7 @@ public class ProductJDBC extends Product{
 	}
 
 	/**
-	 * supprime le currentProduct
+	 * supprime le currentProduct.
 	 */
 	
 	public void delete() {

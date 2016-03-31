@@ -74,13 +74,18 @@ public class UpdateActivityCategoryView extends JPanel implements ActionListener
 
 	/** The current user. */
 	private User currentUser;
+	
+	/** The vc. */
 	private ViewController vc;
+	
+	/** The menu admin view. */
 	private MenuAdminView menuAdminView;
 
 	/**
 	 * Instantiates a new update activity category view.
 	 *
 	 * @param currentUser the current user
+	 * @param vc the vc
 	 */
 	public UpdateActivityCategoryView(User currentUser, ViewController vc) {
 		this.currentUser = currentUser;

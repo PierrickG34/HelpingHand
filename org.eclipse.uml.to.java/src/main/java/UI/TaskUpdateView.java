@@ -28,32 +28,26 @@ import Core.TaskFacade;
 import Core.User;
 import Persist.ActivityCategoryJDBC;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class TaskUpdateView.
+ */
 public class TaskUpdateView extends JPanel implements ActionListener {
 
-	/**
-	 * Descriptions for the windows
-	 */
+	/** Descriptions for the windows. */
 	JLabel updateTask = new JLabel("  Update a Task :");
 
-	/**
-	 * Description for the button validate
-	 */
+	/** Description for the button validate. */
 	JButton submit = new JButton("Submit");
 
 
-	/**
-	 * Define the drop down menu with the task
-	 */
+	/** Define the drop down menu with the task. */
 	JComboBox<String> comboTask = new JComboBox<String>();
 
-	/**
-	 * Define the drop down menu with the product
-	 */
+	/** Define the drop down menu with the product. */
 	JComboBox<String> comboProduct = new JComboBox<String>();
 
-	/**
-	 * Contain all the product of the database
-	 */
+	/** Contain all the product of the database. */
 	List<Product> allProduct = new ArrayList<Product>();
 
 	/**
@@ -61,30 +55,22 @@ public class TaskUpdateView extends JPanel implements ActionListener {
 	 */
 	public ProductFacade productFacades = new ProductFacade(this);
 
-	/**
-	 * Description for the choose product
-	 */
+	/** Description for the choose product. */
 	JLabel chooseProduct = new JLabel("Please select a product for your task");
 
-	/**
-	 * Text to choose the activity category to delete
-	 */
+	/** Text to choose the activity category to delete. */
 	JLabel chooseTask = new JLabel("Choose a Task  :");
 
-	/**
-	 * Button who permit to validate the activity category choosen
-	 */
+	/** Button who permit to validate the activity category choosen. */
 	JButton chooseActivityCategoryButton = new JButton("Choose");
 
-	/**
-	 * Descriptions for the description of a task
-	 */
+	/** Descriptions for the description of a task. */
 	JLabel description = new JLabel("Description :");
+	
+	/** The description entre. */
 	JTextField descriptionEntre = new JTextField("", 15);
 
-	/**
-	 * This panel permit to display information 
-	 */
+	/** This panel permit to display information. */
 	JPanel panelEditAll = new JPanel(new GridLayout(2,0));
 
 	/**
@@ -92,15 +78,24 @@ public class TaskUpdateView extends JPanel implements ActionListener {
 	 */
 	public TaskFacade taskFacades = new TaskFacade(this);
 
-	/**
-	 * Contain all the activity category of the database
-	 */
+	/** Contain all the activity category of the database. */
 	List<Task> allTask = new ArrayList<Task>();
 
+	/** The current user. */
 	private User currentUser;
+	
+	/** The vc. */
 	private ViewController vc;
+	
+	/** The menu admin view. */
 	private MenuAdminView menuAdminView;
 
+	/**
+	 * Instantiates a new task update view.
+	 *
+	 * @param currentUser the current user
+	 * @param vc the vc
+	 */
 	public TaskUpdateView(User currentUser, ViewController vc) {
 		this.currentUser = currentUser;
 		this.vc = vc;
@@ -163,6 +158,9 @@ public class TaskUpdateView extends JPanel implements ActionListener {
 
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();

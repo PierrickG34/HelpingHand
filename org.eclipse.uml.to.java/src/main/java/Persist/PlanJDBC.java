@@ -11,6 +11,10 @@ import Core.Product;
 import Core.Task;
 import Excpetion.AlreadyExistException;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class PlanJDBC.
+ */
 public class PlanJDBC extends Plan {
 	
 	/**
@@ -20,12 +24,23 @@ public class PlanJDBC extends Plan {
 	public JDBConnexion jDBConnexions = JDBConnexion.createConnect();
 	
 	/**
-	 * 
+	 * Instantiates a new plan jdbc.
 	 */
 	public PlanJDBC() {
 		super();
 	}
 	
+	/**
+	 * Instantiates a new plan jdbc.
+	 *
+	 * @param name the name
+	 * @param observation the observation
+	 * @param deadline the deadline
+	 * @param tutorial the tutorial
+	 * @param isPublic the is public
+	 * @param ac the ac
+	 * @param idUser the id user
+	 */
 	public PlanJDBC(String name, String observation, Date deadline, boolean tutorial, boolean isPublic,
 			String ac, int idUser) {
 		super(name, observation, deadline, tutorial, isPublic, ac, idUser);
@@ -36,6 +51,9 @@ public class PlanJDBC extends Plan {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see Core.Plan#getAllPlan()
+	 */
 	@Override
 	public List<Plan> getAllPlan() {
 		List<Plan> list = new ArrayList<Plan>();
@@ -43,11 +61,17 @@ public class PlanJDBC extends Plan {
 		return list;
 	}
 
+	/* (non-Javadoc)
+	 * @see Core.Plan#delete()
+	 */
 	@Override
 	public void delete() {
 		this.jDBConnexions.delete("DELETE FROM Plan where idplan = " + this.getIdPlan());
 	}
 
+	/* (non-Javadoc)
+	 * @see Core.Plan#getRandomPlan()
+	 */
 	@Override
 	public List<Plan> getRandomPlan() {
 		List<Plan> list = new ArrayList<Plan>();
@@ -55,6 +79,9 @@ public class PlanJDBC extends Plan {
 		return list;
 	}
 
+	/* (non-Javadoc)
+	 * @see Core.Plan#getMyPlan(int)
+	 */
 	public List<Plan> getMyPlan(int idUser) {
 		List<Plan> list = new ArrayList<Plan>();
 		list = this.jDBConnexions.getMyPlan("SELECT * FROM plan WHERE iduser = '" +idUser+ "' ORDER BY RANDOM() LIMIT 2;");

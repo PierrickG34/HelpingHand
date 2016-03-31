@@ -30,54 +30,44 @@ import Core.TaskFacade;
 import Core.User;
 import Excpetion.AlreadyExistException;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class TaskCreateView.
+ */
 public class TaskCreateView extends JPanel implements ActionListener {
 	
-	/**
-	 * Descriptions for the mobile field
-	 */
+	/** Descriptions for the mobile field. */
 	JLabel createTask = new JLabel("  Create a task :");
 
 	
-	/**
-	 * Descriptions for the mobile field
-	 */
+	/** Descriptions for the mobile field. */
 	JLabel name = new JLabel("Name :");
+	
+	/** The name entre. */
 	JTextField nameEntre = new JTextField("", 15);
 	
-	/**
-	 * Descriptions for the description field
-	 */
+	/** Descriptions for the description field. */
 	JLabel description = new JLabel("Description :");
+	
+	/** The description entre. */
 	JTextField descriptionEntre = new JTextField("", 15);
 	
-	/**
-	 * Description for the choose product
-	 */
+	/** Description for the choose product. */
 	JLabel chooseProduct = new JLabel("Please select a product for your task   ");
 	
-	/**
-	 * Description for the choose plan
-	 */
+	/** Description for the choose plan. */
 	JLabel choosePlan = new JLabel("Please select a plan for your task");
 	
-	/**
-	 * Define the drop down menu with the product
-	 */
+	/** Define the drop down menu with the product. */
 	JComboBox<String> comboProduct = new JComboBox<String>();
 	
-	/**
-	 * Define the drop down menu with the plan
-	 */
+	/** Define the drop down menu with the plan. */
 	JComboBox<String> comboPlan = new JComboBox<String>();
 	
-	/**
-	 * Contain all the product of the database
-	 */
+	/** Contain all the product of the database. */
 	List<Product> allProduct = new ArrayList<Product>();
 	
-	/**
-	 * Contain all the plab of the database
-	 */
+	/** Contain all the plab of the database. */
 	List<Plan> allPlan = new ArrayList<Plan>();
 	
 	/**
@@ -91,25 +81,33 @@ public class TaskCreateView extends JPanel implements ActionListener {
 	public PlanFacade planFacades = new PlanFacade(this);
 	
 	
-	/**
-	 * Description for the button validate
-	 */
+	/** Description for the button validate. */
 	JButton create = new JButton("Create");
 	
 	/**
 	 * Description of the property ActivityCategoryFacades.
 	 */
 	public TaskFacade taskFacades = new TaskFacade(this);
+
+/** The current user. */
 //	
 	private User currentUser;
+	
+	/** The vc. */
 	private ViewController vc;
+	
+	/** The menu admin view. */
 	private MenuAdminView menuAdminView;
 	
-	    /**
-     * Describe error message
-     */
+	    /** Describe error message. */
     JLabel errorMessage = new JLabel("");
 	
+	/**
+	 * Instantiates a new task create view.
+	 *
+	 * @param currentUser the current user
+	 * @param vc the vc
+	 */
 	public TaskCreateView(User currentUser, ViewController vc) {
 //		super("Task"); // Name of the frame
 		this.currentUser = currentUser;
@@ -176,15 +174,28 @@ public class TaskCreateView extends JPanel implements ActionListener {
 
 	}
 	
+	/**
+	 * Gets the all product.
+	 *
+	 * @return the all product
+	 */
 	private void getAllProduct() {
 		this.allProduct = this.productFacades.getAllProduct();
 		
 	}
 
+	/**
+	 * Gets the all plan.
+	 *
+	 * @return the all plan
+	 */
 	public void getAllPlan() {
 		this.allPlan = this.planFacades.getAllPlan();
 	}
 	
+	/* (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();

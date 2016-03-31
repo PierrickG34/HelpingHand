@@ -13,17 +13,37 @@ import javax.swing.JPanel;
 
 import Core.User;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ProductManageViewSeller.
+ */
 public class ProductManageViewSeller extends JPanel implements ActionListener {
 	
+	/** The create. */
 	JButton create = new JButton("Create a Product");
+	
+	/** The update. */
 	JButton update = new JButton("Update a Product");
+	
+	/** The delete. */
 	JButton delete = new JButton("Delete a Product");
 	
 	
+	/** The current user. */
 	private User currentUser;
+	
+	/** The vc. */
 	private ViewController vc;
+	
+	/** The menu seller view. */
 	private MenuSellerView menuSellerView;
 	
+	/**
+	 * Instantiates a new product manage view seller.
+	 *
+	 * @param currentUser the current user
+	 * @param vc the vc
+	 */
 	public ProductManageViewSeller(User currentUser, ViewController vc) {
 //		super("Product"); // Name of the frame
 		this.currentUser = currentUser;
@@ -53,6 +73,9 @@ public class ProductManageViewSeller extends JPanel implements ActionListener {
         this.add(manageButton, BorderLayout.WEST);
 	}
 	
+	/* (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();

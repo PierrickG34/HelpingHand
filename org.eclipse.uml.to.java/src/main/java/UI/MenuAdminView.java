@@ -8,21 +8,47 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class MenuAdminView.
+ */
 public class MenuAdminView extends JPanel implements ActionListener {
 	
+	/** The dashboard. */
 	private JButton dashboard = new JButton("Dashboard");
+	
+	/** The activity category. */
 	private JButton activityCategory = new JButton("Activity Category");
+	
+	/** The product category. */
 	private JButton productCategory = new JButton("Product Category");
+	
+	/** The product. */
 	private JButton product = new JButton("Product");
+	
+	/** The account. */
 	private JButton account = new JButton("Account");
+	
+	/** The plan. */
 	private JButton plan = new JButton("Plan");
+	
+	/** The task. */
 	private JButton task = new JButton("Task");
 	   
+	/** The profile. */
 	private JButton profile = new JButton("Profile");
+	
+	/** The notifications. */
 	private JButton notifications = new JButton("Notifications");
 	
+	/** The vc. */
 	private ViewController vc;
 	
+	/**
+	 * Instantiates a new menu admin view.
+	 *
+	 * @param vc the vc
+	 */
 	public MenuAdminView(ViewController vc) {
 		this.vc = vc;
 		
@@ -60,6 +86,9 @@ public class MenuAdminView extends JPanel implements ActionListener {
         this.add(panelButton,BorderLayout.NORTH);
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();

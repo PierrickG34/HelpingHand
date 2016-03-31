@@ -23,28 +23,67 @@ import Core.PlanFacade;
 import Core.Task;
 import Core.User;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class PlanViewUser.
+ */
 public class PlanViewUser extends JPanel implements ActionListener {
 	
+	/** The informations plan. */
 	JLabel informationsPlan = new JLabel ("Plan informations");
+	
+	/** The name plan. */
 	JLabel namePlan = new JLabel ("");
+	
+	/** The AC plan. */
 	JLabel ACPlan = new JLabel ("");
+	
+	/** The obs plan. */
 	JTextArea obsPlan = new JTextArea ("");
+	
+	/** The plan facades. */
 	public PlanFacade planFacades = new PlanFacade(this);
+	
+	/** The all task. */
 	List<Task> allTask = new ArrayList<Task>();
+	
+	/** The name task. */
 	JLabel nameTask = new JLabel ("");
+	
+	/** The desc task. */
 	JLabel descTask = new JLabel ("");
+	
+	/** The dead line plan. */
 	JLabel deadLinePlan = new JLabel("");
+	
+	/** The copy plan. */
 	JButton copyPlan = new JButton("Copy to my Plans");
+	
+	/** The add favorite. */
 	JButton addFavorite = new JButton("Add to my Favorites");
 	
 	
+	/** The current user. */
 	private User currentUser;
+	
+	/** The current plan. */
 	private Plan currentPlan;
+	
+	/** The vc. */
 	private ViewController vc;
+	
+	/** The menu user view. */
 	private MenuUserView menuUserView;
 	
 	
 	
+	/**
+	 * Instantiates a new plan view user.
+	 *
+	 * @param currentUser the current user
+	 * @param currentPlan the current plan
+	 * @param vc the vc
+	 */
 	public PlanViewUser(User currentUser, Plan currentPlan, ViewController vc) {
 		this.currentUser = currentUser;
 		this.currentPlan = currentPlan;
@@ -119,12 +158,21 @@ public class PlanViewUser extends JPanel implements ActionListener {
 
 
 
+	/**
+	 * Gets the task for plan.
+	 *
+	 * @param idPlan the id plan
+	 * @return the task for plan
+	 */
 	private void getTaskForPlan(Integer idPlan) {
 		this.allTask = this.planFacades.getTaskForPlan(idPlan);
 	}
 
 
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();

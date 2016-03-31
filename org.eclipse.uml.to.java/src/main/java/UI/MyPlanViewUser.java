@@ -28,10 +28,19 @@ import Core.PlanFacade;
 import Core.User;
 import Core.UserFacade;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class MyPlanViewUser.
+ */
 public class MyPlanViewUser extends JPanel implements ActionListener, MouseListener {
 
+   /** The current user. */
    User currentUser;
+   
+   /** The vc. */
    private ViewController vc;
+   
+   /** The menu user view. */
    private MenuUserView menuUserView;
    
    /**
@@ -39,18 +48,29 @@ public class MyPlanViewUser extends JPanel implements ActionListener, MouseListe
 	 */
 	public PlanFacade planFacades = new PlanFacade(this);
 	
+	/** The my plan. */
 	List<Plan> myPlan = new ArrayList<Plan>();
 	
+	/** The name1. */
 	JLabel name1 = new JLabel();
+	
+	/** The name2. */
 	JLabel name2 = new JLabel();
 	
+	/** The obs1. */
 	JTextArea obs1 = new JTextArea();
+	
+	/** The obs2. */
 	JTextArea obs2 = new JTextArea();
 	
+	/** The create plan. */
 	JButton createPlan = new JButton("Create a Plan");
 	
 	/**
-	 * The constructor who create the window
+	 * The constructor who create the window.
+	 *
+	 * @param currentUser the current user
+	 * @param vc the vc
 	 */
 	public MyPlanViewUser(User currentUser, ViewController vc) {
 		this.currentUser = currentUser;
@@ -105,10 +125,18 @@ public class MyPlanViewUser extends JPanel implements ActionListener, MouseListe
         this.add(panelAll, BorderLayout.WEST);	
 	}
 	
+	/**
+	 * Gets the my plan.
+	 *
+	 * @return the my plan
+	 */
 	public void getMyPlan() {
 		this.myPlan = this.planFacades.getMyPlan(this.currentUser.getIdUser());
 	}
 	
+	/* (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();
@@ -117,6 +145,9 @@ public class MyPlanViewUser extends JPanel implements ActionListener, MouseListe
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.MouseListener#mouseClicked(java.awt.event.MouseEvent)
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		String source = e.getComponent().getName();
@@ -128,24 +159,36 @@ public class MyPlanViewUser extends JPanel implements ActionListener, MouseListe
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.MouseListener#mousePressed(java.awt.event.MouseEvent)
+	 */
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
+	 */
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.MouseListener#mouseEntered(java.awt.event.MouseEvent)
+	 */
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.MouseListener#mouseExited(java.awt.event.MouseEvent)
+	 */
 	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub

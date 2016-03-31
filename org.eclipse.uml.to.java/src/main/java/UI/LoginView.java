@@ -31,6 +31,7 @@ import Core.UserFacade;
 import Excpetion.LoginException;
 import Excpetion.PasswordException;
 
+// TODO: Auto-generated Javadoc
 // Start of user code (user defined imports)
 
 // End of user code
@@ -42,31 +43,25 @@ import Excpetion.PasswordException;
  */
 public class LoginView extends JFrame implements ActionListener {
 
-	 /**
-	  * Descriptions for the email field
-	  */
+	 /** Descriptions for the email field. */
     JLabel email = new JLabel("Email :");
+    
+    /** The email entre. */
     JTextField emailEntre = new JTextField("", 15);
     
-    /**
-     * Describe error message
-     */
+    /** Describe error message. */
     JLabel errorMessage = new JLabel("");
  
-    /**
-	  * Descriptions for the password field
-	  */
+    /** Descriptions for the password field. */
     JLabel password = new JLabel("Password:");
+    
+    /** The password entre. */
     JPasswordField passwordEntre = new JPasswordField("", 15);
     
-    /**
-	  * Descriptions for the validate button
-	  */
+    /** Descriptions for the validate button. */
     JButton validate = new JButton("Validate");
     
-    /**
-     * Descriptions for the signup button
-     */
+    /** Descriptions for the signup button. */
     JButton signUp = new JButton("Sign Up");
 
 	/**
@@ -79,7 +74,7 @@ public class LoginView extends JFrame implements ActionListener {
 	// End of user code
 
 	/**
-	 * The constructor who create the window
+	 * The constructor who create the window.
 	 */
 	public LoginView() {
 		super("Login"); // Name of the frame
@@ -130,8 +125,9 @@ public class LoginView extends JFrame implements ActionListener {
 	}
 
 	/**
-	 * This function take no entry and return a String corresponding to the user login, contain in the JTextField Login
-	 * @return 
+	 * This function take no entry and return a String corresponding to the user login, contain in the JTextField Login.
+	 *
+	 * @return the login text
 	 */
 	public String getLoginText() {
 		// Start of user code for method getLoginText
@@ -141,8 +137,9 @@ public class LoginView extends JFrame implements ActionListener {
 	}
 
 	/**
-	 * This function take no entry and return a String corresponding to the user password, contain in the JTextField Password
-	 * @return 
+	 * This function take no entry and return a String corresponding to the user password, contain in the JTextField Password.
+	 *
+	 * @return the password text
 	 */
 	public String getPasswordText() {
 		// Start of user code for method getPasswordText
@@ -165,7 +162,8 @@ public class LoginView extends JFrame implements ActionListener {
 
 	/**
 	 * Sets a value to attribute validateButton. 
-	 * @param newValidateButton 
+	 *
+	 * @param newValidateButton the new validate button
 	 */
 	public void setValidateButton(JButton newValidateButton) {
 		this.validate = newValidateButton;
@@ -181,7 +179,8 @@ public class LoginView extends JFrame implements ActionListener {
 
 	/**
 	 * Sets a value to attribute loginField. 
-	 * @param newLoginField 
+	 *
+	 * @param newLoginField the new login field
 	 */
 	public void setLoginField(JTextField newLoginField) {
 		this.emailEntre = newLoginField;
@@ -197,7 +196,8 @@ public class LoginView extends JFrame implements ActionListener {
 
 	/**
 	 * Sets a value to attribute passwordField. 
-	 * @param newPasswordField 
+	 *
+	 * @param newPasswordField the new password field
 	 */
 	public void setPasswordField(JPasswordField newPasswordField) {
 		this.passwordEntre = newPasswordField;
@@ -213,15 +213,18 @@ public class LoginView extends JFrame implements ActionListener {
 
 	/**
 	 * Sets a value to attribute userFacades. 
-	 * @param newUserFacades 
+	 *
+	 * @param newUserFacades the new user facades
 	 */
 	public void setUserFacades(UserFacade newUserFacades) {
 		this.userFacades = newUserFacades;
 	}
 
 	
-	/** Action when the user click on the button validate
-	 * @param ActionEvent the action
+	/**
+	 *  Action when the user click on the button validate.
+	 *
+	 * @param e the e
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -300,8 +303,9 @@ public class LoginView extends JFrame implements ActionListener {
     }
 	
 	/**
-	 * Encrypt in md5 format the password enter by the user
-	 * @param mdp
+	 * Encrypt in md5 format the password enter by the user.
+	 *
+	 * @param mdp the mdp
 	 * @return the string encrypted in md5 format
 	 */
 	public String encrypt(String mdp) {

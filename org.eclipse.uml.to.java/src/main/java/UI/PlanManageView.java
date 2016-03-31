@@ -13,31 +13,36 @@ import javax.swing.JPanel;
 
 import Core.User;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class PlanManageView.
+ */
 public class PlanManageView extends JPanel implements ActionListener {
 
-	/**
-	 * Button for create an activity category
-	 */
+	/** Button for create an activity category. */
 	JButton create = new JButton("Create a Plan");
 	
-	/**
-	 * Button for update an activity category
-	 */
+	/** Button for update an activity category. */
 	JButton update = new JButton("Update a Plan");
 	
+	/** The delete. */
 	JButton delete = new JButton("Delete a Plan");
 	
-	/**
-	 * The current user
-	 */
+	/** The current user. */
 	private User currentUser;
+	
+	/** The vc. */
 	private ViewController vc;
+	
+	/** The menu admin view. */
 	private MenuAdminView menuAdminView;
 
 	
 	/**
-	 * Constructor for the class
-	 * @param currentUser
+	 * Constructor for the class.
+	 *
+	 * @param currentUser the current user
+	 * @param vc the vc
 	 */
 	public PlanManageView(User currentUser, ViewController vc) {
 //		super("Plan"); // Name of the frame
@@ -68,8 +73,9 @@ public class PlanManageView extends JPanel implements ActionListener {
 	}
 	
 	/**
-	 * Action when the user click on a button
-	 * @param e
+	 * Action when the user click on a button.
+	 *
+	 * @param e the e
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {

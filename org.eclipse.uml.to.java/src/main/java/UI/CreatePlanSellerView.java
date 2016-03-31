@@ -32,38 +32,37 @@ import Core.PlanFacade;
 import Core.User;
 import Persist.DateLabelFormatter;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class CreatePlanSellerView.
+ */
 public class CreatePlanSellerView extends JPanel implements ActionListener {
 	
-	/**
-	 * Descriptions for the windows
-	 */
+	/** Descriptions for the windows. */
 	JLabel createPlan = new JLabel("  Create a Plan:");
 	
-	/**
-	 * Descriptions for the name field
-	 */
+	/** Descriptions for the name field. */
 	JLabel name = new JLabel("Name :");
-	/**
-	 * Descriptions for the name field
-	 */
+	
+	/** Descriptions for the name field. */
 	JTextField nameEntre = new JTextField("", 15);
 	
-	/**
-	 * Descriptions for the observation field
-	 */
+	/** Descriptions for the observation field. */
 	JLabel observation = new JLabel("Observation :");
 	
-	/**
-	 * Descriptions for the short detail field
-	 */
+	/** Descriptions for the short detail field. */
 	JTextField observationEntre = new JTextField("", 15);
 	
-    /**
-     * Description for date of birth
-     */
+    /** Description for date of birth. */
     JLabel dateOfBirth = new JLabel("Enter a date of birth :*");
+    
+    /** The model. */
     UtilDateModel model = new UtilDateModel();
+    
+    /** The date panel. */
     JDatePanelImpl datePanel;
+    
+    /** The date picker. */
     JDatePickerImpl datePicker;
 	
     /** Define the drop down menu with the activity category. */
@@ -81,9 +80,7 @@ public class CreatePlanSellerView extends JPanel implements ActionListener {
 	/** Text to choose the activity category to delete. */
 	JLabel choosePublic = new JLabel("Choose public : ");
 	
-	/**
-	 * Description for the button validate
-	 */
+	/** Description for the button validate. */
 	JButton validate = new JButton("Validate");
 	
 	/**
@@ -91,27 +88,26 @@ public class CreatePlanSellerView extends JPanel implements ActionListener {
 	 */
 	public ActivityCategoryFacade activityCategoryFacades = new ActivityCategoryFacade(this);
 	
-	/**
-	 * Description of the property Plan
-	 */
+	/** Description of the property Plan. */
 	public PlanFacade planFacades = new PlanFacade(this);
 	
-	/**
-	 * The current user
-	 */
+	/** The current user. */
 	private User currentUser;
 	
-	 /**
-     * Describe error message
-     */
+	 /** Describe error message. */
     JLabel errorMessage = new JLabel("");
     
+    /** The vc. */
     private ViewController vc;
+	
+	/** The menu seller view. */
 	private MenuSellerView menuSellerView;
 	
     /**
-     * Constructor
-     * @param currentUser
+     * Constructor.
+     *
+     * @param currentUser the current user
+     * @param vc the vc
      */
 	public CreatePlanSellerView(User currentUser, ViewController vc) {
 		this.currentUser = currentUser;
@@ -186,6 +182,9 @@ public class CreatePlanSellerView extends JPanel implements ActionListener {
         this.add(panelAll, BorderLayout.CENTER);
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();

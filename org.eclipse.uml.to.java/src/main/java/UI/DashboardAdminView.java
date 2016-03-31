@@ -22,6 +22,10 @@ import Core.Plan;
 import Core.PlanFacade;
 import Core.User;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class DashboardAdminView.
+ */
 public class DashboardAdminView extends JPanel implements ActionListener, MouseListener {
 	
 	/**
@@ -29,21 +33,37 @@ public class DashboardAdminView extends JPanel implements ActionListener, MouseL
 	 */
 	public PlanFacade planFacades = new PlanFacade(this);
 	
+	/** The random plan. */
 	List<Plan> randomPlan = new ArrayList<Plan>();
 	
+	/** The name1. */
 	JLabel name1 = new JLabel();
+	
+	/** The name2. */
 	JLabel name2 = new JLabel();
 	
+	/** The obs1. */
 	JTextArea obs1 = new JTextArea();
+	
+	/** The obs2. */
 	JTextArea obs2 = new JTextArea();
 	
+	/** The menuadmin view. */
 	private MenuAdminView menuadminView;
 	
+	/** The current user. */
 	private User currentUser;
 	
+	/** The vc. */
 	private ViewController vc;
 	
 	
+	/**
+	 * Instantiates a new dashboard admin view.
+	 *
+	 * @param currentUser the current user
+	 * @param vc the vc
+	 */
 	public DashboardAdminView(User currentUser, ViewController vc) {
 		this.currentUser = currentUser;
 		this.vc = vc;
@@ -87,11 +107,19 @@ public class DashboardAdminView extends JPanel implements ActionListener, MouseL
         
 	}
 	
+	/**
+	 * Gets the random plan.
+	 *
+	 * @return the random plan
+	 */
 	public void getRandomPlan() {
 		this.randomPlan = this.planFacades.getRandomPlan();
 	}
 
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.MouseListener#mouseClicked(java.awt.event.MouseEvent)
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		String source = e.getComponent().getName();
@@ -103,30 +131,45 @@ public class DashboardAdminView extends JPanel implements ActionListener, MouseL
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.MouseListener#mousePressed(java.awt.event.MouseEvent)
+	 */
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
+	 */
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.MouseListener#mouseEntered(java.awt.event.MouseEvent)
+	 */
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.MouseListener#mouseExited(java.awt.event.MouseEvent)
+	 */
 	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub

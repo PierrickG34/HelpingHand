@@ -21,69 +21,53 @@ import javax.swing.border.Border;
 
 import Core.User;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ProfileSellerView.
+ */
 public class ProfileSellerView extends JPanel implements ActionListener {
 	
-	/**
-	 * Description for the firstname information
-	 */
+	/** Description for the firstname information. */
 	JLabel informations = new JLabel(" Informations: ");
 
 
-	/**
-	 * Description for the firstname information
-	 */
+	/** Description for the firstname information. */
 	JLabel firstName = new JLabel("");
 
-	/**
-	 * Description for the surname information
-	 */
+	/** Description for the surname information. */
 	JLabel surName = new JLabel("");
 
-	/**
-	 * Description for the mobile information
-	 */
+	/** Description for the mobile information. */
 	JLabel mobile = new JLabel("");
 
-	/**
-	 * Description for the mail information
-	 */
+	/** Description for the mail information. */
 	JLabel mail = new JLabel("");
 
-	/**
-	 * Description for the dateOfBirth information
-	 */
+	/** Description for the dateOfBirth information. */
 	JLabel dateOfBirth = new JLabel("");
 	
-	/**
-	 * Description for the siretNumber information
-	 */
+	/** Description for the siretNumber information. */
 	JLabel siretNumber = new JLabel("");
 	
-	/**
-	 * Description for the website URL information
-	 */
+	/** Description for the website URL information. */
 	JLabel websiteURL = new JLabel("");
 
-	/**
-	 * Description for the password information
-	 */
+	/** Description for the password information. */
 	JLabel password = new JLabel("");
 
-	/**
-	 * Description for the address information
-	 */
+	/** Description for the address information. */
 	JLabel address = new JLabel("");
 
-	/**
-	 * Description for the button permits to modify this informations
-	 */
+	/** Description for the button permits to modify this informations. */
 	JButton modify = new JButton("Modify informations");
 
-	/**
-	 * 
-	 */
+	/** The current user. */
 	private User currentUser;
+	
+	/** The vc. */
 	private ViewController vc;
+	
+	/** The menu seller view. */
 	private MenuSellerView menuSellerView;
 
 
@@ -92,7 +76,10 @@ public class ProfileSellerView extends JPanel implements ActionListener {
 	// End of user code
 
 	/**
-	 * The constructor who create the window
+	 * The constructor who create the window.
+	 *
+	 * @param currentUser the current user
+	 * @param vc the vc
 	 */
 	public ProfileSellerView(User currentUser, ViewController vc) {
 //		super("Profile"); // Name of the frame
@@ -151,6 +138,9 @@ public class ProfileSellerView extends JPanel implements ActionListener {
 
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();

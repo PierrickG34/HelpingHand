@@ -23,66 +23,74 @@ import Core.User;
 import Core.UserFacade;
 import Excpetion.AlreadyExistException;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ProductCreateView.
+ */
 public class ProductCreateView extends JPanel implements ActionListener {
 
 
-	/**
-	 * Descriptions for the windows
-	 */
+	/** Descriptions for the windows. */
 	JLabel createProduct = new JLabel("  Create a product :");
 
+	/** The current user. */
 	private User currentUser;
-	/**
-	 * Descriptions for the Name field
-	 */
+	
+	/** Descriptions for the Name field. */
 	JLabel name = new JLabel("Name :");
+	
+	/** The name entre. */
 	JTextField nameEntre = new JTextField("", 15);
 
-	/**
-	 * Descriptions for the price field
-	 */
+	/** Descriptions for the price field. */
 	JLabel price = new JLabel("Price :");
+	
+	/** The price entre. */
 	JTextField priceEntre = new JTextField("", 15);
 
-	/**
-	 * Description for the quantity field
-	 */
+	/** Description for the quantity field. */
 	JLabel quantity = new JLabel("Quantity:");
+	
+	/** The quantity entre. */
 	JTextField quantityEntre = new JTextField("", 15);
 
-	/**
-	 * Description for the category field
-	 */
+	/** Description for the category field. */
 
 	JLabel category = new JLabel("Category:");
+	
+	/** The category entre. */
 	JTextField categoryEntre = new JTextField("", 15);
 
-	/**
-	 * Description for the button validate
-	 */
+	/** Description for the button validate. */
 	JButton validateCreationProduct = new JButton("ValidateCreationProduct");
 
-	/**
-	 * Permit to cancel the creation
-	 */
+	/** Permit to cancel the creation. */
 	JButton cancel = new JButton("Cancel");
 
 
-	/**
-	 * Describe error message
-	 */
+	/** Describe error message. */
 
 	JLabel errorMessage = new JLabel("");
 
+	/** The product facades. */
 	public ProductFacade productFacades = new ProductFacade(this);
 
 	/*
 	 *  Describe the menu
 	 */
 
+	/** The vc. */
 	private ViewController vc;
+	
+	/** The menu admin view. */
 	private MenuAdminView menuAdminView;
 
+	/**
+	 * Instantiates a new product create view.
+	 *
+	 * @param user the user
+	 * @param vc the vc
+	 */
 	public ProductCreateView(User user, ViewController vc)
 	{
 //		super("Product Creation");
@@ -148,6 +156,9 @@ public class ProductCreateView extends JPanel implements ActionListener {
 	}
 
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();

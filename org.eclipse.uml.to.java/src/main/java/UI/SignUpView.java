@@ -42,78 +42,80 @@ import Excpetion.AlreadyExistException;
 import Excpetion.LoginException;
 import Persist.DateLabelFormatter;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class SignUpView.
+ */
 public class SignUpView extends JFrame implements ActionListener {
 	
-	/**
-	 * Permit to validate the sign up
-	 */
+	/** Permit to validate the sign up. */
 	JButton validate = new JButton("Validate");
 	
-	/**
-	 * Permit to cancel the sign up
-	 */
+	/** Permit to cancel the sign up. */
 	JButton cancel = new JButton("Cancel");
 	
-	/**
-	 * Description for the firstname information
-	 */
+	/** Description for the firstname information. */
 	JLabel firstName = new JLabel("Enter a first name :*");
+    
+    /** The first name entre. */
     JTextField firstNameEntre = new JTextField("", 10);
     
-    /**
-	 * Description for the surname information
-	 */
+    /** Description for the surname information. */
 	JLabel surName = new JLabel("Enter a sur name :*");
+    
+    /** The sur name entre. */
     JTextField surNameEntre = new JTextField("", 10);
     
-    /**
-	 * Description for the mobile information
-	 */
+    /** Description for the mobile information. */
 	JLabel mobile = new JLabel("Enter a mobile :*");
+    
+    /** The mobile entre. */
     JTextField mobileEntre = new JTextField("", 10);
     
-    /**
-	 * Description for the mail address information
-	 */
+    /** Description for the mail address information. */
 	JLabel mail = new JLabel("Enter an mail :*");
+    
+    /** The mail entre. */
     JTextField mailEntre = new JTextField("", 10);
     
-    /**
-     * Description for date of birth
-     */
+    /** Description for date of birth. */
     JLabel dateOfBirth = new JLabel("Enter a date of birth :*");
+    
+    /** The model. */
     UtilDateModel model = new UtilDateModel();
+    
+    /** The date panel. */
     JDatePanelImpl datePanel;
+    
+    /** The date picker. */
     JDatePickerImpl datePicker;
     
    
-    /**
-	 * Description for the password information
-	 */
+    /** Description for the password information. */
     JLabel password = new JLabel("Password:*");
+    
+    /** The password entre. */
     JPasswordField passwordEntre = new JPasswordField("", 15);
     
-    /**
-	 * Description for the address information
-	 */
+    /** Description for the address information. */
 	JLabel address = new JLabel("Enter an address :*");
+    
+    /** The address entre. */
     JTextField addressEntre = new JTextField("", 10);
     
-    /**
-	 * Description for the siret number information
-	 */
+    /** Description for the siret number information. */
 	JLabel siret = new JLabel("Enter SIRET number :");
+    
+    /** The siret entre. */
     JTextField siretEntre = new JTextField("", 10);
     
-    /**
-	 * Description for the websiteURL information
-	 */
+    /** Description for the websiteURL information. */
 	JLabel websiteURL = new JLabel("Enter a website URL :");
+    
+    /** The website url entre. */
     JTextField websiteURLEntre = new JTextField("", 10);
     
-    /**
-     * Describe error message
-     */
+    /** Describe error message. */
     JLabel errorMessage = new JLabel("");
     
 	/**
@@ -124,8 +126,8 @@ public class SignUpView extends JFrame implements ActionListener {
 //	--------------------------------------------------------
 	
 	/**
-	 * The constructor who create the window
-	 */
+ * The constructor who create the window.
+ */
 	public SignUpView() {
 		super("Sign Up");
 		this.validate.addActionListener(this);
@@ -213,9 +215,10 @@ public class SignUpView extends JFrame implements ActionListener {
 	}
 	
 	/**
-	 * Check if the mobile number is correct or not (10 int is a valid format)
-	 * @param enteredMobile
-	 * @return
+	 * Check if the mobile number is correct or not (10 int is a valid format).
+	 *
+	 * @param enteredMobile the entered mobile
+	 * @return true, if is valid mobile
 	 */
 	public static boolean isValidMobile(String enteredMobile){
         String EMAIL_REGIX = "(0)[1-9][0-9]{8}";
@@ -238,8 +241,9 @@ public class SignUpView extends JFrame implements ActionListener {
     }
 	
 	/**
-	 * Encrypt in md5 format the password enter by the user
-	 * @param mdp
+	 * Encrypt in md5 format the password enter by the user.
+	 *
+	 * @param mdp the mdp
 	 * @return the string encrypted in md5 format
 	 */
 	public String encrypt(String mdp) {
@@ -264,8 +268,9 @@ public class SignUpView extends JFrame implements ActionListener {
 
 
 	/**
-	 * Action when the user click on the button validate
-	 * @param ActionEvent the action
+	 * Action when the user click on the button validate.
+	 *
+	 * @param e the e
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {

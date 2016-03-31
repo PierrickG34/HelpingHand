@@ -13,17 +13,37 @@ import javax.swing.JPanel;
 
 import Core.User;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ProductManageView.
+ */
 public class ProductManageView extends JPanel implements ActionListener {
 	
+	/** The create. */
 	JButton create = new JButton("Create a Product");
+	
+	/** The update. */
 	JButton update = new JButton("Update a Product");
+	
+	/** The delete. */
 	JButton delete = new JButton("Delete a Product");
 	
 	
+	/** The current user. */
 	private User currentUser;
+	
+	/** The vc. */
 	private ViewController vc;
+	
+	/** The menu admin view. */
 	private MenuAdminView menuAdminView;
 	
+	/**
+	 * Instantiates a new product manage view.
+	 *
+	 * @param currentUser the current user
+	 * @param vc the vc
+	 */
 	public ProductManageView(User currentUser, ViewController vc) {
 		this.currentUser = currentUser;
 		this.vc = vc;
@@ -53,6 +73,9 @@ public class ProductManageView extends JPanel implements ActionListener {
 
 	}
 	
+	/* (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();

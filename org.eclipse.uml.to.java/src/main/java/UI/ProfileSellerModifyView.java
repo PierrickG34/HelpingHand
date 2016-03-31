@@ -28,64 +28,68 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import Core.User;
 import Core.UserFacade;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ProfileSellerModifyView.
+ */
 public class ProfileSellerModifyView extends JPanel implements ActionListener {
 	
-	/**
-	 * Descriptions for the mobile field
-	 */
+	/** Descriptions for the mobile field. */
 	JLabel editInformations = new JLabel("  Edit informations  :");
 
-	/**
-	 * Describe the current user
-	 */
+	/** Describe the current user. */
 	private User currentUser;
+	
+	/** The user facade. */
 	private UserFacade userFacade;
 
-	/**
-	 * Descriptions for the mobile field
-	 */
+	/** Descriptions for the mobile field. */
 	JLabel mobile = new JLabel("Mobile :");
+	
+	/** The mobile entre. */
 	JTextField mobileEntre = new JTextField("", 15);
 
-	/**
-	 * Descriptions for the address field
-	 */
+	/** Descriptions for the address field. */
 	JLabel address = new JLabel("Address :");
+	
+	/** The address entre. */
 	JTextField addressEntre = new JTextField("", 15);
 	
-	/**
-	 * Descriptions for the siret number field
-	 */
+	/** Descriptions for the siret number field. */
 	JLabel siretNumber = new JLabel("Siret Number :");
+	
+	/** The siret number entre. */
 	JTextField siretNumberEntre = new JTextField("", 15);
 	
-	/**
-	 * Descriptions for the websiteURL field
-	 */
+	/** Descriptions for the websiteURL field. */
 	JLabel websiteURL = new JLabel("Website URL :");
+	
+	/** The website url entre. */
 	JTextField websiteURLEntre = new JTextField("", 15);
 
-	/**
-	 * Description for the password information
-	 */
+	/** Description for the password information. */
 	JLabel password = new JLabel("Password:");
+	
+	/** The password entre. */
 	JPasswordField passwordEntre = new JPasswordField("", 15);
 
-	/**
-	 * Description for the button validate
-	 */
+	/** Description for the button validate. */
 	JButton validate = new JButton("Validate");
 
-	/**
-	 * Describe error message
-	 */
+	/** Describe error message. */
 	JLabel errorMessage = new JLabel("");
 
+	/** The vc. */
 	private ViewController vc;
+	
+	/** The menu seller view. */
 	private MenuSellerView menuSellerView;
+	
 	/**
-	 * 
-	 * @param currentUser
+	 * Instantiates a new profile seller modify view.
+	 *
+	 * @param currentUser the current user
+	 * @param vc the vc
 	 */
 	public ProfileSellerModifyView(User currentUser, ViewController vc) {
 		this.currentUser = currentUser;
@@ -148,9 +152,10 @@ public class ProfileSellerModifyView extends JPanel implements ActionListener {
 	}
 
 	/**
-	 * Check if the mobile number is correct or not (10 int is a valid format)
-	 * @param enteredMobile
-	 * @return
+	 * Check if the mobile number is correct or not (10 int is a valid format).
+	 *
+	 * @param enteredMobile the entered mobile
+	 * @return true, if is valid mobile
 	 */
 	public static boolean isValidMobile(String enteredMobile){
 		String EMAIL_REGIX = "(0)[1-9][0-9]{8}";
@@ -160,8 +165,9 @@ public class ProfileSellerModifyView extends JPanel implements ActionListener {
 	}
 
 	/**
-	 * Encrypt in md5 format the password enter by the user
-	 * @param mdp
+	 * Encrypt in md5 format the password enter by the user.
+	 *
+	 * @param mdp the mdp
 	 * @return the string encrypted in md5 format
 	 */
 	public String encrypt(String mdp) {
@@ -184,6 +190,9 @@ public class ProfileSellerModifyView extends JPanel implements ActionListener {
 		return sb.toString();
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();
