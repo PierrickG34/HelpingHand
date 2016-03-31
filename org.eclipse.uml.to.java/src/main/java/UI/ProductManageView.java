@@ -1,21 +1,18 @@
 package UI;
 
 import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import Core.User;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ProductManageView.
+ * 
+ * @author HelpingHand
  */
 public class ProductManageView extends JPanel implements ActionListener {
 	
@@ -32,7 +29,7 @@ public class ProductManageView extends JPanel implements ActionListener {
 	/** The current user. */
 	private User currentUser;
 	
-	/** The vc. */
+	/** The ViewController. */
 	private ViewController vc;
 	
 	/** The menu admin view. */
@@ -42,7 +39,7 @@ public class ProductManageView extends JPanel implements ActionListener {
 	 * Instantiates a new product manage view.
 	 *
 	 * @param currentUser the current user
-	 * @param vc the vc
+	 * @param vc the ViewController
 	 */
 	public ProductManageView(User currentUser, ViewController vc) {
 		this.currentUser = currentUser;

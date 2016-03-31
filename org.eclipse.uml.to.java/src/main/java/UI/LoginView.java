@@ -12,9 +12,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Calendar;
-import java.util.Observable;
-import java.util.Observer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -31,15 +28,10 @@ import Core.UserFacade;
 import Excpetion.LoginException;
 import Excpetion.PasswordException;
 
-// TODO: Auto-generated Javadoc
-// Start of user code (user defined imports)
-
-// End of user code
-
 /**
  * Description of LoginView.
  * 
- * @author pierrickgiuliani
+ * @author HelpingHand
  */
 public class LoginView extends JFrame implements ActionListener {
 
@@ -68,10 +60,6 @@ public class LoginView extends JFrame implements ActionListener {
 	 * Description of the property userFacades.
 	 */
 	public UserFacade userFacades = new UserFacade(this);
-
-	// Start of user code (user defined attributes for LoginView)
-
-	// End of user code
 
 	/**
 	 * The constructor who create the window.
@@ -108,7 +96,7 @@ public class LoginView extends JFrame implements ActionListener {
         error.add(this.errorMessage);
         this.errorMessage.setVisible(false);
         
-        // button panel
+        // Buttons panel
         JPanel button_panel = new JPanel();
         button_panel.add(validate);
         button_panel.add(signUp);
@@ -130,10 +118,8 @@ public class LoginView extends JFrame implements ActionListener {
 	 * @return the login text
 	 */
 	public String getLoginText() {
-		// Start of user code for method getLoginText
 		String getLoginText = "";
 		return getLoginText;
-		// End of user code
 	}
 
 	/**
@@ -142,16 +128,10 @@ public class LoginView extends JFrame implements ActionListener {
 	 * @return the password text
 	 */
 	public String getPasswordText() {
-		// Start of user code for method getPasswordText
 		String getPasswordText = "";
 		return getPasswordText;
-		// End of user code
 	}
 
-
-	// Start of user code (user defined methods for LoginView)
-
-	// End of user code
 	/**
 	 * Returns validate.
 	 * @return validate 
@@ -246,19 +226,15 @@ public class LoginView extends JFrame implements ActionListener {
 					if (currentUser != null) {
 						ViewController vc = new ViewController(currentUser);
 						if(currentUser.getAdmin() == true) {
-							//DashboardAdminView dashAdmin = new DashboardAdminView(currentUser);
 							vc.dashboardAdminView();
 						}
 						else if (!currentUser.getSiretNumber().isEmpty()) {
-							//DashboardSellerView dashSeller = new DashboardSellerView(currentUser);
 							vc.dashboardSellerView();
 						}
 						else {
-							//DashboardUserView dashUser = new DashboardUserView(currentUser);
 							vc.dashboardUserView();
 						}
 						this.dispose();
-						//DashboardAdminView test = new DashboardAdminView(currentUser);
 					}
 				} catch (LoginException errorLogin) {
 					this.errorMessage.setText(errorLogin.getNameError());
@@ -279,14 +255,6 @@ public class LoginView extends JFrame implements ActionListener {
 		else if(source == "Sign Up") {
 			SignUpView signup = new SignUpView();
 			this.dispose();
-			/*Calendar calendar = Calendar.getInstance();
-			calendar.set(Calendar.YEAR, 19990);
-			calendar.set(Calendar.DAY_OF_MONTH, 19990);
-			calendar.set(Calendar.MONTH, 19990);
-			java.sql.Date date = new java.sql.Date(calendar.getTime().getTime());
-			this.userFacades.signUp("a", "b", "c", "d", "e", date , "f", "g", "h");*/
-			
-			//this.userFacades.signUp(firstName, surName, mobile, mailAddress, password, dateOfBirth, profilePicture, webSiteURL, siretNumber);
 		}
 	}
 	

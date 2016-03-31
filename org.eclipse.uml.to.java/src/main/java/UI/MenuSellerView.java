@@ -11,6 +11,8 @@ import javax.swing.JPanel;
 // TODO: Auto-generated Javadoc
 /**
  * The Class MenuSellerView.
+ * 
+ * @author HelpingHand
  */
 public class MenuSellerView extends JPanel implements ActionListener {
 
@@ -38,13 +40,13 @@ public class MenuSellerView extends JPanel implements ActionListener {
 		/** The notifications. */
 		private JButton notifications = new JButton("Notifications");
 	
-	/** The vc. */
+	/** The ViewController. */
 	private ViewController vc;
 	
 	/**
 	 * Instantiates a new menu seller view.
 	 *
-	 * @param vc the vc
+	 * @param vc the ViewController
 	 */
 	public MenuSellerView(ViewController  vc) {
 		this.vc = vc;

@@ -2,9 +2,6 @@ package UI;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,7 +13,6 @@ import java.util.Properties;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -32,9 +28,10 @@ import Core.PlanFacade;
 import Core.User;
 import Persist.DateLabelFormatter;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class CreatePlanView.
+ * 
+ * @author HelpingHand
  */
 public class CreatePlanView extends JPanel implements ActionListener {
 	
@@ -97,7 +94,7 @@ public class CreatePlanView extends JPanel implements ActionListener {
 	 /** Describe error message. */
     JLabel errorMessage = new JLabel("");
     
-    /** The vc. */
+    /** The ViewController. */
     private ViewController vc;
 	
 	/** The menu admin view. */
@@ -110,7 +107,6 @@ public class CreatePlanView extends JPanel implements ActionListener {
      * @param vc the vc
      */
 	public CreatePlanView(User currentUser, ViewController vc) {
-//		super("Task"); // Name of the frame
 		this.currentUser = currentUser;
 		this.vc = vc;
 		this.menuAdminView = new MenuAdminView(this.vc);
@@ -180,16 +176,7 @@ public class CreatePlanView extends JPanel implements ActionListener {
         panelAll.add(panelSemiAll);
         panelAll.add(panelButtonValidate);
         
-//        contentPane.add(panelAll, BorderLayout.CENTER);
         this.add(panelAll, BorderLayout.CENTER);
-        
-       
-        
-        
-        //Display
-//        setSize(400,120);
-//		setVisible(true);
-//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 	/* (non-Javadoc)
@@ -226,9 +213,6 @@ public class CreatePlanView extends JPanel implements ActionListener {
 				this.errorMessage.setVisible(true);
 				this.errorMessage.setForeground(Color.red);
 			}
-			
-			System.out.println("id of category" + this.allActivityCategory.get(this.comboActivityCategory.getSelectedIndex()).getIdActivityCategory());
-			System.out.println("public ? " + this.comboPublic.getSelectedItem());
 			
 			/* If all the fiels are fills, we save*/
 			if(!this.nameEntre.getText().isEmpty() && !this.observationEntre.getText().isEmpty()) {

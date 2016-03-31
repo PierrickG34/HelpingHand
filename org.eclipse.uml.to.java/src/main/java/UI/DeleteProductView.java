@@ -2,8 +2,6 @@
 package UI;
 
 import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,23 +10,18 @@ import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
 
-import Core.ActivityCategory;
-import Core.ActivityCategoryFacade;
 import Core.Product;
 import Core.ProductFacade;
 import Core.User;
-import Persist.ActivityCategoryJDBC;
 import Persist.ProductJDBC;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class DeleteProductView.
+ * 
+ * @author HelpingHand
  */
 public class DeleteProductView extends JPanel implements ActionListener {
 	
@@ -48,15 +41,15 @@ public class DeleteProductView extends JPanel implements ActionListener {
 	/** This panel permit to display information. */
 	JPanel panelEditAll = new JPanel(new GridLayout(2,0));
 	
-	/** Define the current activit category that the admin choose. */
+	/** Define the current product that the admin choose. */
 	ProductJDBC currentProductJDBC;
 
 	/**
-	 * Description of the property ActivityCategoryFacades.
+	 * Description of the property ProductCategoryFacades.
 	 */
 	public ProductFacade productFacades = new ProductFacade(this);
 	
-	/** Contain all the activity category of the database. */
+	/** Contain all the product of the database. */
 	List<Product> allProduct = new ArrayList<Product>();
 
 	/** The current user. */
@@ -65,17 +58,16 @@ public class DeleteProductView extends JPanel implements ActionListener {
 	/** The menu admin view. */
 	private MenuAdminView menuAdminView;
 	
-	/** The vc. */
+	/** The ViewController. */
 	private ViewController vc;
 
 /**
  * Instantiates a new delete product view.
  *
  * @param currentUser the current user
- * @param vc the vc
+ * @param vc the ViewController
  */
 public DeleteProductView(User currentUser, ViewController vc) {
-//		super("DashBoard"); // Name of the frame
 		this.currentUser = currentUser;
 		this.vc = vc;
 		this.menuAdminView = new MenuAdminView(this.vc);

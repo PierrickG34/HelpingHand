@@ -2,30 +2,24 @@ package UI;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import Core.Product;
 import Core.ProductFacade;
 import Core.User;
-import Core.UserFacade;
-import Excpetion.AlreadyExistException;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ProductCreateViewSeller.
+ * 
+ * @author HelpingHand
  */
 public class ProductCreateViewSeller extends JPanel implements ActionListener {
 
@@ -75,11 +69,7 @@ public class ProductCreateViewSeller extends JPanel implements ActionListener {
 	/** The product facades. */
 	public ProductFacade productFacades = new ProductFacade(this);
 
-	/*
-	 *  Describe the menu
-	 */
-
-	/** The vc. */
+	/** The ViewController. */
 	private ViewController vc;
 	
 	/** The menu seller view. */
@@ -89,11 +79,10 @@ public class ProductCreateViewSeller extends JPanel implements ActionListener {
 	 * Instantiates a new product create view seller.
 	 *
 	 * @param user the user
-	 * @param vc the vc
+	 * @param vc the ViewController
 	 */
 	public ProductCreateViewSeller(User user, ViewController vc)
 	{
-//		super("Product Creation");
 		this.currentUser = user;
 		this.vc = vc;
 		this.menuSellerView = new MenuSellerView(this.vc);

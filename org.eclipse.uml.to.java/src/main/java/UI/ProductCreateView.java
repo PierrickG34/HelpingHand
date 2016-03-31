@@ -2,30 +2,24 @@ package UI;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import Core.Product;
 import Core.ProductFacade;
 import Core.User;
-import Core.UserFacade;
-import Excpetion.AlreadyExistException;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ProductCreateView.
+ * 
+ * @author HelpingHand
  */
 public class ProductCreateView extends JPanel implements ActionListener {
 
@@ -35,29 +29,29 @@ public class ProductCreateView extends JPanel implements ActionListener {
 
 	/** The current user. */
 	private User currentUser;
-	
+
 	/** Descriptions for the Name field. */
 	JLabel name = new JLabel("Name :");
-	
+
 	/** The name entre. */
 	JTextField nameEntre = new JTextField("", 15);
 
 	/** Descriptions for the price field. */
 	JLabel price = new JLabel("Price :");
-	
+
 	/** The price entre. */
 	JTextField priceEntre = new JTextField("", 15);
 
 	/** Description for the quantity field. */
 	JLabel quantity = new JLabel("Quantity:");
-	
+
 	/** The quantity entre. */
 	JTextField quantityEntre = new JTextField("", 15);
 
 	/** Description for the category field. */
 
 	JLabel category = new JLabel("Category:");
-	
+
 	/** The category entre. */
 	JTextField categoryEntre = new JTextField("", 15);
 
@@ -75,13 +69,9 @@ public class ProductCreateView extends JPanel implements ActionListener {
 	/** The product facades. */
 	public ProductFacade productFacades = new ProductFacade(this);
 
-	/*
-	 *  Describe the menu
-	 */
-
-	/** The vc. */
+	/** The ViewController. */
 	private ViewController vc;
-	
+
 	/** The menu admin view. */
 	private MenuAdminView menuAdminView;
 
@@ -93,7 +83,6 @@ public class ProductCreateView extends JPanel implements ActionListener {
 	 */
 	public ProductCreateView(User user, ViewController vc)
 	{
-//		super("Product Creation");
 		this.currentUser = user;
 		this.vc = vc;
 		this.menuAdminView = new MenuAdminView(this.vc);
@@ -139,17 +128,7 @@ public class ProductCreateView extends JPanel implements ActionListener {
 		panelAll.add(panelEditInformation);
 		panelAll.add(panelButtonValidate);
 
-		//contentPane.add(panelButton,BorderLayout.NORTH);
-//		contentPane.add(panelAll, BorderLayout.CENTER);
 		this.add(panelAll, BorderLayout.CENTER);
-
-
-
-
-		//Display
-//		setSize(400,120);
-//		setVisible(true);
-//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		this.errorMessage.setHorizontalAlignment(JLabel.CENTER);
 		this.errorMessage.setVisible(false);
