@@ -12,36 +12,27 @@ import UI.LoginView;
 import UI.ProfileUserModifyView;
 import UI.SignUpView;
 
-// TODO: Auto-generated Javadoc
-// Start of user code (user defined imports)
-
-// End of user code
 
 /**
  * Description of UserFacade.
  * 
- * @author pierrickgiuliani
+ * @author HelpingHand
  */
 public class UserFacade {
 	
-	// Start of user code (user defined attributes for UserFacade)
 	
 	/**
 	 * Description of the property userManager.
 	 */
 	public UserManager userManager = new UserManager();
-	// End of user code
 
-	// Start of user code (user defined methods for UserFacade)
 	/**
 	 * The constructor.
 	 *
 	 * @param user the user
 	 */
 	public UserFacade(LoginView user) {
-		// Start of user code constructor for UserFacade)
 		super();
-		// End of user code
 	}
 
 	/**
@@ -79,16 +70,14 @@ public class UserFacade {
 	 * @return the user
 	 */
 	public User login(String login, String password) {
-		// Start of user code for method login
 		return this.userManager.login(login, password);
-		// End of user code
 	}
 
 	/**
 	 * Sign up.
 	 *
-	 * @param firstName the first name
-	 * @param surName the sur name
+	 * @param firstName the firstname
+	 * @param surName the surname
 	 * @param mobile the mobile
 	 * @param mailAddress the mail address
 	 * @param password the password
@@ -140,7 +129,6 @@ public class UserFacade {
 	public void deleteAccount(User selected) {
 		this.userManager.deleteAccount(selected);
 	}
-	// End of user code
 	/**
 	 * Returns userManager.
 	 * @return userManager 
@@ -162,6 +150,7 @@ public class UserFacade {
 	 * Sets a value to attribute userManager. 
 	 * @param newuserManager 
 	 */
+	
 	/*public void setuserManager(UserManager newUserManager) {
 		this.userManager = newUserManager;
 	}*/

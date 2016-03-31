@@ -9,15 +9,10 @@ import Excpetion.LoginException;
 import Excpetion.PasswordException;
 import Persist.UserJDBC;
 
-// TODO: Auto-generated Javadoc
-// Start of user code (user defined imports)
-
-// End of user code
-
 /**
  * Description of User.
  * 
- * @author pierrickgiuliani
+ * @author HelpingHand
  */
 public abstract class User {
 	
@@ -80,10 +75,6 @@ public abstract class User {
 	
 	private String address = "";
 
-	// Start of user code (user defined attributes for User)
-
-	// End of user code
-
 	/**
 	 * Instantiates a new user.
 	 */
@@ -97,17 +88,15 @@ public abstract class User {
 	 * @param login the login
 	 */
 	public User(String login) {
-		// Start of user code constructor for User)
 		super();
 		this.mailAddress = login;
-		// End of user code
 	}
 	
 	/**
 	 * Instantiates a new user.
 	 *
-	 * @param firstName the first name
-	 * @param surName the sur name
+	 * @param firstName the firstname
+	 * @param surName the surname
 	 * @param mobile the mobile
 	 * @param mailAddress the mail address
 	 * @param password the password
@@ -142,12 +131,10 @@ public abstract class User {
 	 * @return true if the password correspond, else false
 	 */
 	public boolean validatePassword(String passwordIn) {
-		// Start of user code for method validatePassword
 		if (!passwordIn.equals(this.password)) {
 			throw new PasswordException("Invalid password");
 		}
 		return passwordIn.equals(this.password);
-		// End of user code	
 	}
 
 	/**
@@ -155,6 +142,7 @@ public abstract class User {
 	 *
 	 * @return the id user
 	 */
+	
 	/*public void setUser(String login) {
 		// Start of user code for method setUser
 		UserJDBC userJDBC = (UserJDBC) this;
@@ -162,9 +150,7 @@ public abstract class User {
 		// End of user code
 	}*/
 
-	// Start of user code (user defined methods for User)
 
-	// End of user code
 	/**
 	 * Returns idUser.
 	 * @return idUser 

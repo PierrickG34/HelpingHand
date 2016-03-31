@@ -7,9 +7,9 @@ import Factory.AbstractFactory;
 import Factory.FactoryJDBC;
 import Persist.UserJDBC;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class UserManager.
+ * @author HelpingHand
  */
 public class UserManager {
 
@@ -23,7 +23,7 @@ public class UserManager {
 	 * Instantiates a new user manager.
 	 */
 	public UserManager() {
-		super();		// End of user code
+		super();
 	}
 	
 	/**
@@ -31,7 +31,7 @@ public class UserManager {
 	 *
 	 * @param login the login
 	 * @param password the password
-	 * @return the user
+	 * @return the current user
 	 */
 	public User login(String login, String password)
 	{
@@ -62,8 +62,8 @@ public class UserManager {
 	/**
 	 * Sign up.
 	 *
-	 * @param firstName the first name
-	 * @param surName the sur name
+	 * @param firstName the firstname
+	 * @param surName the surname
 	 * @param mobile the mobile
 	 * @param mailAddress the mail address
 	 * @param password the password
@@ -131,7 +131,7 @@ public class UserManager {
 	/**
 	 * Sets the user.
 	 *
-	 * @param currentUser2 the new user
+	 * @param currentUser the new user
 	 */
 	public void setUser(User currentUser2) {
 		// TODO Auto-generated method stub
