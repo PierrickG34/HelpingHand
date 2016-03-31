@@ -69,8 +69,8 @@ public class UserFacade {
 	 * 
 	 */
 	public User signUp(String firstName, String surName, String mobile, String mailAddress, String password, 
-							Date dateOfBirth, String profilePicture, String webSiteURL, String siretNumber, String address) {
-		return this.userManager.signUp(firstName, surName, mobile, mailAddress, password, dateOfBirth, profilePicture, webSiteURL, siretNumber, address);
+							Date dateOfBirth, String webSiteURL, String siretNumber, String address) {
+		return this.userManager.signUp(firstName, surName, mobile, mailAddress, password, dateOfBirth, webSiteURL, siretNumber, address);
 	}
 	
 	

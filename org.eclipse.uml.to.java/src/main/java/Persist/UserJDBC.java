@@ -57,13 +57,13 @@ public class UserJDBC extends User {
 	}
 	
 	
-	public UserJDBC(String firstName, String surName, String mobile, String mailAddress, String password, Date dateOfBirth, String profilePicture, String webSiteURL, String siretNumber, String address) {
-		super(firstName, surName, mobile, mailAddress, password, dateOfBirth, profilePicture, webSiteURL, siretNumber, address);
+	public UserJDBC(String firstName, String surName, String mobile, String mailAddress, String password, Date dateOfBirth, String webSiteURL, String siretNumber, String address) {
+		super(firstName, surName, mobile, mailAddress, password, dateOfBirth, webSiteURL, siretNumber, address);
 
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		try {
 			this.jDBConnexions.executeUpdate("INSERT INTO Person VALUES (DEFAULT, '"+ firstName + "','"+ surName +"','" + mobile + "','" 
-					+ mailAddress +"','" + password + "','" + formatter.format(dateOfBirth) + "','" + profilePicture + "','" + webSiteURL + "','" + siretNumber + "', 'false', '"+ address +"')");
+					+ mailAddress +"','" + password + "','" + formatter.format(dateOfBirth) + "','" + " " + "','" + webSiteURL + "','" + siretNumber + "', 'false', '"+ address +"')");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();

@@ -254,7 +254,7 @@ public class LoginView extends JFrame implements ActionListener {
 							//DashboardUserView dashUser = new DashboardUserView(currentUser);
 							vc.dashboardUserView();
 						}
-						//this.dispose();
+						this.dispose();
 						//DashboardAdminView test = new DashboardAdminView(currentUser);
 					}
 				} catch (LoginException errorLogin) {
@@ -274,8 +274,8 @@ public class LoginView extends JFrame implements ActionListener {
 			}
 		}
 		else if(source == "Sign Up") {
-			System.out.println("SIGN UP");
 			SignUpView signup = new SignUpView();
+			this.dispose();
 			/*Calendar calendar = Calendar.getInstance();
 			calendar.set(Calendar.YEAR, 19990);
 			calendar.set(Calendar.DAY_OF_MONTH, 19990);

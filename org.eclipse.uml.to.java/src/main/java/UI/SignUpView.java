@@ -42,7 +42,7 @@ import Excpetion.AlreadyExistException;
 import Excpetion.LoginException;
 import Persist.DateLabelFormatter;
 
-public class SignUpView extends JPanel implements ActionListener {
+public class SignUpView extends JFrame implements ActionListener {
 	
 	/**
 	 * Permit to validate the sign up
@@ -86,15 +86,7 @@ public class SignUpView extends JPanel implements ActionListener {
     JDatePanelImpl datePanel;
     JDatePickerImpl datePicker;
     
-    /**
-     * Description for profile picture
-     */
-    JLabel profilePicture = new JLabel("Enter a profile picture :*");
-    JButton profilePictureButton = new JButton("Choose your profile picture");
-	JFileChooser fileChooser = new JFileChooser();
-	File selectedFile = new File("");
-
-    
+   
     /**
 	 * Description for the password information
 	 */
@@ -135,13 +127,13 @@ public class SignUpView extends JPanel implements ActionListener {
 	 * The constructor who create the window
 	 */
 	public SignUpView() {
-//		super("Sign Up");
+		super("Sign Up");
 		this.validate.addActionListener(this);
 		this.cancel.addActionListener(this);
-//        Container contentPane = getContentPane(); 
-//        contentPane.setLayout(new BorderLayout()); 
-//        setMinimumSize(new Dimension(1000,500));
-//        setMaximumSize(new Dimension(1000,500));
+        Container contentPane = getContentPane(); 
+        contentPane.setLayout(new BorderLayout()); 
+        setMinimumSize(new Dimension(1000,500));
+        setMaximumSize(new Dimension(1000,500));
         
         JPanel panelSignUp = new JPanel();
         JPanel panelLabels = new JPanel(new GridLayout(0,1));
@@ -178,11 +170,6 @@ public class SignUpView extends JPanel implements ActionListener {
 		this.datePanel = new JDatePanelImpl(model, p);
 		this.datePicker = new JDatePickerImpl(datePanel, new DateLabelFormatter());
 		panelTextField.add(datePicker);
-		//Profile picture
-        this.profilePicture.setHorizontalAlignment(SwingConstants.RIGHT);
-        panelLabels.add(this.profilePicture);
-        panelTextField.add(this.profilePictureButton);
-        this.profilePictureButton.addActionListener(this);
 		//Password
 		this.password.setPreferredSize(this.passwordEntre.getPreferredSize());
         this.password.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -214,15 +201,15 @@ public class SignUpView extends JPanel implements ActionListener {
         panelSignUp.add(panelLabels);
 	    panelSignUp.add(panelTextField);
         
-//        contentPane.add(panelSignUp, BorderLayout.CENTER);
-//        contentPane.add(panelButtonEnd,BorderLayout.SOUTH);
-        this.add(panelSignUp, BorderLayout.CENTER);
-        this.add(panelButtonEnd,BorderLayout.SOUTH);
-        
-        //Display
-//        setSize(400,120);
-//        setVisible(true);
-//        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        contentPane.add(panelSignUp, BorderLayout.CENTER);
+        contentPane.add(panelButtonEnd,BorderLayout.SOUTH);
+//        this.add(panelSignUp, BorderLayout.CENTER);
+//        this.add(panelButtonEnd,BorderLayout.SOUTH);
+//        
+//        Display
+        setSize(400,120);
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
 	/**
@@ -297,7 +284,6 @@ public class SignUpView extends JPanel implements ActionListener {
 			this.mobile.setForeground(Color.black);
 			this.mail.setForeground(Color.black);
 			this.dateOfBirth.setForeground(Color.black);
-			this.profilePicture.setForeground(Color.black);
 			this.password.setForeground(Color.black);
 			this.address.setForeground(Color.black);
 			
@@ -336,13 +322,6 @@ public class SignUpView extends JPanel implements ActionListener {
 				this.errorMessage.setVisible(true);
 				this.errorMessage.setForeground(Color.red);
 				this.mail.setForeground(Color.red);
-				count++;
-			}
-			if(this.selectedFile.getName().isEmpty()) {
-				this.errorMessage.setText("Enter a profile picture");
-				this.errorMessage.setVisible(true);
-				this.errorMessage.setForeground(Color.red);
-				this.profilePicture.setForeground(Color.red);
 				count++;
 			}
 			if (!isValidEmail(this.mailEntre.getText())) {
@@ -395,8 +374,10 @@ public class SignUpView extends JPanel implements ActionListener {
 				/* Insert the user in the database */
 				try {
 					User newUser = this.userFacades.signUp(this.firstNameEntre.getText(), this.surNameEntre.getText(), this.mobileEntre.getText(), 
-						this.mailEntre.getText(), passwordEncrypted, valideDateUser, this.selectedFile.getName(), this.websiteURLEntre.getText(),
+						this.mailEntre.getText(), passwordEncrypted, valideDateUser, this.websiteURLEntre.getText(),
 						this.siretEntre.getText(), this.addressEntre.getText());
+						LoginView loginV = new LoginView();
+						this.dispose();
 				}
 				catch (AlreadyExistException errorSignUp) {
 					this.errorMessage.setText(errorSignUp.getNameError());
@@ -409,19 +390,9 @@ public class SignUpView extends JPanel implements ActionListener {
 				System.out.println("Pas tout remplit");
 			}
 		}
-		else if (source == "Choose your profile picture") {
-			FileNameExtensionFilter imageFilter = new FileNameExtensionFilter( "Image files", ImageIO.getReaderFileSuffixes());
-			//JFileChooser fileChooser = new JFileChooser();
-			this.fileChooser.setFileFilter(imageFilter);
-			int returnValue = this.fileChooser.showOpenDialog(null);
-			if (returnValue == JFileChooser.APPROVE_OPTION) {
-				this.selectedFile = fileChooser.getSelectedFile();
-				System.out.println(selectedFile.getName());
-			}
-		}
 		else if (source == "Cancel") {
-			System.out.println("Je suis Cancel");
-			System.out.println("Action a définir ici...");
+			LoginView loginV = new LoginView();
+			this.dispose();
 		}
 		
 	}

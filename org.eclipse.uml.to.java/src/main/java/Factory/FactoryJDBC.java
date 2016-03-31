@@ -60,8 +60,8 @@ public class FactoryJDBC extends AbstractFactory {
 		// End of user code
 	}
 	
-	public UserJDBC createUser(String firstName, String surName, String mobile, String mailAddress, String password, Date dateOfBirth, String profilePicture, String webSiteURL, String siretNumber, String address) {
-		return new UserJDBC(firstName, surName, mobile, mailAddress, password, dateOfBirth, profilePicture, webSiteURL, siretNumber, address);
+	public UserJDBC createUser(String firstName, String surName, String mobile, String mailAddress, String password, Date dateOfBirth, String webSiteURL, String siretNumber, String address) {
+		return new UserJDBC(firstName, surName, mobile, mailAddress, password, dateOfBirth, webSiteURL, siretNumber, address);
 	}
 	
 	public ProductJDBC createProduct(String name, Double price, int quantity, String category, int idVendeur)

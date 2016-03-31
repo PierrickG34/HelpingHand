@@ -101,7 +101,7 @@ public abstract class User {
 	}
 	
 	public User(String firstName, String surName, String mobile, String mailAddress, String password, 
-			Date dateOfBirth, String profilePicture, String webSiteURL, String siretNumber, String address) {
+			Date dateOfBirth, String webSiteURL, String siretNumber, String address) {
 		super();
 		this.firstName = firstName;
 		this.surName = surName;
@@ -109,7 +109,6 @@ public abstract class User {
 		this.mailAddress = mailAddress;
 		this.password = password;
 		this.dateOfBirth = dateOfBirth;
-		this.profilePicture = profilePicture;
 		this.websiteURL = webSiteURL;
 		this.siretNumber = siretNumber;
 		this.address = address;

@@ -44,7 +44,7 @@ public abstract class AbstractFactory {
 	public abstract User createUser(String login);
 	
 	public abstract User createUser(String firstName, String surName, String mobile, String mailAddress, String password, 
-			Date dateOfBirth, String profilePicture, String webSiteURL, String siretNumber, String address);
+			Date dateOfBirth, String webSiteURL, String siretNumber, String address);
 
 	public abstract ActivityCategory createActivityCategory(String name, String shortDetail, String longDetail ,int idUser);
 	
