@@ -169,7 +169,7 @@ public abstract class Product {
 	 * Returns all products of the seller.
 	 *
 	 * @param idVendeur the id seller
-	 * @return List<Product>
+	 * @return List
 	 */
 
 	public static List<Product> getAllProduct(Integer idVendeur) {
@@ -179,7 +179,7 @@ public abstract class Product {
 	/**
 	 * Returns all products in the database.
 	 *
-	 * @return List<Product>
+	 * @return List
 	 */
 	public abstract List<Product> getAllProduct();
 

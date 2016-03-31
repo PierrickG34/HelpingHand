@@ -105,8 +105,6 @@ public class DashboardUserView extends JPanel implements ActionListener, MouseLi
 
 	/**
 	 * Gets the random plan.
-	 *
-	 * @return the random plan
 	 */
 	public void getRandomPlan() {
 		this.randomPlan = this.planFacades.getRandomPlan();

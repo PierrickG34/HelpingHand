@@ -120,8 +120,6 @@ public class MyPlanViewSeller extends JPanel implements ActionListener, MouseLis
 
 	/**
 	 * Gets the my plan.
-	 *
-	 * @return the my plan
 	 */
 	public void getMyPlan() {
 		this.myPlan = this.planFacades.getMyPlan(this.currentUser.getIdUser());

@@ -23,7 +23,6 @@ public class ProductJDBC extends Product{
 	 * @param quantity the quantity
 	 * @param category the category
 	 * @param idVendeur the id vendeur
-	 * @return Product
 	 */
 	public ProductJDBC(String name, Double price, int quantity, String category, Integer idVendeur) {
 		super(name, price, quantity, category,idVendeur);
@@ -46,7 +45,7 @@ public class ProductJDBC extends Product{
 	 * Returns l'ensemble des produits du currentVendeur.
 	 *
 	 * @param id the id
-	 * @return List<Product>
+	 * @return List
 	 */
 	public static List<Product> getAllProduct(Integer id) {
 		List<Product> list = new ArrayList<Product>();
@@ -113,7 +112,7 @@ public class ProductJDBC extends Product{
 	/**
 	 * Returns l'ensemble des produits de la base de donnees.
 	 *
-	 * @return List<Product>
+	 * @return List
 	 */
 	@Override
 	public List<Product> getAllProduct() {

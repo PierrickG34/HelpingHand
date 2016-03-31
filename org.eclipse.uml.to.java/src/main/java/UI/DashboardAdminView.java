@@ -107,8 +107,6 @@ public class DashboardAdminView extends JPanel implements ActionListener, MouseL
 	
 	/**
 	 * Gets the random plan.
-	 *
-	 * @return the random plan
 	 */
 	public void getRandomPlan() {
 		this.randomPlan = this.planFacades.getRandomPlan();

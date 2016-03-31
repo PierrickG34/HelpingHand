@@ -129,7 +129,7 @@ public class ProductFacade {
 	 * Return all products of the seller.
 	 *
 	 * @param idVendeur the id of the seller
-	 * @return List<Product>
+	 * @return List
 	 */
 	public List<Product> getAllProduct(Integer idVendeur) {
 		return this.productManager.getAllProduct(idVendeur);
@@ -147,7 +147,7 @@ public class ProductFacade {
 	/**
 	 * Returns all products of the database.
 	 *
-	 * @return List<Product>
+	 * @return List
 	 */
 	public List<Product> getAllProduct() {
 		return this.productManager.getAllProduct();
@@ -161,10 +161,6 @@ public class ProductFacade {
 	 * @param price the price
 	 * @param category the category
 	 * @param quantity the quantity
-	 * @name 
-	 * @price 
-	 * @quantity 
-	 * @category 
 	 */
 	public void modifyProduct(Product product, String name, String price, String category, String quantity) {
 		this.productManager.modifyProduct(product,name,price,category,quantity);

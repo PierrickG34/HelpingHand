@@ -131,7 +131,7 @@ public class UserManager {
 	/**
 	 * Sets the user.
 	 *
-	 * @param currentUser the new user
+	 * @param currentUser2 the new user
 	 */
 	public void setUser(User currentUser2) {
 		// TODO Auto-generated method stub

@@ -108,8 +108,6 @@ public class DashboardSellerView extends JPanel implements ActionListener, Mouse
 
 	/**
 	 * Gets the random plan.
-	 *
-	 * @return the random plan
 	 */
 	public void getRandomPlan() {
 		this.randomPlan = this.planFacades.getRandomPlan();
